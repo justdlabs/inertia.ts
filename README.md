@@ -8,6 +8,8 @@ php artisan key:generate
 npm i && npm run build
 ```
 
+> This project using React `v18` and Laravel `v9`
+
 ### Inertia React w/ Typescript
 
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
