@@ -20,6 +20,24 @@ Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps 
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
 
+## Available scripts
+```bash
+# Format with prettier
+npm run format
+
+# Start development
+npm run dev
+
+# Build the app
+npm run dev
+
+# Testing for SSR
+npm run test-ssr
+```
+
+## Routing JS
+This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy), if you want a ziggy to this project. Please make a pull request.
+
 ### Premium Partners
 
 [//]: # (-   **[Teil]&#40;https://teil.app/&#41;**)
