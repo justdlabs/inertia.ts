@@ -1,8 +1,6 @@
-import React from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
-import ResetPassword from '@/Pages/Auth/ResetPassword';
 
 export default function VerifyEmail({ status }: { status?: any }) {
     const { post, processing } = useForm();

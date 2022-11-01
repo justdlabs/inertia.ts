@@ -1,10 +1,8 @@
-import React from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/inertia-react';
-import ConfirmPassword from '@/Pages/Auth/ConfirmPassword';
 
 interface ForgotPasswordProps {
     status: string;
