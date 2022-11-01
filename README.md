@@ -21,6 +21,7 @@ Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
 
 ### Available scripts
+Feel free to use someting like [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/). It just node package manager I have, so make yours.
 ```bash
 # Format with prettier
 npm run format
