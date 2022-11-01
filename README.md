@@ -44,7 +44,9 @@ This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy
 ### Thanks to
 * [Laravel](https://github.com/laravel/framework)
 * [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react) and [Typescript](https://github.com/microsoft/TypeScript)
-* [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin)
+* [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
+* [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
+* [clsx](https://github.com/lukeed/clsx)
 
 ### Premium Partners
 
