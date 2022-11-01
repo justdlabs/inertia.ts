@@ -10,7 +10,7 @@ interface User {
     };
 }
 
-const Navbar = () => {
+const ResponsiveNavbar = () => {
     const { user }: User | any = usePage().props.auth;
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>
@@ -49,4 +49,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default ResponsiveNavbar;
