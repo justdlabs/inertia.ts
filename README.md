@@ -3,6 +3,7 @@
 git clone https://github.com/irsyadadl/inertia.ts.git 'project'
 cd project
 composer install
+cp .env.example .env
 php artisan key:generate
 npm i && npm run build
 ```
