@@ -22,6 +22,9 @@ Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps 
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
 
+### About Typescript
+Typescript is a strict syntactical superset of JavaScript and adds optional static typing to the language.
+
 ### Available scripts
 Feel free to use someting like [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/). It just node package manager I have, so make yours.
 ```bash
