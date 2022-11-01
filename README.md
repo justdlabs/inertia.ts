@@ -12,6 +12,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 ### Premium Partners
 
--   **[Teil](https://teil.app/)**
+[//]: # (-   **[Teil]&#40;https://teil.app/&#41;**)
 -   **[Parsinta](https://parsinta.com/)**
 -   **[Irsyad Notes](https://irsyadnotes.com/)**
