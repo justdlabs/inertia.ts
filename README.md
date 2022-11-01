@@ -37,7 +37,7 @@ npm run test-ssr
 ```
 
 ### Routing JS
-This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy), if you want a ziggy to this project. Please make a pull request.
+This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy), if you want a ziggy to this project, please do it yourself. But if you want, you can make a pull request to make the project updated.
 
 ### Premium Partners
 
