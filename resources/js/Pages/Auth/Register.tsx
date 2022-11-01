@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import Login from '@/Pages/Auth/Login';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -31,7 +32,7 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title='Register' />
 
             <form onSubmit={submit}>
@@ -105,6 +106,8 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
+
+Register.layout = (page: any) => <GuestLayout children={page} />;

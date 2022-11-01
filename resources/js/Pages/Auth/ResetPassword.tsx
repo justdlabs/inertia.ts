@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import Register from '@/Pages/Auth/Register';
 
 interface ResetPasswordProps {
     token: string;
@@ -38,7 +39,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title='Reset Password' />
 
             <form onSubmit={submit}>
@@ -91,6 +92,8 @@ export default function ResetPassword(args: ResetPasswordProps) {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
+
+ResetPassword.layout = (page: any) => <GuestLayout children={page} />;

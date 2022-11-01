@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import ForgotPassword from '@/Pages/Auth/ForgotPassword';
 
 interface LoginProps {
     status: string;
@@ -37,7 +38,7 @@ export default function Login(args: LoginProps) {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title='Log in' />
 
             {status && <div className='mb-4 text-sm font-medium text-green-600'>{status}</div>}
@@ -96,6 +97,8 @@ export default function Login(args: LoginProps) {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
+
+Login.layout = (page: any) => <GuestLayout children={page} />;

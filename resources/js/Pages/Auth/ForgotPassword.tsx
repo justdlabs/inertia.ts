@@ -4,6 +4,7 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import ConfirmPassword from '@/Pages/Auth/ConfirmPassword';
 
 interface ForgotPasswordProps {
     status: string;
@@ -20,13 +21,11 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
 
     const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
-
-        // @ts-ignore
         post('/forgot-password');
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title='Forgot Password' />
 
             <div className='mb-4 text-sm leading-normal text-gray-500'>
@@ -47,6 +46,8 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
+
+ForgotPassword.layout = (page: any) => <GuestLayout children={page} />;

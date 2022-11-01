@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePage } from '@inertiajs/inertia-react';
+import { Link, usePage } from '@inertiajs/inertia-react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
@@ -18,7 +18,9 @@ const Navbar = () => {
             <div className='container'>
                 <div className='flex items-center justify-between py-1'>
                     <div className='flex items-center gap-x-2'>
-                        <ApplicationLogo className='w-8 fill-red-600' />
+                        <Link href='/'>
+                            <ApplicationLogo className='w-8 fill-red-600' />
+                        </Link>
                         <NavLink href='/'>Home</NavLink>
                         {user ? <NavLink href='/dashboard'>Dashboard</NavLink> : null}
                     </div>

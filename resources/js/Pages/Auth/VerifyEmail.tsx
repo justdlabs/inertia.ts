@@ -2,6 +2,7 @@ import React from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import ResetPassword from '@/Pages/Auth/ResetPassword';
 
 export default function VerifyEmail({ status }: { status?: any }) {
     const { post, processing } = useForm();
@@ -12,7 +13,7 @@ export default function VerifyEmail({ status }: { status?: any }) {
         post('/email/verification-notification');
     };
     return (
-        <GuestLayout>
+        <>
             <Head title='Email Verification' />
 
             <div className='mb-4 text-sm text-gray-600'>
@@ -40,6 +41,8 @@ export default function VerifyEmail({ status }: { status?: any }) {
                     </Link>
                 </div>
             </form>
-        </GuestLayout>
+        </>
     );
 }
+
+VerifyEmail.layout = (page: any) => <GuestLayout children={page} />;
