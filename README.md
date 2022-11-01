@@ -1,4 +1,4 @@
-## Inertia w/ Typescript
+## Inertia React w/ Typescript
 
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
 
