@@ -41,6 +41,11 @@ npm run test-ssr
 ### Routing JS
 This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy), if you want a ziggy to this project, please do it yourself. But if you want, you can make a pull request to make the project updated.
 
+### Thanks to
+* [Laravel](https://github.com/laravel/framework)
+* [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react) and [Typescript](https://github.com/microsoft/TypeScript)
+* [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin)
+
 ### Premium Partners
 
 [//]: # (-   **[Teil]&#40;https://teil.app/&#41;**)
