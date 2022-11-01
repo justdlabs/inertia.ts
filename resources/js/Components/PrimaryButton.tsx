@@ -9,8 +9,7 @@ export default function PrimaryButton({ type = 'submit', className = '', process
                     processing && 'opacity-25'
                 } ` + className
             }
-            disabled={processing}
-        >
+            disabled={processing}>
             {children}
         </button>
     );

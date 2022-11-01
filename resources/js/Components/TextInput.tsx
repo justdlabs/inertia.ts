@@ -19,7 +19,7 @@ export default function TextInput({
     }, []);
 
     return (
-        <div className="flex flex-col items-start">
+        <div className='flex flex-col items-start'>
             <input
                 type={type}
                 name={name}
