@@ -9,9 +9,5 @@
     "quoteProps": "as-needed",
     "jsxSingleQuote": true,
     "bracketSpacing": true,
-    "bracketSameLine": true,
-    "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true,
-    "importOrderCaseInsensitive": true
+    "bracketSameLine": true
 }

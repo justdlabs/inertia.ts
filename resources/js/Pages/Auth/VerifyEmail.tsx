@@ -3,15 +3,14 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
-export default function VerifyEmail({ status }) {
+export default function VerifyEmail({ status }: { status?: any }) {
     const { post, processing } = useForm();
 
-    const submit = (e) => {
+    const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
 
-        post(route('verification.send'));
+        post('/email/verification-notification');
     };
-
     return (
         <GuestLayout>
             <Head title='Email Verification' />
@@ -22,20 +21,21 @@ export default function VerifyEmail({ status }) {
             </div>
 
             {status === 'verification-link-sent' && (
-                <div className='mb-4 font-medium text-sm text-green-600'>
+                <div className='mb-4 text-sm font-medium text-green-600'>
                     A new verification link has been sent to the email address you provided during registration.
                 </div>
             )}
 
             <form onSubmit={submit}>
                 <div className='mt-4 flex items-center justify-between'>
-                    <PrimaryButton processing={processing}>Resend Verification Email</PrimaryButton>
-
+                    <PrimaryButton processing={processing} type='submit'>
+                        Resend Verification Email
+                    </PrimaryButton>
                     <Link
-                        href={route('logout')}
+                        href={'/logout'}
                         method='post'
                         as='button'
-                        className='underline text-sm text-gray-600 hover:text-gray-900'>
+                        className='text-sm text-gray-600 underline hover:text-gray-900'>
                         Log Out
                     </Link>
                 </div>

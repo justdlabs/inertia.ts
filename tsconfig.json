@@ -20,7 +20,7 @@
             "@/*": ["resources/js/*"]
         }
     },
-    "include": ["src"],
-    "exclude": ["node_modules", "public"],
+    "include": ["resources/js/**/*"],
+    "exclude": ["node_modules", "public", "app/bootstrap/ssr"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

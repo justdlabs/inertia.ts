@@ -17,14 +17,14 @@ export default function ConfirmPassword() {
         };
     }, []);
 
-    const onHandleChange = (event) => {
+    const onChange = (event: { target: { name: any; value: any } }) => {
         setData(event.target.name, event.target.value);
     };
 
-    const submit = (e) => {
+    const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
 
-        post(route('password.confirm'));
+        post('/confirm-password');
     };
 
     return (
@@ -43,16 +43,15 @@ export default function ConfirmPassword() {
                         type='password'
                         name='password'
                         value={data.password}
-                        className='mt-1 block w-full'
                         isFocused={true}
-                        handleChange={onHandleChange}
+                        onChange={onChange}
                     />
 
                     <InputError message={errors.password} className='mt-2' />
                 </div>
 
-                <div className='flex items-center justify-end mt-4'>
-                    <PrimaryButton className='ml-4' processing={processing}>
+                <div className='mt-4 flex items-center justify-end'>
+                    <PrimaryButton type='submit' processing={processing}>
                         Confirm
                     </PrimaryButton>
                 </div>

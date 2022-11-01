@@ -11,12 +11,13 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
+    // @ts-ignore
     resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
     setup({ el, App, props }) {
         const root = createRoot(el);
 
         root.render(<App {...props} />);
     },
-});
+}).then((r) => r);
 
 InertiaProgress.init({ color: '#4B5563' });
