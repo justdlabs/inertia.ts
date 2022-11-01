@@ -10,17 +10,17 @@ npm i && npm run build
 
 > This project using React `v18` and Laravel `v9`
 
-### Inertia React w/ Typescript
+### Laravel Inertia React w/ Typescript
 
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
-
-### About Inertia.js
-
-Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and controllers.
 
 ### About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
+
+### About Inertia.js
+
+Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and controllers.
 
 ### About Typescript
 Typescript is a strict syntactical superset of JavaScript and adds optional static typing to the language.
