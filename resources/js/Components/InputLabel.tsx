@@ -3,7 +3,7 @@ import cx from 'clsx';
 
 interface InputLabelProps {
     forInput?: string;
-    value: string;
+    value?: string;
     className?: string;
     children?: React.ReactNode;
 }
