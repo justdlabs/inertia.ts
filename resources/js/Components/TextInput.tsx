@@ -25,6 +25,7 @@ export default function TextInput(args: TextInputProps) {
                 ref={inputRef}
                 type={type}
                 name={name}
+                value={value}
                 required={required}
                 autoComplete={autoComplete}
                 onChange={onChange}
