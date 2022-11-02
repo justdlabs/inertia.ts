@@ -1,3 +1,4 @@
+// !! remove when you have your own bootstrap file
 export default () => {};
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
