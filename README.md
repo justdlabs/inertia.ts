@@ -1,4 +1,5 @@
 ### tl;dr
+
 ```bash
 git clone https://github.com/irsyadadl/inertia.ts.git 'project'
 cd project
@@ -23,10 +24,13 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and controllers.
 
 ### About Typescript
+
 Typescript is a strict syntactical superset of JavaScript and adds optional static typing to the language.
 
 ### Available scripts
+
 Feel free to use someting like [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/). It just node package manager I have, so make yours.
+
 ```bash
 # Format with prettier
 npm run format
@@ -42,18 +46,21 @@ npm run test-ssr
 ```
 
 ### Routing JS
+
 This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy), if you want a ziggy to this project, please do it yourself. But if you want, you can make a pull request to make the project updated.
 
 ### Thanks to
-* [Laravel](https://github.com/laravel/framework)
-* [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react) and [Typescript](https://github.com/microsoft/TypeScript)
-* [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
-* [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
-* [clsx](https://github.com/lukeed/clsx)
+
+-   [Laravel](https://github.com/laravel/framework)
+-   [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react) and [Typescript](https://github.com/microsoft/TypeScript)
+-   [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
+-   [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
+-   [clsx](https://github.com/lukeed/clsx)
 
 ### Premium Partners
 
-[//]: # (-   **[Teil]&#40;https://teil.app/&#41;**)
+[//]: # '-   **[Teil](https://teil.app/)**'
+
 -   **[Parsinta](https://parsinta.com/)**
 -   **[Irsyad Notes](https://irsyadnotes.com/)**
 -   **[Jetbrains](https://www.jetbrains.com/)**
