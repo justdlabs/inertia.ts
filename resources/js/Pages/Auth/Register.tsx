@@ -105,7 +105,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-            <PrimaryButton onClick={() => console.log('sdf')}>Register</PrimaryButton>
         </>
     );
 }
