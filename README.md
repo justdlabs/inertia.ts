@@ -63,4 +63,3 @@ This project has no routing plugin like [ziggy](https://github.com/tighten/ziggy
 
 -   **[Parsinta](https://parsinta.com/)**
 -   **[Irsyad Notes](https://irsyadnotes.com/)**
--   **[Jetbrains](https://www.jetbrains.com/)**
