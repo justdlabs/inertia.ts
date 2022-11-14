@@ -39,19 +39,13 @@ export default function ConfirmPassword() {
                 <div className='mt-4'>
                     <InputLabel forInput='password' value='Password' />
 
-                    <TextInput
-                        type='password'
-                        name='password'
-                        value={data.password}
-                        isFocused={true}
-                        onChange={onChange}
-                    />
+                    <TextInput type='password' name='password' value={data.password} autoFocus onChange={onChange} />
 
                     <InputError message={errors.password} className='mt-2' />
                 </div>
 
                 <div className='mt-4 flex items-center justify-end'>
-                    <PrimaryButton type='submit' processing={processing}>
+                    <PrimaryButton type='submit' disabled={processing}>
                         Confirm
                     </PrimaryButton>
                 </div>

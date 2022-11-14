@@ -51,7 +51,7 @@ export default function Login(args: LoginProps) {
                         name='email'
                         value={data.email}
                         autoComplete='username'
-                        isFocused={true}
+                        autoFocus
                         onChange={onChange}
                     />
 
@@ -91,7 +91,7 @@ export default function Login(args: LoginProps) {
                         </Link>
                     )}
 
-                    <PrimaryButton className='ml-4' processing={processing} type='submit'>
+                    <PrimaryButton className='ml-4' disabled={processing} type='submit'>
                         Log in
                     </PrimaryButton>
                 </div>

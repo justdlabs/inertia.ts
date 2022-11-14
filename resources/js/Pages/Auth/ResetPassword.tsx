@@ -64,7 +64,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
                         name='password'
                         value={data.password}
                         autoComplete='new-password'
-                        isFocused={true}
+                        autoFocus
                         onChange={onChange}
                     />
 
@@ -86,7 +86,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
                 </div>
 
                 <div className='mt-4 flex items-center justify-end'>
-                    <PrimaryButton type='submit' className='ml-4' processing={processing}>
+                    <PrimaryButton type='submit' className='ml-4' disabled={processing}>
                         Reset Password
                     </PrimaryButton>
                 </div>

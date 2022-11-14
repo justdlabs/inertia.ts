@@ -43,7 +43,7 @@ export default function Register() {
                         name='name'
                         value={data.name}
                         autoComplete='name'
-                        isFocused={true}
+                        autoFocus
                         onChange={onChange}
                         required
                     />
@@ -100,7 +100,7 @@ export default function Register() {
                         Already registered?
                     </Link>
 
-                    <PrimaryButton type='submit' className='ml-4' processing={processing}>
+                    <PrimaryButton type='submit' className='ml-4' disabled={processing}>
                         Register
                     </PrimaryButton>
                 </div>

@@ -34,12 +34,12 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
             {status && <div className='mb-4 text-sm font-medium text-green-600'>{status}</div>}
 
             <form onSubmit={submit}>
-                <TextInput type='text' name='email' value={data.email} isFocused={true} onChange={onChange} />
+                <TextInput type='text' name='email' value={data.email} autoFocus onChange={onChange} />
 
                 <InputError message={errors.email} className='mt-2' />
 
                 <div className='mt-4 flex items-center justify-end'>
-                    <PrimaryButton type='submit' className='ml-4' processing={processing}>
+                    <PrimaryButton type='submit' className='ml-4' disabled={processing}>
                         Email Password Reset Link
                     </PrimaryButton>
                 </div>
