@@ -23,12 +23,16 @@ export default function Navbar() {
                         <Link href='/'>
                             <ApplicationLogo className='w-8 fill-red-600' />
                         </Link>
-                        <NavLink href='/'>Home</NavLink>
-                        {user ? <NavLink href={route('dashboard')}>Dashboard</NavLink> : null}
+                        <NavLink active={route().current('home')} href='/'>
+                            Home
+                        </NavLink>
                     </div>
                     {user ? (
                         <DropdownMenu trigger={user?.name}>
-                            <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
+                            <div>
+                                <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
+                                <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
+                            </div>
                             <div>
                                 <DropdownMenu.Link href={route('logout')} method='post' as='button'>
                                     Log out
