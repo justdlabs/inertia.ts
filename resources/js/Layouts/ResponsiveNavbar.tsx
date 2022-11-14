@@ -2,6 +2,8 @@ import { usePage } from '@inertiajs/inertia-react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
+import route from 'ziggy-js';
+import useRoute from '@/Hooks/useRoute';
 
 interface User {
     user?: {
@@ -12,6 +14,7 @@ interface User {
 
 const ResponsiveNavbar = () => {
     const { user }: User | any = usePage().props.auth;
+    const route = useRoute();
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>
             <div className='container'>
@@ -24,22 +27,19 @@ const ResponsiveNavbar = () => {
                         {user ? (
                             <div className='divide-y'>
                                 <div>
-                                    <DropdownMenu.Link href='/dashboard'>Dashboard</DropdownMenu.Link>
-                                    <DropdownMenu.Link href={'#'}>Settings</DropdownMenu.Link>
-                                    <DropdownMenu.Link href={'#'}>Documentation</DropdownMenu.Link>
-                                    <DropdownMenu.Link href={'#'}>Example</DropdownMenu.Link>
-                                    <DropdownMenu.Link href={'#'}>Another example</DropdownMenu.Link>
+                                    <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
+                                    <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
                                 </div>
                                 <div>
-                                    <DropdownMenu.Link href={'/logout'} method='post' as='button'>
+                                    <DropdownMenu.Link href={route('logout')} method='post' as='button'>
                                         Log out
                                     </DropdownMenu.Link>
                                 </div>
                             </div>
                         ) : (
                             <div>
-                                <NavLink href='/login'>Login</NavLink>
-                                <NavLink href='/register'>Register</NavLink>
+                                <NavLink href={route('login')}>Login</NavLink>
+                                <NavLink href={route('register')}>Register</NavLink>
                             </div>
                         )}
                     </DropdownMenu>
