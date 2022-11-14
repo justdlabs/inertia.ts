@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Link, useForm, usePage } from '@inertiajs/inertia-react';
+import { Link, useForm } from '@inertiajs/inertia-react';
 import { Transition } from '@headlessui/react';
 import useRoute from '@/Hooks/useRoute';
 import useTypedPage from '@/Hooks/useTypedPage';
