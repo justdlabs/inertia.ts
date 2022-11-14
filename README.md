@@ -65,7 +65,7 @@ export default function SomeComponent() {
 Gives you access to a typed version of usePage() from inertia.js
 ```tsx
 import useTypedPage from '@/hooks/useTypedPage';
-function SomeComponent() {
+export default function SomeComponent() {
     const { props } = useTypedPage<{ canViewThisPage: boolean; }>();
     const { canViewThisPage, user } = props;
 }
