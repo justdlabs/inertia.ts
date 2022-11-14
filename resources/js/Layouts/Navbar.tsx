@@ -3,6 +3,7 @@ import { Link, usePage } from '@inertiajs/inertia-react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
+import useRoute from '@/Hooks/useRoute';
 
 interface User {
     user?: {
@@ -11,7 +12,8 @@ interface User {
     };
 }
 
-const Navbar = () => {
+export default function Navbar() {
+    const route = useRoute();
     const { user }: User | any = usePage().props.auth;
     return (
         <nav className='hidden border-b bg-white sm:block'>
@@ -22,32 +24,25 @@ const Navbar = () => {
                             <ApplicationLogo className='w-8 fill-red-600' />
                         </Link>
                         <NavLink href='/'>Home</NavLink>
-                        {user ? <NavLink href='/dashboard'>Dashboard</NavLink> : null}
+                        {user ? <NavLink href={route('dashboard')}>Dashboard</NavLink> : null}
                     </div>
                     {user ? (
                         <DropdownMenu trigger={user?.name}>
+                            <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
                             <div>
-                                <DropdownMenu.Link href={'#'}>Settings</DropdownMenu.Link>
-                                <DropdownMenu.Link href={'#'}>Documentation</DropdownMenu.Link>
-                                <DropdownMenu.Link href={'#'}>Example</DropdownMenu.Link>
-                                <DropdownMenu.Link href={'#'}>Another example</DropdownMenu.Link>
-                            </div>
-                            <div>
-                                <DropdownMenu.Link href={'/logout'} method='post' as='button'>
+                                <DropdownMenu.Link href={route('logout')} method='post' as='button'>
                                     Log out
                                 </DropdownMenu.Link>
                             </div>
                         </DropdownMenu>
                     ) : (
                         <div className='flex items-center gap-x-2'>
-                            <NavLink href='/login'>Login</NavLink>
-                            <NavLink href='/register'>Register</NavLink>
+                            <NavLink href={route('login')}>Login</NavLink>
+                            <NavLink href={route('register')}>Register</NavLink>
                         </div>
                     )}
                 </div>
             </div>
         </nav>
     );
-};
-
-export default Navbar;
+}

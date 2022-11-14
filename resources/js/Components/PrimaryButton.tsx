@@ -1,26 +1,16 @@
-import React from 'react';
 import cx from 'clsx';
+import React, { PropsWithChildren } from 'react';
 
-interface PrimaryButtonProps {
-    type?: 'submit' | 'button' | 'reset' | undefined;
-    className?: string;
-    processing?: boolean;
-    children: React.ReactNode;
-    onClick?: () => void;
-}
+type Props = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
-export default function PrimaryButton(args: PrimaryButtonProps) {
-    const { type = 'submit', className = '', processing, children, ...props } = args;
+export default function PrimaryButton({ children, ...props }: PropsWithChildren<Props>) {
     return (
         <button
             {...props}
-            type={type}
             className={cx(
-                className,
-                'inline-flex items-center rounded-md border border-transparent bg-blue-700 px-4 py-2 font-medium text-white transition duration-150 ease-in-out active:bg-blue-600',
-                processing && 'opacity-25'
-            )}
-            disabled={processing}>
+                'inline-flex items-center rounded-md border border-transparent bg-slate-900 px-4 py-2 font-medium text-white transition focus:border-slate-800 focus:outline-none focus:ring focus:ring-blue-300 active:bg-slate-800 hover:enabled:bg-slate-800 disabled:opacity-25',
+                props.className
+            )}>
             {children}
         </button>
     );
