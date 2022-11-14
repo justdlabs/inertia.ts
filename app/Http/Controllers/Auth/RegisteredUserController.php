@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]), function (User $user) {
-            $username = 'u' . substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 5) . $user->id;
+            $username = 'u'.substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 5).$user->id;
             $user->forceFill(['username' => $username])->save();
             event(new Registered($user));
         });

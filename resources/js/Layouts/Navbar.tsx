@@ -40,6 +40,9 @@ export default function Navbar() {
                                     {user?.name}
                                 </div>
                             }>
+                            <div className='px-4 py-2 text-sm text-slate-500'>
+                                Signed as <strong className='font-semibold text-slate-900'>{user.username}</strong>
+                            </div>
                             <div>
                                 <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
                                 <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>

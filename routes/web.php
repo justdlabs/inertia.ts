@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(ProfileController::class)->middleware('auth')->group(function () {
-    Route::get('/profile', 'edit')->name('profile.edit');
+    Route::get('/profile/edit', 'edit')->name('profile.edit');
     Route::patch('/profile', 'update')->name('profile.update');
     Route::delete('/profile', 'destroy')->name('profile.destroy');
 });
