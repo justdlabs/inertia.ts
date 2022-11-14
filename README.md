@@ -79,6 +79,7 @@ export default function SomeComponent() {
 ```
 ### Update profile information
 Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
+
 ![Screenshot of the project](https://pbs.twimg.com/media/Fhh7nR0aUAESOfq?format=jpg&name=4096x4096)
 
 If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts). I'll be happy to review it.
