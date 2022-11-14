@@ -15,7 +15,7 @@ class HandleInertiaRequests extends Middleware
         return parent::version($request);
     }
 
-    protected function createAcronym($string)
+    protected function createAcronym($string): ?string
     {
         $output = null;
         $token = strtok($string, ' ');
