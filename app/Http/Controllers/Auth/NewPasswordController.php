@@ -11,16 +11,11 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class NewPasswordController extends Controller
 {
-    /**
-     * Display the password reset view.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Inertia\Response
-     */
-    public function create(Request $request)
+    public function create(Request $request): Response
     {
         return Inertia::render('Auth/ResetPassword', [
             'email' => $request->email,
@@ -28,15 +23,7 @@ class NewPasswordController extends Controller
         ]);
     }
 
-    /**
-     * Handle an incoming new password request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request)
+    public function store(Request $request): ValidationException
     {
         $request->validate([
             'token' => 'required',
