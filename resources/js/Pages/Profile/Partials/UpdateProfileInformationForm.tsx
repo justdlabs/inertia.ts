@@ -21,6 +21,7 @@ export default function UpdateProfileInformation({
     const user = useTypedPage().props.auth.user;
     const route = useRoute();
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+        username: user.username,
         name: user.name,
         email: user.email,
     });
@@ -57,6 +58,20 @@ export default function UpdateProfileInformation({
                     />
 
                     <InputError className='mt-2' message={errors.name} />
+                </div>
+                <div>
+                    <InputLabel forInput='username' value='Username' />
+
+                    <TextInput
+                        id='username'
+                        type='text'
+                        value={data.username}
+                        onChange={(e) => setData('username', e.target.value)}
+                        required
+                        autoComplete='username'
+                    />
+
+                    <InputError className='mt-2' message={errors.username} />
                 </div>
 
                 <div>

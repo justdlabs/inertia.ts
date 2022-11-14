@@ -9,6 +9,8 @@ interface User {
     user?: {
         id: string;
         name: string;
+        acronym?: string;
+        username?: string;
     };
 }
 
@@ -28,7 +30,16 @@ export default function Navbar() {
                         </NavLink>
                     </div>
                     {user ? (
-                        <DropdownMenu trigger={user?.name}>
+                        <DropdownMenu
+                            trigger={
+                                <div className='flex items-center gap-x-2 [&>img]:w-6 [&>img]:rounded-full'>
+                                    <img
+                                        src={`https://avatar.tobi.sh/${user?.username}.svg?text=${user?.acronym}`}
+                                        alt={user?.name}
+                                    />
+                                    {user?.name}
+                                </div>
+                            }>
                             <div>
                                 <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
                                 <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>

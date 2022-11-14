@@ -30,11 +30,15 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        tap($user = User::query()->create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+        ]), function (User $user) {
+            $username = 'u' . substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, 5) . $user->id;
+            $user->forceFill(['username' => $username])->save();
+            event(new Registered($user));
+        });
 
         event(new Registered($user));
 

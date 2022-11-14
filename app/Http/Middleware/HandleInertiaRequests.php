@@ -15,12 +15,24 @@ class HandleInertiaRequests extends Middleware
         return parent::version($request);
     }
 
+    protected function createAcronym($string) {
+        $output = null;
+        $token  = strtok($string, ' ');
+        while ($token !== false) {
+            $output .= $token[0];
+            $token = strtok(' ');
+        }
+        return $output;
+    }
+
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user() ? [
+                    'acronym' => $this->createAcronym($request->user()->name),
                     'id' => $request->user()->id,
+                    'username' => $request->user()->username,
                     'name' => $request->user()->name,
                     'email' => $request->user()->email,
                 ] : null,
