@@ -15,6 +15,13 @@ npm i && npm run build
 
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
 
+This project has come with some features like:
+- Authentication
+- User Profile
+- User Avatar
+- User Password
+- User Delete
+
 ### About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
@@ -56,7 +63,7 @@ import useRoute from '@/hooks/useRoute';
 
 export default function SomeComponent() {
   const route = useRoute();
-  
+
   return <a href={route('profile.edit')}>Edit profile</a>;
 }
 ```
@@ -70,6 +77,11 @@ export default function SomeComponent() {
     const { canViewThisPage, user } = props;
 }
 ```
+### Update profile information
+Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
+![Screenshot of the project](https://pbs.twimg.com/media/Fhh7nR0aUAESOfq?format=jpg&name=4096x4096)
+
+If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts). I'll be happy to review it.
 
 ### Thanks to
 
