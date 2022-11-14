@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -11,14 +11,13 @@ export default function UpdatePasswordForm({ className }: { className?: string }
     const route = useRoute();
     const passwordInput = useRef<HTMLInputElement>(null);
     const currentPasswordInput = useRef<HTMLInputElement>(null);
-
-    const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm({
+    const { data, setData, put, errors, reset, processing, recentlySuccessful } = useForm({
         current_password: '',
         password: '',
         password_confirmation: '',
     });
 
-    const updatePassword = (e: { preventDefault: () => void }) => {
+    const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
         put(route('password.update'), {
             preserveScroll: true,
@@ -47,7 +46,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                 </p>
             </header>
 
-            <form onSubmit={updatePassword} className='mt-6 space-y-6'>
+            <form onSubmit={submit} noValidate className='mt-6 space-y-6'>
                 <div>
                     <InputLabel forInput='current_password' value='Current Password' />
 
@@ -57,8 +56,8 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                         value={data.current_password}
                         onChange={(e) => setData('current_password', e.target.value)}
                         type='password'
-                        className='mt-1 block w-full'
                         autoComplete='current-password'
+                        required
                     />
 
                     <InputError message={errors.current_password} className='mt-2' />
@@ -73,8 +72,8 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
                         type='password'
-                        className='mt-1 block w-full'
                         autoComplete='new-password'
+                        required
                     />
 
                     <InputError message={errors.password} className='mt-2' />
@@ -88,8 +87,8 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                         value={data.password_confirmation}
                         onChange={(e) => setData('password_confirmation', e.target.value)}
                         type='password'
-                        className='mt-1 block w-full'
                         autoComplete='new-password'
+                        required
                     />
 
                     <InputError message={errors.password_confirmation} className='mt-2' />
