@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 import { InertiaLink, InertiaLinkProps } from '@inertiajs/inertia-react';
 import { Menu, Transition } from '@headlessui/react';
 import cx from 'clsx';
+import { TablerIcon } from '@tabler/icons';
+import route from 'ziggy-js';
 
 interface DropdownMenuProps {
     children: React.ReactNode;
     trigger?: JSX.Element | string;
     triggerWithMenuIcon?: boolean;
+}
+
+interface LinkProps extends InertiaLinkProps {
+    children: React.ReactNode;
+    icon: TablerIcon;
+    isActive?: boolean;
 }
 
 const DropdownMenu = ({ children, trigger, triggerWithMenuIcon = false }: DropdownMenuProps) => {
@@ -33,7 +41,7 @@ const DropdownMenu = ({ children, trigger, triggerWithMenuIcon = false }: Dropdo
                         leaveFrom='transform scale-100 opacity-100'
                         leaveTo='transform scale-95 opacity-0'>
                         <Menu.Items static>
-                            <div className='absolute top-2 right-0 w-56 divide-y rounded-md border bg-white py-1 shadow-sm'>
+                            <div className='absolute top-2 right-0 w-56 overflow-hidden rounded-md border bg-white py-2 shadow-sm'>
                                 {children}
                             </div>
                         </Menu.Items>
@@ -44,13 +52,23 @@ const DropdownMenu = ({ children, trigger, triggerWithMenuIcon = false }: Dropdo
     );
 };
 
-const Link = (args: InertiaLinkProps) => {
-    const { href, children, ...props } = args;
+const Link = (args: LinkProps) => {
+    const { isActive, icon: Icon, href, children, ...props } = args;
     return (
         <Menu.Item>
-            <InertiaLink {...props} className={cx('flex w-full gap-x-2 py-1.5 px-4 text-left')} href={href}>
-                {children}
-            </InertiaLink>
+            {({ active }) => (
+                <InertiaLink
+                    {...props}
+                    className={cx(
+                        active ? 'bg-slate-100' : '',
+                        isActive ? 'bg-slate-100' : '',
+                        'flex inline-flex w-full items-center gap-x-2 gap-x-2 py-2 px-4 text-left text-sm'
+                    )}
+                    href={href}>
+                    <Icon className='h-4 w-4 stroke-[1.5] text-slate-500' />
+                    {children}
+                </InertiaLink>
+            )}
         </Menu.Item>
     );
 };
@@ -90,6 +108,9 @@ export const IconMenu = ({ className }: { className?: string }) => (
     </svg>
 );
 
+const Divider = () => <Menu.Item as='hr' className='my-1.5 h-px bg-gray-200' />;
+
 DropdownMenu.Link = Link;
+DropdownMenu.Divider = Divider;
 
 export default DropdownMenu;
