@@ -18,7 +18,7 @@ class PasswordResetLinkController extends Controller
         ]);
     }
 
-    public function store(Request $request): ValidationException
+    public function store(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
