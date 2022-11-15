@@ -4,6 +4,7 @@ import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
 import useRoute from '@/Hooks/useRoute';
+import { IconDashboard, IconLogout, IconSettings, IconUser } from '@tabler/icons';
 
 interface User {
     user?: {
@@ -40,18 +41,25 @@ export default function Navbar() {
                                     {user?.name}
                                 </div>
                             }>
-                            <div className='px-4 py-2 text-sm text-slate-500'>
+                            <div className='px-4 py-0.5 text-sm text-slate-500'>
                                 Signed as <strong className='font-semibold text-slate-900'>{user.username}</strong>
                             </div>
-                            <div>
-                                <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
-                                <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
-                            </div>
-                            <div>
-                                <DropdownMenu.Link href={route('logout')} method='post' as='button'>
-                                    Log out
-                                </DropdownMenu.Link>
-                            </div>
+                            <DropdownMenu.Divider />
+                            <DropdownMenu.Link
+                                isActive={route().current('dashboard')}
+                                icon={IconDashboard}
+                                href={route('dashboard')}>
+                                Dashboard
+                            </DropdownMenu.Link>
+                            <DropdownMenu.Link
+                                isActive={route().current('profile.edit')}
+                                icon={IconSettings}
+                                href={route('profile.edit')}>
+                                Settings
+                            </DropdownMenu.Link>
+                            <DropdownMenu.Link icon={IconLogout} href={route('logout')} method='post' as='button'>
+                                Log out
+                            </DropdownMenu.Link>
                         </DropdownMenu>
                     ) : (
                         <div className='flex items-center gap-x-2'>

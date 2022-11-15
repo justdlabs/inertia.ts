@@ -1,9 +1,8 @@
-import { usePage } from '@inertiajs/inertia-react';
-import NavLink from '@/Components/NavLink';
+import { Link, usePage } from '@inertiajs/inertia-react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
-import route from 'ziggy-js';
 import useRoute from '@/Hooks/useRoute';
+import { IconDashboard, IconHome2, IconLogin, IconLogout, IconSettings, IconUserCircle } from '@tabler/icons';
 
 interface User {
     user?: {
@@ -19,28 +18,45 @@ const ResponsiveNavbar = () => {
         <nav className='block border-b bg-white py-2 sm:hidden'>
             <div className='container'>
                 <div className='flex items-center justify-between py-1'>
-                    <ApplicationLogo className='w-8 fill-red-600' />
+                    <Link href='/'>
+                        <ApplicationLogo className='w-8 fill-red-600' />
+                    </Link>
                     <DropdownMenu triggerWithMenuIcon>
                         <div>
-                            <DropdownMenu.Link href='/'>Home</DropdownMenu.Link>
+                            <DropdownMenu.Link icon={IconHome2} href='/'>
+                                Home
+                            </DropdownMenu.Link>
                         </div>
                         {user ? (
                             <div className='divide-y'>
                                 <div>
-                                    <DropdownMenu.Link href={route('dashboard')}>Dashboard</DropdownMenu.Link>
-                                    <DropdownMenu.Link href={route('profile.edit')}>Profile</DropdownMenu.Link>
+                                    <DropdownMenu.Link icon={IconDashboard} href={route('dashboard')}>
+                                        Dashboard
+                                    </DropdownMenu.Link>
+                                    <DropdownMenu.Link icon={IconSettings} href={route('profile.edit')}>
+                                        Profile
+                                    </DropdownMenu.Link>
                                 </div>
                                 <div>
-                                    <DropdownMenu.Link href={route('logout')} method='post' as='button'>
+                                    <DropdownMenu.Link
+                                        icon={IconLogout}
+                                        href={route('logout')}
+                                        method='post'
+                                        as='button'>
                                         Log out
                                     </DropdownMenu.Link>
                                 </div>
                             </div>
                         ) : (
-                            <div>
-                                <NavLink href={route('login')}>Login</NavLink>
-                                <NavLink href={route('register')}>Register</NavLink>
-                            </div>
+                            <>
+                                <DropdownMenu.Divider />
+                                <DropdownMenu.Link icon={IconLogin} href={route('login')}>
+                                    Login
+                                </DropdownMenu.Link>
+                                <DropdownMenu.Link icon={IconUserCircle} href={route('register')}>
+                                    Register
+                                </DropdownMenu.Link>
+                            </>
                         )}
                     </DropdownMenu>
                 </div>
