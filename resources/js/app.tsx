@@ -1,27 +1,31 @@
-import '../css/app.css';
+// @ts-nocheck
 import './bootstrap';
-import React from 'react';
-import { RouteContext } from '@/Hooks/useRoute';
+import '../css/app.css';
+
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
+import { RouteContext } from '@/Hooks/useRoute';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName =
+    window.document.getElementsByTagName('title')[0]?.innerText || 'Indo Carving';
 
 createInertiaApp({
-    title: (title) => `${title} / ${appName}`,
-    // @ts-ignore
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
+    title: title => `${title} - ${appName}`,
+    resolve: name =>
+        resolvePageComponent(
+            `./Pages/${name}.tsx`,
+            import.meta.glob('./Pages/**/*.tsx'),
+        ),
     setup({ el, App, props }) {
         const root = createRoot(el);
-
-        root.render(
+        return root.render(
             <RouteContext.Provider value={(window as any).route}>
                 <App {...props} />
-            </RouteContext.Provider>
+            </RouteContext.Provider>,
         );
     },
-}).then((r) => r);
+});
 
 InertiaProgress.init({ color: '#4B5563' });

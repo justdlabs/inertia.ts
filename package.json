@@ -4,7 +4,8 @@
         "format": "prettier --write resources",
         "dev": "vite",
         "build": "vite build && vite build --ssr",
-        "test-ssr": "node bootstrap/ssr/ssr.mjs"
+        "preview": "npm run build && node bootstrap/ssr/ssr.mjs",
+        "test-ssr": "npm run build && node bootstrap/ssr/ssr.mjs"
     },
     "devDependencies": {
         "@headlessui/react": "^1.4.2",
