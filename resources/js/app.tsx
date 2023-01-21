@@ -20,6 +20,5 @@ createInertiaApp({
             </RouteContext.Provider>
         );
     },
+    progress: { color: '#4B5563' },
 });
-
-InertiaProgress.init({ color: '#4B5563' });
