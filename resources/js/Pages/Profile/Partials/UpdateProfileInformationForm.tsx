@@ -3,11 +3,12 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Link, useForm } from '@inertiajs/inertia-react';
+import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import useRoute from '@/Hooks/useRoute';
 import useTypedPage from '@/Hooks/useTypedPage';
-import { ProfileEditProps } from '@/type';
+import { ProfileEditProps } from '@/types';
+import { Method } from '@inertiajs/core';
 
 interface UpdateProfileInformationProps extends ProfileEditProps {
     className?: string;
@@ -34,94 +35,95 @@ export default function UpdateProfileInformation({
     };
 
     return (
-        <section className={className}>
-            <header>
+        <section>
+            <header className='mb-4 sm:px-0 px-4'>
                 <h2 className='text-lg font-medium text-gray-900'>Profile Information</h2>
 
                 <p className='mt-1 text-sm text-gray-600'>
                     Update your account's profile information and email address.
                 </p>
             </header>
-
-            <form onSubmit={submit} className='mt-6 space-y-6'>
-                <div>
-                    <InputLabel forInput='name' value='Name' />
-
-                    <TextInput
-                        id='name'
-                        type='text'
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
-                        autoFocus
-                        autoComplete='name'
-                    />
-
-                    <InputError className='mt-2' message={errors.name} />
-                </div>
-                <div>
-                    <InputLabel forInput='username' value='Username' />
-
-                    <TextInput
-                        id='username'
-                        type='text'
-                        value={data.username}
-                        onChange={(e) => setData('username', e.target.value)}
-                        required
-                        autoComplete='username'
-                    />
-
-                    <InputError className='mt-2' message={errors.username} />
-                </div>
-
-                <div>
-                    <InputLabel forInput='email' value='Email' />
-
-                    <TextInput
-                        id='email'
-                        type='email'
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
-                        autoComplete='email'
-                    />
-
-                    <InputError className='mt-2' message={errors.email} />
-                </div>
-
-                {mustVerifyEmail && user.email_verified_at === null && (
+            <div className={className}>
+                <form onSubmit={submit} className='space-y-6'>
                     <div>
-                        <p className='mt-2 text-sm'>
-                            Your email address is unverified.
-                            <Link
-                                href={route('verification.send')}
-                                method='post'
-                                as='button'
-                                className='text-gray-600 underline hover:text-gray-900'>
-                                Click here to re-send the verification email.
-                            </Link>
-                        </p>
+                        <InputLabel forInput='name' value='Name' />
 
-                        {status === 'verification-link-sent' && (
-                            <div className='mt-2 text-sm font-medium text-green-600'>
-                                A new verification link has been sent to your email address.
-                            </div>
-                        )}
+                        <TextInput
+                            id='name'
+                            type='text'
+                            value={data.name}
+                            onChange={(e) => setData('name', e.target.value)}
+                            required
+                            autoFocus
+                            autoComplete='name'
+                        />
+
+                        <InputError className='mt-2' message={errors.name} />
                     </div>
-                )}
+                    <div>
+                        <InputLabel forInput='username' value='Username' />
 
-                <div className='flex items-center gap-4'>
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                        <TextInput
+                            id='username'
+                            type='text'
+                            value={data.username}
+                            onChange={(e) => setData('username', e.target.value)}
+                            required
+                            autoComplete='username'
+                        />
 
-                    <Transition
-                        show={recentlySuccessful}
-                        enterFrom='opacity-0'
-                        leaveTo='opacity-0'
-                        className='transition ease-in-out'>
-                        <p className='text-sm text-gray-600'>Saved.</p>
-                    </Transition>
-                </div>
-            </form>
+                        <InputError className='mt-2' message={errors.username} />
+                    </div>
+
+                    <div>
+                        <InputLabel forInput='email' value='Email' />
+
+                        <TextInput
+                            id='email'
+                            type='email'
+                            value={data.email}
+                            onChange={(e) => setData('email', e.target.value)}
+                            required
+                            autoComplete='email'
+                        />
+
+                        <InputError className='mt-2' message={errors.email} />
+                    </div>
+
+                    {mustVerifyEmail && user.email_verified_at === null && (
+                        <div>
+                            <p className='mt-2 text-sm'>
+                                Your email address is unverified.
+                                <Link
+                                    href={route('verification.send')}
+                                    method={Method.POST}
+                                    as='button'
+                                    className='text-gray-600 underline hover:text-gray-900'>
+                                    Click here to re-send the verification email.
+                                </Link>
+                            </p>
+
+                            {status === 'verification-link-sent' && (
+                                <div className='mt-2 text-sm font-medium text-green-600'>
+                                    A new verification link has been sent to your email address.
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    <div className='flex items-center gap-4'>
+                        <PrimaryButton disabled={processing}>Save</PrimaryButton>
+
+                        <Transition
+                            show={recentlySuccessful}
+                            enterFrom='opacity-0'
+                            leaveTo='opacity-0'
+                            className='transition ease-in-out'>
+                            <p className='text-sm text-gray-600'>Saved.</p>
+                        </Transition>
+                    </div>
+                </form>
+            </div>
         </section>
     );
 }

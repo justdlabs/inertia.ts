@@ -1,6 +1,7 @@
 import React from 'react';
-import { InertiaLinkProps, Link, usePage } from '@inertiajs/inertia-react';
+import { Link } from '@inertiajs/react';
 import cx from 'clsx';
+import { InertiaLinkProps } from '@/types';
 
 interface NavLinkProps extends InertiaLinkProps {
     active?: boolean;

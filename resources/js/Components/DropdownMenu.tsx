@@ -1,9 +1,9 @@
-import React, { SVGProps } from 'react';
-import { InertiaLink, InertiaLinkProps } from '@inertiajs/inertia-react';
+import React from 'react';
+import { Link as InertiaLink } from '@inertiajs/react';
 import { Menu, Transition } from '@headlessui/react';
 import cx from 'clsx';
 import { TablerIcon } from '@tabler/icons';
-import route from 'ziggy-js';
+import { InertiaLinkProps } from '@/types';
 
 interface DropdownMenuProps {
     children: React.ReactNode;

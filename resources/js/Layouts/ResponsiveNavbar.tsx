@@ -1,4 +1,4 @@
-import { Link, usePage } from '@inertiajs/inertia-react';
+import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
 import useRoute from '@/Hooks/useRoute';

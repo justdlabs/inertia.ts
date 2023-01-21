@@ -3,7 +3,7 @@ import DangerButton from '@/Components/DangerButton';
 import InputError from '@/Components/InputError';
 import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
-import { useForm } from '@inertiajs/inertia-react';
+import { useForm } from '@inertiajs/react';
 import DialogModal from '@/Components/DialogModal';
 import clsx from 'clsx';
 import useRoute from '@/Hooks/useRoute';

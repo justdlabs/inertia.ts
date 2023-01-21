@@ -1,23 +1,16 @@
 import React from 'react';
-import { Link, usePage } from '@inertiajs/inertia-react';
+import { Link } from '@inertiajs/react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import DropdownMenu from '@/Components/DropdownMenu';
 import useRoute from '@/Hooks/useRoute';
-import { IconDashboard, IconLogout, IconSettings, IconUser } from '@tabler/icons';
-
-interface User {
-    user?: {
-        id: string;
-        name: string;
-        acronym?: string;
-        username?: string;
-    };
-}
+import { IconDashboard, IconLogout, IconSettings } from '@tabler/icons';
+import useTypedPage from '@/Hooks/useTypedPage';
+import { Method } from '@inertiajs/core';
 
 export default function Navbar() {
     const route = useRoute();
-    const { user }: User | any = usePage().props.auth;
+    const { user } = useTypedPage().props.auth;
     return (
         <nav className='hidden border-b bg-white sm:block'>
             <div className='container'>
@@ -33,9 +26,9 @@ export default function Navbar() {
                     {user ? (
                         <DropdownMenu
                             trigger={
-                                <div className='flex items-center gap-x-2 [&>img]:w-6 [&>img]:rounded-full'>
+                                <div className='flex items-center gap-x-2 [&>img]:h-5 [&>img]:w-5 [&>img]:rounded-full'>
                                     <img
-                                        src={`https://avatar.tobi.sh/${user?.username}.svg?text=${user?.acronym}`}
+                                        src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`}
                                         alt={user?.name}
                                     />
                                     {user?.name}
@@ -57,7 +50,12 @@ export default function Navbar() {
                                 href={route('profile.edit')}>
                                 Settings
                             </DropdownMenu.Link>
-                            <DropdownMenu.Link icon={IconLogout} href={route('logout')} method='post' as='button'>
+                            <DropdownMenu.Divider/>
+                            <DropdownMenu.Link
+                                icon={IconLogout}
+                                href={route('logout')}
+                                method={Method.POST}
+                                as='button'>
                                 Log out
                             </DropdownMenu.Link>
                         </DropdownMenu>

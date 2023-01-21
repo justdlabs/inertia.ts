@@ -3,7 +3,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { useForm } from '@inertiajs/inertia-react';
+import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import useRoute from '@/Hooks/useRoute';
 
@@ -37,8 +37,8 @@ export default function UpdatePasswordForm({ className }: { className?: string }
     };
 
     return (
-        <section className={className}>
-            <header>
+        <section>
+            <header className='sm:px-0 px-4 mb-4'>
                 <h2 className='text-lg font-medium text-gray-900'>Update Password</h2>
 
                 <p className='mt-1 text-sm text-gray-600'>
@@ -46,66 +46,68 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                 </p>
             </header>
 
-            <form onSubmit={submit} noValidate className='mt-6 space-y-6'>
-                <div>
-                    <InputLabel forInput='current_password' value='Current Password' />
+            <div className={className}>
+                <form onSubmit={submit} className='space-y-6'>
+                    <div>
+                        <InputLabel forInput='current_password' value='Current Password' />
 
-                    <TextInput
-                        id='current_password'
-                        ref={currentPasswordInput}
-                        value={data.current_password}
-                        onChange={(e) => setData('current_password', e.target.value)}
-                        type='password'
-                        autoComplete='current-password'
-                        required
-                    />
+                        <TextInput
+                            id='current_password'
+                            ref={currentPasswordInput}
+                            value={data.current_password}
+                            onChange={(e) => setData('current_password', e.target.value)}
+                            type='password'
+                            autoComplete='current-password'
+                            required
+                        />
 
-                    <InputError message={errors.current_password} className='mt-2' />
-                </div>
+                        <InputError message={errors.current_password} className='mt-2' />
+                    </div>
 
-                <div>
-                    <InputLabel forInput='password' value='New Password' />
+                    <div>
+                        <InputLabel forInput='password' value='New Password' />
 
-                    <TextInput
-                        id='password'
-                        ref={passwordInput}
-                        value={data.password}
-                        onChange={(e) => setData('password', e.target.value)}
-                        type='password'
-                        autoComplete='new-password'
-                        required
-                    />
+                        <TextInput
+                            id='password'
+                            ref={passwordInput}
+                            value={data.password}
+                            onChange={(e) => setData('password', e.target.value)}
+                            type='password'
+                            autoComplete='new-password'
+                            required
+                        />
 
-                    <InputError message={errors.password} className='mt-2' />
-                </div>
+                        <InputError message={errors.password} className='mt-2' />
+                    </div>
 
-                <div>
-                    <InputLabel forInput='password_confirmation' value='Confirm Password' />
+                    <div>
+                        <InputLabel forInput='password_confirmation' value='Confirm Password' />
 
-                    <TextInput
-                        id='password_confirmation'
-                        value={data.password_confirmation}
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
-                        type='password'
-                        autoComplete='new-password'
-                        required
-                    />
+                        <TextInput
+                            id='password_confirmation'
+                            value={data.password_confirmation}
+                            onChange={(e) => setData('password_confirmation', e.target.value)}
+                            type='password'
+                            autoComplete='new-password'
+                            required
+                        />
 
-                    <InputError message={errors.password_confirmation} className='mt-2' />
-                </div>
+                        <InputError message={errors.password_confirmation} className='mt-2' />
+                    </div>
 
-                <div className='flex items-center gap-4'>
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <div className='flex items-center gap-4'>
+                        <PrimaryButton disabled={processing}>Save</PrimaryButton>
 
-                    <Transition
-                        show={recentlySuccessful}
-                        enterFrom='opacity-0'
-                        leaveTo='opacity-0'
-                        className='transition ease-in-out'>
-                        <p className='text-sm text-gray-600'>Saved.</p>
-                    </Transition>
-                </div>
-            </form>
+                        <Transition
+                            show={recentlySuccessful}
+                            enterFrom='opacity-0'
+                            leaveTo='opacity-0'
+                            className='transition ease-in-out'>
+                            <p className='text-sm text-gray-600'>Saved.</p>
+                        </Transition>
+                    </div>
+                </form>
+            </div>
         </section>
     );
 }
