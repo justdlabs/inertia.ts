@@ -12,7 +12,7 @@ export default function AppLayout({ children }: RootLayoutProps) {
         <div className='min-h-screen bg-gray-100'>
             <ResponsiveNavbar />
             <Navbar />
-            <main className='py-4 lg:py-8'>{children}</main>
+            <main>{children}</main>
             <Footer />
         </div>
     );
