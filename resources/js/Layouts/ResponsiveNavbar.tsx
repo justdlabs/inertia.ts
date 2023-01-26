@@ -38,11 +38,7 @@ const ResponsiveNavbar = () => {
                                     </Dropdown.Link>
                                 </div>
                                 <div>
-                                    <Dropdown.Link
-                                        icon={IconLogout}
-                                        href={route('logout')}
-                                        method='post'
-                                        as='button'>
+                                    <Dropdown.Link icon={IconLogout} href={route('logout')} method='post' as='button'>
                                         Log out
                                     </Dropdown.Link>
                                 </div>

@@ -12,7 +12,7 @@ export default function Navbar() {
     const route = useRoute();
     const { user } = useTypedPage().props.auth;
     return (
-        <nav className='hidden sm:block border-b border-gray-200 bg-white'>
+        <nav className='hidden border-b border-gray-200 bg-white sm:block'>
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 justify-between'>
                     <div className='flex'>
@@ -32,7 +32,16 @@ export default function Navbar() {
                     </div>
                     {user ? (
                         <div className='flex items-center'>
-                            <Dropdown trigger={<div className='flex items-center gap-x-2 [&>img]:h-5 [&>img]:w-5 [&>img]:rounded-full'><img src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`} alt={user?.name} />{user?.name}</div>}>
+                            <Dropdown
+                                trigger={
+                                    <div className='flex items-center gap-x-2 [&>img]:h-5 [&>img]:w-5 [&>img]:rounded-full'>
+                                        <img
+                                            src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`}
+                                            alt={user?.name}
+                                        />
+                                        {user?.name}
+                                    </div>
+                                }>
                                 <div className='px-4 py-0.5 text-sm text-slate-500'>
                                     Signed as <strong className='font-semibold text-slate-900'>{user.username}</strong>
                                 </div>
@@ -50,7 +59,11 @@ export default function Navbar() {
                                     Settings
                                 </Dropdown.Link>
                                 <Dropdown.Divider />
-                                <Dropdown.Link icon={IconLogout} href={route('logout')} method={Method.POST} as='button'>
+                                <Dropdown.Link
+                                    icon={IconLogout}
+                                    href={route('logout')}
+                                    method={Method.POST}
+                                    as='button'>
                                     Log out
                                 </Dropdown.Link>
                             </Dropdown>

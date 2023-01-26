@@ -1,10 +1,10 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/Layouts/AppLayout';
-import Header from '@/Components/Header';
-import Container from '@/Components/Container';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { IconBrandGithub } from '@tabler/icons';
+import Header from '@/Components/Header';
+import Container from '@/Components/Container';
 
 export default function Home() {
     return (
