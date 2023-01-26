@@ -17,7 +17,7 @@ interface LinkProps extends InertiaLinkProps {
     isActive?: boolean;
 }
 
-const DropdownMenu = ({ children, trigger, triggerWithMenuIcon = false }: DropdownMenuProps) => {
+const Dropdown = ({ children, trigger, triggerWithMenuIcon = false }: DropdownMenuProps) => {
     return (
         <Menu as='div' className='relative'>
             {({ open }) => (
@@ -110,7 +110,7 @@ export const IconMenu = ({ className }: { className?: string }) => (
 
 const Divider = () => <Menu.Item as='hr' className='my-1.5 h-px bg-gray-200' />;
 
-DropdownMenu.Link = Link;
-DropdownMenu.Divider = Divider;
+Dropdown.Link = Link;
+Dropdown.Divider = Divider;
 
-export default DropdownMenu;
+export default Dropdown;
