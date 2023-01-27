@@ -13,7 +13,6 @@ interface DropdownMenuProps {
 
 interface LinkProps extends InertiaLinkProps {
     children: React.ReactNode;
-    icon: TablerIcon;
     isActive?: boolean;
 }
 
@@ -53,7 +52,7 @@ const Dropdown = ({ children, trigger, triggerWithMenuIcon = false }: DropdownMe
 };
 
 const Link = (args: LinkProps) => {
-    const { isActive, icon: Icon, href, children, ...props } = args;
+    const { isActive, href, children, ...props } = args;
     return (
         <Menu.Item>
             {({ active }) => (
@@ -65,7 +64,6 @@ const Link = (args: LinkProps) => {
                         'flex inline-flex w-full items-center gap-x-2 gap-x-2 py-2 px-4 text-left text-sm'
                     )}
                     href={href}>
-                    <Icon className='h-4 w-4 stroke-[1.5] text-slate-500' />
                     {children}
                 </InertiaLink>
             )}

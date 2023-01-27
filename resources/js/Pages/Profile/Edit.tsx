@@ -12,7 +12,8 @@ export default function Edit({ mustVerifyEmail, status }: ProfileEditProps) {
     return (
         <div>
             <Head title='Profile' />
-            <Header>Profile</Header>
+            <Header value='Profile' />
+
             <Container withNoHorizontalPadding>
                 <div className='grid gap-8 sm:grid-cols-2'>
                     <UpdateProfileInformationForm

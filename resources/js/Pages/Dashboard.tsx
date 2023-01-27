@@ -16,7 +16,7 @@ export default function Dashboard() {
     return (
         <>
             <Head title='Dashboard' />
-            <Header>Dashboard</Header>
+            <Header value='Dashboard' />
             <Container>
                 <div className='overflow-hidden rounded-lg shadow'>
                     <p className='bg-white p-4'>Hi {user.name}, you are now logged in.</p>

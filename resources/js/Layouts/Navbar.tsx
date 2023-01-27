@@ -25,11 +25,11 @@ export default function Navbar() {
                             <NavLink active={route().current('home')} href='/'>
                                 Home
                             </NavLink>
-                            {user &&
-                            <NavLink active={route().current('dashboard')} href='/dashboard'>
-                                Dashboard
-                            </NavLink>
-                            }
+                            {user && (
+                                <NavLink active={route().current('dashboard')} href='/dashboard'>
+                                    Dashboard
+                                </NavLink>
+                            )}
                         </div>
                     </div>
                     {user ? (
@@ -48,30 +48,20 @@ export default function Navbar() {
                                     Signed as <strong className='font-semibold text-slate-900'>{user.username}</strong>
                                 </div>
                                 <Dropdown.Divider />
-                                <Dropdown.Link
-                                    isActive={route().current('dashboard')}
-                                    icon={IconDashboard}
-                                    href={route('dashboard')}>
+                                <Dropdown.Link isActive={route().current('dashboard')} href={route('dashboard')}>
                                     Dashboard
                                 </Dropdown.Link>
-                                <Dropdown.Link
-                                    isActive={route().current('profile.edit')}
-                                    icon={IconSettings}
-                                    href={route('profile.edit')}>
+                                <Dropdown.Link isActive={route().current('profile.edit')} href={route('profile.edit')}>
                                     Settings
                                 </Dropdown.Link>
                                 <Dropdown.Divider />
-                                <Dropdown.Link
-                                    icon={IconLogout}
-                                    href={route('logout')}
-                                    method={Method.POST}
-                                    as='button'>
+                                <Dropdown.Link href={route('logout')} method={Method.POST} as='button'>
                                     Log out
                                 </Dropdown.Link>
                             </Dropdown>
                         </div>
                     ) : (
-                        <div className='flex gap-x-8 -mb-px'>
+                        <div className='-mb-px flex gap-x-8'>
                             <NavLink href={route('login')}>Login</NavLink>
                             <NavLink href={route('register')}>Register</NavLink>
                         </div>
