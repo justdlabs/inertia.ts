@@ -69,7 +69,7 @@ export default function Navbar() {
                             </Dropdown>
                         </div>
                     ) : (
-                        <div className='flex gap-x-8'>
+                        <div className='flex gap-x-8 -mb-px'>
                             <NavLink href={route('login')}>Login</NavLink>
                             <NavLink href={route('register')}>Register</NavLink>
                         </div>
