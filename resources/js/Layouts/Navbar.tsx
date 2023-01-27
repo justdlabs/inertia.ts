@@ -25,9 +25,11 @@ export default function Navbar() {
                             <NavLink active={route().current('home')} href='/'>
                                 Home
                             </NavLink>
+                            {user &&
                             <NavLink active={route().current('dashboard')} href='/dashboard'>
                                 Dashboard
                             </NavLink>
+                            }
                         </div>
                     </div>
                     {user ? (
