@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormDataConvertible, Method, PreserveStateOption, Progress } from '@inertiajs/core';
 
 export type Nullable<T> = T | null;

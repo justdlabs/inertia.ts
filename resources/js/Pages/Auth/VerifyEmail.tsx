@@ -1,6 +1,7 @@
 import GuestLayout from '@/Layouts/GuestLayout';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Method } from '@inertiajs/core';
 
 export default function VerifyEmail({ status }: { status?: any }) {
     const { post, processing } = useForm();
@@ -32,7 +33,7 @@ export default function VerifyEmail({ status }: { status?: any }) {
                     </PrimaryButton>
                     <Link
                         href={'/logout'}
-                        method='post'
+                        method={Method.POST}
                         as='button'
                         className='text-sm text-gray-600 underline hover:text-gray-900'>
                         Log Out
