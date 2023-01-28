@@ -2,7 +2,6 @@ import React from 'react';
 import { Link as InertiaLink } from '@inertiajs/react';
 import { Menu, Transition } from '@headlessui/react';
 import cx from 'clsx';
-import { TablerIcon } from '@tabler/icons';
 import { InertiaLinkProps } from '@/types';
 
 interface DropdownMenuProps {
