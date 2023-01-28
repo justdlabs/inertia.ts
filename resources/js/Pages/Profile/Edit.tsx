@@ -1,4 +1,3 @@
-import React from 'react';
 import AppLayout from '@/Layouts/AppLayout';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';

@@ -1,6 +1,6 @@
-import React from 'react';
+import { ReactElement } from 'react';
 
-export default function Checkbox({ ...props }): React.ReactElement {
+export default function Checkbox({ ...props }): ReactElement {
     return (
         <input
             {...props}

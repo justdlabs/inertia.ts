@@ -1,11 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import cx from 'clsx';
 
 interface InputLabelProps {
     forInput?: string;
     value?: string;
     className?: string;
-    children?: React.ReactNode;
+    children?: ReactNode;
 }
 export default function InputLabel(args: InputLabelProps) {
     const { forInput, value, className, children } = args;

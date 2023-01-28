@@ -12,6 +12,6 @@ export default defineConfig({
         react(),
     ],
     ssr: {
-        noExternal: ['@inertiajs/server', '@tabler/icons'],
+        noExternal: ['@tabler/icons-react'],
     },
 });

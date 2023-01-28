@@ -1,10 +1,8 @@
-import React from 'react';
 import { Link } from '@inertiajs/react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import useRoute from '@/Hooks/useRoute';
-import { IconDashboard, IconLogout, IconSettings } from '@tabler/icons';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { Method } from '@inertiajs/core';
 

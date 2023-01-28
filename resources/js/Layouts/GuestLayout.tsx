@@ -1,9 +1,9 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link } from '@inertiajs/react';
 
 interface GuestLayoutProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 export default function Guest({ children }: GuestLayoutProps) {

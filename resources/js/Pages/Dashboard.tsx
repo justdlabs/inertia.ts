@@ -1,4 +1,3 @@
-import React from 'react';
 import AppLayout from '@/Layouts/AppLayout';
 import { Head, usePage } from '@inertiajs/react';
 import Header from '@/Components/Header';

@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import cx from 'clsx';
-import React, { PropsWithChildren } from 'react';
+import { Fragment, PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom';
 
 export interface ModalProps {
@@ -23,11 +23,11 @@ export default function Modal({ isOpen, onClose, maxWidth = '2xl', children }: P
     }
 
     return ReactDOM.createPortal(
-        <Transition.Root show={isOpen} as={React.Fragment}>
+        <Transition.Root show={isOpen} as={Fragment}>
             <Dialog as='div' static className='fixed inset-0 z-10 overflow-y-auto' open={isOpen} onClose={onClose}>
                 <div className='flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0'>
                     <Transition.Child
-                        as={React.Fragment}
+                        as={Fragment}
                         enter='ease-out duration-300'
                         enterFrom='opacity-0'
                         enterTo='opacity-100'
@@ -42,7 +42,7 @@ export default function Modal({ isOpen, onClose, maxWidth = '2xl', children }: P
                         &#8203;
                     </span>
                     <Transition.Child
-                        as={React.Fragment}
+                        as={Fragment}
                         enter='ease-out duration-300'
                         enterFrom='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
                         enterTo='opacity-100 translate-y-0 sm:scale-100'

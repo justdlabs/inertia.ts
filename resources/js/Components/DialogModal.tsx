@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import Modal, { ModalProps } from '@/Components/Modal';
 
 DialogModal.Content = function DialogModalContent({ title, children }: PropsWithChildren<{ title: string }>) {
