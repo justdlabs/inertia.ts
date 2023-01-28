@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <Head title='Welcome to Laravel' />
-            <Header>Home</Header>
+            <Header value='Home' />
             <Container withNoHorizontalPadding>
                 <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
                     <div>
