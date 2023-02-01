@@ -8,22 +8,22 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.2",
-        "inertiajs/inertia-laravel": "^0.6.3",
-        "laravel/framework": "^9.19",
-        "laravel/sanctum": "^2.8",
-        "laravel/tinker": "^2.7",
+        "inertiajs/inertia-laravel": "^0.6.9",
+        "laravel/framework": "^10.0",
+        "laravel/sanctum": "^2.15",
+        "laravel/tinker": "^2.8",
         "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "laravel/pint": "^1.0",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "fakerphp/faker": "^1.21.0",
+        "laravel/pint": "^1.4.1",
+        "laravel/sail": "^1.19.1",
+        "mockery/mockery": "^1.5.4",
+        "nunomaduro/collision": "^6.4",
+        "phpunit/phpunit": "^9.5.28",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -65,6 +65,6 @@
             "pestphp/pest-plugin": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
