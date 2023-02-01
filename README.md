@@ -22,6 +22,19 @@ This project has come with some features like:
 - User Password
 - User Delete
 
+### The default branch has been renamed!
+
+**9.x** is now named **laravel-9.x**
+
+If you have a local clone, you can update it by running the following commands.
+
+```bash
+git branch -m 9.x laravel-9.x
+git fetch origin
+git branch -u origin/laravel-9.x laravel-9.x
+git remote set-head origin -a
+```
+
 ### About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
