@@ -24,7 +24,7 @@ This project has come with some features like:
 
 ### The default branch has been renamed!
 
-*9.x* is now named *laravel-9.x*
+**9.x** is now named **laravel-9.x**
 
 If you have a local clone, you can update it by running the following commands.
 
