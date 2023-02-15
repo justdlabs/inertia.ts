@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.1.0",
+        "php": "^8.1",
         "guzzlehttp/guzzle": "^7.5",
         "inertiajs/inertia-laravel": "^0.6.9",
         "laravel/framework": "^10.0",
@@ -50,9 +50,6 @@
         ]
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "10.x-dev"
-        },
         "laravel": {
             "dont-discover": []
         }
