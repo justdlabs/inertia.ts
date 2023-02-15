@@ -3,7 +3,6 @@ import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import useTypedPage from '@/Hooks/useTypedPage';
-import { Method } from '@inertiajs/core';
 import route from 'ziggy-js';
 
 export default function Navbar() {
@@ -52,7 +51,7 @@ export default function Navbar() {
                                     Settings
                                 </Dropdown.Link>
                                 <Dropdown.Divider />
-                                <Dropdown.Link href={route('logout')} method={Method.POST} as='button'>
+                                <Dropdown.Link href={route('logout')} method='post' as='button'>
                                     Log out
                                 </Dropdown.Link>
                             </Dropdown>

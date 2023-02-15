@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link } from '@inertiajs/react';
-import route from "ziggy-js";
+import route from 'ziggy-js';
 
 interface GuestLayoutProps {
     children: ReactNode;

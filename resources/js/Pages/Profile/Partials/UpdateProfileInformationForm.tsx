@@ -7,8 +7,7 @@ import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { ProfileEditProps } from '@/types';
-import { Method } from '@inertiajs/core';
-import route from "ziggy-js";
+import route from 'ziggy-js';
 
 interface UpdateProfileInformationProps extends ProfileEditProps {
     className?: string;
@@ -95,7 +94,7 @@ export default function UpdateProfileInformation({
                                 Your email address is unverified.
                                 <Link
                                     href={route('verification.send')}
-                                    method={Method.POST}
+                                    method='post'
                                     as='button'
                                     className='text-gray-600 underline hover:text-gray-900'>
                                     Click here to re-send the verification email.
