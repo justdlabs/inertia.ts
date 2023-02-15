@@ -1,8 +1,8 @@
 import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import useRoute from '@/Hooks/useRoute';
 import { Method } from '@inertiajs/core';
+import route from 'ziggy-js';
 
 interface User {
     user?: {
@@ -13,7 +13,6 @@ interface User {
 
 const ResponsiveNavbar = () => {
     const { user }: User | any = usePage().props.auth;
-    const route = useRoute();
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>
             <div className='container'>
@@ -23,7 +22,7 @@ const ResponsiveNavbar = () => {
                     </Link>
                     <Dropdown triggerWithMenuIcon>
                         <div>
-                            <Dropdown.Link href='/'>Home</Dropdown.Link>
+                            <Dropdown.Link href={route('home')}>Home</Dropdown.Link>
                         </div>
                         {user ? (
                             <div className='divide-y'>

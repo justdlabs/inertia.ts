@@ -5,10 +5,9 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import useRoute from '@/Hooks/useRoute';
+import route from 'ziggy-js';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
-    const route = useRoute();
     const passwordInput = useRef<HTMLInputElement>(null);
     const currentPasswordInput = useRef<HTMLInputElement>(null);
     const { data, setData, put, errors, reset, processing, recentlySuccessful } = useForm({

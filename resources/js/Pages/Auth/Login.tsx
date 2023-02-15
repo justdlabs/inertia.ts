@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import route from "ziggy-js";
 
 interface LoginProps {
     status: string;
@@ -33,7 +34,7 @@ export default function Login(args: LoginProps) {
     const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
 
-        post('/login');
+        post(route('login'));
     };
 
     return (
