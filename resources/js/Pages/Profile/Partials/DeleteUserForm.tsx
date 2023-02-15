@@ -6,10 +6,9 @@ import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 import DialogModal from '@/Components/DialogModal';
 import clsx from 'clsx';
-import useRoute from '@/Hooks/useRoute';
+import route from 'ziggy-js';
 
 export default function DeleteUserForm({ className }: { className?: string }) {
-    const route = useRoute();
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const passwordInput = useRef<HTMLInputElement>(null);
     const {

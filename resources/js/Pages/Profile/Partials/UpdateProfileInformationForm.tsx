@@ -5,10 +5,10 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import useRoute from '@/Hooks/useRoute';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { ProfileEditProps } from '@/types';
 import { Method } from '@inertiajs/core';
+import route from "ziggy-js";
 
 interface UpdateProfileInformationProps extends ProfileEditProps {
     className?: string;
@@ -20,7 +20,6 @@ export default function UpdateProfileInformation({
     className,
 }: UpdateProfileInformationProps) {
     const user = useTypedPage().props.auth.user;
-    const route = useRoute();
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         username: user.username,
         name: user.name,

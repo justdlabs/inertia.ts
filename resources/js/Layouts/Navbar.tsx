@@ -2,12 +2,11 @@ import { Link } from '@inertiajs/react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import useRoute from '@/Hooks/useRoute';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { Method } from '@inertiajs/core';
+import route from 'ziggy-js';
 
 export default function Navbar() {
-    const route = useRoute();
     const { user } = useTypedPage().props.auth;
     return (
         <nav className='hidden border-b border-gray-200 bg-white sm:block'>
