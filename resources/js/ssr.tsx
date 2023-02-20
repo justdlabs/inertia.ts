@@ -7,14 +7,14 @@ import { RouteContext } from '@/Hooks/useRoute';
 import route from 'ziggy-js';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-const appName = 'Laravel';
+const appName = 'Clara';
 
 createServer(
     (page) =>
         createInertiaApp({
             page,
             render: ReactDOMServer.renderToString,
-            title: (title) => `${title} - ${appName}`,
+            title: (title) => `${title} / ${appName}`,
             resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
             setup: ({ App, props }) => {
                 const ssrRoute = (name: any, params: any, absolute: any, config: any) => {
@@ -31,5 +31,5 @@ createServer(
                 );
             },
         }),
-    13714
+    13715
 );

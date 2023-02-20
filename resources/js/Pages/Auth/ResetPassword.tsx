@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/react';
+import useRoute from '@/Hooks/useRoute';
 
 interface ResetPasswordProps {
     token: string;
@@ -14,6 +15,7 @@ interface ResetPasswordProps {
 type InputTargetProps = { name: any; value: any };
 
 export default function ResetPassword(args: ResetPasswordProps) {
+    const route = useRoute();
     const { token, email } = args;
     const { data, setData, post, processing, errors, reset } = useForm({
         token: token,

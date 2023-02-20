@@ -5,7 +5,7 @@ export default function Checkbox({ ...props }): ReactElement {
         <input
             {...props}
             type='checkbox'
-            className='rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
+            className='rounded border-slate-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50'
         />
     );
 }

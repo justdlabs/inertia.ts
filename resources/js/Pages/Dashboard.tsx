@@ -1,7 +1,8 @@
 import AppLayout from '@/Layouts/AppLayout';
-import { Head, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import Header from '@/Components/Header';
 import Container from '@/Components/Container';
+import useTypedPage from '@/Hooks/useTypedPage';
 
 interface User {
     user?: {
@@ -11,11 +12,13 @@ interface User {
 }
 
 export default function Dashboard() {
-    const { user }: User | any = usePage().props.auth;
+    const { user }: User | any = useTypedPage().props.auth;
     return (
         <>
             <Head title='Dashboard' />
-            <Header value='Dashboard' />
+            <Header value='Dashboard'>
+                Dashboard is the protected page. You can only access this page if you are logged in.
+            </Header>
             <Container>
                 <div className='overflow-hidden rounded-lg shadow'>
                     <p className='bg-white p-4'>Hi {user.name}, you are now logged in.</p>

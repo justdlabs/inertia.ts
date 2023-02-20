@@ -34,7 +34,7 @@ export default function Modal({ isOpen, onClose, maxWidth = '2xl', children }: P
                         leave='ease-in duration-200'
                         leaveFrom='opacity-100'
                         leaveTo='opacity-0'>
-                        <Dialog.Overlay className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity' />
+                        <Dialog.Overlay className='fixed inset-0 bg-slate-500 bg-opacity-75 transition-opacity' />
                     </Transition.Child>
 
                     {/* This element is to trick the browser into centering the modal contents. */}

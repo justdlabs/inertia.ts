@@ -11,17 +11,19 @@ export default function Edit({ mustVerifyEmail, status }: ProfileEditProps) {
     return (
         <div>
             <Head title='Profile' />
-            <Header value='Profile' />
+            <Header value='Profile'>
+                Here you can update your profile information and email address, as well as your password.
+            </Header>
 
             <Container withNoHorizontalPadding>
-                <div className='grid gap-8 sm:grid-cols-2'>
+                <div className='grid gap-x-8 gap-y-12 sm:grid-cols-2'>
                     <UpdateProfileInformationForm
                         mustVerifyEmail={mustVerifyEmail}
                         status={status}
-                        className='max-w-xl bg-white p-4 shadow sm:rounded-lg sm:p-8'
+                        className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8'
                     />
-                    <UpdatePasswordForm className='max-w-xl bg-white p-4 shadow sm:rounded-lg sm:p-8' />
-                    <DeleteUserForm className='max-w-xl bg-white p-4 shadow sm:rounded-lg sm:p-8' />
+                    <UpdatePasswordForm className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8' />
+                    <DeleteUserForm className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8' />
                 </div>
             </Container>
         </div>

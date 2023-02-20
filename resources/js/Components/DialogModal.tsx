@@ -12,7 +12,7 @@ DialogModal.Content = function DialogModalContent({ title, children }: PropsWith
 };
 
 DialogModal.Footer = function DialogModalFooter({ children }: PropsWithChildren<Record<string, unknown>>) {
-    return <div className='bg-gray-100 px-6 py-4 text-right'>{children}</div>;
+    return <div className='bg-slate-100 px-6 py-4 text-right'>{children}</div>;
 };
 
 export default function DialogModal({ children, ...modalProps }: PropsWithChildren<ModalProps>) {

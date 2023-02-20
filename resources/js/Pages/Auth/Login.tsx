@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
@@ -6,7 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import route from 'ziggy-js';
+import useRoute from '@/Hooks/useRoute';
 
 interface LoginProps {
     status: string;
@@ -14,6 +14,7 @@ interface LoginProps {
 }
 
 export default function Login(args: LoginProps) {
+    const route = useRoute();
     const { status, canResetPassword } = args;
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -81,13 +82,13 @@ export default function Login(args: LoginProps) {
                             onChange={(e: { target: { checked: any } }) => e.target.checked}
                         />
 
-                        <span className='ml-2 text-sm text-gray-600'>Remember me</span>
+                        <span className='ml-2 text-sm text-slate-600'>Remember me</span>
                     </label>
                 </div>
 
                 <div className='mt-4 flex items-center justify-end'>
                     {canResetPassword && (
-                        <Link href='/forgot-password' className='text-sm text-gray-600 underline hover:text-gray-900'>
+                        <Link href='/forgot-password' className='text-sm text-slate-600 underline hover:text-slate-900'>
                             Forgot your password?
                         </Link>
                     )}
@@ -101,4 +102,21 @@ export default function Login(args: LoginProps) {
     );
 }
 
-Login.layout = (page: any) => <GuestLayout children={page} />;
+Login.layout = (page: React.ReactNode) => {
+    const route = useRoute();
+    return (
+        <GuestLayout
+            header='Login'
+            description={
+                <>
+                    Or{' '}
+                    <Link href={route('register')} className='font-medium text-primary-600 hover:text-primary-500'>
+                        register
+                    </Link>{' '}
+                    if you don't have an account
+                </>
+            }
+            children={page}
+        />
+    );
+};
