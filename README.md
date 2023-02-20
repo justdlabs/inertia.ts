@@ -9,7 +9,7 @@ php artisan key:generate
 npm i && npm run build
 ```
 
-> This project using React `v18` and Laravel `v9`
+> This project using React `v18` and Laravel `v10`
 
 ### Laravel Inertia React w/ Typescript
 
