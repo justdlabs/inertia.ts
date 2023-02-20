@@ -1,6 +1,6 @@
 import useRoute from '@/Hooks/useRoute';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import {Head, Link} from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import React from 'react';
 
 export default function PrivacyPolicy({ policy }: { policy: string }) {
@@ -25,7 +25,14 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                     width={20}
                                     height={20}
                                     patternUnits='userSpaceOnUse'>
-                                    <rect x={0} y={0} width={4} height={4} className='text-gray-200' fill='currentColor' />
+                                    <rect
+                                        x={0}
+                                        y={0}
+                                        width={4}
+                                        height={4}
+                                        className='text-gray-200'
+                                        fill='currentColor'
+                                    />
                                 </pattern>
                             </defs>
                             <rect width={404} height={384} fill='url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)' />
@@ -44,7 +51,14 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                     width={20}
                                     height={20}
                                     patternUnits='userSpaceOnUse'>
-                                    <rect x={0} y={0} width={4} height={4} className='text-gray-200' fill='currentColor' />
+                                    <rect
+                                        x={0}
+                                        y={0}
+                                        width={4}
+                                        height={4}
+                                        className='text-gray-200'
+                                        fill='currentColor'
+                                    />
                                 </pattern>
                             </defs>
                             <rect width={404} height={384} fill='url(#f210dbf6-a58d-4871-961e-36d5016a0f49)' />
@@ -63,7 +77,14 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                     width={20}
                                     height={20}
                                     patternUnits='userSpaceOnUse'>
-                                    <rect x={0} y={0} width={4} height={4} className='text-gray-200' fill='currentColor' />
+                                    <rect
+                                        x={0}
+                                        y={0}
+                                        width={4}
+                                        height={4}
+                                        className='text-gray-200'
+                                        fill='currentColor'
+                                    />
                                 </pattern>
                             </defs>
                             <rect width={404} height={384} fill='url(#d3eb07ae-5182-43e6-857d-35c643af9034)' />
@@ -76,12 +97,12 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                             <ApplicationLogo className='mx-auto h-16 w-16 fill-current text-red-500' />
                         </Link>
                         <h1>
-                        <span className='mt-4 block text-center text-lg font-semibold text-indigo-600'>
-                            Introducing
-                        </span>
+                            <span className='mt-4 block text-center text-lg font-semibold text-indigo-600'>
+                                Introducing
+                            </span>
                             <span className='mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl'>
-                            Privacy Policy
-                        </span>
+                                Privacy Policy
+                            </span>
                         </h1>
 
                         <div

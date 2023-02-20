@@ -1,10 +1,9 @@
 import useRoute from '@/Hooks/useRoute';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import {Head, Link} from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import React from 'react';
-import AppLayout from "@/Layouts/AppLayout";
-import Header from "@/Components/Header";
-import Container from "@/Components/Container";
+import AppLayout from '@/Layouts/AppLayout';
+import Header from '@/Components/Header';
+import Container from '@/Components/Container';
 
 export default function About({ about }: { about: string }) {
     const route = useRoute();
@@ -12,9 +11,8 @@ export default function About({ about }: { about: string }) {
         <>
             <Head title='About Us' />
             <Header value='About Us'>
-                This page is rendered using markdown, you find it in <code>resources/markdown/about.md</code> if you want to
-                edit it.
-
+                This page is rendered using markdown, you find it in <code>resources/markdown/about.md</code> if you
+                want to edit it.
             </Header>
             <Container>
                 <div

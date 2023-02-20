@@ -35,7 +35,7 @@ export default function Navbar() {
                         <div className='flex items-center'>
                             <Dropdown
                                 trigger={
-                                    <div className='flex items-center gap-x-2 [&>img]:h-6 [&>img]:shrink-0 [&>img]:w-6 [&>img]:rounded-full'>
+                                    <div className='flex items-center gap-x-2 [&>img]:h-6 [&>img]:w-6 [&>img]:shrink-0 [&>img]:rounded-full'>
                                         <img
                                             src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`}
                                             alt={user?.name}

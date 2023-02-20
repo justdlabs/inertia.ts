@@ -123,8 +123,8 @@ export default function Register() {
                                             href={route('terms.show')}
                                             className='text-sm text-gray-600 underline hover:text-gray-900'>
                                             Terms of Service
-                                        </a>
-                                        {' '}and{' '}
+                                        </a>{' '}
+                                        and{' '}
                                         <a
                                             target='_blank'
                                             href={route('privacy.show')}

@@ -7,7 +7,6 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import useRoute from '@/Hooks/useRoute';
-import Register from "@/Pages/Auth/Register";
 
 interface LoginProps {
     status: string;

@@ -13,7 +13,7 @@ export default function Home() {
                 Inertia is a new approach to building classic server-driven web apps. We call it the modern monolith.
             </Header>
             <Container withNoHorizontalPadding>
-                <div className='overflow-hidden bg-white border sm:rounded-lg'>
+                <div className='overflow-hidden border bg-white sm:rounded-lg'>
                     <div>
                         <div className='bg-white p-4 sm:p-20'>
                             <div>
