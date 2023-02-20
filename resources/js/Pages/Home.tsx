@@ -9,9 +9,11 @@ export default function Home() {
     return (
         <>
             <Head title='Welcome to Laravel' />
-            <Header value='Home' />
+            <Header value='Home'>
+                Inertia is a new approach to building classic server-driven web apps. We call it the modern monolith.
+            </Header>
             <Container withNoHorizontalPadding>
-                <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
+                <div className='overflow-hidden bg-white border sm:rounded-lg'>
                     <div>
                         <div className='bg-white p-4 sm:p-20'>
                             <div>
@@ -21,7 +23,7 @@ export default function Home() {
                                 <div className='mt-6 text-xl sm:mt-8 sm:text-2xl'>
                                     Laravel application with Inertia and React Typescript!
                                 </div>
-                                <div className='mt-4 text-gray-500 sm:mt-6 sm:text-lg'>
+                                <div className='mt-4 text-slate-500 sm:mt-6 sm:text-lg'>
                                     This is a Laravel application with Inertia and React Typescript. It is a work in
                                     progress. If you have any questions or suggestions, please feel free to contact me.
                                 </div>
@@ -37,14 +39,14 @@ export default function Home() {
                                         <a
                                             href='https://twitter.com/irsyadadl'
                                             target='_blank'
-                                            className='text-blue-500'>
+                                            className='text-primary-500'>
                                             IrsyadAdl
                                         </a>
                                         , if you want to contribute to this project, please visit the{' '}
                                         <a
                                             href='https://github.com/irsyadadl/inertia.ts'
                                             target='_blank'
-                                            className='text-blue-500'>
+                                            className='text-primary-500'>
                                             Github Repository
                                         </a>
                                         .

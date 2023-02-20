@@ -5,9 +5,10 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import route from 'ziggy-js';
+import useRoute from '@/Hooks/useRoute';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
+    const route = useRoute();
     const passwordInput = useRef<HTMLInputElement>(null);
     const currentPasswordInput = useRef<HTMLInputElement>(null);
     const { data, setData, put, errors, reset, processing, recentlySuccessful } = useForm({
@@ -38,9 +39,9 @@ export default function UpdatePasswordForm({ className }: { className?: string }
     return (
         <section>
             <header className='mb-4 px-4 sm:px-0'>
-                <h2 className='text-lg font-medium text-gray-900'>Update Password</h2>
+                <h2 className='text-lg font-medium text-slate-900'>Update Password</h2>
 
-                <p className='mt-1 text-sm text-gray-600'>
+                <p className='mt-1 text-sm text-slate-600'>
                     Ensure your account is using a long, random password to stay secure.
                 </p>
             </header>
@@ -102,7 +103,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             enterFrom='opacity-0'
                             leaveTo='opacity-0'
                             className='transition ease-in-out'>
-                            <p className='text-sm text-gray-600'>Saved.</p>
+                            <p className='text-sm text-slate-600'>Saved.</p>
                         </Transition>
                     </div>
                 </form>

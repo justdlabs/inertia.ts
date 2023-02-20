@@ -3,12 +3,14 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/react';
+import useRoute from '@/Hooks/useRoute';
 
 interface ForgotPasswordProps {
     status: string;
 }
 
 export default function ForgotPassword({ status }: ForgotPasswordProps) {
+    const route = useRoute();
     const { data, setData, post, processing, errors } = useForm({
         email: '',
     });
@@ -26,7 +28,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
         <>
             <Head title='Forgot Password' />
 
-            <div className='mb-4 text-sm leading-normal text-gray-500'>
+            <div className='mb-4 text-sm leading-normal text-slate-500'>
                 Forgot your password? No problem. Just let us know your email address and we will email you a password
                 reset link that will allow you to choose a new one.
             </div>

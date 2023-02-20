@@ -105,7 +105,7 @@ export const IconMenu = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const Divider = () => <Menu.Item as='hr' className='my-1.5 h-px bg-gray-200' />;
+const Divider = () => <Menu.Item as='hr' className='my-1.5 h-px bg-slate-200' />;
 
 Dropdown.Link = Link;
 Dropdown.Divider = Divider;

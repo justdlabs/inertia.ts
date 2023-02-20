@@ -8,8 +8,8 @@ import route from 'ziggy-js';
 export default function Navbar() {
     const { user } = useTypedPage().props.auth;
     return (
-        <nav className='hidden border-b border-gray-200 bg-white sm:block'>
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+        <nav className='hidden border-b border-slate-200 bg-white sm:block'>
+            <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 justify-between'>
                     <div className='flex'>
                         <div className='flex shrink-0 items-center'>
@@ -20,6 +20,9 @@ export default function Navbar() {
                         <div className='hidden gap-x-8 sm:-my-px sm:ml-10 sm:flex'>
                             <NavLink active={route().current('home')} href='/'>
                                 Home
+                            </NavLink>
+                            <NavLink active={route().current('about')} href={route('about')}>
+                                About
                             </NavLink>
                             {user && (
                                 <NavLink active={route().current('dashboard')} href='/dashboard'>
@@ -32,7 +35,7 @@ export default function Navbar() {
                         <div className='flex items-center'>
                             <Dropdown
                                 trigger={
-                                    <div className='flex items-center gap-x-2 [&>img]:h-5 [&>img]:w-5 [&>img]:rounded-full'>
+                                    <div className='flex items-center gap-x-2 [&>img]:h-6 [&>img]:shrink-0 [&>img]:w-6 [&>img]:rounded-full'>
                                         <img
                                             src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`}
                                             alt={user?.name}
@@ -40,10 +43,15 @@ export default function Navbar() {
                                         {user?.name}
                                     </div>
                                 }>
-                                <div className='px-4 py-0.5 text-sm text-slate-500'>
-                                    Signed as <strong className='font-semibold text-slate-900'>{user.username}</strong>
-                                </div>
-                                <Dropdown.Divider />
+                                {user?.username ? (
+                                    <>
+                                        <div className='px-4 py-0.5 text-sm text-slate-500'>
+                                            Signed as{' '}
+                                            <strong className='font-semibold text-slate-900'>{user.username}</strong>
+                                        </div>
+                                        <Dropdown.Divider />
+                                    </>
+                                ) : null}
                                 <Dropdown.Link isActive={route().current('dashboard')} href={route('dashboard')}>
                                     Dashboard
                                 </Dropdown.Link>

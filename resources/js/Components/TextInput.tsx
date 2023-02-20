@@ -10,7 +10,7 @@ const TextInput = forwardRef<
         type={props.type || 'text'}
         ref={ref}
         className={cx(
-            'w-full rounded-md border-slate-300 text-slate-800 shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50',
+            'w-full rounded-md border-slate-300 text-slate-800 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50',
             props.className
         )}
     />

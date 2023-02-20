@@ -1,8 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import { Method } from '@inertiajs/core';
-import route from 'ziggy-js';
+import useRoute from '@/Hooks/useRoute';
 
 interface User {
     user?: {
@@ -12,6 +11,7 @@ interface User {
 }
 
 const ResponsiveNavbar = () => {
+    const route = useRoute();
     const { user }: User | any = usePage().props.auth;
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>
@@ -31,7 +31,7 @@ const ResponsiveNavbar = () => {
                                     <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
                                 </div>
                                 <div>
-                                    <Dropdown.Link href={route('logout')} method={Method.POST} as='button'>
+                                    <Dropdown.Link href={route('logout')} method='post' as='button'>
                                         Log out
                                     </Dropdown.Link>
                                 </div>

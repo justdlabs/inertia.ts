@@ -7,7 +7,7 @@ import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { ProfileEditProps } from '@/types';
-import route from 'ziggy-js';
+import useRoute from '@/Hooks/useRoute';
 
 interface UpdateProfileInformationProps extends ProfileEditProps {
     className?: string;
@@ -18,6 +18,7 @@ export default function UpdateProfileInformation({
     status,
     className,
 }: UpdateProfileInformationProps) {
+    const route = useRoute();
     const user = useTypedPage().props.auth.user;
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         username: user.username,
@@ -35,9 +36,9 @@ export default function UpdateProfileInformation({
     return (
         <section>
             <header className='mb-4 px-4 sm:px-0'>
-                <h2 className='text-lg font-medium text-gray-900'>Profile Information</h2>
+                <h2 className='text-lg font-medium text-slate-900'>Profile Information</h2>
 
-                <p className='mt-1 text-sm text-gray-600'>
+                <p className='mt-1 text-sm text-slate-600'>
                     Update your account's profile information and email address.
                 </p>
             </header>
@@ -96,7 +97,7 @@ export default function UpdateProfileInformation({
                                     href={route('verification.send')}
                                     method='post'
                                     as='button'
-                                    className='text-gray-600 underline hover:text-gray-900'>
+                                    className='text-slate-600 underline hover:text-slate-900'>
                                     Click here to re-send the verification email.
                                 </Link>
                             </p>
@@ -117,7 +118,7 @@ export default function UpdateProfileInformation({
                             enterFrom='opacity-0'
                             leaveTo='opacity-0'
                             className='transition ease-in-out'>
-                            <p className='text-sm text-gray-600'>Saved.</p>
+                            <p className='text-sm text-slate-600'>Saved.</p>
                         </Transition>
                     </div>
                 </form>
