@@ -6,7 +6,6 @@ import Header from '@/Components/Header';
 import Container from '@/Components/Container';
 
 export default function About({ about }: { about: string }) {
-    const route = useRoute();
     return (
         <>
             <Head title='About Us' />

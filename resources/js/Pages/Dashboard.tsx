@@ -4,15 +4,8 @@ import Header from '@/Components/Header';
 import Container from '@/Components/Container';
 import useTypedPage from '@/Hooks/useTypedPage';
 
-interface User {
-    user?: {
-        id: string;
-        name: string;
-    };
-}
-
 export default function Dashboard() {
-    const { user }: User | any = useTypedPage().props.auth;
+    const { user } =  useTypedPage().props.auth;
     return (
         <>
             <Head title='Dashboard' />

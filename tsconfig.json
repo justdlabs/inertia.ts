@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "types": ["vite/client"],
         "target": "ESNext",
         "useDefineForClassFields": true,
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -18,7 +19,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["resources/js/*"]
-        }
+        },
     },
     "include": ["resources/js/**/*"],
     "exclude": ["node_modules", "public", "app/bootstrap/ssr"],

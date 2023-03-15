@@ -3,10 +3,11 @@ import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import useTypedPage from '@/Hooks/useTypedPage';
-import route from 'ziggy-js';
+import useRoute from "@/Hooks/useRoute";
 
 export default function Navbar() {
     const { user } = useTypedPage().props.auth;
+    const route = useRoute();
     return (
         <nav className='hidden border-b border-slate-200 bg-white sm:block'>
             <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
