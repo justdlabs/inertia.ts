@@ -5,12 +5,10 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import useRoute from '@/Hooks/useRoute';
 import Checkbox from '@/Components/Checkbox';
 import useTypedPage from '@/Hooks/useTypedPage';
 
 export default function Register() {
-    const route = useRoute();
     const { hasTermsAndPrivacyPolicyFeature } = useTypedPage().props;
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
@@ -154,7 +152,6 @@ export default function Register() {
 }
 
 Register.layout = (page: React.ReactNode) => {
-    const route = useRoute();
     return (
         <GuestLayout
             header='Register'

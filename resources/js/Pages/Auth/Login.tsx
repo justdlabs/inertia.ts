@@ -6,7 +6,6 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import useRoute from '@/Hooks/useRoute';
 
 interface LoginProps {
     status: string;
@@ -14,7 +13,6 @@ interface LoginProps {
 }
 
 export default function Login(args: LoginProps) {
-    const route = useRoute();
     const { status, canResetPassword } = args;
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -103,7 +101,6 @@ export default function Login(args: LoginProps) {
 }
 
 Login.layout = (page: React.ReactNode) => {
-    const route = useRoute();
     return (
         <GuestLayout
             header='Login'

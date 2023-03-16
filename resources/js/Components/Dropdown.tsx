@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link as InertiaLink } from '@inertiajs/react';
+import { InertiaLinkProps, Link as InertiaLink } from '@inertiajs/react';
 import { Menu, Transition } from '@headlessui/react';
 import cx from 'clsx';
-import { InertiaLinkProps } from '@/types';
 
 interface DropdownMenuProps {
     children: React.ReactNode;

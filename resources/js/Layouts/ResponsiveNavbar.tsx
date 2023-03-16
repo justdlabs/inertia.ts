@@ -1,7 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import useRoute from '@/Hooks/useRoute';
 
 interface User {
     user?: {
@@ -11,7 +10,6 @@ interface User {
 }
 
 const ResponsiveNavbar = () => {
-    const route = useRoute();
     const { user }: User | any = usePage().props.auth;
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>

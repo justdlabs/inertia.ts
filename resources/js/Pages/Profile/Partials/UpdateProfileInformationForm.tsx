@@ -7,7 +7,6 @@ import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import useTypedPage from '@/Hooks/useTypedPage';
 import { ProfileEditProps } from '@/types';
-import useRoute from '@/Hooks/useRoute';
 
 interface UpdateProfileInformationProps extends ProfileEditProps {
     className?: string;
@@ -18,7 +17,6 @@ export default function UpdateProfileInformation({
     status,
     className,
 }: UpdateProfileInformationProps) {
-    const route = useRoute();
     const user = useTypedPage().props.auth.user;
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         username: user.username,

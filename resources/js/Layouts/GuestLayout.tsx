@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link } from '@inertiajs/react';
-import useRoute from '@/Hooks/useRoute';
 
 interface GuestLayoutProps {
     children: ReactNode;
@@ -10,7 +9,6 @@ interface GuestLayoutProps {
 }
 
 export default function Guest({ description = null, header = null, children }: GuestLayoutProps) {
-    const route = useRoute();
     return (
         <div className='flex min-h-screen flex-col items-center bg-slate-100 pt-6 sm:justify-center sm:pt-0'>
             <div className='sm:mx-auto sm:w-full sm:max-w-md'>

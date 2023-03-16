@@ -5,7 +5,7 @@ import Container from '@/Components/Container';
 import useTypedPage from '@/Hooks/useTypedPage';
 
 export default function Dashboard() {
-    const { user } =  useTypedPage().props.auth;
+    const { user } = useTypedPage().props.auth;
     return (
         <>
             <Head title='Dashboard' />
