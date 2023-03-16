@@ -68,28 +68,7 @@ npm run test-ssr
 ### Components
 This project has a few helpers available to you. You can use them in your components like this:
 
-#### useRoute()
-Gives you access to a typed version of [ziggy-js's](https://github.com/tighten/ziggy) route() function.
 
-```tsx
-import useRoute from '@/hooks/useRoute';
-
-export default function SomeComponent() {
-  const route = useRoute();
-
-  return <a href={route('profile.edit')}>Edit profile</a>;
-}
-```
-
-#### useTypedPage()
-Gives you access to a typed version of usePage() from inertia.js
-```tsx
-import useTypedPage from '@/hooks/useTypedPage';
-export default function SomeComponent() {
-    const { props } = useTypedPage<{ canViewThisPage: boolean; }>();
-    const { canViewThisPage, user } = props;
-}
-```
 ### Update profile information
 Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
 
