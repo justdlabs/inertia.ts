@@ -3,11 +3,15 @@ import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 import { Head } from '@inertiajs/react';
-import { ProfileEditProps } from '@/types';
 import Container from '@/Components/Container';
 import Header from '@/Components/Header';
 
-export default function Edit({ mustVerifyEmail, status }: ProfileEditProps) {
+interface Props {
+    mustVerifyEmail: boolean;
+    status?: string;
+}
+
+export default function Edit({ mustVerifyEmail, status }: Props) {
     return (
         <div>
             <Head title='Profile' />

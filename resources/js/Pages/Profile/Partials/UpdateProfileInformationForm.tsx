@@ -3,25 +3,22 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import useTypedPage from '@/Hooks/useTypedPage';
-import { ProfileEditProps } from '@/types';
+import { PageProps } from '@/types';
 
-interface UpdateProfileInformationProps extends ProfileEditProps {
+interface Props {
+    mustVerifyEmail: boolean;
+    status?: string;
     className?: string;
 }
 
-export default function UpdateProfileInformation({
-    mustVerifyEmail,
-    status,
-    className,
-}: UpdateProfileInformationProps) {
-    const user = useTypedPage().props.auth.user;
+export default function UpdateProfileInformation({ mustVerifyEmail, status, className }: Props) {
+    const { auth } = usePage<PageProps>().props;
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-        username: user.username,
-        name: user.name,
-        email: user.email,
+        username: auth.user.username ?? '',
+        name: auth.user.name ?? '',
+        email: auth.user.email ?? '',
     });
 
     const submit = (e: { preventDefault: () => void }) => {
@@ -87,7 +84,7 @@ export default function UpdateProfileInformation({
                         <InputError className='mt-2' message={errors.email} />
                     </div>
 
-                    {mustVerifyEmail && user.email_verified_at === null && (
+                    {mustVerifyEmail && auth.user.email_verified_at === null && (
                         <div>
                             <p className='mt-2 text-sm'>
                                 Your email address is unverified.

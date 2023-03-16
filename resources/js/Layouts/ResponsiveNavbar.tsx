@@ -1,16 +1,10 @@
 import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-
-interface User {
-    user?: {
-        id: string;
-        name: string;
-    };
-}
+import { PageProps } from '@/types';
 
 const ResponsiveNavbar = () => {
-    const { user }: User | any = usePage().props.auth;
+    const { auth } = usePage<PageProps>().props;
     return (
         <nav className='block border-b bg-white py-2 sm:hidden'>
             <div className='container'>
@@ -22,7 +16,7 @@ const ResponsiveNavbar = () => {
                         <div>
                             <Dropdown.Link href={route('home')}>Home</Dropdown.Link>
                         </div>
-                        {user ? (
+                        {auth.user ? (
                             <div className='divide-y'>
                                 <div>
                                     <Dropdown.Link href={route('dashboard')}>Dashboard</Dropdown.Link>

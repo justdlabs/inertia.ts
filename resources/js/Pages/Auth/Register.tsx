@@ -4,12 +4,11 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import Checkbox from '@/Components/Checkbox';
-import useTypedPage from '@/Hooks/useTypedPage';
 
 export default function Register() {
-    const { hasTermsAndPrivacyPolicyFeature } = useTypedPage().props;
+    const { hasTermsAndPrivacyPolicyFeature } = usePage<{ hasTermsAndPrivacyPolicyFeature: boolean }>().props;
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
