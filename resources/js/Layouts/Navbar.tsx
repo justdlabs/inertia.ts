@@ -1,13 +1,12 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
-import useTypedPage from '@/Hooks/useTypedPage';
-import useRoute from "@/Hooks/useRoute";
+import { PageProps } from '@/types';
 
 export default function Navbar() {
-    const { user } = useTypedPage().props.auth;
-    const route = useRoute();
+    const { auth } = usePage<PageProps>().props;
+
     return (
         <nav className='hidden border-b border-slate-200 bg-white sm:block'>
             <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
@@ -25,30 +24,32 @@ export default function Navbar() {
                             <NavLink active={route().current('about')} href={route('about')}>
                                 About
                             </NavLink>
-                            {user && (
+                            {auth.user && (
                                 <NavLink active={route().current('dashboard')} href='/dashboard'>
                                     Dashboard
                                 </NavLink>
                             )}
                         </div>
                     </div>
-                    {user ? (
+                    {auth.user ? (
                         <div className='flex items-center'>
                             <Dropdown
                                 trigger={
                                     <div className='flex items-center gap-x-2 [&>img]:h-6 [&>img]:w-6 [&>img]:shrink-0 [&>img]:rounded-full'>
                                         <img
-                                            src={`https://avatar.vercel.sh/rauchg.svg?text=${user?.acronym}`}
-                                            alt={user?.name}
+                                            src={`https://avatar.vercel.sh/rauchg.svg?text=${auth.user?.acronym}`}
+                                            alt={auth.user?.name}
                                         />
-                                        {user?.name}
+                                        {auth.user?.name}
                                     </div>
                                 }>
-                                {user?.username ? (
+                                {auth.user?.username ? (
                                     <>
                                         <div className='px-4 py-0.5 text-sm text-slate-500'>
                                             Signed as{' '}
-                                            <strong className='font-semibold text-slate-900'>{user.username}</strong>
+                                            <strong className='font-semibold text-slate-900'>
+                                                {auth.user?.username}
+                                            </strong>
                                         </div>
                                         <Dropdown.Divider />
                                     </>

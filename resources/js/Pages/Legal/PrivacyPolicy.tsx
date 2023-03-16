@@ -1,10 +1,8 @@
-import useRoute from '@/Hooks/useRoute';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Head, Link } from '@inertiajs/react';
 import React from 'react';
 
 export default function PrivacyPolicy({ policy }: { policy: string }) {
-    const route = useRoute();
     return (
         <>
             <Head title='Privacy Policy' />

@@ -1,4 +1,3 @@
-import useRoute from '@/Hooks/useRoute';
 import { Head } from '@inertiajs/react';
 import React from 'react';
 import AppLayout from '@/Layouts/AppLayout';
