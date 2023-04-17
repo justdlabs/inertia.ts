@@ -3,7 +3,7 @@ import Container from '@/Components/Container';
 
 export default function Header({ value, children }: { value?: ReactNode; children?: ReactNode }) {
     return (
-        <div className='bg-white py-24 px-6 shadow sm:py-32 lg:px-8'>
+        <div className='border-b border-slate-200 bg-slate-50 py-16 px-6 lg:px-8'>
             <Container>
                 <div className='max-w-xl'>
                     <h2 className='text-4xl font-bold tracking-tight text-slate-800 sm:text-6xl'>{value}</h2>

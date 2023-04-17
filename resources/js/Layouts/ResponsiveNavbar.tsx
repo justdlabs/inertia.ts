@@ -1,6 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
+import { Dropdown, DropdownLink } from '@/Components/Dropdown';
 import { PageProps } from '@/types';
 
 const ResponsiveNavbar = () => {
@@ -12,27 +12,26 @@ const ResponsiveNavbar = () => {
                     <Link href='/'>
                         <ApplicationLogo className='w-8 fill-red-600' />
                     </Link>
-                    <Dropdown triggerWithMenuIcon>
+                    <Dropdown trigger='Menu'>
                         <div>
-                            <Dropdown.Link href={route('home')}>Home</Dropdown.Link>
+                            <DropdownLink href={route('home')}>Home</DropdownLink>
                         </div>
                         {auth.user ? (
-                            <div className='divide-y'>
-                                <div>
-                                    <Dropdown.Link href={route('dashboard')}>Dashboard</Dropdown.Link>
-                                    <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                            <>
+                                <div className='py-1'>
+                                    <DropdownLink href={route('dashboard')}>Dashboard</DropdownLink>
+                                    <DropdownLink href={route('profile.edit')}>Profile</DropdownLink>
                                 </div>
-                                <div>
-                                    <Dropdown.Link href={route('logout')} method='post' as='button'>
+                                <div className='py-1'>
+                                    <DropdownLink href={route('logout')} method='post' as='button'>
                                         Log out
-                                    </Dropdown.Link>
+                                    </DropdownLink>
                                 </div>
-                            </div>
+                            </>
                         ) : (
                             <>
-                                <Dropdown.Divider />
-                                <Dropdown.Link href={route('login')}>Login</Dropdown.Link>
-                                <Dropdown.Link href={route('register')}>Register</Dropdown.Link>
+                                <DropdownLink href={route('login')}>Login</DropdownLink>
+                                <DropdownLink href={route('register')}>Register</DropdownLink>
                             </>
                         )}
                     </Dropdown>

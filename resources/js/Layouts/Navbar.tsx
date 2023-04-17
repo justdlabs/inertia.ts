@@ -1,7 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import NavLink from '@/Components/NavLink';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import Dropdown from '@/Components/Dropdown';
+import { Dropdown, DropdownLink } from '@/Components/Dropdown';
 import { PageProps } from '@/types';
 
 export default function Navbar() {
@@ -45,25 +45,27 @@ export default function Navbar() {
                                 }>
                                 {auth.user?.username ? (
                                     <>
-                                        <div className='px-4 py-0.5 text-sm text-slate-500'>
+                                        <div className='px-4 py-2 text-sm text-slate-500'>
                                             Signed as{' '}
                                             <strong className='font-semibold text-slate-900'>
                                                 {auth.user?.username}
                                             </strong>
                                         </div>
-                                        <Dropdown.Divider />
                                     </>
                                 ) : null}
-                                <Dropdown.Link isActive={route().current('dashboard')} href={route('dashboard')}>
-                                    Dashboard
-                                </Dropdown.Link>
-                                <Dropdown.Link isActive={route().current('profile.edit')} href={route('profile.edit')}>
-                                    Settings
-                                </Dropdown.Link>
-                                <Dropdown.Divider />
-                                <Dropdown.Link href={route('logout')} method='post' as='button'>
+                                <div className='py-1'>
+                                    <DropdownLink isActive={route().current('dashboard')} href={route('dashboard')}>
+                                        Dashboard
+                                    </DropdownLink>
+                                    <DropdownLink
+                                        isActive={route().current('profile.edit')}
+                                        href={route('profile.edit')}>
+                                        Settings
+                                    </DropdownLink>
+                                </div>
+                                <DropdownLink href={route('logout')} method='post' as='button'>
                                     Log out
-                                </Dropdown.Link>
+                                </DropdownLink>
                             </Dropdown>
                         </div>
                     ) : (
