@@ -24,8 +24,6 @@ class UserResource extends JsonResource
         ];
     }
 
-
-
     protected function createAcronym($string): ?string
     {
         $output = null;
