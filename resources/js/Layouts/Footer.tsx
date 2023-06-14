@@ -5,6 +5,7 @@ import {
     IconBrandTwitter,
     IconBrandYoutube,
 } from '@tabler/icons-react';
+import { Link } from '@inertiajs/react';
 
 const navigation = {
     solutions: [
@@ -61,7 +62,7 @@ const navigation = {
 
 export default function Footer() {
     return (
-        <footer className='bg-white' aria-labelledby='footer-heading'>
+        <footer aria-labelledby='footer-heading'>
             <h2 id='footer-heading' className='sr-only'>
                 Footer
             </h2>
@@ -70,27 +71,27 @@ export default function Footer() {
                     <div className='grid grid-cols-2 gap-8 xl:col-span-2'>
                         <div className='md:grid md:grid-cols-2 md:gap-8'>
                             <div>
-                                <h3 className='text-sm font-semibold leading-6 text-slate-900'>Solutions</h3>
+                                <h3 className='text-sm font-semibold leading-6 text-primary'>Solutions</h3>
                                 <ul role='list' className='mt-6 space-y-4'>
                                     {navigation.solutions.map((item) => (
                                         <li key={item.name}>
-                                            <a
+                                            <Link
                                                 href={item.href}
-                                                className='text-sm leading-6 text-slate-600 hover:text-slate-900'>
+                                                className='text-sm leading-6 text-muted-foreground hover:text-primary'>
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                             <div className='mt-10 md:mt-0'>
-                                <h3 className='text-sm font-semibold leading-6 text-slate-900'>Support</h3>
+                                <h3 className='text-sm font-semibold leading-6 text-primary'>Support</h3>
                                 <ul role='list' className='mt-6 space-y-4'>
                                     {navigation.support.map((item) => (
                                         <li key={item.name}>
                                             <a
                                                 href={item.href}
-                                                className='text-sm leading-6 text-slate-600 hover:text-slate-900'>
+                                                className='text-sm leading-6 text-muted-foreground hover:text-primary'>
                                                 {item.name}
                                             </a>
                                         </li>
@@ -100,13 +101,13 @@ export default function Footer() {
                         </div>
                         <div className='md:grid md:grid-cols-2 md:gap-8'>
                             <div>
-                                <h3 className='text-sm font-semibold leading-6 text-slate-900'>Company</h3>
+                                <h3 className='text-sm font-semibold leading-6 text-primary'>Company</h3>
                                 <ul role='list' className='mt-6 space-y-4'>
                                     {navigation.company.map((item) => (
                                         <li key={item.name}>
                                             <a
                                                 href={item.href}
-                                                className='text-sm leading-6 text-slate-600 hover:text-slate-900'>
+                                                className='text-sm leading-6 text-muted-foreground hover:text-primary'>
                                                 {item.name}
                                             </a>
                                         </li>
@@ -114,13 +115,13 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className='mt-10 md:mt-0'>
-                                <h3 className='text-sm font-semibold leading-6 text-slate-900'>Legal</h3>
+                                <h3 className='text-sm font-semibold leading-6 text-primary'>Legal</h3>
                                 <ul role='list' className='mt-6 space-y-4'>
                                     {navigation.legal.map((item) => (
                                         <li key={item.name}>
                                             <a
                                                 href={item.href}
-                                                className='text-sm leading-6 text-slate-600 hover:text-slate-900'>
+                                                className='text-sm leading-6 text-muted-foreground hover:text-primary'>
                                                 {item.name}
                                             </a>
                                         </li>
@@ -130,7 +131,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className='mt-10 xl:mt-0'>
-                        <h3 className='text-sm font-semibold leading-6 text-slate-900'>Subscribe to our newsletter</h3>
+                        <h3 className='text-sm font-semibold leading-6 text-primary'>Subscribe to our newsletter</h3>
                         <p className='mt-2 text-sm leading-6 text-slate-600'>
                             The latest news, articles, and resources, sent to your inbox weekly.
                         </p>
@@ -144,13 +145,13 @@ export default function Footer() {
                                 id='email-address'
                                 autoComplete='email'
                                 required
-                                className='w-full min-w-0 appearance-none rounded-md border-0 bg-white px-3 py-1.5 text-base text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:w-64 sm:text-sm sm:leading-6 xl:w-full'
+                                className='w-full min-w-0 appearance-none rounded-md border-0 bg-white px-3 py-1.5 text-base text-primary shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:w-64 sm:text-sm sm:leading-6 xl:w-full'
                                 placeholder='Enter your email'
                             />
                             <div className='mt-4 sm:mt-0 sm:ml-4 sm:flex-shrink-0'>
                                 <button
                                     type='submit'
-                                    className='flex w-full items-center justify-center rounded-md bg-primary-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600'>
+                                    className='flex w-full items-center justify-center rounded-md bg-brand-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600'>
                                     Subscribe
                                 </button>
                             </div>

@@ -1,11 +1,13 @@
 import React from 'react';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputErrorMessage from '@/Components/InputErrorMessage';
+import { Label } from '@/Components/Label';
+import { Button } from '@/Components/Button';
+import { Input } from '@/Components/Input';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import { PageProps } from '@/types';
+import SectionTitle from '@/Components/SectionTitle';
+import { Card, CardContent } from '@/Components/Card';
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -29,20 +31,17 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     };
 
     return (
-        <section>
-            <header className='mb-4 px-4 sm:px-0'>
-                <h2 className='text-lg font-medium text-slate-900'>Profile Information</h2>
-
-                <p className='mt-1 text-sm text-slate-600'>
-                    Update your account's profile information and email address.
-                </p>
-            </header>
-            <div className={className}>
+        <Card>
+            <SectionTitle
+                title='Profile Information'
+                description="Update your account's profile information and email address."
+            />
+            <CardContent>
                 <form onSubmit={submit} className='space-y-6'>
                     <div>
-                        <InputLabel forInput='name' value='Name' />
+                        <Label htmlFor='name'>Name</Label>
 
-                        <TextInput
+                        <Input
                             id='name'
                             type='text'
                             value={data.name}
@@ -52,12 +51,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='name'
                         />
 
-                        <InputError className='mt-2' message={errors.name} />
+                        <InputErrorMessage className='mt-2' message={errors.name} />
                     </div>
                     <div>
-                        <InputLabel forInput='username' value='Username' />
+                        <Label htmlFor='username'>Username</Label>
 
-                        <TextInput
+                        <Input
                             id='username'
                             type='text'
                             value={data.username}
@@ -66,13 +65,13 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='username'
                         />
 
-                        <InputError className='mt-2' message={errors.username} />
+                        <InputErrorMessage className='mt-2' message={errors.username} />
                     </div>
 
                     <div>
-                        <InputLabel forInput='email' value='Email' />
+                        <Label htmlFor='email'>Email</Label>
 
-                        <TextInput
+                        <Input
                             id='email'
                             type='email'
                             value={data.email}
@@ -81,7 +80,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='email'
                         />
 
-                        <InputError className='mt-2' message={errors.email} />
+                        <InputErrorMessage className='mt-2' message={errors.email} />
                     </div>
 
                     {mustVerifyEmail && auth.user.email_verified_at === null && (
@@ -106,7 +105,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     )}
 
                     <div className='flex items-center gap-4'>
-                        <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                        <Button disabled={processing}>Save</Button>
 
                         <Transition
                             show={recentlySuccessful}
@@ -117,7 +116,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         </Transition>
                     </div>
                 </form>
-            </div>
-        </section>
+            </CardContent>
+        </Card>
     );
 }

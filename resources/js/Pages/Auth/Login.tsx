@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import Checkbox from '@/Components/Checkbox';
+import { Checkbox } from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputErrorMessage from '@/Components/InputErrorMessage';
+import { Label } from '@/Components/Label';
+import { Button } from '@/Components/Button';
+import { Input } from '@/Components/Input';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 interface LoginProps {
@@ -40,13 +40,13 @@ export default function Login(args: LoginProps) {
         <>
             <Head title='Log in' />
 
-            {status && <div className='mb-4 text-sm font-medium text-green-600'>{status}</div>}
+            {status && <div className='mb-4 text-sm font-medium text-green-600 dark:text-green-400'>{status}</div>}
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel forInput='email' value='Email' />
+                    <Label htmlFor='email'>Email</Label>
 
-                    <TextInput
+                    <Input
                         type='text'
                         name='email'
                         value={data.email}
@@ -55,13 +55,13 @@ export default function Login(args: LoginProps) {
                         onChange={onChange}
                     />
 
-                    <InputError message={errors.email} className='mt-2' />
+                    <InputErrorMessage message={errors.email} className='mt-2' />
                 </div>
 
                 <div className='mt-4'>
-                    <InputLabel forInput='password' value='Password' />
+                    <Label htmlFor='password'>Password</Label>
 
-                    <TextInput
+                    <Input
                         type='password'
                         name='password'
                         value={data.password}
@@ -69,16 +69,12 @@ export default function Login(args: LoginProps) {
                         onChange={onChange}
                     />
 
-                    <InputError message={errors.password} className='mt-2' />
+                    <InputErrorMessage message={errors.password} className='mt-2' />
                 </div>
 
                 <div className='mt-4 block'>
                     <label className='flex items-center'>
-                        <Checkbox
-                            name='remember'
-                            value={data.remember}
-                            onChange={(e: { target: { checked: any } }) => e.target.checked}
-                        />
+                        <Checkbox name='remember' onCheckedChange={(e) => e} />
 
                         <span className='ml-2 text-sm text-slate-600'>Remember me</span>
                     </label>
@@ -86,14 +82,16 @@ export default function Login(args: LoginProps) {
 
                 <div className='mt-4 flex items-center justify-end'>
                     {canResetPassword && (
-                        <Link href='/forgot-password' className='text-sm text-slate-600 underline hover:text-slate-900'>
+                        <Link
+                            href='/forgot-password'
+                            className='text-sm text-muted-foreground underline hover:text-primary'>
                             Forgot your password?
                         </Link>
                     )}
 
-                    <PrimaryButton className='ml-4' disabled={processing} type='submit'>
+                    <Button className='ml-4' disabled={processing} type='submit'>
                         Log in
-                    </PrimaryButton>
+                    </Button>
                 </div>
             </form>
         </>
@@ -107,7 +105,7 @@ Login.layout = (page: React.ReactNode) => {
             description={
                 <>
                     Or{' '}
-                    <Link href={route('register')} className='font-medium text-primary-600 hover:text-primary-500'>
+                    <Link href={route('register')} className='font-medium text-brand-600 hover:text-brand-500'>
                         register
                     </Link>{' '}
                     if you don't have an account

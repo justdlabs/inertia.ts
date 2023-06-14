@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputErrorMessage from '@/Components/InputErrorMessage';
+import { Label } from '@/Components/Label';
+import { Button } from '@/Components/Button';
+import { Input } from '@/Components/Input';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
+import SectionTitle from '@/Components/SectionTitle';
+import { Card, CardContent } from '@/Components/Card';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
     const passwordInput = useRef<HTMLInputElement>(null);
@@ -35,21 +37,18 @@ export default function UpdatePasswordForm({ className }: { className?: string }
     };
 
     return (
-        <section>
-            <header className='mb-4 px-4 sm:px-0'>
-                <h2 className='text-lg font-medium text-slate-900'>Update Password</h2>
+        <Card>
+            <SectionTitle
+                title='Update Password'
+                description='Ensure your account is using a long, random password to stay secure.'
+            />
 
-                <p className='mt-1 text-sm text-slate-600'>
-                    Ensure your account is using a long, random password to stay secure.
-                </p>
-            </header>
-
-            <div className={className}>
+            <CardContent>
                 <form onSubmit={submit} className='space-y-6'>
                     <div>
-                        <InputLabel forInput='current_password' value='Current Password' />
+                        <Label htmlFor='current_password'>Current Password</Label>
 
-                        <TextInput
+                        <Input
                             id='current_password'
                             ref={currentPasswordInput}
                             value={data.current_password}
@@ -59,13 +58,13 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputError message={errors.current_password} className='mt-2' />
+                        <InputErrorMessage message={errors.current_password} className='mt-2' />
                     </div>
 
                     <div>
-                        <InputLabel forInput='password' value='New Password' />
+                        <Label htmlFor='password'>New Password</Label>
 
-                        <TextInput
+                        <Input
                             id='password'
                             ref={passwordInput}
                             value={data.password}
@@ -75,13 +74,13 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputError message={errors.password} className='mt-2' />
+                        <InputErrorMessage message={errors.password} className='mt-2' />
                     </div>
 
                     <div>
-                        <InputLabel forInput='password_confirmation' value='Confirm Password' />
+                        <Label htmlFor='password_confirmation'>Confirm Password</Label>
 
-                        <TextInput
+                        <Input
                             id='password_confirmation'
                             value={data.password_confirmation}
                             onChange={(e) => setData('password_confirmation', e.target.value)}
@@ -90,11 +89,11 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputError message={errors.password_confirmation} className='mt-2' />
+                        <InputErrorMessage message={errors.password_confirmation} className='mt-2' />
                     </div>
 
                     <div className='flex items-center gap-4'>
-                        <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                        <Button disabled={processing}>Save</Button>
 
                         <Transition
                             show={recentlySuccessful}
@@ -105,7 +104,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                         </Transition>
                     </div>
                 </form>
-            </div>
-        </section>
+            </CardContent>
+        </Card>
     );
 }
