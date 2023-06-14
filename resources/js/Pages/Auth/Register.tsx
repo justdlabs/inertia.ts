@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import InputErrorMessage from '@/Components/InputErrorMessage';
+import { Label } from '@/Components/Label';
+import { Button } from '@/Components/Button';
+import { Input } from '@/Components/Input';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
-import Checkbox from '@/Components/Checkbox';
+import { Checkbox } from '@/Components/Checkbox';
 
 export default function Register() {
     const { hasTermsAndPrivacyPolicyFeature } = usePage<{ hasTermsAndPrivacyPolicyFeature: boolean }>().props;
@@ -40,9 +40,9 @@ export default function Register() {
             <form onSubmit={submit}>
                 <>
                     <div>
-                        <InputLabel forInput='name' value='Name' />
+                        <Label htmlFor='name'>Name</Label>
 
-                        <TextInput
+                        <Input
                             type='text'
                             name='name'
                             value={data.name}
@@ -52,13 +52,13 @@ export default function Register() {
                             required
                         />
 
-                        <InputError message={errors.name} className='mt-2' />
+                        <InputErrorMessage message={errors.name} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel forInput='email' value='Email' />
+                        <Label htmlFor='email'>Email</Label>
 
-                        <TextInput
+                        <Input
                             type='email'
                             name='email'
                             value={data.email}
@@ -67,13 +67,13 @@ export default function Register() {
                             required
                         />
 
-                        <InputError message={errors.email} className='mt-2' />
+                        <InputErrorMessage message={errors.email} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel forInput='password' value='Password' />
+                        <Label htmlFor='password'>Password</Label>
 
-                        <TextInput
+                        <Input
                             type='password'
                             name='password'
                             value={data.password}
@@ -82,13 +82,13 @@ export default function Register() {
                             required
                         />
 
-                        <InputError message={errors.password} className='mt-2' />
+                        <InputErrorMessage message={errors.password} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel forInput='password_confirmation' value='Confirm Password' />
+                        <Label htmlFor='password_confirmation'>Confirm Password</Label>
 
-                        <TextInput
+                        <Input
                             type='password'
                             name='password_confirmation'
                             value={data.password_confirmation}
@@ -96,20 +96,17 @@ export default function Register() {
                             required
                         />
 
-                        <InputError message={errors.password_confirmation} className='mt-2' />
+                        <InputErrorMessage message={errors.password_confirmation} className='mt-2' />
                     </div>
 
                     {hasTermsAndPrivacyPolicyFeature && (
                         <div className='mt-4'>
-                            <InputLabel forInput='terms'>
+                            <Label htmlFor='terms'>
                                 <div className='flex items-center'>
                                     <Checkbox
                                         name='terms'
                                         id='terms'
-                                        checked={data.terms}
-                                        onChange={(e: { currentTarget: { checked: boolean } }) =>
-                                            setData('terms', e.currentTarget.checked)
-                                        }
+                                        onCheckedChange={(e: any) => setData('terms', e)}
                                         required
                                     />
 
@@ -130,19 +127,19 @@ export default function Register() {
                                         </a>
                                     </div>
                                 </div>
-                                <InputError className='mt-2' message={errors.terms} />
-                            </InputLabel>
+                                <InputErrorMessage className='mt-2' message={errors.terms} />
+                            </Label>
                         </div>
                     )}
 
                     <div className='mt-4 flex items-center justify-end'>
-                        <Link href='/login' className='text-sm text-slate-600 underline hover:text-slate-900'>
+                        <Link href='/login' className='text-sm text-muted-foreground underline hover:text-primary'>
                             Already registered?
                         </Link>
 
-                        <PrimaryButton type='submit' className='ml-4' disabled={processing}>
+                        <Button type='submit' className='ml-4' disabled={processing}>
                             Register
-                        </PrimaryButton>
+                        </Button>
                     </div>
                 </>
             </form>
@@ -157,7 +154,7 @@ Register.layout = (page: React.ReactNode) => {
             description={
                 <>
                     Or{' '}
-                    <Link href={route('login')} className='font-medium text-primary-600 hover:text-primary-500'>
+                    <Link href={route('login')} className='font-medium text-brand-600 hover:text-brand-500'>
                         login
                     </Link>{' '}
                     if you already have an account

@@ -5,7 +5,7 @@ import Footer from '@/Layouts/Footer';
 
 export default function AppLayout({ children }: PropsWithChildren) {
     return (
-        <div className='min-h-screen bg-white'>
+        <div>
             <ResponsiveNavbar />
             <Navbar />
             <main>{children}</main>

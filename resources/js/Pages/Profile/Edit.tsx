@@ -15,19 +15,16 @@ export default function Edit({ mustVerifyEmail, status }: Props) {
     return (
         <div>
             <Head title='Profile' />
-            <Header value='Profile'>
-                Here you can update your profile information and email address, as well as your password.
-            </Header>
+            <Header
+                title='Profile'
+                description='Here you can update your profile information and email address, as well as your password.'
+            />
 
-            <Container withNoHorizontalPadding>
+            <Container>
                 <div className='grid gap-x-8 gap-y-12 sm:grid-cols-2'>
-                    <UpdateProfileInformationForm
-                        mustVerifyEmail={mustVerifyEmail}
-                        status={status}
-                        className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8'
-                    />
-                    <UpdatePasswordForm className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8' />
-                    <DeleteUserForm className='max-w-xl border bg-white p-4 sm:rounded-lg sm:p-8' />
+                    <UpdateProfileInformationForm mustVerifyEmail={mustVerifyEmail} status={status} />
+                    <UpdatePasswordForm />
+                    <DeleteUserForm />
                 </div>
             </Container>
         </div>
