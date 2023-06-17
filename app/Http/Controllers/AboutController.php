@@ -15,7 +15,7 @@ class AboutController extends Controller
     {
         $aboutFile = Clara::localizedMarkdownPath('about.md');
 
-        return inertia('About', [
+        return inertia('about', [
             'about' => str()->markdown(file_get_contents($aboutFile)),
         ]);
     }

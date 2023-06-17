@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Checkbox } from '@/Components/Checkbox';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Label } from '@/Components/Label';
-import { Button } from '@/Components/Button';
-import { Input } from '@/Components/Input';
+import { Checkbox } from '@/components/checkbox';
+import GuestLayout from '@/layouts/guest-layout';
+import InputErrorMessage from '@/components/input-error-message';
+import { Label } from '@/components/label';
+import { Button } from '@/components/button';
+import { Input } from '@/components/input';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 interface LoginProps {
@@ -76,7 +76,7 @@ export default function Login(args: LoginProps) {
                     <label className='flex items-center'>
                         <Checkbox name='remember' onCheckedChange={(e) => e} />
 
-                        <span className='ml-2 text-sm text-slate-600'>Remember me</span>
+                        <span className='ml-2 text-sm text-muted-foreground'>Remember me</span>
                     </label>
                 </div>
 
@@ -84,7 +84,7 @@ export default function Login(args: LoginProps) {
                     {canResetPassword && (
                         <Link
                             href='/forgot-password'
-                            className='text-sm text-muted-foreground underline hover:text-primary'>
+                            className='text-sm text-muted-foreground underline hover:text-foreground'>
                             Forgot your password?
                         </Link>
                     )}

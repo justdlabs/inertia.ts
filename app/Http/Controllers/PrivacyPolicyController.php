@@ -15,7 +15,7 @@ class PrivacyPolicyController extends Controller
     {
         $policyFile = Clara::localizedMarkdownPath('policy.md');
 
-        return inertia('Legal/PrivacyPolicy', [
+        return inertia('legal/privacy-policy', [
             'policy' => str()->markdown(file_get_contents($policyFile)),
         ]);
     }

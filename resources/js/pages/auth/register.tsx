@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Label } from '@/Components/Label';
-import { Button } from '@/Components/Button';
-import { Input } from '@/Components/Input';
+import GuestLayout from '@/layouts/guest-layout';
+import InputErrorMessage from '@/components/input-error-message';
+import { Label } from '@/components/label';
+import { Button } from '@/components/button';
+import { Input } from '@/components/input';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
-import { Checkbox } from '@/Components/Checkbox';
+import { Checkbox } from '@/components/checkbox';
 
 export default function Register() {
     const { hasTermsAndPrivacyPolicyFeature } = usePage<{ hasTermsAndPrivacyPolicyFeature: boolean }>().props;
@@ -115,14 +115,14 @@ export default function Register() {
                                         <a
                                             target='_blank'
                                             href={route('terms.show')}
-                                            className='text-sm text-gray-600 underline hover:text-gray-900'>
+                                            className='text-sm text-muted-foreground underline hover:text-foreground'>
                                             Terms of Service
                                         </a>{' '}
                                         and{' '}
                                         <a
                                             target='_blank'
                                             href={route('privacy.show')}
-                                            className='text-sm text-gray-600 underline hover:text-gray-900'>
+                                            className='text-sm text-muted-foreground underline hover:text-foreground'>
                                             Privacy Policy
                                         </a>
                                     </div>
@@ -133,7 +133,7 @@ export default function Register() {
                     )}
 
                     <div className='mt-4 flex items-center justify-end'>
-                        <Link href='/login' className='text-sm text-muted-foreground underline hover:text-primary'>
+                        <Link href='/login' className='text-sm text-muted-foreground underline hover:text-foreground'>
                             Already registered?
                         </Link>
 

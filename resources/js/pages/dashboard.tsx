@@ -1,10 +1,10 @@
-import AppLayout from '@/Layouts/AppLayout';
+import AppLayout from '@/layouts/app-layout';
 import { Head, usePage } from '@inertiajs/react';
-import Header from '@/Components/Header';
-import Container from '@/Components/Container';
+import Header from '@/components/header';
+import Container from '@/components/container';
 import { PageProps } from '@/types';
-import { Card, CardContent } from '@/Components/Card';
-import SectionTitle from '@/Components/SectionTitle';
+import { Card, CardContent } from '@/components/card';
+import SectionTitle from '@/components/section-title';
 
 export default function Dashboard() {
     const { auth } = usePage<PageProps>().props;

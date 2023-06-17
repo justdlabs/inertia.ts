@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Button, buttonVariants } from '@/Components/Button';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Input } from '@/Components/Input';
+import { Button, buttonVariants } from '@/components/button';
+import InputErrorMessage from '@/components/input-error-message';
+import { Input } from '@/components/input';
 import { useForm } from '@inertiajs/react';
 import {
     Dialog,
@@ -11,10 +11,10 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from '@/Components/Dialog';
+} from '@/components/dialog';
 import clsx from 'clsx';
-import SectionTitle from '@/Components/SectionTitle';
-import { Card, CardContent } from '@/Components/Card';
+import SectionTitle from '@/components/section-title';
+import { Card, CardContent } from '@/components/card';
 
 export default function DeleteUserForm({ className }: { className?: string }) {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);

@@ -15,7 +15,7 @@ class TermsOfServiceController extends Controller
     {
         $termsFile = Clara::localizedMarkdownPath('terms.md');
 
-        return inertia('Legal/TermsOfService', [
+        return inertia('legal/terms-of-service', [
             'terms' => str()->markdown(file_get_contents($termsFile)),
         ]);
     }

@@ -1,8 +1,8 @@
 import { Head } from '@inertiajs/react';
 import React from 'react';
-import AppLayout from '@/Layouts/AppLayout';
-import Header from '@/Components/Header';
-import Container from '@/Components/Container';
+import AppLayout from '@/layouts/app-layout';
+import Header from '@/components/header';
+import Container from '@/components/container';
 
 export default function About({ about }: { about: string }) {
     return (

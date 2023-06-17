@@ -1,8 +1,9 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import ApplicationLogo from '@/components/application-logo';
 import { Link } from '@inertiajs/react';
-import { Card, CardContent } from '@/Components/Card';
-import SectionTitle from '@/Components/SectionTitle';
+import { Card, CardContent } from '@/components/card';
+import SectionTitle from '@/components/section-title';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 interface GuestLayoutProps {
     header?: string | null;
@@ -17,10 +18,14 @@ export default function Guest({ description = null, header = null, children }: P
             </Link>
 
             <div className='mt-10 w-full max-w-lg'>
-                <Card>
+                <Card className='sm:border-l-border shadow-none sm:shadow-sm sm:border-r-border rounded-none sm:rounded-lg lg:rounded-xl border-l-transparent border-r-transparent '>
                     <SectionTitle title={header} description={description} />
                     <CardContent>{children}</CardContent>
                 </Card>
+
+                <div className="absolute bottom-0 right-0 mb-4 mr-4">
+                    <ThemeToggle/>
+                </div>
             </div>
         </div>
     );
