@@ -7,6 +7,7 @@ composer install
 cp .env.example .env
 php artisan key:generate
 npm i && npm run build
+php artisan serve
 ```
 
 > This project using React `v18` and Laravel `v10`
