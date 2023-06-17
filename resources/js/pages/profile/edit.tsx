@@ -21,7 +21,7 @@ export default function Edit({ mustVerifyEmail, status }: Props) {
             />
 
             <Container>
-                <div className='grid gap-x-8 gap-y-12 sm:grid-cols-2'>
+                <div className='max-w-2xl space-y-6'>
                     <UpdateProfileInformationForm mustVerifyEmail={mustVerifyEmail} status={status} />
                     <UpdatePasswordForm />
                     <DeleteUserForm />
