@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
-import Navbar from '@/Layouts/Navbar';
-import ResponsiveNavbar from '@/Layouts/ResponsiveNavbar';
-import Footer from '@/Layouts/Footer';
+import Navbar from '@/layouts/navbar';
+import ResponsiveNavbar from '@/layouts/responsive-navbar';
+import Footer from '@/layouts/footer';
 
 export default function AppLayout({ children }: PropsWithChildren) {
     return (

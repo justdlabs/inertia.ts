@@ -1,13 +1,13 @@
 import React from 'react';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Label } from '@/Components/Label';
-import { Button } from '@/Components/Button';
-import { Input } from '@/Components/Input';
+import InputErrorMessage from '@/components/input-error-message';
+import { Label } from '@/components/label';
+import { Button } from '@/components/button';
+import { Input } from '@/components/input';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import { PageProps } from '@/types';
-import SectionTitle from '@/Components/SectionTitle';
-import { Card, CardContent } from '@/Components/Card';
+import SectionTitle from '@/components/section-title';
+import { Card, CardContent } from '@/components/card';
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -91,7 +91,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                                     href={route('verification.send')}
                                     method='post'
                                     as='button'
-                                    className='text-slate-600 underline hover:text-slate-900'>
+                                    className='text-muted-foreground underline hover:text-slate-900'>
                                     Click here to re-send the verification email.
                                 </Link>
                             </p>
@@ -112,7 +112,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             enterFrom='opacity-0'
                             leaveTo='opacity-0'
                             className='transition ease-in-out'>
-                            <p className='text-sm text-slate-600'>Saved.</p>
+                            <p className='text-sm text-muted-foreground'>Saved.</p>
                         </Transition>
                     </div>
                 </form>

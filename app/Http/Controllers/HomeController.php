@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request): Response
     {
-        return inertia('Home');
+        return inertia('home');
     }
 }

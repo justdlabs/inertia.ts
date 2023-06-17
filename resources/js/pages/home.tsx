@@ -1,9 +1,9 @@
 import { Head } from '@inertiajs/react';
-import AppLayout from '@/Layouts/AppLayout';
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import AppLayout from '@/layouts/app-layout';
+import ApplicationLogo from '@/components/application-logo';
 import { IconBrandGithub } from '@tabler/icons-react';
-import Header from '@/Components/Header';
-import Container from '@/Components/Container';
+import Header from '@/components/header';
+import Container from '@/components/container';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
                 title='Inertia Typescript'
                 description='Inertia is a new approach to building classic server-driven web apps. We call it the modern monolith.'
             />
-            <Container withNoHorizontalPadding>
-                <div className='overflow-hidden border sm:rounded-lg'>
+            <Container>
+                <div className='overflow-hidden rounded-lg border'>
                     <div>
                         <div className='p-4 sm:p-20'>
                             <div>

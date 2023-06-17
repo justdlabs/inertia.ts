@@ -22,6 +22,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         JsonResource::withoutWrapping();
-        // Register the feature flags
     }
 }

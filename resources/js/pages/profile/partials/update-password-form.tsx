@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Label } from '@/Components/Label';
-import { Button } from '@/Components/Button';
-import { Input } from '@/Components/Input';
+import InputErrorMessage from '@/components/input-error-message';
+import { Label } from '@/components/label';
+import { Button } from '@/components/button';
+import { Input } from '@/components/input';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import SectionTitle from '@/Components/SectionTitle';
-import { Card, CardContent } from '@/Components/Card';
+import SectionTitle from '@/components/section-title';
+import { Card, CardContent } from '@/components/card';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
     const passwordInput = useRef<HTMLInputElement>(null);
@@ -100,7 +100,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             enterFrom='opacity-0'
                             leaveTo='opacity-0'
                             className='transition ease-in-out'>
-                            <p className='text-sm text-slate-600'>Saved.</p>
+                            <p className='text-sm text-muted-foreground'>Saved.</p>
                         </Transition>
                     </div>
                 </form>

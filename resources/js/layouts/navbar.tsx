@@ -1,6 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
-import NavLink from '@/Components/NavLink';
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import NavLink from '@/components/nav-link';
+import ApplicationLogo from '@/components/application-logo';
 import { PageProps } from '@/types';
 import {
     DropdownMenu,
@@ -9,16 +9,16 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/Components/DropdownMenu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/Components/Avatar';
+} from '@/components/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
 import { IconChartPie, IconLogout, IconSettings } from '@tabler/icons-react';
-import { ThemeToggle } from '@/Components/ThemeToggle';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
     return (
         <nav className='hidden border-b sm:block'>
-            <div className='mx-auto max-w-screen-2xl items-center py-4 px-4 sm:px-6 lg:px-8'>
+            <div className='mx-auto max-w-screen-2xl items-center py-4 sm:px-6 lg:px-8'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center gap-x-4'>
                         <Link href='/'>

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputErrorMessage from '@/Components/InputErrorMessage';
-import { Label } from '@/Components/Label';
-import { Button } from '@/Components/Button';
-import { Input } from '@/Components/Input';
+import GuestLayout from '@/layouts/guest-layout';
+import InputErrorMessage from '@/components/input-error-message';
+import { Label } from '@/components/label';
+import { Button } from '@/components/button';
+import { Input } from '@/components/input';
 import { Head, useForm } from '@inertiajs/react';
 
 interface ResetPasswordProps {

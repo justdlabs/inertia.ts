@@ -1,10 +1,10 @@
-import AppLayout from '@/Layouts/AppLayout';
-import DeleteUserForm from './Partials/DeleteUserForm';
-import UpdatePasswordForm from './Partials/UpdatePasswordForm';
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
+import AppLayout from '@/layouts/app-layout';
+import DeleteUserForm from '@/pages/profile/partials/delete-user-form';
+import UpdatePasswordForm from '@/pages/profile/partials/update-password-form';
+import UpdateProfileInformationForm from '@/pages/profile/partials/update-profile-information-form';
 import { Head } from '@inertiajs/react';
-import Container from '@/Components/Container';
-import Header from '@/Components/Header';
+import Container from '@/components/container';
+import Header from '@/components/header';
 
 interface Props {
     mustVerifyEmail: boolean;

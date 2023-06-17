@@ -1,5 +1,5 @@
-import GuestLayout from '@/Layouts/GuestLayout';
-import { Button } from '@/Components/Button';
+import GuestLayout from '@/layouts/guest-layout';
+import { Button } from '@/components/button';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function VerifyEmail({ status }: { status?: any }) {
@@ -14,7 +14,7 @@ export default function VerifyEmail({ status }: { status?: any }) {
         <>
             <Head title='Email Verification' />
 
-            <div className='mb-4 text-sm text-slate-600'>
+            <div className='mb-4 text-sm text-muted-foreground'>
                 Thanks for signing up! Before getting started, could you verify your email address by clicking on the
                 link we just emailed to you? If you didn't receive the email, we will gladly send you another.
             </div>
@@ -34,7 +34,7 @@ export default function VerifyEmail({ status }: { status?: any }) {
                         href={'/logout'}
                         method='post'
                         as='button'
-                        className='text-sm text-muted-foreground underline hover:text-primary'>
+                        className='text-sm text-muted-foreground underline hover:text-foreground'>
                         Log Out
                     </Link>
                 </div>
