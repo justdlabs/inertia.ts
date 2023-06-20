@@ -60,7 +60,7 @@ npm run format
 npm run dev
 
 # Build the app
-npm run dev
+npm run build
 
 # Testing for SSR
 npm run test-ssr
