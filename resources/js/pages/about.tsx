@@ -10,12 +10,17 @@ export default function About({ about }: { about: string }) {
             <Head title='About Us' />
             <Header
                 title='About Us'
-                description='This page is rendered using markdown, you find it in <code>resources/markdown/about.md</code> if you
-                want to edit it.'
+                description={
+                    <>
+                        This page is rendered using markdown, you find it in{' '}
+                        <code className='font-mono text-yellow-500'>resources/markdown/about.md</code> if you want to
+                        edit it.
+                    </>
+                }
             />
             <Container>
                 <div
-                    className='prose prose-lg prose-indigo mt-6 text-primary dark:prose-invert prose-blockquote:text-muted-foreground'
+                    className='prose prose-lg mt-6 prose-zinc dark:prose-invert prose-blockquote:text-muted-foreground'
                     dangerouslySetInnerHTML={{ __html: about }}
                 />
             </Container>

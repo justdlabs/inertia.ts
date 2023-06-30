@@ -11,8 +11,8 @@ import {
     DropdownMenuTrigger,
 } from '@/components/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
-import { IconChartPie, IconLogout, IconSettings } from '@tabler/icons-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { DashboardIcon, ExitIcon, GearIcon } from '@radix-ui/react-icons';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
@@ -61,16 +61,16 @@ export default function Navbar() {
                                     </DropdownMenuLabel>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                        <IconChartPie className='mr-2 h-4 w-4' />
+                                        <DashboardIcon className='mr-2 h-4 w-4' />
                                         <span>Dashboard</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => router.get(route('profile.edit'))}>
-                                        <IconSettings className='mr-2 h-4 w-4' />
+                                        <GearIcon className='mr-2 h-4 w-4' />
                                         <span>Profile</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                        <IconLogout className='mr-2 h-4 w-4' />
+                                        <ExitIcon className='mr-2 h-4 w-4' />
                                         <span>Logout</span>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>

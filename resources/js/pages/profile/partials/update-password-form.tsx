@@ -7,6 +7,7 @@ import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import SectionTitle from '@/components/section-title';
 import { Card, CardContent } from '@/components/card';
+import { toast } from '@/hooks/use-toast';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
     const passwordInput = useRef<HTMLInputElement>(null);
@@ -21,7 +22,13 @@ export default function UpdatePasswordForm({ className }: { className?: string }
         e.preventDefault();
         put(route('password.update'), {
             preserveScroll: true,
-            onSuccess: () => reset(),
+            onSuccess: () => {
+                toast({
+                    title: 'Profile updated',
+                    description: 'Your profile information has been updated.',
+                });
+                reset();
+            },
             onError: () => {
                 if (errors.password) {
                     reset('password', 'password_confirmation');
@@ -52,6 +59,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             id='current_password'
                             ref={currentPasswordInput}
                             value={data.current_password}
+                            className='mt-1'
                             onChange={(e) => setData('current_password', e.target.value)}
                             type='password'
                             autoComplete='current-password'
@@ -68,6 +76,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             id='password'
                             ref={passwordInput}
                             value={data.password}
+                            className='mt-1'
                             onChange={(e) => setData('password', e.target.value)}
                             type='password'
                             autoComplete='new-password'
@@ -83,6 +92,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                         <Input
                             id='password_confirmation'
                             value={data.password_confirmation}
+                            className='mt-1'
                             onChange={(e) => setData('password_confirmation', e.target.value)}
                             type='password'
                             autoComplete='new-password'

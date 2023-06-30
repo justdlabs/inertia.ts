@@ -1,10 +1,10 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import ApplicationLogo from '@/components/application-logo';
-import { IconBrandGithub } from '@tabler/icons-react';
 import Header from '@/components/header';
 import Container from '@/components/container';
 import { cn } from '@/lib/utils';
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 export default function Home() {
     return (
@@ -37,7 +37,7 @@ export default function Home() {
                                         href='https://github.com/irsyadadl/inertia.ts'
                                         className='flex items-center gap-x-2 font-semibold text-primary'
                                         target='_blank'>
-                                        <IconBrandGithub className='h-10 w-8 stroke-1' />
+                                        <GitHubLogoIcon className='h-10 w-8 stroke-1' />
                                         Github
                                     </a>
                                     <p className='mt-5 text-muted-foreground'>

@@ -11,7 +11,7 @@ export default function Container({
     return (
         <div
             className={clsx(
-                'mx-auto max-w-7xl py-4 sm:py-10 sm:px-6 lg:px-8',
+                'mx-auto max-w-7xl py-4 sm:px-6 sm:py-10 lg:px-8',
                 withNoHorizontalPadding ? null : 'px-4 sm:px-0'
             )}>
             {children}

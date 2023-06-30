@@ -50,6 +50,7 @@ export default function Login(args: LoginProps) {
                         type='text'
                         name='email'
                         value={data.email}
+                        className='mt-1'
                         autoComplete='username'
                         autoFocus
                         onChange={onChange}
@@ -65,6 +66,7 @@ export default function Login(args: LoginProps) {
                         type='password'
                         name='password'
                         value={data.password}
+                        className='mt-1'
                         autoComplete='current-password'
                         onChange={onChange}
                     />
@@ -105,7 +107,7 @@ Login.layout = (page: React.ReactNode) => {
             description={
                 <>
                     Or{' '}
-                    <Link href={route('register')} className='font-medium text-brand-600 hover:text-brand-500'>
+                    <Link href={route('register')} className='text-brand-600 hover:text-brand-500 font-medium'>
                         register
                     </Link>{' '}
                     if you don't have an account

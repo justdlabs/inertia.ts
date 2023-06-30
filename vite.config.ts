@@ -11,7 +11,4 @@ export default defineConfig({
         }),
         react(),
     ],
-    ssr: {
-        noExternal: ['@tabler/icons-react'],
-    },
 });

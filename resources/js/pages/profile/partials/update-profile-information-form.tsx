@@ -8,6 +8,7 @@ import { Transition } from '@headlessui/react';
 import { PageProps } from '@/types';
 import SectionTitle from '@/components/section-title';
 import { Card, CardContent } from '@/components/card';
+import { toast } from '@/hooks/use-toast';
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -27,6 +28,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
         e.preventDefault();
         patch(route('profile.update'), {
             preserveScroll: true,
+            onSuccess: () => {
+                toast({
+                    title: 'Profile updated',
+                    description: 'Your profile information has been updated.',
+                });
+            },
         });
     };
 
@@ -45,6 +52,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             id='name'
                             type='text'
                             value={data.name}
+                            className='mt-1'
                             onChange={(e) => setData('name', e.target.value)}
                             required
                             autoFocus
@@ -60,6 +68,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             id='username'
                             type='text'
                             value={data.username}
+                            className='mt-1'
                             onChange={(e) => setData('username', e.target.value)}
                             required
                             autoComplete='username'
@@ -75,6 +84,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             id='email'
                             type='email'
                             value={data.email}
+                            className='mt-1'
                             onChange={(e) => setData('email', e.target.value)}
                             required
                             autoComplete='email'

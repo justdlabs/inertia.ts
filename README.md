@@ -17,11 +17,12 @@ php artisan serve
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
 
 This project has come with some features like:
-- Authentication
-- User Profile
-- User Avatar
-- User Password
-- User Delete
+
+-   Authentication
+-   User Profile
+-   User Avatar
+-   User Password
+-   User Delete
 
 ### The default branch has been renamed!
 
@@ -63,14 +64,15 @@ npm run dev
 npm run build
 
 # Testing for SSR
-npm run test-ssr
+npm run preview
 ```
 
 ### Components
+
 This project has a few helpers available to you. You can use them in your components like this:
 
-
 ### Update profile information
+
 Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
 
 ![Screenshot of the project](https://pbs.twimg.com/media/Fhh7nR0aUAESOfq?format=jpg&name=4096x4096)

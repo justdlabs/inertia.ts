@@ -46,6 +46,7 @@ export default function Register() {
                             type='text'
                             name='name'
                             value={data.name}
+                            className='mt-1'
                             autoComplete='name'
                             autoFocus
                             onChange={onChange}
@@ -62,6 +63,7 @@ export default function Register() {
                             type='email'
                             name='email'
                             value={data.email}
+                            className='mt-1'
                             autoComplete='username'
                             onChange={onChange}
                             required
@@ -77,6 +79,7 @@ export default function Register() {
                             type='password'
                             name='password'
                             value={data.password}
+                            className='mt-1'
                             autoComplete='new-password'
                             onChange={onChange}
                             required
@@ -92,6 +95,7 @@ export default function Register() {
                             type='password'
                             name='password_confirmation'
                             value={data.password_confirmation}
+                            className='mt-1'
                             onChange={onChange}
                             required
                         />
@@ -154,7 +158,7 @@ Register.layout = (page: React.ReactNode) => {
             description={
                 <>
                     Or{' '}
-                    <Link href={route('login')} className='font-medium text-brand-600 hover:text-brand-500'>
+                    <Link href={route('login')} className='text-brand-600 hover:text-brand-500 font-medium'>
                         login
                     </Link>{' '}
                     if you already have an account

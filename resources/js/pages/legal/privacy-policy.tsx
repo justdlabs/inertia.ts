@@ -10,7 +10,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                 <div className='hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]'>
                     <div className='relative mx-auto h-full max-w-prose text-lg' aria-hidden='true'>
                         <svg
-                            className='absolute top-12 left-full translate-x-32 transform'
+                            className='absolute left-full top-12 translate-x-32 transform'
                             width={404}
                             height={384}
                             fill='none'
@@ -36,7 +36,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                             <rect width={404} height={384} fill='url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)' />
                         </svg>
                         <svg
-                            className='absolute top-1/2 right-full -translate-y-1/2 -translate-x-32 transform'
+                            className='absolute right-full top-1/2 -translate-x-32 -translate-y-1/2 transform'
                             width={404}
                             height={384}
                             fill='none'
