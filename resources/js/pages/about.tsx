@@ -20,7 +20,7 @@ export default function About({ about }: { about: string }) {
             />
             <Container>
                 <div
-                    className='prose prose-lg mt-6 prose-zinc dark:prose-invert prose-blockquote:text-muted-foreground'
+                    className='prose prose-lg prose-zinc mt-6 dark:prose-invert prose-blockquote:text-muted-foreground'
                     dangerouslySetInnerHTML={{ __html: about }}
                 />
             </Container>
