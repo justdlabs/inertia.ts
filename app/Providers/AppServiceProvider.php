@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Pennant\Feature;
 
 class AppServiceProvider extends ServiceProvider
 {
