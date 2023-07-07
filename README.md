@@ -91,6 +91,6 @@ If you like making new features, feel free to make a [pull request](https://gith
 
 [//]: # '-   **[Teil](https://teil.app/)**'
 
--   **[Parsinta](https://parsinta.com/)**
--   **[Karteil](https://karteil.com/)**
--   **[Irsyad Notes](https://irsyadnotes.com/)**
+-   **[Parsinta.com](https://parsinta.com/)**
+-   **[Karteil.com](https://karteil.com/)**
+-   **[IrsyadNotes.com](https://irsyadnotes.com/)**
