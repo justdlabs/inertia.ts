@@ -80,6 +80,7 @@ Of course it is not just about authentication, but also about updating user prof
 If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts). I'll be happy to review it.
 
 ### Learn More
+
 Everything you need to understand is clearly can be found in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-react-nqp6j)
 
 ### Thanks to

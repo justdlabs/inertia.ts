@@ -5,7 +5,7 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.{ts,tsx,jsx}',
+        './resources/js/**/*.tsx',
     ],
     theme: {
         container: {
@@ -72,5 +72,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
+    plugins: [require('tailwindcss-animate')],
 };

@@ -76,6 +76,10 @@ const ResponsiveNavbar = () => {
                                         <GearIcon className='mr-2 h-4 w-4' />
                                         <span>Profile</span>
                                     </DropdownMenuItem>
+                                    <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
+                                        <PersonIcon className='mr-2 h-4 w-4' />
+                                        <span>Users</span>
+                                    </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>
                                         <ExitIcon className='mr-2 h-4 w-4' />

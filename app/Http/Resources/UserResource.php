@@ -21,6 +21,8 @@ class UserResource extends JsonResource
             'username' => $this->username,
             'name' => $this->name,
             'email' => $this->email,
+            //            'status' => $this->hasVerifiedEmail() ? 'Verified' : 'Unverified',
+            'joined' => $this->created_at->format('j M Y, g:i a'),
         ];
     }
 

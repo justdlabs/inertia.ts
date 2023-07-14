@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/layouts/guest-layout';
-import InputErrorMessage from '@/components/input-error-message';
+import { GuestLayout } from '@/layouts/guest-layout';
+import { InputError } from '@/components/input-error';
 import { Label } from '@/components/label';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
@@ -47,7 +47,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
 
                     <Input type='email' name='email' value={data.email} autoComplete='username' onChange={onChange} />
 
-                    <InputErrorMessage message={errors.email} className='mt-2' />
+                    <InputError message={errors.email} className='mt-2' />
                 </div>
 
                 <div className='mt-4'>
@@ -62,7 +62,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
                         onChange={onChange}
                     />
 
-                    <InputErrorMessage message={errors.password} className='mt-2' />
+                    <InputError message={errors.password} className='mt-2' />
                 </div>
 
                 <div className='mt-4'>
@@ -76,7 +76,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
                         onChange={onChange}
                     />
 
-                    <InputErrorMessage message={errors.password_confirmation} className='mt-2' />
+                    <InputError message={errors.password_confirmation} className='mt-2' />
                 </div>
 
                 <div className='mt-4 flex items-center justify-end'>

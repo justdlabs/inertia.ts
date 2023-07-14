@@ -1,4 +1,4 @@
-import GuestLayout from '@/layouts/guest-layout';
+import { GuestLayout } from '@/layouts/guest-layout';
 import { Button } from '@/components/button';
 import { Head, Link, useForm } from '@inertiajs/react';
 

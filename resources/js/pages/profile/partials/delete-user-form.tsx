@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, buttonVariants } from '@/components/button';
-import InputErrorMessage from '@/components/input-error-message';
+import { InputError } from '@/components/input-error';
 import { Input } from '@/components/input';
 import { useForm } from '@inertiajs/react';
 import {
@@ -82,7 +82,7 @@ export default function DeleteUserForm({ className }: { className?: string }) {
                                 onChange={(e) => setData('password', e.currentTarget.value)}
                             />
 
-                            <InputErrorMessage message={errors.password} className='mt-2' />
+                            <InputError message={errors.password} className='mt-2' />
                         </div>
                         <DialogFooter>
                             <Button

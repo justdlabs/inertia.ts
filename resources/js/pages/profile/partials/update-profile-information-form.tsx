@@ -1,5 +1,5 @@
 import React from 'react';
-import InputErrorMessage from '@/components/input-error-message';
+import { InputError } from '@/components/input-error';
 import { Label } from '@/components/label';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
@@ -59,7 +59,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='name'
                         />
 
-                        <InputErrorMessage className='mt-2' message={errors.name} />
+                        <InputError className='mt-2' message={errors.name} />
                     </div>
                     <div>
                         <Label htmlFor='username'>Username</Label>
@@ -74,7 +74,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='username'
                         />
 
-                        <InputErrorMessage className='mt-2' message={errors.username} />
+                        <InputError className='mt-2' message={errors.username} />
                     </div>
 
                     <div>
@@ -90,7 +90,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                             autoComplete='email'
                         />
 
-                        <InputErrorMessage className='mt-2' message={errors.email} />
+                        <InputError className='mt-2' message={errors.email} />
                     </div>
 
                     {mustVerifyEmail && auth.user.email_verified_at === null && (
