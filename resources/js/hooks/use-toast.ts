@@ -1,3 +1,4 @@
+// Inspired by react-hot-toast library
 import * as React from 'react';
 
 import type { ToastActionElement, ToastProps } from '@/components/toast';
@@ -150,7 +151,7 @@ function toast({ ...props }: Toast) {
             ...props,
             id,
             open: true,
-            onOpenChange: (open) => {
+            onOpenChange: (open: boolean) => {
                 if (!open) dismiss();
             },
         },

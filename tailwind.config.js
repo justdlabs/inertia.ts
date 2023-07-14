@@ -1,12 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: ['class'],
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.{ts,tsx,jsx}',
-    ],
+    content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
     theme: {
         container: {
             center: true,
@@ -72,5 +67,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
+    plugins: [require('tailwindcss-animate')],
 };
