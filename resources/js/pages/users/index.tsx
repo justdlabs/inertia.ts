@@ -15,7 +15,6 @@ import {
 } from '@/components/dropdown-menu';
 import { Button } from '@/components/button';
 import { UserMediaObject } from '@/components/user-media-object';
-import { Badge } from '@/components/badge';
 
 export default function Index() {
     const { data: users, meta, links } = usePage<any>().props.users;
@@ -27,7 +26,7 @@ export default function Index() {
                     <TableHeader>
                         <TableRow>
                             <TableHead className='w-0'>User</TableHead>
-                            <TableHead>Status</TableHead>
+                            {/*<TableHead>Status</TableHead>*/}
                             <TableHead>Joined</TableHead>
                             <TableHead />
                         </TableRow>
@@ -40,11 +39,11 @@ export default function Index() {
                                         <TableCell className='w-0'>
                                             <UserMediaObject user={user} />
                                         </TableCell>
-                                        <TableCell>
-                                            <Badge variant={user.status === 'Verified' ? 'default' : 'accent'}>
-                                                {user.status}
-                                            </Badge>
-                                        </TableCell>
+                                        {/*<TableCell>*/}
+                                        {/*    <Badge variant={user.status === 'Verified' ? 'default' : 'accent'}>*/}
+                                        {/*        {user.status}*/}
+                                        {/*    </Badge>*/}
+                                        {/*</TableCell>*/}
                                         <TableCell>{user.joined}</TableCell>
                                         <TableCell>
                                             <div className='flex justify-end'>
