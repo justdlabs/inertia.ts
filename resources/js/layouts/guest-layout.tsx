@@ -10,7 +10,7 @@ interface GuestLayoutProps {
     description?: string | ReactNode | null;
 }
 
-export default function Guest({ description = null, header = null, children }: PropsWithChildren<GuestLayoutProps>) {
+export function GuestLayout({ description = null, header = null, children }: PropsWithChildren<GuestLayoutProps>) {
     return (
         <div className='flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0'>
             <Link href={route('home')}>

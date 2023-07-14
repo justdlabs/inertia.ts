@@ -1,5 +1,5 @@
-import GuestLayout from '@/layouts/guest-layout';
-import InputErrorMessage from '@/components/input-error-message';
+import { GuestLayout } from '@/layouts/guest-layout';
+import { InputError } from '@/components/input-error';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
 import { Head, useForm } from '@inertiajs/react';
@@ -36,7 +36,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
             <form onSubmit={submit}>
                 <Input type='text' name='email' value={data.email} autoFocus onChange={onChange} />
 
-                <InputErrorMessage message={errors.email} className='mt-2' />
+                <InputError message={errors.email} className='mt-2' />
 
                 <div className='mt-4 flex items-center justify-end'>
                     <Button type='submit' className='ml-4' disabled={processing}>

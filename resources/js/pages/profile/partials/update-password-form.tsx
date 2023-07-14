@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import InputErrorMessage from '@/components/input-error-message';
+import { InputError } from '@/components/input-error';
 import { Label } from '@/components/label';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
@@ -66,7 +66,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputErrorMessage message={errors.current_password} className='mt-2' />
+                        <InputError message={errors.current_password} className='mt-2' />
                     </div>
 
                     <div>
@@ -83,7 +83,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputErrorMessage message={errors.password} className='mt-2' />
+                        <InputError message={errors.password} className='mt-2' />
                     </div>
 
                     <div>
@@ -99,7 +99,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
                             required
                         />
 
-                        <InputErrorMessage message={errors.password_confirmation} className='mt-2' />
+                        <InputError message={errors.password_confirmation} className='mt-2' />
                     </div>
 
                     <div className='flex items-center gap-4'>

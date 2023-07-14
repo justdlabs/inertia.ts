@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
 import React from 'react';
-import AppLayout from '@/layouts/app-layout';
+import { AppLayout } from '@/layouts/app-layout';
 import Header from '@/components/header';
 import Container from '@/components/container';
 

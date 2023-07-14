@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import GuestLayout from '@/layouts/guest-layout';
-import InputErrorMessage from '@/components/input-error-message';
+import { GuestLayout } from '@/layouts/guest-layout';
+import { InputError } from '@/components/input-error';
 import { Label } from '@/components/label';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
@@ -53,7 +53,7 @@ export default function Register() {
                             required
                         />
 
-                        <InputErrorMessage message={errors.name} className='mt-2' />
+                        <InputError message={errors.name} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
@@ -69,7 +69,7 @@ export default function Register() {
                             required
                         />
 
-                        <InputErrorMessage message={errors.email} className='mt-2' />
+                        <InputError message={errors.email} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
@@ -85,7 +85,7 @@ export default function Register() {
                             required
                         />
 
-                        <InputErrorMessage message={errors.password} className='mt-2' />
+                        <InputError message={errors.password} className='mt-2' />
                     </div>
 
                     <div className='mt-4'>
@@ -100,7 +100,7 @@ export default function Register() {
                             required
                         />
 
-                        <InputErrorMessage message={errors.password_confirmation} className='mt-2' />
+                        <InputError message={errors.password_confirmation} className='mt-2' />
                     </div>
 
                     {hasTermsAndPrivacyPolicyFeature && (
@@ -131,7 +131,7 @@ export default function Register() {
                                         </a>
                                     </div>
                                 </div>
-                                <InputErrorMessage className='mt-2' message={errors.terms} />
+                                <InputError className='mt-2' message={errors.terms} />
                             </Label>
                         </div>
                     )}

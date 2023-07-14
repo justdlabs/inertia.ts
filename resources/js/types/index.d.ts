@@ -10,6 +10,8 @@ export interface User {
     email_verified_at: DateTime;
     acronym: string;
     avatar: string;
+    status: string;
+    joined: string;
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {

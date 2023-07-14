@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Checkbox } from '@/components/checkbox';
-import GuestLayout from '@/layouts/guest-layout';
-import InputErrorMessage from '@/components/input-error-message';
+import { GuestLayout } from '@/layouts/guest-layout';
+import { InputError } from '@/components/input-error';
 import { Label } from '@/components/label';
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
@@ -56,7 +56,7 @@ export default function Login(args: LoginProps) {
                         onChange={onChange}
                     />
 
-                    <InputErrorMessage message={errors.email} className='mt-2' />
+                    <InputError message={errors.email} className='mt-2' />
                 </div>
 
                 <div className='mt-4'>
@@ -71,7 +71,7 @@ export default function Login(args: LoginProps) {
                         onChange={onChange}
                     />
 
-                    <InputErrorMessage message={errors.password} className='mt-2' />
+                    <InputError message={errors.password} className='mt-2' />
                 </div>
 
                 <div className='mt-4 block'>

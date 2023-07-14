@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
-export default function InputErrorMessage({
+export function InputError({
     message,
     className = '',
     ...props

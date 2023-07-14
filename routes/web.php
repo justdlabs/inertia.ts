@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::controller(ProfileController::class)->middleware('auth')->group(function 
     Route::patch('profile', 'update')->name('profile.update');
     Route::delete('profile', 'destroy')->name('profile.destroy');
 });
+
+Route::resource('users', UserController::class)
+    ->only(['index', 'show', 'destroy'])
+    ->middleware('auth');
 
 require __DIR__ . '/features.php';
 require __DIR__ . '/auth.php';
