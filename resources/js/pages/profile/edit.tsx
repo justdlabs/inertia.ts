@@ -20,4 +20,4 @@ export default function Edit({ mustVerifyEmail, status }: Props) {
     );
 }
 
-Edit.layout = (page: any) => <UserLayout children={page} />;
+Edit.layout = (page: any) => <UserLayout title='Settings' children={page} />;
