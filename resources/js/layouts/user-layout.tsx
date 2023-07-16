@@ -14,10 +14,10 @@ export function UserLayout({ title, children }: PropsWithChildren<Props>) {
             <Toaster />
             <Head title={title} />
             <Navbar />
-            <div>
+            <div className='flex'>
                 <Aside />
-                <main className='lg:pl-80'>
-                    <div className='px-4 py-10 sm:px-6 lg:px-8 lg:py-10'>{children}</div>
+                <main className='w-2/3'>
+                    <div className='px-4 py-4 sm:px-6 lg:px-6 lg:py-8'>{children}</div>
                 </main>
             </div>
         </div>
