@@ -15,6 +15,7 @@ import {
 } from '@/components/dropdown-menu';
 import { Button } from '@/components/button';
 import { UserMediaObject } from '@/components/user-media-object';
+import { SimplePaginate } from '@/components/paginate';
 
 export default function Index() {
     const { data: users, meta, links } = usePage<any>().props.users;
@@ -79,7 +80,11 @@ export default function Index() {
                     </TableBody>
                 </Table>
 
-                {meta.has_pages && <CardFooter></CardFooter>}
+                {meta.has_pages && (
+                    <CardFooter className='pt-6'>
+                        <SimplePaginate links={links} meta={meta} />
+                    </CardFooter>
+                )}
             </Card>
         </div>
     );
