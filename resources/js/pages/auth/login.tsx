@@ -109,7 +109,7 @@ Login.layout = (page: React.ReactNode) => {
     return (
         <GuestLayout
             header='Login'
-            description="Or register if you don't have an account."
+            description="Log in to your account."
             children={page}
         />
     );
