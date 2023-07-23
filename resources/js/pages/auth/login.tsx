@@ -91,7 +91,7 @@ export default function Login(args: LoginProps) {
 
                 <div className='mt-4 flex items-center justify-end'>
                     <Link
-                        href='/forgot-password'
+                        href={route('register')}
                         className='text-sm text-foreground hover:underline'>
                         Don't have an account?
                     </Link>
