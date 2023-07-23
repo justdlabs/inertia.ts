@@ -1,8 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import ApplicationLogo from '@/components/application-logo';
 import { Link } from '@inertiajs/react';
-import { Card, CardContent } from '@/components/card';
-import SectionTitle from '@/components/section-title';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 interface GuestLayoutProps {
@@ -19,13 +18,15 @@ export function GuestLayout({ description = null, header = null, children }: Pro
 
             <div className='mt-10 w-full max-w-lg'>
                 <Card className='rounded-none border-l-transparent border-r-transparent shadow-none sm:rounded-lg sm:border-l-border sm:border-r-border sm:shadow-sm lg:rounded-xl '>
-                    <SectionTitle title={header} description={description} />
+                    <CardHeader className='flex-row justify-between'>
+                        <div>
+                            <CardTitle>{header}</CardTitle>
+                            <CardDescription>{description}</CardDescription>
+                        </div>
+                        <ThemeToggle />
+                    </CardHeader>
                     <CardContent>{children}</CardContent>
                 </Card>
-
-                <div className='absolute bottom-0 right-0 mb-4 mr-4'>
-                    <ThemeToggle />
-                </div>
             </div>
         </div>
     );
