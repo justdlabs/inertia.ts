@@ -11,7 +11,7 @@ interface Props {
 export default function Edit({ mustVerifyEmail, status }: Props) {
     return (
         <>
-            <div className='max-w-2xl space-y-6'>
+            <div className='max-w-3xl space-y-6'>
                 <UpdateProfileInformationForm mustVerifyEmail={mustVerifyEmail} status={status} />
                 <UpdatePasswordForm />
                 <DeleteUserForm />

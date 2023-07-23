@@ -35,4 +35,4 @@ export type PaginateProps<T> = {
         to: number;
         total: number;
     };
-}
+};

@@ -106,7 +106,7 @@ export default function Register() {
                     {hasTermsAndPrivacyPolicyFeature && (
                         <div className='mt-4'>
                             <Label htmlFor='terms'>
-                                <div className='flex items-center'>
+                                <div className='flex items-center text-muted-foreground'>
                                     <Checkbox
                                         name='terms'
                                         id='terms'
@@ -119,15 +119,15 @@ export default function Register() {
                                         <a
                                             target='_blank'
                                             href={route('terms.show')}
-                                            className='text-sm text-muted-foreground underline hover:text-foreground'>
-                                            Terms of Service
+                                            className='text-sm text-muted-foreground hover:text-primary'>
+                                            terms of service
                                         </a>{' '}
                                         and{' '}
                                         <a
                                             target='_blank'
                                             href={route('privacy.show')}
-                                            className='text-sm text-muted-foreground underline hover:text-foreground'>
-                                            Privacy Policy
+                                            className='text-sm text-muted-foreground hover:text-primary'>
+                                            privacy policy
                                         </a>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@ export default function Register() {
                     )}
 
                     <div className='mt-4 flex items-center justify-end'>
-                        <Link href='/login' className='text-sm text-muted-foreground underline hover:text-foreground'>
+                        <Link href='/login' className='text-sm text-muted-foreground hover:text-primary'>
                             Already registered?
                         </Link>
 
@@ -152,19 +152,5 @@ export default function Register() {
 }
 
 Register.layout = (page: React.ReactNode) => {
-    return (
-        <GuestLayout
-            header='Register'
-            description={
-                <>
-                    Or{' '}
-                    <Link href={route('login')} className='text-brand-600 hover:text-brand-500 font-medium'>
-                        login
-                    </Link>{' '}
-                    if you already have an account
-                </>
-            }
-            children={page}
-        />
-    );
+    return <GuestLayout header='Register' description='Register for your new account.' children={page} />;
 };
