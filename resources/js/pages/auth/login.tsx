@@ -74,22 +74,27 @@ export default function Login(args: LoginProps) {
                     <InputError message={errors.password} className='mt-2' />
                 </div>
 
-                <div className='mt-4 block'>
+                <div className='mt-4 flex items-center justify-between'>
                     <label className='flex items-center'>
                         <Checkbox name='remember' onCheckedChange={(e) => e} />
 
                         <span className='ml-2 text-sm text-muted-foreground'>Remember me</span>
                     </label>
-                </div>
-
-                <div className='mt-4 flex items-center justify-end'>
                     {canResetPassword && (
                         <Link
                             href='/forgot-password'
-                            className='text-sm text-muted-foreground underline hover:text-foreground'>
+                            className='text-sm text-foreground hover:underline'>
                             Forgot your password?
                         </Link>
                     )}
+                </div>
+
+                <div className='mt-4 flex items-center justify-end'>
+                    <Link
+                        href='/forgot-password'
+                        className='text-sm text-foreground hover:underline'>
+                        Don't have an account?
+                    </Link>
 
                     <Button className='ml-4' disabled={processing} type='submit'>
                         Log in
@@ -104,15 +109,7 @@ Login.layout = (page: React.ReactNode) => {
     return (
         <GuestLayout
             header='Login'
-            description={
-                <>
-                    Or{' '}
-                    <Link href={route('register')} className='text-brand-600 hover:text-brand-500 font-medium'>
-                        register
-                    </Link>{' '}
-                    if you don't have an account
-                </>
-            }
+            description="Or register if you don't have an account."
             children={page}
         />
     );
