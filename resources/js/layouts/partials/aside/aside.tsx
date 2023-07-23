@@ -1,6 +1,6 @@
 import React from 'react';
 import { AsideLink } from '@/layouts/partials/aside/aside-link';
-import { DashboardIcon, GearIcon, PersonIcon } from '@radix-ui/react-icons';
+import { IconChartPie, IconSettings, IconUserCircle } from '@tabler/icons-react';
 
 export function Aside() {
     return (
@@ -9,15 +9,15 @@ export function Aside() {
                 <nav className='flex flex-1 flex-col'>
                     <ul role='list' className='flex flex-1 flex-col gap-y-1'>
                         <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
-                            <DashboardIcon />
+                            <IconChartPie />
                             <span>Dashboard</span>
                         </AsideLink>
                         <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
-                            <GearIcon />
+                            <IconSettings />
                             <span>Settings</span>
                         </AsideLink>
                         <AsideLink active={route().current('users.*')} href={route('users.index')}>
-                            <PersonIcon />
+                            <IconUserCircle />
                             <span>Users</span>
                         </AsideLink>
                     </ul>

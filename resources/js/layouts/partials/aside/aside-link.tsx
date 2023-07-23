@@ -11,7 +11,7 @@ export function AsideLink({ className, active, ...props }: Props) {
         <Link
             className={cn(
                 active ? 'bg-accent text-accent-foreground' : 'hover:bg-accent',
-                'flex items-center gap-x-2 rounded-lg px-3 py-2 text-sm font-medium'
+                'flex items-center gap-x-2 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 rounded-lg px-3 py-2 text-sm font-medium'
             )}
             {...props}
         />
