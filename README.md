@@ -1,7 +1,7 @@
 ### tl;dr
 
 ```bash
-git clone https://github.com/irsyadadl/inertia.ts.git 'project'
+git clone https://github.com/irsyadadl/inertia.ts.git project
 cd project
 composer install
 cp .env.example .env
@@ -81,9 +81,7 @@ This project has a few helpers available to you. You can use them in your compon
 
 Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
 
-![Screenshot of the project](https://pbs.twimg.com/media/Fhh7nR0aUAESOfq?format=jpg&name=4096x4096)
-
-If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts). I'll be happy to review it.
+If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts/pulls). I'll be happy to review it.
 
 ### Learn More
 
