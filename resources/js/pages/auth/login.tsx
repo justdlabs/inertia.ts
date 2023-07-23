@@ -81,18 +81,14 @@ export default function Login(args: LoginProps) {
                         <span className='ml-2 text-sm text-muted-foreground'>Remember me</span>
                     </label>
                     {canResetPassword && (
-                        <Link
-                            href='/forgot-password'
-                            className='text-sm text-foreground hover:underline'>
+                        <Link href='/forgot-password' className='text-sm text-foreground hover:underline'>
                             Forgot your password?
                         </Link>
                     )}
                 </div>
 
                 <div className='mt-4 flex items-center justify-end'>
-                    <Link
-                        href={route('register')}
-                        className='text-sm text-foreground hover:underline'>
+                    <Link href={route('register')} className='text-sm text-foreground hover:underline'>
                         Don't have an account?
                     </Link>
 
@@ -106,11 +102,5 @@ export default function Login(args: LoginProps) {
 }
 
 Login.layout = (page: React.ReactNode) => {
-    return (
-        <GuestLayout
-            header='Login'
-            description="Log in to your account."
-            children={page}
-        />
-    );
+    return <GuestLayout header='Login' description='Log in to your account.' children={page} />;
 };

@@ -27,6 +27,7 @@ This project has come with some features like:
 -   Simple Pagination
 
 ### Quick Login
+
 This project has a feature to login quickly. You can use this feature by adding `/dev/login/{user_id}` to the url. For example: `http://localhost:8000/dev/login/1`. And then you can login as user with id `1`. But this feature only works in development mode with `APP_ENV=local` in `.env` file. Make sure you have a user with id `1` in your database.
 
 ### The default branch has been renamed!

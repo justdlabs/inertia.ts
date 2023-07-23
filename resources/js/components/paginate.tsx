@@ -1,15 +1,11 @@
 import { PaginateProps } from '@/types';
 import { Link } from '@inertiajs/react';
-import {
-    IconSquareChevronLeftFilled,
-    IconSquareChevronRightFilled, IconSquareRoundedChevronLeftFilled,
-    IconSquareRoundedChevronRightFilled,
-} from '@tabler/icons-react';
+import { IconSquareRoundedChevronLeftFilled, IconSquareRoundedChevronRightFilled } from '@tabler/icons-react';
 
 export function SimplePaginate({ links, meta }: PaginateProps<object>) {
     return (
         <div className='flex w-full items-center justify-center sm:justify-between'>
-            <div className='hidden sm:block text-muted-foreground'>
+            <div className='hidden text-muted-foreground sm:block'>
                 Showing {meta.from} to {meta.to} of {meta.total} entries
             </div>
             <div className='flex items-center gap-x-1'>
@@ -19,7 +15,7 @@ export function SimplePaginate({ links, meta }: PaginateProps<object>) {
                     </Link>
                 ) : (
                     <span>
-                        <IconSquareRoundedChevronLeftFilled className='text-accent h-8 w-8' />
+                        <IconSquareRoundedChevronLeftFilled className='h-8 w-8 text-accent' />
                     </span>
                 )}
                 {links.next !== null ? (
@@ -28,7 +24,7 @@ export function SimplePaginate({ links, meta }: PaginateProps<object>) {
                     </Link>
                 ) : (
                     <span>
-                        <IconSquareRoundedChevronRightFilled className='text-accent h-8 w-8' />
+                        <IconSquareRoundedChevronRightFilled className='h-8 w-8 text-accent' />
                     </span>
                 )}
             </div>
