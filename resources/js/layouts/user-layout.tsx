@@ -16,7 +16,7 @@ export function UserLayout({ title, children }: PropsWithChildren<Props>) {
             <Navbar />
             <div className='flex'>
                 <Aside />
-                <main className='w-2/3'>
+                <main className='w-full'>
                     <div className='px-4 py-4 sm:px-6 lg:px-6 lg:py-8'>{children}</div>
                 </main>
             </div>
