@@ -9,7 +9,7 @@ import {
 export function SimplePaginate({ links, meta }: PaginateProps<object>) {
     return (
         <div className='flex w-full items-center justify-center sm:justify-between'>
-            <div className='hidden sm:block'>
+            <div className='hidden sm:block text-muted-foreground'>
                 Showing {meta.from} to {meta.to} of {meta.total} entries
             </div>
             <div className='flex items-center gap-x-1'>
