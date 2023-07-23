@@ -1,6 +1,6 @@
 import React from 'react';
 import { AsideLink } from '@/layouts/partials/aside/aside-link';
-import { IconChartPie, IconSettings, IconUserCircle } from '@tabler/icons-react';
+import { IconChartPie, IconSettings2, IconUserCircle } from '@tabler/icons-react';
 
 export function Aside() {
     return (
@@ -13,7 +13,7 @@ export function Aside() {
                             <span>Dashboard</span>
                         </AsideLink>
                         <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
-                            <IconSettings />
+                            <IconSettings2 />
                             <span>Settings</span>
                         </AsideLink>
                         <AsideLink active={route().current('users.*')} href={route('users.index')}>

@@ -12,10 +12,10 @@ import {
 } from '@/components/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { DashboardIcon, ExitIcon, GearIcon, PersonIcon } from '@radix-ui/react-icons';
 import { UserMediaObject } from '@/components/user-media-object';
 import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
+import { IconChartPie, IconLogout2, IconSettings2, IconUsers } from '@tabler/icons-react';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
@@ -52,20 +52,20 @@ export default function Navbar() {
                                         </DropdownMenuLabel>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                            <DashboardIcon className='mr-2 h-4 w-4' />
+                                            <IconChartPie className='mr-2 h-4 w-4' />
                                             <span>Dashboard</span>
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => router.get(route('profile.edit'))}>
-                                            <GearIcon className='mr-2 h-4 w-4' />
-                                            <span>Profile</span>
+                                            <IconSettings2 className='mr-2 h-4 w-4' />
+                                            <span>Settings</span>
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                            <PersonIcon className='mr-2 h-4 w-4' />
+                                            <IconUsers className='mr-2 h-4 w-4' />
                                             <span>Users</span>
                                         </DropdownMenuItem>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                            <ExitIcon className='mr-2 h-4 w-4' />
+                                            <IconLogout2 className='mr-2 h-4 w-4' />
                                             <span>Logout</span>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
