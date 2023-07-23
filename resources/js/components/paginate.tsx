@@ -1,7 +1,10 @@
 import { PaginateProps } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Button } from '@/components/button';
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import {
+    IconSquareChevronLeftFilled,
+    IconSquareChevronRightFilled, IconSquareRoundedChevronLeftFilled,
+    IconSquareRoundedChevronRightFilled,
+} from '@tabler/icons-react';
 
 export function SimplePaginate({ links, meta }: PaginateProps<object>) {
     return (
@@ -9,32 +12,24 @@ export function SimplePaginate({ links, meta }: PaginateProps<object>) {
             <div className='hidden sm:block'>
                 Showing {meta.from} to {meta.to} of {meta.total} entries
             </div>
-            <div className='flex items-center gap-x-2'>
+            <div className='flex items-center gap-x-1'>
                 {links.prev !== null ? (
-                    <Button size='icon' asChild>
-                        <Link preserveScroll preserveState href={links.prev}>
-                            <ChevronLeftIcon />
-                        </Link>
-                    </Button>
+                    <Link preserveScroll preserveState href={links.prev}>
+                        <IconSquareRoundedChevronLeftFilled className='h-8 w-8' />
+                    </Link>
                 ) : (
-                    <Button disabled size='icon' asChild>
-                        <span>
-                            <ChevronLeftIcon />
-                        </span>
-                    </Button>
+                    <span>
+                        <IconSquareRoundedChevronLeftFilled className='text-accent h-8 w-8' />
+                    </span>
                 )}
                 {links.next !== null ? (
-                    <Button size='icon' asChild>
-                        <Link preserveScroll preserveState href={links.next}>
-                            <ChevronRightIcon />
-                        </Link>
-                    </Button>
+                    <Link preserveScroll preserveState href={links.next}>
+                        <IconSquareRoundedChevronRightFilled className='h-8 w-8' />
+                    </Link>
                 ) : (
-                    <Button disabled size='icon' asChild>
-                        <span>
-                            <ChevronRightIcon />
-                        </span>
-                    </Button>
+                    <span>
+                        <IconSquareRoundedChevronRightFilled className='text-accent h-8 w-8' />
+                    </span>
                 )}
             </div>
         </div>
