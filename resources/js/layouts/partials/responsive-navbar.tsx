@@ -12,15 +12,17 @@ import {
 } from '@/components/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
 import {
-    EnterIcon,
-    ExitIcon,
-    GearIcon,
-    HamburgerMenuIcon,
-    HomeIcon,
-    IdCardIcon,
-    PersonIcon,
-    PieChartIcon,
-} from '@radix-ui/react-icons';
+    IconChartPie,
+    IconHome,
+    IconId,
+    IconLogin,
+    IconLogout2,
+    IconMenu,
+    IconSettings2,
+    IconUserCircle,
+    IconUsers,
+} from '@tabler/icons-react';
+import React from 'react';
 
 const ResponsiveNavbar = () => {
     const { auth } = usePage<PageProps>().props;
@@ -40,21 +42,12 @@ const ResponsiveNavbar = () => {
                                     <AvatarFallback>{auth.user.acronym}</AvatarFallback>
                                 </Avatar>
                             ) : (
-                                <HamburgerMenuIcon className='h-6 w-6' />
+                                <IconMenu className='h-6 w-6' />
                             )}
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className='mr-8 w-72'>
-                            <DropdownMenuItem onClick={() => router.get(route('home'))}>
-                                <HomeIcon className='mr-2 h-4 w-4' />
-                                <span>Home</span>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => router.get(route('about'))}>
-                                <IdCardIcon className='mr-2 h-4 w-4' />
-                                <span>About</span>
-                            </DropdownMenuItem>
-                            {auth?.user ? (
+                            {auth.user && (
                                 <>
-                                    <DropdownMenuSeparator />
                                     <DropdownMenuLabel>
                                         <div className='flex items-center font-normal'>
                                             <Avatar>
@@ -68,21 +61,34 @@ const ResponsiveNavbar = () => {
                                         </div>
                                     </DropdownMenuLabel>
                                     <DropdownMenuSeparator />
+                                </>
+                            )}
+                            <DropdownMenuItem onClick={() => router.get(route('home'))}>
+                                <IconHome className='mr-2 h-4 w-4' />
+                                <span>Home</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => router.get(route('about'))}>
+                                <IconId className='mr-2 h-4 w-4' />
+                                <span>About</span>
+                            </DropdownMenuItem>
+                            {auth?.user ? (
+                                <>
+                                    <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                        <PieChartIcon className='mr-2 h-4 w-4' />
+                                        <IconChartPie className='mr-2 h-4 w-4' />
                                         <span>Dashboard</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => router.get(route('profile.edit'))}>
-                                        <GearIcon className='mr-2 h-4 w-4' />
+                                        <IconSettings2 className='mr-2 h-4 w-4' />
                                         <span>Profile</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                        <PersonIcon className='mr-2 h-4 w-4' />
+                                        <IconUsers className='mr-2 h-4 w-4' />
                                         <span>Users</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                        <ExitIcon className='mr-2 h-4 w-4' />
+                                        <IconLogout2 className='mr-2 h-4 w-4' />
                                         <span>Logout</span>
                                     </DropdownMenuItem>
                                 </>
@@ -90,11 +96,11 @@ const ResponsiveNavbar = () => {
                                 <>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.get(route('login'))}>
-                                        <EnterIcon className='mr-2 h-4 w-4' />
+                                        <IconLogin className='mr-2 h-4 w-4' />
                                         <span>Login</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => router.get(route('register'))}>
-                                        <PersonIcon className='mr-2 h-4 w-4' />
+                                        <IconUserCircle className='mr-2 h-4 w-4' />
                                         <span>Register</span>
                                     </DropdownMenuItem>
                                 </>
