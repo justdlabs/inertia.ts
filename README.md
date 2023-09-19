@@ -99,6 +99,4 @@ Everything you need to understand is clearly can be found in: [UI / UX with Lara
 
 [//]: # '-   **[Teil](https://teil.app/)**'
 
--   **[Parsinta.com](https://parsinta.com/)**
--   **[Karteil.com](https://karteil.com/)**
 -   **[IrsyadNotes.com](https://irsyadnotes.com/)**
