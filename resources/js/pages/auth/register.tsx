@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { GuestLayout } from '@/layouts/guest-layout';
 import { InputError } from '@/components/input-error';
-import { Label } from '@/components/label';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
-import { Checkbox } from '@/components/checkbox';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function Register() {
     const { hasTermsAndPrivacyPolicyFeature } = usePage<{ hasTermsAndPrivacyPolicyFeature: boolean }>().props;

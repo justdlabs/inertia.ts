@@ -1,28 +1,89 @@
-import React from 'react';
-import { AsideLink } from '@/layouts/partials/aside/aside-link';
-import { IconChartPie, IconSettings2, IconUserCircle } from '@tabler/icons-react';
+import React, { PropsWithChildren } from 'react';
+import {
+    IconChartPie,
+    IconChevronDown,
+    IconGlobe,
+    IconMessageCircleQuestion,
+    IconSettings2,
+} from '@tabler/icons-react';
+import { InertiaLinkProps, Link } from '@inertiajs/react';
+import { cn } from '@/lib/utils';
+import ApplicationLogo from '@/components/application-logo';
 
 export function Aside() {
     return (
-        <div className='hidden min-h-screen shrink-0 lg:flex lg:w-80 lg:flex-col'>
-            <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r bg-background px-6 py-8'>
-                <nav className='flex flex-1 flex-col'>
-                    <ul role='list' className='flex flex-1 flex-col gap-y-1'>
-                        <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
-                            <IconChartPie />
-                            <span>Dashboard</span>
-                        </AsideLink>
-                        <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
-                            <IconSettings2 />
-                            <span>Settings</span>
-                        </AsideLink>
-                        <AsideLink active={route().current('users.*')} href={route('users.index')}>
-                            <IconUserCircle />
-                            <span>Users</span>
-                        </AsideLink>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <nav className='lg:flex hidden items-start min-h-screen border-r w-80 p-8 shrink-0'>
+            <ul className='flex gap-y-1 flex-col w-full sticky top-12'>
+                <li className='flex items-center justify-between mb-8'>
+                    <Link href='/' className='block'>
+                        <ApplicationLogo className='h-10 w-auto fill-red-600' />
+                    </Link>
+                </li>
+                <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
+                    <IconChartPie />
+                    <span>Dashboard</span>
+                </AsideLink>
+                <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
+                    <IconSettings2 />
+                    <span>Settings</span>
+                </AsideLink>
+
+                <AsideLink href='#'>
+                    <IconGlobe />
+                    <span>SEO</span>
+                </AsideLink>
+
+                <AsideLink href='#'>
+                    <IconMessageCircleQuestion />
+                    <span>Help</span>
+                </AsideLink>
+                <AsideLabel>
+                    <IconChevronDown />
+                    <span>Resources</span>
+                </AsideLabel>
+                <AsideLink active={route().current('users.*')} href={route('users.index')}>
+                    <span className='pl-7'>Users</span>
+                </AsideLink>
+                <AsideLink href='#'>
+                    <span className='pl-7'>Articles</span>
+                </AsideLink>
+                <AsideLink href='#'>
+                    <span className='pl-7'>Categories</span>
+                </AsideLink>
+            </ul>
+        </nav>
+    );
+}
+
+interface AsideLinkProps extends InertiaLinkProps {
+    className?: string;
+    active?: boolean;
+}
+
+export function AsideLink({ className, active, ...props }: AsideLinkProps) {
+    return (
+        <li className='-mx-4'>
+            <Link
+                className={cn(
+                    active ? 'text-foreground font-semibold' : 'text-muted-foreground',
+                    'flex items-center [&>svg]:w-4 [&>svg]:stroke-[1.25] [&>svg]:h-4 [&>svg]:mr-3 hover:bg-accent/50 tracking-tight text-sm hover:text-foreground px-4 py-2 rounded-md'
+                )}
+                {...props}
+            />
+        </li>
+    );
+}
+
+export function AsideLabel({ children, className }: PropsWithChildren<{ className?: string }>) {
+    return (
+        <li className='-mx-4'>
+            <span
+                className={cn(
+                    'flex items-center text-muted-foreground [&>svg]:w-4 [&>svg]:stroke-[1.25] [&>svg]:h-4 [&>svg]:mr-3 tracking-tight text-sm px-4 py-2 rounded-md',
+                    className
+                )}>
+                {children}
+            </span>
+        </li>
     );
 }

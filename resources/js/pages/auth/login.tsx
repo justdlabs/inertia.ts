@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Checkbox } from '@/components/checkbox';
+import { Checkbox } from '@/components/ui/checkbox';
 import { GuestLayout } from '@/layouts/guest-layout';
 import { InputError } from '@/components/input-error';
-import { Label } from '@/components/label';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 interface LoginProps {

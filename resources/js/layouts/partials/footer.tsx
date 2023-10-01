@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { SVGProps } from 'react';
-import { Input } from '@/components/input';
-import { Button } from '@/components/button';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 const navigation = {
     solutions: [

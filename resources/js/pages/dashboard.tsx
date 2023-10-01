@@ -1,6 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { PageProps } from '@/types';
-import { Card, CardContent } from '@/components/card';
+import { Card, CardContent } from '@/components/ui/card';
 import SectionTitle from '@/components/section-title';
 import { UserLayout } from '@/layouts/user-layout';
 

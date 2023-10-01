@@ -1,39 +1,30 @@
-import React from 'react';
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { useTheme } from '@/components/theme-provider';
+import { IconMoonStars, IconSun } from '@tabler/icons-react';
 
 export function ThemeToggle() {
-    function disableTransitionsTemporarily() {
-        document.documentElement.classList.add('[&_*]:!transition-none');
-        window.setTimeout(() => {
-            document.documentElement.classList.remove('[&_*]:!transition-none');
-        }, 0);
-    }
-
-    function toggleMode() {
-        disableTransitionsTemporarily();
-
-        let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        let isSystemDarkMode = darkModeMediaQuery.matches;
-        let isDarkMode = document.documentElement.classList.toggle('dark');
-
-        if (isDarkMode === isSystemDarkMode) {
-            delete window.localStorage.isDarkMode;
-        } else {
-            window.localStorage.isDarkMode = isDarkMode;
-        }
-    }
+    const { setTheme } = useTheme();
 
     return (
-        <Button
-            size='icon'
-            variant='outline'
-            className='rounded-full'
-            type='button'
-            aria-label='Toggle dark mode'
-            onClick={toggleMode}>
-            <SunIcon className='dark:hidden' />
-            <MoonIcon className='hidden dark:block' />
-        </Button>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant='outline' size='icon'>
+                    <IconSun className='stroke-[1.25] h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
+                    <IconMoonStars className='stroke-[1.25] absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
+                    <span className='sr-only'>Toggle theme</span>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align='end'>
+                <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
     );
 }

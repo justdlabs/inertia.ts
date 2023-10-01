@@ -1,5 +1,6 @@
 import { User } from '@/types';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { strLimit } from '@/lib/utils';
 
 export function UserMediaObject({ user }: { user: User }) {
     return (
@@ -10,7 +11,7 @@ export function UserMediaObject({ user }: { user: User }) {
             </Avatar>
             <div className='ml-3'>
                 <strong className='font-semibold text-primary'>{user.name}</strong>
-                <div className='text-muted-foreground'>{user.email}</div>
+                <div className='text-muted-foreground'>{strLimit(user.email, 20)}</div>
             </div>
         </div>
     );

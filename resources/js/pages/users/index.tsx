@@ -1,8 +1,7 @@
 import { UserLayout } from '@/layouts/user-layout';
-import { Card, CardFooter } from '@/components/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link, usePage } from '@inertiajs/react';
 import SectionTitle from '@/components/section-title';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table';
 import { User } from '@/types';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 import {
@@ -12,80 +11,52 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/components/dropdown-menu';
-import { Button } from '@/components/button';
-import { UserMediaObject } from '@/components/user-media-object';
-import { SimplePaginate } from '@/components/paginate';
+} from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 export default function Index() {
     const { data: users, meta, links } = usePage<any>().props.users;
     return (
         <div>
-            <Card>
-                <SectionTitle title='Users' description='The list of users.' />
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead className='w-0'>User</TableHead>
-                            {/*<TableHead>Status</TableHead>*/}
-                            <TableHead>Joined</TableHead>
-                            <TableHead />
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {users.length > 0 ? (
-                            <>
-                                {users.map((user: User) => (
-                                    <TableRow key={user.id}>
-                                        <TableCell className='w-0'>
-                                            <UserMediaObject user={user} />
-                                        </TableCell>
-                                        {/*<TableCell>*/}
-                                        {/*    <Badge variant={user.status === 'Verified' ? 'default' : 'accent'}>*/}
-                                        {/*        {user.status}*/}
-                                        {/*    </Badge>*/}
-                                        {/*</TableCell>*/}
-                                        <TableCell>{user.joined}</TableCell>
-                                        <TableCell>
-                                            <div className='flex justify-end'>
-                                                <DropdownMenu>
-                                                    <DropdownMenuTrigger asChild>
-                                                        <Button variant='ghost' className='h-8 w-8 p-0'>
-                                                            <span className='sr-only'>Open menu</span>
-                                                            <DotsHorizontalIcon className='h-4 w-4' />
-                                                        </Button>
-                                                    </DropdownMenuTrigger>
-                                                    <DropdownMenuContent align='end' className='w-56'>
-                                                        <DropdownMenuLabel>User ID: {user.id}</DropdownMenuLabel>
-                                                        <DropdownMenuSeparator />
-                                                        <DropdownMenuItem asChild>
-                                                            <Link href={route('users.show', [user])}>Details</Link>
-                                                        </DropdownMenuItem>
-                                                    </DropdownMenuContent>
-                                                </DropdownMenu>
-                                            </div>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </>
-                        ) : (
-                            <>
-                                <TableRow>
-                                    <TableCell colSpan={4} className='text-center'>
-                                        No users found.
-                                    </TableCell>
-                                </TableRow>
-                            </>
-                        )}
-                    </TableBody>
-                </Table>
-
-                {meta.has_pages && (
-                    <CardFooter className='pt-6'>
-                        <SimplePaginate links={links} meta={meta} />
-                    </CardFooter>
-                )}
-            </Card>
+            <SectionTitle className='p-0 mb-6' title='Users' description='The list of users.' />
+            {users.length > 0 ? (
+                <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    {users.map((user: User) => (
+                        <Card className='flex flex-col' key={Math.random()}>
+                            <CardHeader>
+                                <CardTitle className='text-base'>{user.name}</CardTitle>
+                                <CardDescription>Joined at {user.joined}</CardDescription>
+                            </CardHeader>
+                            <CardContent></CardContent>
+                            <CardFooter className='justify-between'>
+                                <Badge variant={user.status === 'Verified' ? 'default' : 'secondary'}>
+                                    {user.status}
+                                </Badge>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant='ghost' className='h-8 w-8 p-0'>
+                                            <span className='sr-only'>Open menu</span>
+                                            <DotsHorizontalIcon className='h-5 w-5' />
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align='end' className='w-56'>
+                                        <DropdownMenuLabel>User ID: {user.id}</DropdownMenuLabel>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem asChild>
+                                            <Link href={route('users.show', [user])}>Details</Link>
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
+            ) : (
+                <Card>
+                    <CardDescription className='text-center'>No users found.</CardDescription>
+                </Card>
+            )}
         </div>
     );
 }

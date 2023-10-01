@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import ApplicationLogo from '@/components/application-logo';
 import { Link } from '@inertiajs/react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 interface GuestLayoutProps {
@@ -13,7 +13,7 @@ export function GuestLayout({ description = null, header = null, children }: Pro
     return (
         <div className='flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0'>
             <Link href={route('home')}>
-                <ApplicationLogo className='mx-auto h-16 w-16 fill-current text-red-500' />
+                <ApplicationLogo className='mx-auto h-16 w-16 fill-foreground' />
             </Link>
 
             <div className='mt-10 w-full max-w-lg'>
@@ -21,7 +21,7 @@ export function GuestLayout({ description = null, header = null, children }: Pro
                     <CardHeader className='flex-row justify-between'>
                         <div>
                             <CardTitle>{header}</CardTitle>
-                            <CardDescription>{description}</CardDescription>
+                            <CardDescription className='mt-2'>{description}</CardDescription>
                         </div>
                         <ThemeToggle />
                     </CardHeader>

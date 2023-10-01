@@ -1,13 +1,13 @@
 import React from 'react';
 import { InputError } from '@/components/input-error';
-import { Label } from '@/components/label';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import { PageProps } from '@/types';
 import SectionTitle from '@/components/section-title';
-import { Card, CardContent } from '@/components/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
 
 interface Props {

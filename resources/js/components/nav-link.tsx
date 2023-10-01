@@ -12,7 +12,7 @@ export default function NavLink({
             {...props}
             className={cn(
                 active ? 'text-primary' : 'text-muted-foreground',
-                'px-2 text-sm font-medium transition-colors hover:text-primary'
+                'px-3 py-2.5 text-sm font-medium transition-colors hover:text-primary'
             )}
         />
     );

@@ -9,25 +9,25 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/components/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
+} from '@/components/ui/dropdown-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { UserMediaObject } from '@/components/user-media-object';
 import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
-import { IconChartPie, IconLogout2, IconSettings2, IconUsers } from '@tabler/icons-react';
+import { IconChevronDown, IconSettings2 } from '@tabler/icons-react';
+import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
     return (
         <>
             <ResponsiveNavbar />
-            <nav className='relative z-10 hidden border-b sm:block'>
-                <div className='mx-auto max-w-screen-2xl items-center py-4 sm:px-6 lg:px-8'>
+            <nav className='relative z-10 hidden border-b py-3 sm:block'>
+                <div className='mx-auto max-w-screen-2xl items-center sm:px-6 lg:px-8'>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-x-4'>
-                            <Link href='/'>
-                                <ApplicationLogo className='w-8 fill-red-600' />
+                            <Link href='/' className='mr-3'>
+                                <ApplicationLogo className='w-9 fill-foreground' />
                             </Link>
                             <NavLink active={route().current('home')} href='/'>
                                 Home
@@ -37,45 +37,60 @@ export default function Navbar() {
                             </NavLink>
                         </div>
                         {auth.user ? (
-                            <div className='flex items-center gap-x-4'>
+                            <div className='flex items-center gap-x-2'>
                                 <ThemeToggle />
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger className='focus:outline-none'>
-                                        <Avatar>
-                                            <AvatarImage src={auth.user.avatar} alt={auth.user.acronym} />
-                                            <AvatarFallback>{auth.user.acronym}</AvatarFallback>
-                                        </Avatar>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button
+                                            variant='secondary'
+                                            className='bg-secondary/50 hover:bg-secondary/60 border'>
+                                            {auth.user.name}
+                                            <IconChevronDown className='ml-2 h-4 w-4' />
+                                        </Button>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className='mr-8 w-72'>
+                                    <DropdownMenuContent className='mr-8 w-60'>
                                         <DropdownMenuLabel>
                                             <UserMediaObject user={auth.user} />
                                         </DropdownMenuLabel>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                            <IconChartPie className='mr-2 h-4 w-4' />
                                             <span>Dashboard</span>
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={() => router.get(route('profile.edit'))}>
-                                            <IconSettings2 className='mr-2 h-4 w-4' />
+                                        <DropdownMenuItem
+                                            className='justify-between'
+                                            onClick={() => router.get(route('profile.edit'))}>
                                             <span>Settings</span>
+                                            <IconSettings2 className='mr-2 h-4 w-4' />
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                            <IconUsers className='mr-2 h-4 w-4' />
                                             <span>Users</span>
                                         </DropdownMenuItem>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                            <IconLogout2 className='mr-2 h-4 w-4' />
                                             <span>Logout</span>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             </div>
                         ) : (
-                            <div className='flex items-center gap-x-4'>
-                                <NavLink href={route('login')}>Login</NavLink>
-                                <NavLink href={route('register')}>Register</NavLink>
-                            </div>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button
+                                        variant='secondary'
+                                        className='bg-secondary/50 hover:bg-secondary/60 border'>
+                                        Login
+                                        <IconChevronDown className='ml-2 h-4 w-4' />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className='mr-8 w-40'>
+                                    <DropdownMenuItem asChild>
+                                        <Link href={route('login')}>Login</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem asChild>
+                                        <Link href={route('register')}>Register</Link>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         )}
                     </div>
                 </div>

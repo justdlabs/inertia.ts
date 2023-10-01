@@ -6,7 +6,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
     return (
         <>
             <Head title='Privacy Policy' />
-            <div className='relative overflow-hidden bg-white py-16'>
+            <div className='relative overflow-hidden bg-background py-16'>
                 <div className='hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]'>
                     <div className='relative mx-auto h-full max-w-prose text-lg' aria-hidden='true'>
                         <svg
@@ -28,7 +28,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                         y={0}
                                         width={4}
                                         height={4}
-                                        className='text-gray-200'
+                                        className='text-primary/10'
                                         fill='currentColor'
                                     />
                                 </pattern>
@@ -54,7 +54,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                         y={0}
                                         width={4}
                                         height={4}
-                                        className='text-gray-200'
+                                        className='text-primary/10'
                                         fill='currentColor'
                                     />
                                 </pattern>
@@ -80,7 +80,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                                         y={0}
                                         width={4}
                                         height={4}
-                                        className='text-gray-200'
+                                        className='text-primary/10'
                                         fill='currentColor'
                                     />
                                 </pattern>
@@ -90,21 +90,21 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                     </div>
                 </div>
                 <div className='relative px-6 lg:px-8'>
-                    <div className='mx-auto max-w-prose text-lg'>
+                    <div className='mx-auto max-w-prose dark:prose-invert text-lg'>
                         <Link href={route('home')}>
                             <ApplicationLogo className='mx-auto h-16 w-16 fill-current text-red-500' />
                         </Link>
                         <h1>
-                            <span className='mt-4 block text-center text-lg font-semibold text-indigo-600'>
+                            <span className='mt-4 block text-center text-lg font-semibold text-primary'>
                                 Introducing
                             </span>
-                            <span className='mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl'>
+                            <span className='mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-foreground sm:text-4xl'>
                                 Privacy Policy
                             </span>
                         </h1>
 
                         <div
-                            className='prose prose-lg prose-indigo mx-auto mt-6 text-gray-500'
+                            className='prose prose-lg prose-zinc mx-auto mt-6 text-muted-foreground dark:prose-invert'
                             dangerouslySetInnerHTML={{ __html: policy }}
                         />
                     </div>
