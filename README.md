@@ -6,7 +6,7 @@ cd project
 composer install
 cp .env.example .env
 php artisan key:generate
-npm i && npm run build
+bun i && bun run build
 php artisan serve
 ```
 
@@ -14,7 +14,8 @@ php artisan serve
 
 ### Laravel Inertia React w/ Typescript
 
-By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is for you who want to use inertia.js with typescript boilerplate.
+By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is
+for you who want to use inertia.js with typescript boilerplate.
 
 This project has come with some features like:
 
@@ -24,11 +25,13 @@ This project has come with some features like:
 -   User Password
 -   User Delete
 -   User Resources (--only=[index, show, destroy])
--   Simple Pagination
+-   Pagination (Simple)
 
 ### Quick Login
 
-This project has a feature to login quickly. You can use this feature by adding `/dev/login/{user_id}` to the url. For example: `http://localhost:8000/dev/login/1`. And then you can login as user with id `1`. But this feature only works in development mode with `APP_ENV=local` in `.env` file. Make sure you have a user with id `1` in your database.
+This project has a feature to login quickly. You can use this feature by adding `/dev/login/{user_id}` to the url. For
+example: `http://localhost:8000/dev/login/1`. And then you can login as user with id `1`. But this feature only works in
+development mode with `APP_ENV=local` in `.env` file. Make sure you have a user with id `1` in your database.
 
 ### The default branch has been renamed!
 
@@ -45,11 +48,13 @@ git remote set-head origin -a
 
 ### About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and
+creative experience to be truly fulfilling.
 
 ### About Inertia.js
 
-Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and controllers.
+Inertia.js lets you quickly build modern single-page React, Vue and Svelte apps using classic server-side routing and
+controllers.
 
 ### About Typescript
 
@@ -57,46 +62,62 @@ Typescript is a strict syntactical superset of JavaScript and adds optional stat
 
 ### Available scripts
 
-Feel free to use someting like [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/). It just node package manager I have, so make yours.
+Feel free to use someting like [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/). It just node package manager I
+have, so make yours.
 
 ```bash
 # Format with prettier
-npm run format
+bun run format
 
 # Start development
-npm run dev
+bun run dev
 
 # Build the app
-npm run build
+bun run build
 
 # Testing for SSR
-npm run preview
+bun run preview
 ```
-
-### Components
-
-This project has a few helpers available to you. You can use them in your components like this:
 
 ### Update profile information
 
-Of course it is not just about authentication, but also about updating user profile information, password, and deleting account.
+Of course it is not just about authentication, but also about updating user profile information, password, and deleting
+account.
 
-If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts/pulls). I'll be happy to review it.
+### Dashboard Layout
+
+This project has 3 layout:
+
+1. Guest Layout
+2. App Layout (Default)
+3. User Layout
+
+User layout will make a layout side by side, it has a sidebar. So this is will be useful when you need an admin panel or
+something like that.
+
+If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts/pulls). I'll
+be happy to review it.
 
 ### Learn More
 
-Everything you need to understand is clearly can be found in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-react-nqp6j)
+Everything you need to understand is clearly can be found
+in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-react-nqp6j)
 
 ### Thanks to
 
 -   [Laravel](https://github.com/laravel/framework)
--   [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react) and [Typescript](https://github.com/microsoft/TypeScript)
+-   [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react)
+    and [Typescript](https://github.com/microsoft/TypeScript)
 -   [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
 -   [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
 -   [clsx](https://github.com/lukeed/clsx)
+-   [Tailwind Merge](https://github.com/dcastil/tailwind-merge)
+-   [Shadcn](https://ui.shadcn.com/)
+-   [Parsinta.com](https://parsinta.com/)
 
 ### Premium Partners
 
-[//]: # '-   **[Teil](https://teil.app/)**'
-
--   **[IrsyadNotes.com](https://irsyadnotes.com/)**
+-   **[irsyad.co](https://irsyad.co/)**
+-   **[parsinta.com](https://parsinta.com/)**
+-   **[karteil.com](https://karteil.com/)**
+-   **[jetbrains.com](https://jetbrains.com/)**
