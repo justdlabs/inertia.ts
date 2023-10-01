@@ -9,20 +9,12 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/components/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/avatar';
-import {
-    IconChartPie,
-    IconHome,
-    IconId,
-    IconLogin,
-    IconLogout2,
-    IconMenu,
-    IconSettings2,
-    IconUserCircle,
-    IconUsers,
-} from '@tabler/icons-react';
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { IconChevronDown, IconLogin, IconSettings2, IconUserCircle } from '@tabler/icons-react';
 import React from 'react';
+import { getFirstWord, strLimit } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 const ResponsiveNavbar = () => {
     const { auth } = usePage<PageProps>().props;
@@ -32,18 +24,14 @@ const ResponsiveNavbar = () => {
                 <Link href='/'>
                     <ApplicationLogo className='w-8 fill-red-600' />
                 </Link>
-                <div className='flex items-center gap-x-4'>
+                <div className='flex items-center gap-x-1'>
                     <ThemeToggle />
                     <DropdownMenu>
-                        <DropdownMenuTrigger className='focus:outline-none'>
-                            {auth?.user ? (
-                                <Avatar className='h-8 w-8'>
-                                    <AvatarImage src={auth.user.avatar} alt={auth.user.acronym} />
-                                    <AvatarFallback>{auth.user.acronym}</AvatarFallback>
-                                </Avatar>
-                            ) : (
-                                <IconMenu className='h-6 w-6' />
-                            )}
+                        <DropdownMenuTrigger asChild className='focus:outline-none'>
+                            <Button variant='secondary' className='bg-secondary/50 hover:bg-secondary/60 border'>
+                                {auth?.user ? getFirstWord(auth.user.name, 5) : 'Menu'}
+                                <IconChevronDown className='ml-2 h-4 w-4' />
+                            </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className='mr-8 w-72'>
                             {auth.user && (
@@ -56,7 +44,9 @@ const ResponsiveNavbar = () => {
                                             </Avatar>
                                             <div className='ml-3'>
                                                 <strong className='font-semibold text-primary'>{auth.user.name}</strong>
-                                                <div className='text-muted-foreground'>{auth.user.email}</div>
+                                                <div className='text-muted-foreground'>
+                                                    {strLimit(auth.user.email, 28)}
+                                                </div>
                                             </div>
                                         </div>
                                     </DropdownMenuLabel>
@@ -64,31 +54,28 @@ const ResponsiveNavbar = () => {
                                 </>
                             )}
                             <DropdownMenuItem onClick={() => router.get(route('home'))}>
-                                <IconHome className='mr-2 h-4 w-4' />
                                 <span>Home</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => router.get(route('about'))}>
-                                <IconId className='mr-2 h-4 w-4' />
                                 <span>About</span>
                             </DropdownMenuItem>
                             {auth?.user ? (
                                 <>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                        <IconChartPie className='mr-2 h-4 w-4' />
                                         <span>Dashboard</span>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => router.get(route('profile.edit'))}>
-                                        <IconSettings2 className='mr-2 h-4 w-4' />
+                                    <DropdownMenuItem
+                                        className='flex justify-between items-center'
+                                        onClick={() => router.get(route('profile.edit'))}>
                                         <span>Profile</span>
+                                        <IconSettings2 className='h-4 w-4' />
                                     </DropdownMenuItem>
                                     <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                        <IconUsers className='mr-2 h-4 w-4' />
                                         <span>Users</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                        <IconLogout2 className='mr-2 h-4 w-4' />
                                         <span>Logout</span>
                                     </DropdownMenuItem>
                                 </>

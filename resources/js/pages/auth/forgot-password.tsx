@@ -1,7 +1,7 @@
 import { GuestLayout } from '@/layouts/guest-layout';
 import { InputError } from '@/components/input-error';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Head, useForm } from '@inertiajs/react';
 
 interface ForgotPasswordProps {

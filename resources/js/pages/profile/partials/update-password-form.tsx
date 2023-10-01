@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { InputError } from '@/components/input-error';
-import { Label } from '@/components/label';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import SectionTitle from '@/components/section-title';
-import { Card, CardContent } from '@/components/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {

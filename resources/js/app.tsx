@@ -1,6 +1,6 @@
 import './bootstrap';
 import '../css/app.css';
-
+import { ThemeProvider } from '@/components/theme-provider';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -13,7 +13,11 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+                <App {...props} />
+            </ThemeProvider>
+        );
     },
     progress: {
         color: '#4B5563',

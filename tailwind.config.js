@@ -1,12 +1,15 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    darkMode: ['class'],
+export default {
+    darkMode: 'class',
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.tsx',
     ],
+
     theme: {
         container: {
             center: true,
@@ -22,10 +25,6 @@ module.exports = {
                 ring: 'hsl(var(--ring))',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
-                brand: {
-                    DEFAULT: 'hsl(var(--brand))',
-                    foreground: 'hsl(var(--brand-foreground))',
-                },
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))',
@@ -56,9 +55,12 @@ module.exports = {
                 },
             },
             borderRadius: {
-                lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 2px)',
+                lg: `var(--radius)`,
+                md: `calc(var(--radius) - 2px)`,
                 sm: 'calc(var(--radius) - 4px)',
+            },
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             keyframes: {
                 'accordion-down': {
@@ -76,5 +78,6 @@ module.exports = {
             },
         },
     },
+
     plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 };

@@ -1,8 +1,8 @@
 import { UserLayout } from '@/layouts/user-layout';
 import { User } from '@/types';
 import { UserMediaObject } from '@/components/user-media-object';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/card';
-import { Button } from '@/components/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
     AlertDialog,
     AlertDialogAction,
