@@ -21,7 +21,6 @@ This project has come with some features like:
 
 -   Authentication
 -   User Profile
--   User Avatar
 -   User Password
 -   User Delete
 -   User Resources (--only=[index, show, destroy])
@@ -113,11 +112,9 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 -   [clsx](https://github.com/lukeed/clsx)
 -   [Tailwind Merge](https://github.com/dcastil/tailwind-merge)
 -   [Shadcn](https://ui.shadcn.com/)
--   [Parsinta.com](https://parsinta.com/)
+-   [parsinta.com](https://parsinta.com/)
+-   [irsyad.co](https://irsyad.co/)
+-   [karteil.com](https://karteil.com/)
 
 ### Premium Partners
-
--   **[irsyad.co](https://irsyad.co/)**
--   **[parsinta.com](https://parsinta.com/)**
--   **[karteil.com](https://karteil.com/)**
 -   **[jetbrains.com](https://jetbrains.com/)**
