@@ -117,4 +117,5 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 -   [karteil.com](https://karteil.com/)
 
 ### Premium Partners
+
 -   **[jetbrains.com](https://jetbrains.com/)**

@@ -13,7 +13,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from '@/components/alert-dialog';
+} from '@/components/ui/alert-dialog';
 import { useForm } from '@inertiajs/react';
 import { toast } from '@/hooks/use-toast';
 
