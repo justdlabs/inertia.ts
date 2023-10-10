@@ -29,7 +29,7 @@ const ResponsiveNavbar = () => {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild className='focus:outline-none'>
                             <Button variant='secondary' className='bg-secondary/50 hover:bg-secondary/60 border'>
-                                {auth?.user ? getFirstWord(auth.user.name, 5) : 'Menu'}
+                                {auth?.user ? getFirstWord(auth.user.name) : 'Menu'}
                                 <IconChevronDown className='ml-2 h-4 w-4' />
                             </Button>
                         </DropdownMenuTrigger>
@@ -53,26 +53,24 @@ const ResponsiveNavbar = () => {
                                     <DropdownMenuSeparator />
                                 </>
                             )}
-                            <DropdownMenuItem onClick={() => router.get(route('home'))}>
-                                <span>Home</span>
+                            <DropdownMenuItem asChild>
+                                <Link href={route('home')}>Home</Link>
                             </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => router.get(route('about'))}>
-                                <span>About</span>
+                            <DropdownMenuItem>
+                                <Link href={route('about')}>About</Link>
                             </DropdownMenuItem>
                             {auth?.user ? (
                                 <>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                        <span>Dashboard</span>
+                                    <DropdownMenuItem>
+                                        <Link href={route('dashboard')}>Dashboard</Link>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                        className='flex justify-between items-center'
-                                        onClick={() => router.get(route('profile.edit'))}>
-                                        <span>Profile</span>
+                                    <DropdownMenuItem className='flex justify-between items-center' asChild>
+                                        <Link href={route('profile.edit')}>Profile</Link>
                                         <IconSettings2 className='h-4 w-4' />
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                        <span>Users</span>
+                                    <DropdownMenuItem asChild>
+                                        <Link href={route('users.index')}>Users</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>
@@ -82,13 +80,17 @@ const ResponsiveNavbar = () => {
                             ) : (
                                 <>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem onClick={() => router.get(route('login'))}>
-                                        <IconLogin className='mr-2 h-4 w-4' />
-                                        <span>Login</span>
+                                    <DropdownMenuItem asChild>
+                                        <Link className='flex items-center' href={route('login')}>
+                                            <IconLogin className='mr-2 h-4 w-4' />
+                                            <span>Login</span>
+                                        </Link>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => router.get(route('register'))}>
-                                        <IconUserCircle className='mr-2 h-4 w-4' />
-                                        <span>Register</span>
+                                    <DropdownMenuItem asChild>
+                                        <Link className='flex items-center' href={route('register')}>
+                                            <IconUserCircle className='mr-2 h-4 w-4' />
+                                            <span>Register</span>
+                                        </Link>
                                     </DropdownMenuItem>
                                 </>
                             )}
