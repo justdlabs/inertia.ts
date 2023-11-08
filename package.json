@@ -29,7 +29,7 @@
     "tailwindcss-animate": "^1.0.7",
     "ts-loader": "^9.4.1",
     "typescript": "^5",
-    "vite": "^4.4.11"
+    "vite": "^4.5.0"
   },
   "dependencies": {
     "@inertiajs/react": "^1.0.11",
