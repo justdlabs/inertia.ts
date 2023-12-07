@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import { InertiaLinkProps, Link } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
 import ApplicationLogo from '@/components/application-logo';
-import {IconChevronDown, IconCircleQuestionmark, IconDashboard, IconGlobe, IconSettings} from "@irsyadadl/paranoid";
+import { IconChevronDown, IconCircleQuestionmark, IconDashboard, IconGlobe, IconSettings } from '@irsyadadl/paranoid';
 
 export function Aside() {
     return (

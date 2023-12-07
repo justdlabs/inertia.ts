@@ -1,19 +1,21 @@
 import React, { useRef, useState } from 'react';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { InputError } from '@/components/input-error';
 import { Input } from '@/components/ui/input';
 import { useForm } from '@inertiajs/react';
-import clsx from 'clsx';
 import SectionTitle from '@/components/section-title';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-    AlertDialog, AlertDialogAction, AlertDialogCancel,
-    AlertDialogContent, AlertDialogDescription, AlertDialogFooter,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { DialogDescription } from '@radix-ui/react-dialog';
 
 export default function DeleteUserForm() {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
@@ -85,7 +87,9 @@ export default function DeleteUserForm() {
                         </div>
                         <AlertDialogFooter>
                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={deleteUser} disabled={processing}>Continue</AlertDialogAction>
+                            <AlertDialogAction onClick={deleteUser} disabled={processing}>
+                                Continue
+                            </AlertDialogAction>
                         </AlertDialogFooter>
                     </AlertDialogContent>
                 </AlertDialog>

@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { IconChevronLeft, IconChevronRight, IconChevronDoubleLeft, IconChevronDoubleRight } from '@irsyadadl/paranoid';
+import { IconChevronDoubleLeft, IconChevronDoubleRight, IconChevronLeft, IconChevronRight } from '@irsyadadl/paranoid';
 
 type Props = {
     only?: string[];

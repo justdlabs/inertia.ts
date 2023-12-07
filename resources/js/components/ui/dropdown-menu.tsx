@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { IconCheck, IconChevronRight, IconBullet } from '@irsyadadl/paranoid';
+import { IconBullet, IconCheck, IconChevronRight } from '@irsyadadl/paranoid';
 
 import { cn } from '@/lib/utils';
 

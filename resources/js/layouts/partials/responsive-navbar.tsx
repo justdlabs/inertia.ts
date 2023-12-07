@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import React from 'react';
 import { getFirstWord, strLimit } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import {IconChevronDown, IconCirclePerson, IconLogout, IconSettings} from "@irsyadadl/paranoid";
+import { IconChevronDown, IconCirclePerson, IconLogout, IconSettings } from '@irsyadadl/paranoid';
 
 const ResponsiveNavbar = () => {
     const { auth } = usePage<PageProps>().props;
