@@ -109,9 +109,8 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
     and [Typescript](https://github.com/microsoft/TypeScript)
 -   [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
 -   [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
--   [clsx](https://github.com/lukeed/clsx)
--   [Tailwind Merge](https://github.com/dcastil/tailwind-merge)
 -   [Shadcn](https://ui.shadcn.com/)
+-   [Paranoid](https://irsyad.co/paranoid)
 -   [parsinta.com](https://parsinta.com/)
 -   [irsyad.co](https://irsyad.co/)
 -   [karteil.com](https://karteil.com/)
