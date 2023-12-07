@@ -14,7 +14,7 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { UserMediaObject } from '@/components/user-media-object';
 import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
-import { IconChevronDown, IconSettings2 } from '@tabler/icons-react';
+import { IconChevronDown, IconSettings } from '@irsyadadl/paranoid';
 import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
@@ -60,7 +60,7 @@ export default function Navbar() {
                                             className='justify-between'
                                             onClick={() => router.get(route('profile.edit'))}>
                                             <span>Settings</span>
-                                            <IconSettings2 className='mr-2 h-4 w-4' />
+                                            <IconSettings className='mr-2 h-4 w-4' />
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
                                             <span>Users</span>

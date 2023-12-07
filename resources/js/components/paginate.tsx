@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { IconChevronLeft, IconChevronRight, IconChevronsLeft, IconChevronsRight } from '@tabler/icons-react';
+import { IconChevronLeft, IconChevronRight, IconChevronDoubleLeft, IconChevronDoubleRight } from '@irsyadadl/paranoid';
 
 type Props = {
     only?: string[];
@@ -42,7 +42,7 @@ export function SimplePagination({ params, setParams, only = [], links, meta, wi
                         {links?.prev ? (
                             <Button className='rounded-lg' variant='outline' size='icon' asChild>
                                 <Link only={only} preserveState preserveScroll href={links?.first}>
-                                    <IconChevronsLeft className='w-5 h-5' />
+                                    <IconChevronDoubleLeft className='w-5 h-5' />
                                     <span className='sr-only'>Goto first page</span>
                                 </Link>
                             </Button>
@@ -86,14 +86,14 @@ export function SimplePagination({ params, setParams, only = [], links, meta, wi
                         {links?.next ? (
                             <Button className='rounded-lg' variant='outline' size='icon' asChild>
                                 <Link only={only} preserveState preserveScroll href={links?.last}>
-                                    <IconChevronsRight className='w-5 h-5' />
+                                    <IconChevronDoubleRight className='w-5 h-5' />
                                     <span className='sr-only'>Goto last page</span>
                                 </Link>
                             </Button>
                         ) : (
                             <Button className='rounded-lg' disabled variant='outline' size='icon'>
                                 <span>
-                                    <IconChevronsRight className='w-5 h-5' />
+                                    <IconChevronDoubleRight className='w-5 h-5' />
                                 </span>
                             </Button>
                         )}
@@ -111,14 +111,14 @@ export function Pagination({ only = [], links, meta }: { only?: string[]; links:
                 {links?.prev ? (
                     <Button className='rounded-lg' variant='outline' size='icon' asChild>
                         <Link only={only} preserveState preserveScroll href={links?.first}>
-                            <IconChevronsLeft className='w-5 h-5' />
+                            <IconChevronDoubleLeft className='w-5 h-5' />
                             <span className='sr-only'>Goto first page</span>
                         </Link>
                     </Button>
                 ) : (
                     <Button className='rounded-lg' disabled variant='outline' size='icon'>
                         <span>
-                            <IconChevronsLeft className='w-5 h-5' />
+                            <IconChevronDoubleLeft className='w-5 h-5' />
                         </span>
                     </Button>
                 )}
@@ -159,14 +159,14 @@ export function Pagination({ only = [], links, meta }: { only?: string[]; links:
                 {links?.next ? (
                     <Button className='rounded-lg' variant='outline' size='icon' asChild>
                         <Link only={only} preserveState preserveScroll href={links?.last}>
-                            <IconChevronsRight className='w-5 h-5' />
+                            <IconChevronDoubleRight className='w-5 h-5' />
                             <span className='sr-only'>Goto last page</span>
                         </Link>
                     </Button>
                 ) : (
                     <Button className='rounded-lg' disabled variant='outline' size='icon'>
                         <span>
-                            <IconChevronsRight className='w-5 h-5' />
+                            <IconChevronDoubleRight className='w-5 h-5' />
                         </span>
                     </Button>
                 )}

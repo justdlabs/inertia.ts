@@ -1,14 +1,9 @@
 import React, { PropsWithChildren } from 'react';
-import {
-    IconChartPie,
-    IconChevronDown,
-    IconGlobe,
-    IconMessageCircleQuestion,
-    IconSettings2,
-} from '@tabler/icons-react';
+
 import { InertiaLinkProps, Link } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
 import ApplicationLogo from '@/components/application-logo';
+import {IconChevronDown, IconCircleQuestionmark, IconDashboard, IconGlobe, IconSettings} from "@irsyadadl/paranoid";
 
 export function Aside() {
     return (
@@ -20,11 +15,11 @@ export function Aside() {
                     </Link>
                 </li>
                 <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
-                    <IconChartPie />
+                    <IconDashboard />
                     <span>Dashboard</span>
                 </AsideLink>
                 <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
-                    <IconSettings2 />
+                    <IconSettings />
                     <span>Settings</span>
                 </AsideLink>
 
@@ -34,7 +29,7 @@ export function Aside() {
                 </AsideLink>
 
                 <AsideLink href='#'>
-                    <IconMessageCircleQuestion />
+                    <IconCircleQuestionmark />
                     <span>Help</span>
                 </AsideLink>
                 <AsideLabel>

@@ -11,10 +11,10 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { IconChevronDown, IconLogin, IconSettings2, IconUserCircle } from '@tabler/icons-react';
 import React from 'react';
 import { getFirstWord, strLimit } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import {IconChevronDown, IconCirclePerson, IconLogout, IconSettings} from "@irsyadadl/paranoid";
 
 const ResponsiveNavbar = () => {
     const { auth } = usePage<PageProps>().props;
@@ -67,7 +67,7 @@ const ResponsiveNavbar = () => {
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className='flex justify-between items-center' asChild>
                                         <Link href={route('profile.edit')}>Profile</Link>
-                                        <IconSettings2 className='h-4 w-4' />
+                                        <IconSettings className='h-4 w-4' />
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
                                         <Link href={route('users.index')}>Users</Link>
@@ -82,13 +82,13 @@ const ResponsiveNavbar = () => {
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem asChild>
                                         <Link className='flex items-center' href={route('login')}>
-                                            <IconLogin className='mr-2 h-4 w-4' />
+                                            <IconLogout className='rotate-180 mr-2 h-4 w-4' />
                                             <span>Login</span>
                                         </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
                                         <Link className='flex items-center' href={route('register')}>
-                                            <IconUserCircle className='mr-2 h-4 w-4' />
+                                            <IconCirclePerson className='mr-2 h-4 w-4' />
                                             <span>Register</span>
                                         </Link>
                                     </DropdownMenuItem>
