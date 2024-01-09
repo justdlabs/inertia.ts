@@ -5,6 +5,7 @@ import Header from '@/components/header';
 import Container from '@/components/container';
 import { cn } from '@/lib/utils';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
+import { IconControlFill } from '@irsyadadl/paranoid';
 
 export default function Home() {
     return (
@@ -37,7 +38,7 @@ export default function Home() {
                                         href='https://github.com/irsyadadl/inertia.ts'
                                         className='flex items-center gap-x-2 font-semibold text-primary'
                                         target='_blank'>
-                                        <GitHubLogoIcon className='h-10 w-8 stroke-1' />
+                                        <GitHubLogoIcon className='size-8 stroke-1' />
                                         Github
                                     </a>
                                     <p className='mt-5 text-muted-foreground'>
@@ -45,14 +46,14 @@ export default function Home() {
                                         <a
                                             href='https://twitter.com/irsyadadl'
                                             target='_blank'
-                                            className='text-brand-500'>
+                                            className='text-foreground font-semibold'>
                                             IrsyadAdl
                                         </a>
                                         , if you want to contribute to this project, please visit the{' '}
                                         <a
                                             href='https://github.com/irsyadadl/inertia.ts'
                                             target='_blank'
-                                            className='text-brand-500'>
+                                            className='text-foreground font-semibold'>
                                             Github Repository
                                         </a>
                                         .
@@ -76,12 +77,25 @@ export default function Home() {
                                         href='https://karteil.com'
                                         className='flex items-center gap-x-2 font-semibold text-primary'
                                         target='_blank'>
-                                        <KarteilLogo className='h-8' />
+                                        <KarteilLogo className='size-8' />
                                         Karteil
                                     </a>
                                     <p className='mt-5 text-muted-foreground'>
                                         Improve your skills with parsinta by pushing your skills to the next level,
                                         through the series here such as Laravel, Vue, React, Tailwind CSS and Much more.
+                                    </p>
+                                </div>
+                                <div className='rounded-xl border bg-secondary/20 p-8'>
+                                    <a
+                                        href='https://irsyad.co/paranoid'
+                                        className='flex items-center gap-x-2 font-semibold text-primary'
+                                        target='_blank'>
+                                        <IconControlFill className='size-8' />
+                                        irsyad.co/paranoid
+                                    </a>
+                                    <p className='mt-5 text-muted-foreground'>
+                                        A library of beautifully crafted react icons, perfect for enhancing the visual
+                                        appeal and user experience of your web applications.
                                     </p>
                                 </div>
                             </div>
