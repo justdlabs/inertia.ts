@@ -23,7 +23,6 @@ export function GuestLayout({ description = null, header = null, children }: Pro
                             <CardTitle>{header}</CardTitle>
                             <CardDescription className='mt-2'>{description}</CardDescription>
                         </div>
-                        <ThemeToggle />
                     </CardHeader>
                     <CardContent>{children}</CardContent>
                 </Card>
