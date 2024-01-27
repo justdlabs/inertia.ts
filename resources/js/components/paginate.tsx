@@ -9,9 +9,9 @@ import {
 } from '@/components/ui/pagination';
 
 export function Paginate({
-                             meta,
-                             links,
-                         }: {
+    meta,
+    links,
+}: {
     meta: {
         from: number;
         to: number;
