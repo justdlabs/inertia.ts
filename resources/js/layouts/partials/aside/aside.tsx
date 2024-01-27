@@ -39,10 +39,10 @@ export function Aside() {
                 <AsideLink active={route().current('users.*')} href={route('users.index')}>
                     <span className='pl-7'>Users</span>
                 </AsideLink>
-                <AsideLink href='#'>
+                <AsideLink active={route().current('articles.*')} href={route('articles.index')}>
                     <span className='pl-7'>Articles</span>
                 </AsideLink>
-                <AsideLink href='#'>
+                <AsideLink active={route().current('categories.*')} href={route('categories.index')}>
                     <span className='pl-7'>Categories</span>
                 </AsideLink>
             </ul>

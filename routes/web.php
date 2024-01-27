@@ -9,7 +9,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', \App\Http\Controllers\DashboardController::class)->name('dashboard');
 
     Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
-    Route::get('categories', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
+    Route::get('articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 
     Route::controller(\App\Http\Controllers\ProfileController::class)->middleware('auth')->group(function () {
         Route::get('profile/edit', 'edit')->name('profile.edit');
