@@ -33,7 +33,7 @@
     },
     "dependencies": {
         "@inertiajs/react": "^1.0.11",
-        "@irsyadadl/paranoid": "^0.6.0",
+        "@irsyadadl/paranoid": "^0.11.5",
         "@radix-ui/react-alert-dialog": "^1.0.5",
         "@radix-ui/react-avatar": "^1.0.4",
         "@radix-ui/react-checkbox": "^1.0.4",

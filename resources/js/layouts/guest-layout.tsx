@@ -2,7 +2,6 @@ import { PropsWithChildren, ReactNode } from 'react';
 import ApplicationLogo from '@/components/application-logo';
 import { Link } from '@inertiajs/react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 interface GuestLayoutProps {
     header?: string | null;
@@ -23,7 +22,6 @@ export function GuestLayout({ description = null, header = null, children }: Pro
                             <CardTitle>{header}</CardTitle>
                             <CardDescription className='mt-2'>{description}</CardDescription>
                         </div>
-                        <ThemeToggle />
                     </CardHeader>
                     <CardContent>{children}</CardContent>
                 </Card>
