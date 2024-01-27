@@ -1,64 +1,67 @@
-import { UserLayout } from '@/layouts/user-layout';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link, usePage } from '@inertiajs/react';
+import {UserLayout} from '@/layouts/user-layout';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {usePage} from '@inertiajs/react';
 import SectionTitle from '@/components/section-title';
-import { User } from '@/types';
-import { DotsHorizontalIcon } from '@radix-ui/react-icons';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import {User} from '@/types';
+import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
+import {Badge} from '@/components/ui/badge';
+import {Paginate} from "@/components/paginate.tsx";
 
 export default function Index() {
-    const { data: users, meta, links } = usePage<any>().props.users;
+    const {data: users, meta, links} = usePage<any>().props.users;
     return (
         <div>
-            <SectionTitle className='p-0 mb-6' title='Users' description='The list of users.' />
-            {users.length > 0 ? (
-                <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {users.map((user: User) => (
-                        <Card className='flex flex-col' key={Math.random()}>
-                            <CardHeader>
-                                <CardTitle className='text-base'>{user.name}</CardTitle>
-                                <CardDescription>Joined at {user.joined}</CardDescription>
-                            </CardHeader>
-                            <CardContent></CardContent>
-                            <CardFooter className='justify-between'>
-                                <Badge variant={user.status === 'Verified' ? 'default' : 'secondary'}>
-                                    {user.status}
-                                </Badge>
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button variant='ghost' className='h-8 w-8 p-0'>
-                                            <span className='sr-only'>Open menu</span>
-                                            <DotsHorizontalIcon className='size-5' />
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align='end' className='w-56'>
-                                        <DropdownMenuLabel>User ID: {user.id}</DropdownMenuLabel>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem asChild>
-                                            <Link href={route('users.show', [user])}>Details</Link>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </CardFooter>
-                        </Card>
-                    ))}
-                </div>
-            ) : (
-                <Card>
-                    <CardDescription className='text-center'>No users found.</CardDescription>
-                </Card>
+            <SectionTitle className='p-0 mb-6' title='Users' description='The list of users.'/>
+            <Card>
+                <CardHeader className='border-b'>
+                    <CardTitle>
+                        Users
+                    </CardTitle>
+                    <CardDescription>
+                        The list of users.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className='p-0'>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-0">#</TableHead>
+                                <TableHead>Name</TableHead>
+                                <TableHead>Email</TableHead>
+                                <TableHead>Registered at</TableHead>
+                                <TableHead>Verified</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {users.length > 0 ? users.map((user: User, i: number) => (
+                                <TableRow>
+                                    <TableCell className="font-medium">{meta.from + i}</TableCell>
+                                    <TableCell>{user.name}</TableCell>
+                                    <TableCell>{user.email}</TableCell>
+                                    <TableCell>{user.joined}</TableCell>
+                                    <TableCell>
+                                        <Badge variant={user.status === 'Verified' ? 'default' : 'secondary'}>
+                                            {user.status}
+                                        </Badge>
+                                    </TableCell>
+                                </TableRow>
+                            )) : (
+                                <TableRow>
+                                    <TableCell colSpan={5} className="text-center">
+                                        No users found.
+                                    </TableCell>
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </Card>
+
+            {meta.has_pages && (
+                <Paginate meta={meta} links={links}/>
             )}
         </div>
     );
 }
 
-Index.layout = (page: any) => <UserLayout title='Users' children={page} />;
+Index.layout = (page: any) => <UserLayout title='Users' children={page}/>;
