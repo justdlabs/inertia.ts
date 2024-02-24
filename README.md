@@ -115,7 +115,6 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 -   [irsyad.co](https://irsyad.co/)
 -   [karteil.com](https://karteil.com/)
 -   [ayoseh.at](https://ayoseh.at/)
--   [perkebunan.org](https://perkebunan.org/)
 
 ### Premium Partners
 
