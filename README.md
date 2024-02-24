@@ -23,8 +23,8 @@ This project has come with some features like:
 -   User Profile
 -   User Password
 -   User Delete
--   User Resources (--only=[index, show, destroy])
--   Pagination (Simple)
+-   User Resources (--only=[index, show, edit, update, destroy])
+-   Pagination
 
 ### Quick Login
 
