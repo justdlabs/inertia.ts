@@ -19,7 +19,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::resource('users', \App\Http\Controllers\UserController::class)
-    ->only(['index', 'show', 'destroy'])
+    ->only(['index', 'show', 'destroy', 'edit', 'update'])
     ->middleware('auth');
 
 require __DIR__ . '/features.php';

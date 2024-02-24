@@ -31,6 +31,23 @@ class UserController extends Controller
         ]);
     }
 
+    public function edit(User $user)
+    {
+        return inertia('users/form', [
+            'user' => $user,
+        ]);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return to_route('users.index');
+    }
+
     public function destroy(User $user)
     {
         $user->delete();

@@ -7,7 +7,15 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { Paginate } from '@/components/paginate';
 import { Button } from '@/components/ui/button';
-import { IconCirclePerson } from '@irsyadadl/paranoid';
+import { IconCirclePerson, IconDotsHorizontal, IconDotsVertical, IconEye, IconHighlight } from '@irsyadadl/paranoid';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function Index() {
     const { data: users, meta, links } = usePage<any>().props.users;
@@ -46,11 +54,27 @@ export default function Index() {
                                         </TableCell>
                                         <TableCell>
                                             <div className='justify-end flex'>
-                                                <Button asChild variant='secondary' className='h-8' size='icon'>
-                                                    <Link href={route('users.show', [user])}>
-                                                        <IconCirclePerson className='size-4' />
-                                                    </Link>
-                                                </Button>
+                                                <DropdownMenu>
+                                                    <DropdownMenuTrigger>
+                                                        <IconDotsVertical className='size-4' />
+                                                    </DropdownMenuTrigger>
+                                                    <DropdownMenuContent align='end' className='w-56'>
+                                                        <DropdownMenuLabel>User ID: {user.id}</DropdownMenuLabel>
+                                                        <DropdownMenuSeparator />
+                                                        <DropdownMenuItem asChild>
+                                                            <Link href={route('users.show', [user])}>
+                                                                <IconEye className='size-4 mr-2' />
+                                                                View
+                                                            </Link>
+                                                        </DropdownMenuItem>
+                                                        <DropdownMenuItem asChild>
+                                                            <Link href={route('users.edit', [user])}>
+                                                                <IconHighlight className='size-4 mr-2' />
+                                                                Edit
+                                                            </Link>
+                                                        </DropdownMenuItem>
+                                                    </DropdownMenuContent>
+                                                </DropdownMenu>
                                             </div>
                                         </TableCell>
                                     </TableRow>

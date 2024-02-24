@@ -37,7 +37,7 @@ export default function Navbar() {
                             </NavLink>
                         </div>
                         {auth.user ? (
-                            <div className='flex items-center gap-x-2'>
+                            <div className='flex items-center gap-x-1'>
                                 <ThemeToggle />
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>

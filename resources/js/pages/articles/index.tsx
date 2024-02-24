@@ -1,4 +1,4 @@
-import { UserLayout } from '@/layouts/user-layout.tsx';
+import { UserLayout } from '@/layouts/user-layout';
 
 export default function Index() {
     return <div>Articles</div>;
