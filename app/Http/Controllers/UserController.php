@@ -14,7 +14,7 @@ class UserController extends Controller
             ->select('id', 'name', 'email', 'email_verified_at', 'created_at')
             ->whereNot('id', $request->user()->id)
             ->latest()
-            ->fastPaginate(10)
+            ->paginate(10)
             ->withQueryString();
 
         return inertia('users/index', [
