@@ -11,11 +11,11 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { UserMediaObject } from '@/components/user-media-object';
 import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
 import { IconChevronDown, IconSettings } from '@irsyadadl/paranoid';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarImage } from '@/components/ui/avatar.tsx';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;
@@ -40,17 +40,17 @@ export default function Navbar() {
                             <div className='flex items-center gap-x-1'>
                                 <ThemeToggle />
                                 <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button
-                                            variant='secondary'
-                                            className='bg-secondary/50 hover:bg-secondary/60 border'>
-                                            {auth.user.name}
-                                            <IconChevronDown className='ml-2 h-4 w-4' />
-                                        </Button>
+                                    <DropdownMenuTrigger>
+                                        <Avatar className='size-6'>
+                                            <AvatarImage src={auth.user.avatar} />
+                                        </Avatar>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className='mr-8 w-60'>
                                         <DropdownMenuLabel>
-                                            <UserMediaObject user={auth.user} />
+                                            <div>{auth.user.name}</div>
+                                            <div className='text-muted-foreground font-normal text-sm'>
+                                                {auth.user.email}
+                                            </div>
                                         </DropdownMenuLabel>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>

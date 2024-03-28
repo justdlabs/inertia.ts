@@ -6,8 +6,7 @@ import { User } from '@/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Paginate } from '@/components/paginate';
-import { Button } from '@/components/ui/button';
-import { IconCirclePerson, IconDotsHorizontal, IconDotsVertical, IconEye, IconHighlight } from '@irsyadadl/paranoid';
+import { IconDotsVertical, IconEye, IconHighlight } from '@irsyadadl/paranoid';
 import {
     DropdownMenu,
     DropdownMenuContent,

@@ -66,8 +66,10 @@ const ResponsiveNavbar = () => {
                                         <Link href={route('dashboard')}>Dashboard</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className='flex justify-between items-center' asChild>
-                                        <Link href={route('profile.edit')}>Profile</Link>
-                                        <IconSettings className='h-4 w-4' />
+                                        <Link href={route('profile.edit')}>
+                                            Profile
+                                            <IconSettings className='h-4 w-4' />
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
                                         <Link href={route('users.index')}>Users</Link>

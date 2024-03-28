@@ -2,51 +2,32 @@ import React, { PropsWithChildren } from 'react';
 
 import { InertiaLinkProps, Link } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
-import ApplicationLogo from '@/components/application-logo';
-import { IconChevronDown, IconCircleQuestionmark, IconDashboard, IconGlobe, IconSettings } from '@irsyadadl/paranoid';
+import { IconDashboard, IconGrid4, IconNotes, IconPerson, IconSettings } from '@irsyadadl/paranoid';
 
 export function Aside() {
     return (
-        <nav className='lg:flex hidden items-start min-h-screen border-r w-80 p-8 shrink-0'>
-            <ul className='flex gap-y-1 flex-col w-full sticky top-12'>
-                <li className='flex items-center justify-between mb-8'>
-                    <Link href='/' className='block'>
-                        <ApplicationLogo className='h-10 w-auto fill-red-600' />
-                    </Link>
-                </li>
-                <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
-                    <IconDashboard />
-                    <span>Dashboard</span>
-                </AsideLink>
-                <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
-                    <IconSettings />
-                    <span>Settings</span>
-                </AsideLink>
-
-                <AsideLink href='#'>
-                    <IconGlobe />
-                    <span>SEO</span>
-                </AsideLink>
-
-                <AsideLink href='#'>
-                    <IconCircleQuestionmark />
-                    <span>Help</span>
-                </AsideLink>
-                <AsideLabel>
-                    <IconChevronDown />
-                    <span>Resources</span>
-                </AsideLabel>
-                <AsideLink active={route().current('users.*')} href={route('users.index')}>
-                    <span className='pl-7'>Users</span>
-                </AsideLink>
-                <AsideLink active={route().current('articles.*')} href={route('articles.index')}>
-                    <span className='pl-7'>Articles</span>
-                </AsideLink>
-                <AsideLink active={route().current('categories.*')} href={route('categories.index')}>
-                    <span className='pl-7'>Categories</span>
-                </AsideLink>
-            </ul>
-        </nav>
+        <ul className='grid items-start px-2 text-sm font-medium lg:px-4'>
+            <AsideLink active={route().current('dashboard')} href={route('dashboard')}>
+                <IconDashboard />
+                <span>Dashboard</span>
+            </AsideLink>
+            <AsideLink active={route().current('profile.edit')} href={route('profile.edit')}>
+                <IconSettings />
+                <span>Settings</span>
+            </AsideLink>
+            <AsideLink active={route().current('users.*')} href={route('users.index')}>
+                <IconPerson />
+                Users
+            </AsideLink>
+            <AsideLink active={route().current('articles.*')} href={route('articles.index')}>
+                <IconNotes />
+                Articles
+            </AsideLink>
+            <AsideLink active={route().current('categories.*')} href={route('categories.index')}>
+                <IconGrid4 />
+                Categories
+            </AsideLink>
+        </ul>
     );
 }
 
@@ -57,11 +38,11 @@ interface AsideLinkProps extends InertiaLinkProps {
 
 export function AsideLink({ className, active, ...props }: AsideLinkProps) {
     return (
-        <li className='-mx-4'>
+        <li className='-mx-1'>
             <Link
                 className={cn(
                     active ? 'text-foreground font-semibold' : 'text-muted-foreground',
-                    'flex items-center [&>svg]:w-4 [&>svg]:stroke-[1.25] [&>svg]:h-4 [&>svg]:mr-3 hover:bg-accent/50 tracking-tight text-sm hover:text-foreground px-4 py-2 rounded-md'
+                    'flex items-center [&>svg]:size-4 [&>svg]:stroke-[1.25] [&>svg]:mr-2 [&>svg]:-ml-1 hover:bg-accent/50 tracking-tight text-sm hover:text-foreground px-4 py-2 rounded-md'
                 )}
                 {...props}
             />
