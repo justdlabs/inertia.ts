@@ -1,5 +1,5 @@
 import { Link, router, usePage } from '@inertiajs/react';
-import ApplicationLogo from '@/components/application-logo';
+import { ApplicationLogo } from '@/components/application-logo';
 import { PageProps } from '@/types';
 import { ThemeToggle } from '@/components/theme-toggle';
 import {

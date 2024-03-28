@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import ApplicationLogo from '@/components/application-logo';
+import { ApplicationLogo } from '@/components/application-logo';
 import { Link } from '@inertiajs/react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 

@@ -1,6 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import NavLink from '@/components/nav-link';
-import ApplicationLogo from '@/components/application-logo';
+import { ApplicationLogo } from '@/components/application-logo';
 import { PageProps } from '@/types';
 import {
     DropdownMenu,
@@ -15,7 +15,7 @@ import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
 import { IconChevronDown, IconSettings } from '@irsyadadl/paranoid';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarImage } from '@/components/ui/avatar.tsx';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 
 export default function Navbar() {
     const { auth } = usePage<PageProps>().props;

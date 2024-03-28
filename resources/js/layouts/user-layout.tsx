@@ -11,9 +11,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { IconHamburger } from '@irsyadadl/paranoid';
 import React from 'react';
-import { ApplicationLogo } from '@/components/application-logo.tsx';
+import { ApplicationLogo } from '@/components/application-logo';
 import { PageProps } from '@/types';
-import { Aside } from '@/layouts/partials/aside/aside.tsx';
+import { Aside } from '@/layouts/partials/aside/aside';
 
 export function UserLayout({ title, children }: { title?: string; children: React.ReactNode }) {
     const { auth } = usePage<PageProps>().props;

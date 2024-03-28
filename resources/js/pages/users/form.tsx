@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { InputError } from '@/components/input-error';
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Props {
     user: User;

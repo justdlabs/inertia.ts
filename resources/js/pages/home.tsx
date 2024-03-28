@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
 import { AppLayout } from '@/layouts/app-layout';
-import ApplicationLogo from '@/components/application-logo';
+import { ApplicationLogo } from '@/components/application-logo';
 import Header from '@/components/header';
 import Container from '@/components/container';
 import { cn } from '@/lib/utils';
