@@ -15,26 +15,11 @@ class UserResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'avatar' => $this->avatar(),
-            'acronym' => $this->createAcronym($request->user()->name),
             'id' => $this->id,
-            'username' => $this->username,
             'name' => $this->name,
             'email' => $this->email,
-            'status' => $this->hasVerifiedEmail() ? 'Verified' : 'Unverified',
-            'joined' => $this->created_at->format('j M Y, g:i a'),
+            'joined' => $this->created_at->format('d F Y h:i A'),
+            'status' => $this->email_verified_at !== null ? 'verified': 'not_verified',
         ];
-    }
-
-    protected function createAcronym($string): ?string
-    {
-        $output = null;
-        $token = strtok($string, ' ');
-        while ($token !== false) {
-            $output .= $token[0];
-            $token = strtok(' ');
-        }
-
-        return $output;
     }
 }

@@ -47,7 +47,7 @@ export default function Index() {
                                         <TableCell>{user.email}</TableCell>
                                         <TableCell>{user.joined}</TableCell>
                                         <TableCell>
-                                            <Badge variant={user.status === 'Verified' ? 'default' : 'secondary'}>
+                                            <Badge variant={user.status === 'verified' ? 'default' : 'secondary'}>
                                                 {user.status}
                                             </Badge>
                                         </TableCell>

@@ -24,3 +24,4 @@ Route::resource('users', \App\Http\Controllers\UserController::class)
 
 require __DIR__ . '/features.php';
 require __DIR__ . '/auth.php';
+require __DIR__ . '/dev.php';
