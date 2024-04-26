@@ -20,6 +20,6 @@ class Clara
 
     public static function hasTermsAndPrivacyPolicyFeature(): bool
     {
-        return config('features.terms_and_privacy_policy');
+        return config('app.terms_and_policy');
     }
 }

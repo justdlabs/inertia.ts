@@ -5,7 +5,7 @@ import Header from '@/components/header';
 import Container from '@/components/container';
 import { cn } from '@/lib/utils';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
-import { IconControlFill } from '@irsyadadl/paranoid';
+import { IconBrandParanoid, IconControlFill, IconCube } from '@irsyadadl/paranoid';
 
 export default function Home() {
     return (
@@ -87,15 +87,27 @@ export default function Home() {
                                 </div>
                                 <div className='rounded-xl border bg-secondary/20 p-8'>
                                     <a
-                                        href='https://irsyad.co/paranoid'
+                                        href='https://paranoid.irsyad.co'
                                         className='flex items-center gap-x-2 font-semibold text-primary'
                                         target='_blank'>
-                                        <IconControlFill className='size-8' />
-                                        irsyad.co/paranoid
+                                        <IconBrandParanoid className='size-8' />
+                                        paranoid.irsyad.co
                                     </a>
                                     <p className='mt-5 text-muted-foreground'>
                                         A library of beautifully crafted react icons, perfect for enhancing the visual
                                         appeal and user experience of your web applications.
+                                    </p>
+                                </div>
+                                <div className='rounded-xl border bg-secondary/20 p-8'>
+                                    <a
+                                        href='https://irsyad.co/s'
+                                        className='flex items-center gap-x-2 font-semibold text-primary'
+                                        target='_blank'>
+                                        <IconCube className='size-8' />
+                                        Next.js Template
+                                    </a>
+                                    <p className='mt-5 text-muted-foreground'>
+                                        Explore the next.js templates from web apps to design systems, all here.
                                     </p>
                                 </div>
                             </div>

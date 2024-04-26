@@ -29,7 +29,7 @@ const ResponsiveNavbar = () => {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild className='focus:outline-none'>
                             <Button variant='secondary' className='bg-secondary/50 hover:bg-secondary/60 border'>
-                                {auth?.user ? getFirstWord(auth.user.name) : 'Menu'}
+                                {auth.user?.id ? getFirstWord(auth.user?.name) : 'Menu'}
                                 <IconChevronDown className='ml-2 h-4 w-4' />
                             </Button>
                         </DropdownMenuTrigger>
