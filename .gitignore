@@ -6,7 +6,6 @@
 /storage/*.key
 /.phpunit.cache
 /vendor
-bun.lockb
 .env
 .env.backup
 .env.production
