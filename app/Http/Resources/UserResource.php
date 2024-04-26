@@ -19,7 +19,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'joined' => $this->created_at->format('d F Y h:i A'),
-            'status' => $this->email_verified_at !== null ? 'verified': 'not_verified',
+            'status' => $this->email_verified_at !== null ? 'verified' : 'not_verified',
         ];
     }
 }
