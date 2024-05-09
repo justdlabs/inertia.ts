@@ -25,13 +25,12 @@ const ResponsiveNavbar = () => {
                     <ApplicationLogo className='w-8 fill-red-600' />
                 </Link>
                 <div className='flex items-center gap-x-1'>
-                    <ThemeToggle />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild className='focus:outline-none'>
-                            <Button variant='secondary' className='bg-secondary/50 hover:bg-secondary/60 border'>
+                            <button className='flex items-center focus:outline-none'>
                                 {auth.user?.id ? getFirstWord(auth.user?.name) : 'Menu'}
                                 <IconChevronDown className='ml-2 h-4 w-4' />
-                            </Button>
+                            </button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className='mr-8 w-72'>
                             {auth.user && (
@@ -70,9 +69,6 @@ const ResponsiveNavbar = () => {
                                             Profile
                                             <IconSettings className='h-4 w-4' />
                                         </Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem asChild>
-                                        <Link href={route('users.index')}>Users</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>

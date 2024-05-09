@@ -38,7 +38,6 @@ export default function Navbar() {
                         </div>
                         {auth.user ? (
                             <div className='flex items-center gap-x-1'>
-                                <ThemeToggle />
                                 <DropdownMenu>
                                     <DropdownMenuTrigger>
                                         <Avatar className='size-6'>
@@ -61,9 +60,6 @@ export default function Navbar() {
                                             onClick={() => router.get(route('profile.edit'))}>
                                             <span>Settings</span>
                                             <IconSettings className='mr-2 h-4 w-4' />
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={() => router.get(route('users.index'))}>
-                                            <span>Users</span>
                                         </DropdownMenuItem>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.post(route('logout'))}>

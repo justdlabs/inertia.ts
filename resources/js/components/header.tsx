@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export default function Header({ title, description }: { title: string; description: ReactNode }) {
+export default function Header({ title, description }: { title: string; description?: ReactNode }) {
     return (
         <div className='border-b bg-card py-4 lg:py-16'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
