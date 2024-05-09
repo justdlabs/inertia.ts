@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Error({ status }: { status: number }) {
     const title = {
