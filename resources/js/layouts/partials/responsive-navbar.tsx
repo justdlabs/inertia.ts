@@ -1,7 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { ApplicationLogo } from '@/components/application-logo';
 import { PageProps } from '@/types';
-import { ThemeToggle } from '@/components/theme-toggle';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -13,7 +12,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import React from 'react';
 import { getFirstWord, strLimit } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { IconChevronDown, IconCirclePerson, IconLogout, IconSettings } from '@irsyadadl/paranoid';
 
 const ResponsiveNavbar = () => {
