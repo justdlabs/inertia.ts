@@ -1,7 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
-import ApplicationLogo from '@/components/application-logo';
+import { ApplicationLogo } from '@/components/application-logo';
 import { PageProps } from '@/types';
-import { ThemeToggle } from '@/components/theme-toggle';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -13,7 +12,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import React from 'react';
 import { getFirstWord, strLimit } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { IconChevronDown, IconCirclePerson, IconLogout, IconSettings } from '@irsyadadl/paranoid';
 
 const ResponsiveNavbar = () => {
@@ -25,13 +23,12 @@ const ResponsiveNavbar = () => {
                     <ApplicationLogo className='w-8 fill-red-600' />
                 </Link>
                 <div className='flex items-center gap-x-1'>
-                    <ThemeToggle />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild className='focus:outline-none'>
-                            <Button variant='secondary' className='bg-secondary/50 hover:bg-secondary/60 border'>
-                                {auth?.user ? getFirstWord(auth.user.name) : 'Menu'}
+                            <button className='flex items-center focus:outline-none'>
+                                {auth.user?.id ? getFirstWord(auth.user?.name) : 'Menu'}
                                 <IconChevronDown className='ml-2 h-4 w-4' />
-                            </Button>
+                            </button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className='mr-8 w-72'>
                             {auth.user && (
@@ -66,11 +63,10 @@ const ResponsiveNavbar = () => {
                                         <Link href={route('dashboard')}>Dashboard</Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className='flex justify-between items-center' asChild>
-                                        <Link href={route('profile.edit')}>Profile</Link>
-                                        <IconSettings className='h-4 w-4' />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem asChild>
-                                        <Link href={route('users.index')}>Users</Link>
+                                        <Link href={route('profile.edit')}>
+                                            Profile
+                                            <IconSettings className='h-4 w-4' />
+                                        </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem onClick={() => router.post(route('logout'))}>

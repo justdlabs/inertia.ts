@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+/.phpunit.cache
 /vendor
 .env
 .env.backup

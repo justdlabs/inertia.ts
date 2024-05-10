@@ -2,6 +2,7 @@ import { Link } from '@inertiajs/react';
 import { SVGProps } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const navigation = {
     solutions: [
@@ -162,27 +163,32 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-10 xl:mt-0'>
-                        <h3 className='text-sm font-semibold leading-6 text-primary'>Subscribe to our newsletter</h3>
-                        <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                            The latest news, articles, and resources, sent to your inbox weekly.
-                        </p>
-                        <form className='mt-6 sm:flex sm:max-w-md'>
-                            <label htmlFor='email-address' className='sr-only'>
-                                Email address
-                            </label>
-                            <Input
-                                type='email'
-                                name='email-address'
-                                id='email-address'
-                                autoComplete='email'
-                                required
-                                placeholder='Enter your email'
-                            />
-                            <div className='mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0'>
-                                <Button type='submit'>Subscribe</Button>
-                            </div>
-                        </form>
+                    <div className='mt-10 flex flex-col xl:mt-0'>
+                        <div className='flex-1 mb-6'>
+                            <h3 className='text-sm font-semibold leading-6 text-primary'>
+                                Subscribe to our newsletter
+                            </h3>
+                            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                                The latest news, articles, and resources, sent to your inbox weekly.
+                            </p>
+                            <form className='mt-6 sm:flex sm:max-w-md'>
+                                <label htmlFor='email-address' className='sr-only'>
+                                    Email address
+                                </label>
+                                <Input
+                                    type='email'
+                                    name='email-address'
+                                    id='email-address'
+                                    autoComplete='email'
+                                    required
+                                    placeholder='Enter your email'
+                                />
+                                <div className='mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0'>
+                                    <Button type='submit'>Subscribe</Button>
+                                </div>
+                            </form>
+                        </div>
+                        <ThemeToggle />
                     </div>
                 </div>
                 <div className='mt-16 border-t border-slate-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24'>

@@ -12,7 +12,7 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "allowImportingTsExtensions": true,
+        "allowImportingTsExtensions": false,
         "paths": {
             "@/*": ["./resources/js/*"]
         }

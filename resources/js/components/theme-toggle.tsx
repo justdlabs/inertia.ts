@@ -1,30 +1,34 @@
 import { Button } from '@/components/ui/button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { useTheme } from '@/components/theme-provider';
-import { IconMoonStar, IconSun } from '@irsyadadl/paranoid';
+import { cn } from '@/lib/utils';
+import { IconDeviceDesktop, IconMoon, IconSun } from '@irsyadadl/paranoid';
 
 export function ThemeToggle() {
-    const { setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant='secondary' size='icon'>
-                    <IconSun className='stroke-[1.25] h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-                    <IconMoonStar className='stroke-[1.25] absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-                    <span className='sr-only'>Toggle theme</span>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-                <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        <div className='flex items-center gap-x-1 [&_svg]:size-4 [&_button]:rounded-full'>
+            <Button
+                size='icon'
+                variant='ghost'
+                className={cn(theme === 'light' ? 'bg-secondary' : 'bg-background')}
+                onClick={() => setTheme('light')}>
+                <IconSun />
+            </Button>
+            <Button
+                size='icon'
+                variant='ghost'
+                className={cn(theme === 'dark' ? 'bg-secondary' : 'bg-background')}
+                onClick={() => setTheme('dark')}>
+                <IconMoon />
+            </Button>
+            <Button
+                size='icon'
+                variant='ghost'
+                className={cn(theme === 'system' ? 'bg-secondary' : 'bg-background')}
+                onClick={() => setTheme('system')}>
+                <IconDeviceDesktop />
+            </Button>
+        </div>
     );
 }
