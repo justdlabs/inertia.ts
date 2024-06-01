@@ -6,7 +6,7 @@ export type AuthenticatedUserData = {
     email: string;
     name: string;
     gravatar: string;
-    email_verified_at: string;
+    email_verified_at: string | null;
 };
 export type PagePropsData = {
     auth: AuthData;
