@@ -5,10 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import { PageProps } from '@/types';
-import SectionTitle from '@/components/section-title';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from '@/hooks/use-toast';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { toast } from 'sonner';
+import { PagePropsData } from '@/types';
 
 interface Props {
     mustVerifyEmail: boolean;
@@ -17,9 +16,8 @@ interface Props {
 }
 
 export default function UpdateProfileInformation({ mustVerifyEmail, status, className }: Props) {
-    const { auth } = usePage<PageProps>().props;
+    const { auth } = usePage<PagePropsData>().props;
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-        username: auth.user.username ?? '',
         name: auth.user.name ?? '',
         email: auth.user.email ?? '',
     });
@@ -29,20 +27,17 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
         patch(route('profile.update'), {
             preserveScroll: true,
             onSuccess: () => {
-                toast({
-                    title: 'Profile updated',
-                    description: 'Your profile information has been updated.',
-                });
+                toast.success('Your profile information has been updated.');
             },
         });
     };
 
     return (
         <Card>
-            <SectionTitle
-                title='Profile Information'
-                description="Update your account's profile information and email address."
-            />
+            <CardHeader>
+                <CardTitle>Profile Information</CardTitle>
+                <CardDescription>Update your account's profile information and email address.</CardDescription>
+            </CardHeader>
             <CardContent>
                 <form onSubmit={submit} className='space-y-6'>
                     <div>
@@ -61,22 +56,6 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
 
                         <InputError className='mt-2' message={errors.name} />
                     </div>
-                    <div>
-                        <Label htmlFor='username'>Username</Label>
-
-                        <Input
-                            id='username'
-                            type='text'
-                            value={data.username}
-                            className='mt-1'
-                            onChange={(e) => setData('username', e.target.value)}
-                            required
-                            autoComplete='username'
-                        />
-
-                        <InputError className='mt-2' message={errors.username} />
-                    </div>
-
                     <div>
                         <Label htmlFor='email'>Email</Label>
 

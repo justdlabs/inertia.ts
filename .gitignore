@@ -1,14 +1,15 @@
+/.phpunit.cache
 /bootstrap/ssr
 /node_modules
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
-/.phpunit.cache
 /vendor
 .env
 .env.backup
 .env.production
+.phpactor.json
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

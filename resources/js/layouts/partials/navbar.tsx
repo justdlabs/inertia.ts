@@ -1,7 +1,5 @@
-import { Link, router, usePage } from '@inertiajs/react';
-import NavLink from '@/components/nav-link';
-import { ApplicationLogo } from '@/components/application-logo';
-import { PageProps } from '@/types';
+import { InertiaLinkProps, Link, router, usePage } from '@inertiajs/react';
+import { Logo } from '@/components/logo';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,24 +8,25 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ThemeToggle } from '@/components/theme-toggle';
 import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
 import React from 'react';
 import { IconChevronDown, IconSettings } from '@irsyadadl/paranoid';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
+import { PagePropsData } from '@/types';
 
 export default function Navbar() {
-    const { auth } = usePage<PageProps>().props;
+    const { auth } = usePage<PagePropsData>().props;
     return (
         <>
             <ResponsiveNavbar />
-            <nav className='relative z-10 hidden border-b py-3 sm:block'>
+            <nav className='relative bg-background z-10 hidden border-b py-3 sm:block'>
                 <div className='mx-auto max-w-screen-2xl items-center sm:px-6 lg:px-8'>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-x-4'>
                             <Link href='/' className='mr-3'>
-                                <ApplicationLogo className='w-9 fill-foreground' />
+                                <Logo className='w-9 fill-foreground' />
                             </Link>
                             <NavLink active={route().current('home')} href='/'>
                                 Home
@@ -40,8 +39,8 @@ export default function Navbar() {
                             <div className='flex items-center gap-x-1'>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger>
-                                        <Avatar className='size-6'>
-                                            <AvatarImage src={auth.user.avatar} />
+                                        <Avatar className='size-8'>
+                                            <AvatarImage src={auth.user.gravatar} />
                                         </Avatar>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className='mr-8 w-60'>
@@ -52,14 +51,12 @@ export default function Navbar() {
                                             </div>
                                         </DropdownMenuLabel>
                                         <DropdownMenuSeparator />
-                                        <DropdownMenuItem onClick={() => router.get(route('dashboard'))}>
-                                            <span>Dashboard</span>
+                                        <DropdownMenuItem asChild>
+                                            <Link href={route('dashboard')}>Dashboard</Link>
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem
-                                            className='justify-between'
-                                            onClick={() => router.get(route('profile.edit'))}>
-                                            <span>Settings</span>
-                                            <IconSettings className='mr-2 h-4 w-4' />
+                                        <DropdownMenuItem className='justify-between'>
+                                            <Link href={route('profile.edit')}>Settings</Link>
+                                            <IconSettings className='size-4' />
                                         </DropdownMenuItem>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem onClick={() => router.post(route('logout'))}>
@@ -75,7 +72,7 @@ export default function Navbar() {
                                         variant='secondary'
                                         className='bg-secondary/50 hover:bg-secondary/60 border'>
                                         Login
-                                        <IconChevronDown className='ml-2 h-4 w-4' />
+                                        <IconChevronDown className='ml-2 size-4' />
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent className='mr-8 w-40'>
@@ -92,5 +89,22 @@ export default function Navbar() {
                 </div>
             </nav>
         </>
+    );
+}
+
+export function NavLink({
+    active,
+    ...props
+}: InertiaLinkProps & {
+    active?: boolean;
+}) {
+    return (
+        <Link
+            {...props}
+            className={cn(
+                active ? 'text-primary' : 'text-muted-foreground',
+                'px-3 py-2.5 text-sm font-medium transition-colors hover:text-primary'
+            )}
+        />
     );
 }

@@ -3,7 +3,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { GuestLayout } from '@/layouts/guest-layout';
 import { InputError } from '@/components/input-error';
 import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Head, Link, useForm } from '@inertiajs/react';
 
@@ -42,7 +42,7 @@ export default function Login(args: LoginProps) {
 
             {status && <div className='mb-4 text-sm font-medium text-green-600 dark:text-green-400'>{status}</div>}
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className='space-y-6'>
                 <div>
                     <Label htmlFor='email'>Email</Label>
 
@@ -74,11 +74,11 @@ export default function Login(args: LoginProps) {
                     <InputError message={errors.password} className='mt-2' />
                 </div>
 
-                <div className='mt-4 flex items-center justify-between'>
+                <div className='flex items-center justify-between'>
                     <label className='flex items-center'>
                         <Checkbox name='remember' onCheckedChange={(e) => e} />
 
-                        <span className='ml-2 text-sm text-muted-foreground'>Remember me</span>
+                        <span className='ml-2 text-sm text-muted-foreground select-none'>Remember me</span>
                     </label>
                     {canResetPassword && (
                         <Link href='/forgot-password' className='text-sm text-foreground hover:underline'>
@@ -87,12 +87,12 @@ export default function Login(args: LoginProps) {
                     )}
                 </div>
 
-                <div className='mt-4 flex items-center justify-end'>
-                    <Link href={route('register')} className='text-sm text-foreground hover:underline'>
-                        Don't have an account?
+                <div className='flex items-center justify-between'>
+                    <Link href={route('register')} className={buttonVariants({ variant: 'outline' })}>
+                        Register
                     </Link>
 
-                    <Button className='ml-4' disabled={processing} type='submit'>
+                    <Button disabled={processing} type='submit'>
                         Log in
                     </Button>
                 </div>

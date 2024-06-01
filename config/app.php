@@ -16,11 +16,6 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
-     * Determining if this application has terms and policy
-     */
-    'terms_and_policy' => env('TERMS_AND_POLICY', false),
-
-    /*
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------

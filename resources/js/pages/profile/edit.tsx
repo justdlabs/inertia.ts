@@ -2,9 +2,9 @@ import DeleteUserForm from '@/pages/profile/partials/delete-user-form';
 import UpdatePasswordForm from '@/pages/profile/partials/update-password-form';
 import UpdateProfileInformationForm from '@/pages/profile/partials/update-profile-information-form';
 import { AppLayout } from '@/layouts/app-layout';
-import Container from '@/components/container';
+import { Container } from '@/components/container';
 import { Head } from '@inertiajs/react';
-import Header from '@/components/header';
+import { Header } from '@/components/header';
 
 interface Props {
     mustVerifyEmail: boolean;

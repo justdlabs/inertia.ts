@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export function AppLayout({ children }: PropsWithChildren) {
     return (
-        <div>
+        <div className='min-h-svh bg-muted/20'>
             <Toaster />
             <Navbar />
             <main>{children}</main>
