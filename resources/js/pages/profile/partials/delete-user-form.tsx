@@ -3,8 +3,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { InputError } from '@/components/input-error';
 import { Input } from '@/components/ui/input';
 import { useForm } from '@inertiajs/react';
-import SectionTitle from '@/components/section-title';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -52,11 +51,13 @@ export default function DeleteUserForm() {
 
     return (
         <Card>
-            <SectionTitle
-                title='Delete Account'
-                description='Once your account is deleted, all of its resources and data will be permanently deleted. Before
-                    deleting your account, please download any data or information that you wish to retain.'
-            />
+            <CardHeader>
+                <CardTitle>Delete Account</CardTitle>
+                <CardDescription>
+                    Once your account is deleted, all of its resources and data will be permanently deleted. Before
+                    deleting your account, please download any data or information that you wish to retain.
+                </CardDescription>
+            </CardHeader>
             <CardContent>
                 <AlertDialog>
                     <AlertDialogTrigger

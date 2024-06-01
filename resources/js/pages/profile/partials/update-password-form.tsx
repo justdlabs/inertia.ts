@@ -5,9 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
-import SectionTitle from '@/components/section-title';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from '@/hooks/use-toast';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { toast } from 'sonner';
 
 export default function UpdatePasswordForm({ className }: { className?: string }) {
     const passwordInput = useRef<HTMLInputElement>(null);
@@ -23,10 +22,7 @@ export default function UpdatePasswordForm({ className }: { className?: string }
         put(route('password.update'), {
             preserveScroll: true,
             onSuccess: () => {
-                toast({
-                    title: 'Profile updated',
-                    description: 'Your profile information has been updated.',
-                });
+                toast.success('Your profile information has been updated.');
                 reset();
             },
             onError: () => {
@@ -45,10 +41,10 @@ export default function UpdatePasswordForm({ className }: { className?: string }
 
     return (
         <Card>
-            <SectionTitle
-                title='Update Password'
-                description='Ensure your account is using a long, random password to stay secure.'
-            />
+            <CardHeader>
+                <CardTitle>Update Password</CardTitle>
+                <CardDescription>Ensure your account is using a long, random password to stay secure.</CardDescription>
+            </CardHeader>
 
             <CardContent>
                 <form onSubmit={submit} className='space-y-6'>

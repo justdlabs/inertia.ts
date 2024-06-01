@@ -1,7 +1,7 @@
 import './bootstrap';
 import '../css/app.css';
 
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -12,15 +12,19 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
     setup({ el, App, props }) {
-        const root = createRoot(el);
-
-        root.render(
-            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+        const appElement = (
+            <ThemeProvider defaultTheme='system' storageKey='ui-theme'>
                 <App {...props} />
             </ThemeProvider>
         );
+        if (import.meta.env.DEV) {
+            createRoot(el).render(appElement);
+            return;
+        }
+
+        hydrateRoot(el, appElement);
     },
     progress: {
-        color: '#0ea5e9',
+        color: '#4B5563',
     },
 });

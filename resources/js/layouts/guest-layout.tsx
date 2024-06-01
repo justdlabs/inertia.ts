@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { ApplicationLogo } from '@/components/application-logo';
+import { Logo } from '@/components/logo';
 import { Link } from '@inertiajs/react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -12,7 +12,7 @@ export function GuestLayout({ description = null, header = null, children }: Pro
     return (
         <div className='flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0'>
             <Link href={route('home')}>
-                <ApplicationLogo className='mx-auto h-16 w-16 fill-foreground' />
+                <Logo className='mx-auto h-16 w-16 fill-foreground' />
             </Link>
 
             <div className='mt-10 w-full max-w-lg'>

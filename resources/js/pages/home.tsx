@@ -1,26 +1,22 @@
 import { Head } from '@inertiajs/react';
 import { AppLayout } from '@/layouts/app-layout';
-import { ApplicationLogo } from '@/components/application-logo';
-import Header from '@/components/header';
-import Container from '@/components/container';
+import { Logo } from '@/components/logo';
+import { Header } from '@/components/header';
+import { Container } from '@/components/container';
 import { cn } from '@/lib/utils';
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
-import { IconBrandParanoid, IconControlFill, IconCube } from '@irsyadadl/paranoid';
+import { IconBrandGithub, IconBrandParanoid, IconCube } from '@irsyadadl/paranoid';
 
 export default function Home() {
     return (
         <>
             <Head title='Welcome to Laravel' />
-            <Header
-                title='Inertia Typescript'
-                description='Inertia is a new approach to building classic server-driven web apps. We call it the modern monolith.'
-            />
+            <Header title='Inertia Typescript' />
             <Container>
                 <div className='overflow-hidden rounded-lg border'>
                     <div>
                         <div className='p-4 sm:p-20'>
                             <div>
-                                <ApplicationLogo className='block h-12 w-auto fill-current text-red-500' />
+                                <Logo className='block h-12 w-auto fill-current text-red-500' />
                             </div>
                             <div className='max-w-2xl'>
                                 <div className='mt-6 text-xl sm:mt-8 sm:text-2xl'>
@@ -38,7 +34,7 @@ export default function Home() {
                                         href='https://github.com/irsyadadl/inertia.ts'
                                         className='flex items-center gap-x-2 font-semibold text-primary'
                                         target='_blank'>
-                                        <GitHubLogoIcon className='size-8 stroke-1' />
+                                        <IconBrandGithub className='size-8 stroke-1' />
                                         Github
                                     </a>
                                     <p className='mt-5 text-muted-foreground'>

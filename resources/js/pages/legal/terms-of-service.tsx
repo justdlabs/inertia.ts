@@ -1,4 +1,4 @@
-import { ApplicationLogo } from '@/components/application-logo';
+import { Logo } from '@/components/logo';
 import { Head, Link } from '@inertiajs/react';
 import React from 'react';
 
@@ -92,7 +92,7 @@ export default function PrivacyPolicy({ terms }: { terms: string }) {
                 <div className='relative px-6 lg:px-8'>
                     <div className='mx-auto max-w-prose text-lg'>
                         <Link href={route('home')}>
-                            <ApplicationLogo className='mx-auto h-16 w-16 fill-current text-foreground' />
+                            <Logo className='mx-auto h-16 w-16 fill-current text-foreground' />
                         </Link>
                         <h1>
                             <span className='mt-4 block text-center text-lg font-semibold text-foreground'>

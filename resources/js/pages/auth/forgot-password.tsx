@@ -25,12 +25,6 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
     return (
         <>
             <Head title='Forgot Password' />
-
-            <div className='mb-4 text-sm leading-normal text-muted-foreground'>
-                Forgot your password? No problem. Just let us know your email address and we will email you a password
-                reset link that will allow you to choose a new one.
-            </div>
-
             {status && <div className='mb-4 text-sm font-medium text-green-600'>{status}</div>}
 
             <form onSubmit={submit}>
@@ -48,4 +42,12 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
     );
 }
 
-ForgotPassword.layout = (page: any) => <GuestLayout children={page} />;
+ForgotPassword.layout = (page: any) => (
+    <GuestLayout
+        header='Forgot Password'
+        description='
+                    Forgot your password? No problem. Just let us know your email address and we will email you a password
+                    reset link that will allow you to choose a new one.'
+        children={page}
+    />
+);

@@ -1,18 +1,22 @@
 import { Head, usePage } from '@inertiajs/react';
-import { PageProps } from '@/types';
-import { Card, CardContent } from '@/components/ui/card';
-import SectionTitle from '@/components/section-title';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AppLayout } from '@/layouts/app-layout';
-import Container from '@/components/container';
+import { Container } from '@/components/container';
+import { Header } from '@/components/header';
+import { PagePropsData } from '@/types';
 
 export default function Dashboard() {
-    const { auth } = usePage<PageProps>().props;
+    const { auth } = usePage<PagePropsData>().props;
     return (
         <>
             <Head title='Dashboard' />
+            <Header title='Dashboard' />
             <Container>
                 <Card>
-                    <SectionTitle title='Dashboard' description={`Hi ${auth.user.name}, you are now logged in.`} />
+                    <CardHeader>
+                        <CardTitle>Dashboard</CardTitle>
+                        <CardDescription>Hi {auth.user.name}, you are now logged in.</CardDescription>
+                    </CardHeader>
                     <CardContent>
                         Hi {auth.user.name}, you are now logged in.
                         <div className='mb-2 text-muted-foreground'>// The page you are currently visiting is</div>
