@@ -11,7 +11,7 @@ class AuthenticatedUserData extends Data
         public string $email,
         public string $name,
         public string $gravatar,
-        public string $email_verified_at,
+        public ?string $email_verified_at,
     ) {
     }
 }
