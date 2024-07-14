@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
+import { HTMLAttributes } from 'react'
 
 export function InputError({
     message,
@@ -10,5 +10,5 @@ export function InputError({
         <p {...props} className={cn('text-sm text-destructive', className)}>
             {message}
         </p>
-    ) : null;
+    ) : null
 }

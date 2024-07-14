@@ -1,32 +1,52 @@
-import { Toaster as Sonner } from 'sonner';
-import { useTheme } from '@/components/theme-provider';
-import { IconCircleCheckFill, IconCircleInfoFill, IconTriangleInfoFill } from '@irsyadadl/paranoid';
+import { useTheme } from '@/components/theme-provider'
+import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 
-type ToasterProps = React.ComponentProps<typeof Sonner>;
+import { buttonStyles } from './button'
+import { cn } from './primitive'
 
 const Toaster = ({ ...props }: ToasterProps) => {
-    const { theme = 'system' } = useTheme();
+    const { theme = 'system' } = useTheme()
     return (
-        <Sonner
+        <ToasterPrimitive
             theme={theme as ToasterProps['theme']}
-            className='toaster group'
+            className="toaster group"
             toastOptions={{
+                unstyled: true,
+                closeButton: true,
                 classNames: {
-                    toast: '[&>[data-icon]>svg]:size-[1.1rem] [&>[data-icon]>svg]:text-muted-foreground rounded-xl group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground border group-[.toaster]:border-border group-[.toaster]:shadow-lg',
-                    description: 'group-[.toast]:text-muted-foreground',
-                    actionButton: 'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
-                    cancelButton: 'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
-                },
-            }}
-            icons={{
-                success: <IconCircleCheckFill />,
-                info: <IconCircleInfoFill />,
-                warning: <IconTriangleInfoFill />,
-                error: <IconTriangleInfoFill />,
+                    toast: cn(
+                        'ring-1 w-[25rem] px-4 py-3 right-0 font-normal sm:px-4 sm:py-6 group ring-border rounded-xl bg-background text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl',
+                        '[&:has([data-button])_[data-close-button="true"]]:hidden',
+                        '[&:not([data-description])_[data-title]]:font-normal',
+                        '[&:has([data-description])_[data-title]]:!font-medium',
+                        '[&>[data-button]]:absolute [&>[data-button=true]]:bottom-4',
+                        '[&>[data-action=true]]:right-4',
+                        '[&>[data-cancel=true]]:left-4'
+                    ),
+                    icon: 'hidden',
+                    content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
+                    error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950 dark:ring-inset',
+                    success:
+                        'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950 dark:ring-inset',
+                    warning:
+                        '!ring-amber-500/25 dark:!ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
+                    info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950 dark:ring-inset',
+                    cancelButton: buttonStyles({
+                        className: '',
+                        size: 'extra-small',
+                        appearance: 'outline'
+                    }),
+                    actionButton: buttonStyles({
+                        className: 'self-end justify-self-end',
+                        size: 'extra-small'
+                    }),
+                    closeButton:
+                        '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
+                }
             }}
             {...props}
         />
-    );
-};
+    )
+}
 
-export { Toaster };
+export { Toaster }
