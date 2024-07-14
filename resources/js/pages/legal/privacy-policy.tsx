@@ -100,9 +100,7 @@ export default function PrivacyPolicy({ policy }: { policy: string }) {
                             <Logo className="mx-auto h-16 w-16 fill-current text-red-500" />
                         </Link>
                         <h1>
-                            <span className="mt-4 block text-center text-lg font-semibold text-primary">
-                                Introducing
-                            </span>
+                            <span className="mt-4 block text-center text-lg font-semibold text-fg">Introducing</span>
                             <span className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-fg sm:text-4xl">
                                 Privacy Policy
                             </span>

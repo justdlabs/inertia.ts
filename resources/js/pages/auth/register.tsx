@@ -4,11 +4,10 @@ import { Form } from '@/components/ui/form'
 import { Link } from '@/components/ui/link'
 import { TextField } from '@/components/ui/text-field'
 import { GuestLayout } from '@/layouts/guest-layout'
-import { Head, useForm, usePage } from '@inertiajs/react'
+import { Head, useForm } from '@inertiajs/react'
 import React, { useEffect } from 'react'
 
 export default function Register() {
-    const { hasTermsAndPrivacyPolicyFeature } = usePage<{ hasTermsAndPrivacyPolicyFeature: boolean }>().props
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -28,7 +27,7 @@ export default function Register() {
 
         post('/register')
     }
-
+    console.log(import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE)
     return (
         <>
             <Head title="Register" />
@@ -79,25 +78,19 @@ export default function Register() {
                     isRequired
                 />
 
-                {hasTermsAndPrivacyPolicyFeature && (
-                    <Checkbox name="terms" id="terms" onChange={(e: any) => setData('terms', e)} isRequired>
-                        I agree to the{' '}
-                        <a
-                            target="_blank"
-                            href={route('terms.show')}
-                            className="text-sm text-muted-fg hover:text-primary"
-                        >
+                {import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE && (
+                    <div className="flex items-center gap-x-1">
+                        <Checkbox name="terms" id="terms" onChange={(e: any) => setData('terms', e)} isRequired>
+                            I agree to the{' '}
+                        </Checkbox>
+                        <Link target="_blank" href={route('terms.show')} intent="primary">
                             terms of service
-                        </a>{' '}
+                        </Link>{' '}
                         and{' '}
-                        <a
-                            target="_blank"
-                            href={route('privacy.show')}
-                            className="text-sm text-muted-fg hover:text-primary"
-                        >
+                        <Link target="_blank" href={route('privacy.show')} intent="primary">
                             privacy policy
-                        </a>
-                    </Checkbox>
+                        </Link>
+                    </div>
                 )}
 
                 <div className="flex items-center justify-between">
