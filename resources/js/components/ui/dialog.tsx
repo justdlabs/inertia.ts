@@ -1,5 +1,3 @@
-'use client'
-
 import { Dialog as DialogPrimitive, type DialogProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
