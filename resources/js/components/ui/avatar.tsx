@@ -1,38 +1,74 @@
-import * as React from 'react';
-import * as AvatarPrimitive from '@radix-ui/react-avatar';
+import React from 'react'
 
-import { cn } from '@/lib/utils';
+import { tv, type VariantProps } from 'tailwind-variants'
 
-const Avatar = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Root
-        ref={ref}
-        className={cn('relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full', className)}
-        {...props}
-    />
-));
-Avatar.displayName = AvatarPrimitive.Root.displayName;
+const avatarStyles = tv({
+    base: [
+        'inline-grid shrink-0 bg-secondary align-middle [--avatar-radius:20%] [--ring-opacity:20%] *:col-start-1 *:row-start-1',
+        'loo2ppvkxrcah38e outline outline-1 -outline-offset-1 outline-black/[--ring-opacity] dark:outline-white/[--ring-opacity]'
+    ],
+    variants: {
+        size: {
+            small: 'size-6',
+            medium: 'size-8',
+            large: 'size-10'
+        },
+        shape: {
+            square: 'rounded-[--avatar-radius] *:rounded-[--avatar-radius]',
+            circle: 'rounded-full *:rounded-full'
+        }
+    },
 
-const AvatarImage = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Image>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Image ref={ref} className={cn('aspect-square h-full w-full', className)} {...props} />
-));
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+    defaultVariants: {
+        shape: 'circle',
+        size: 'medium'
+    }
+})
 
-const AvatarFallback = React.forwardRef<
-    React.ElementRef<typeof AvatarPrimitive.Fallback>,
-    React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Fallback
-        ref={ref}
-        className={cn('flex h-full w-full items-center justify-center rounded-full bg-muted', className)}
-        {...props}
-    />
-));
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
+    src?: string | null
+    initials?: string
+    alt?: string
+    className?: string
+}
 
-export { Avatar, AvatarImage, AvatarFallback };
+const avatarGroupStyles = tv({
+    base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
+})
+
+interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
+    children: React.ReactNode
+}
+
+const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
+    return <div className={avatarGroupStyles({ className })} {...props} />
+}
+
+const Avatar = ({ src = null, initials, alt = '', className, shape, size, ...props }: AvatarProps) => {
+    return (
+        <span data-slot="avatar" {...props} className={avatarStyles({ shape, size, className })}>
+            {initials && (
+                <svg
+                    className="select-none fill-current text-[48px] font-medium uppercase"
+                    viewBox="0 0 100 100"
+                    aria-hidden={alt ? undefined : 'true'}
+                >
+                    {alt && <title>{alt}</title>}
+                    <text
+                        x="50%"
+                        y="50%"
+                        alignmentBaseline="middle"
+                        dominantBaseline="middle"
+                        textAnchor="middle"
+                        dy=".125em"
+                    >
+                        {initials}
+                    </text>
+                </svg>
+            )}
+            {src && <img src={src} alt={alt} />}
+        </span>
+    )
+}
+
+export { Avatar, AvatarGroup }

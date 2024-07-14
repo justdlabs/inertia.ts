@@ -1,34 +1,37 @@
-import { Button } from '@/components/ui/button';
-import { useTheme } from '@/components/theme-provider';
-import { cn } from '@/lib/utils';
-import { IconDeviceDesktop, IconMoon, IconSun } from '@irsyadadl/paranoid';
+import { useTheme } from '@/components/theme-provider'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { IconDeviceDesktop, IconMoon, IconSun } from '@irsyadadl/paranoid'
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme } = useTheme()
 
     return (
-        <div className='flex items-center gap-x-1 [&_svg]:size-4 [&_button]:rounded-full'>
+        <div className="flex [&_button>[data-slot=icon]]:text-fg items-center gap-x-1 [&_svg]:size-4 [&_button]:rounded-full">
             <Button
-                size='icon'
-                variant='ghost'
+                size="square-petite"
+                appearance="plain"
                 className={cn(theme === 'light' ? 'bg-secondary' : 'bg-background')}
-                onClick={() => setTheme('light')}>
+                onPress={() => setTheme('light')}
+            >
                 <IconSun />
             </Button>
             <Button
-                size='icon'
-                variant='ghost'
+                size="square-petite"
+                appearance="plain"
                 className={cn(theme === 'dark' ? 'bg-secondary' : 'bg-background')}
-                onClick={() => setTheme('dark')}>
+                onPress={() => setTheme('dark')}
+            >
                 <IconMoon />
             </Button>
             <Button
-                size='icon'
-                variant='ghost'
+                size="square-petite"
+                appearance="plain"
                 className={cn(theme === 'system' ? 'bg-secondary' : 'bg-background')}
-                onClick={() => setTheme('system')}>
+                onPress={() => setTheme('system')}
+            >
                 <IconDeviceDesktop />
             </Button>
         </div>
-    );
+    )
 }
