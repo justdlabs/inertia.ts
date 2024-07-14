@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'has_terms_and_privacy_policy_feature' => env('HAS_TERMS_AND_PRIVACY_POLICY_FEATURE', false),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
