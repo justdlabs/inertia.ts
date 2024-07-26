@@ -12,7 +12,7 @@ import {
     IconBrandParsinta,
     IconCube
 } from '@irsyadadl/paranoid'
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem, Link } from 'ui'
+import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
 
 const items = [
     {
@@ -90,23 +90,29 @@ export default function Home() {
                                     sm: 2
                                 }}
                                 gap={4}
-                                items={items}
                             >
-                                {(item) => (
-                                    <GridItem target="_blank" href={item.url} id={item.name} textValue={item.name}>
-                                        <Card>
-                                            <div className="px-6 pt-6">
-                                                <div className="size-8 grid place-content-center rounded-full border">
-                                                    <item.icon />
+                                <GridCollection items={items}>
+                                    {(item) => (
+                                        <GridItem className="relative" id={item.name}>
+                                            <Link
+                                                className="absolute inset-0 size-full"
+                                                target="_blank"
+                                                href={item.url}
+                                            />
+                                            <Card>
+                                                <div className="px-6 pt-6">
+                                                    <div className="size-8 grid place-content-center rounded-full border">
+                                                        <item.icon />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <CardHeader>
-                                                <CardTitle>{item.name}</CardTitle>
-                                                <CardDescription>{item.description}</CardDescription>
-                                            </CardHeader>
-                                        </Card>
-                                    </GridItem>
-                                )}
+                                                <CardHeader>
+                                                    <CardTitle>{item.name}</CardTitle>
+                                                    <CardDescription>{item.description}</CardDescription>
+                                                </CardHeader>
+                                            </Card>
+                                        </GridItem>
+                                    )}
+                                </GridCollection>
                             </Grid>
                         </div>
                     </div>
