@@ -1,26 +1,35 @@
 import * as React from 'react'
 
 import { IconX } from '@irsyadadl/paranoid'
+import type { DialogTriggerProps } from 'react-aria-components'
 import {
     Button as ButtonPrimitive,
+    type DialogProps,
     DialogTrigger as DialogTriggerPrimitive,
     Heading,
-    ModalOverlay as ModalOverlayPrimitive,
-    Modal as ModalPrimitive,
-    OverlayTriggerStateContext,
-    type DialogProps,
     type HeadingProps,
-    type ModalOverlayProps
+    ModalOverlay as ModalOverlayPrimitive,
+    type ModalOverlayProps as ModalOverlayPrimitiveProps,
+    Modal as ModalPrimitive,
+    OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Button, type ButtonProps } from './button'
 import { Dialog } from './dialog'
-import { cn, useMediaQuery } from './primitive'
+import { cn, isIos, useMediaQuery } from './primitive'
 
-export const modalVariants = tv({
+const ModalContext = React.createContext<{ isDismissable?: boolean }>({
+    isDismissable: true
+})
+
+const ModalOverlayContext = React.createContext<{ isDismissable?: boolean }>({
+    isDismissable: true
+})
+
+const modalContentStyles = tv({
     base: [
-        'fixed bottom-0 left-[50%] top-auto z-50 grid w-full max-w-full translate-x-[-50%] gap-4 rounded-t-xl border border-b-transparent bg-background p-2 shadow-lg outline-none sm:bottom-auto sm:top-[40%] sm:translate-y-[-50%] sm:rounded-xl sm:border-b-border',
+        'fixed bottom-0 left-[50%] top-auto z-50 grid w-full max-w-full translate-x-[-50%] gap-4 rounded-t-2xl border border-white dark:border-zinc-800 sm:border-b-white dark:sm:border-b-zinc-800 border-b-transparent bg-popover p-2 shadow-lg outline-none sm:bottom-auto sm:top-[40%] sm:translate-y-[-50%] sm:rounded-xl',
         'sm:entering:slide-in-from-bottom-auto entering:animate-in entering:fade-in-0 entering:slide-in-from-bottom-1/2 entering:slide-in-from-left-1/2 entering:[transition-timing-function:ease-out] sm:entering:slide-in-from-top-[58%]',
         'exiting:animate-out exiting:fade-out-0 exiting:slide-out-to-bottom-1/2 exiting:slide-out-to-left-1/2 exiting:[transition-timing-function:ease] sm:exiting:slide-out-to-top-[58%]'
     ],
@@ -42,85 +51,114 @@ export const modalVariants = tv({
     }
 })
 
-const Modal = DialogTriggerPrimitive
+interface ModalProps extends DialogTriggerProps {
+    isDismissable?: boolean
+}
+
+const Modal = ({ isDismissable = true, ...props }: ModalProps) => {
+    return (
+        <ModalContext.Provider value={{ isDismissable }}>
+            <DialogTriggerPrimitive {...props}>{props.children}</DialogTriggerPrimitive>
+        </ModalContext.Provider>
+    )
+}
 
 const ModalTrigger = ButtonPrimitive
 
-const ModalOverlayContext = React.createContext<{
-    isDismissable?: boolean
-}>({})
+const modalOverlayStyles = tv({
+    base: [
+        'fixed top-0 data-[blur=true]:backdrop-blur-sm left-0 w-full h-[--visual-viewport-height] isolate z-50 flex items-center justify-center p-4'
+    ],
+    variants: {
+        isEntering: {
+            true: 'animate-in fade-in duration-200 ease-out'
+        },
+        isExiting: {
+            true: 'animate-out fade-out duration-200 ease-in'
+        }
+    }
+})
 
-const ModalOverlay = ({ className, isDismissable = true, ...props }: ModalOverlayProps) => (
-    <ModalOverlayContext.Provider value={{ isDismissable: isDismissable }}>
-        <ModalOverlayPrimitive
-            isDismissable={isDismissable}
-            className={(values) =>
-                cn(
-                    'fixed inset-0 z-50 bg-black/60 entering:animate-in entering:fade-in-0 exiting:animate-in exiting:fade-out-0',
-                    typeof className === 'function' ? className(values) : className
-                )
-            }
-            {...props}
-        />
-    </ModalOverlayContext.Provider>
-)
+interface ModalOverlayProps extends ModalOverlayPrimitiveProps {
+    isBlurred?: boolean
+}
 
-export interface ModalContentProps
+const ModalOverlay = ({ isBlurred, isDismissable, className, ...props }: ModalOverlayProps) => {
+    const { isDismissable: defaultIsDismissable } = React.useContext(ModalContext)
+    const effectiveIsDismissable = isDismissable !== undefined ? isDismissable : defaultIsDismissable
+    const isIosDevice = isIos()
+    const effectiveIsBlurred = isIosDevice || isBlurred
+    return (
+        <ModalOverlayContext.Provider value={{ isDismissable: effectiveIsDismissable }}>
+            <ModalOverlayPrimitive
+                data-blur={effectiveIsBlurred ? 'true' : 'false'}
+                isDismissable={effectiveIsDismissable}
+                className={modalOverlayStyles({
+                    className: cn(isIosDevice ? 'bg-black/15' : 'bg-black/40', className)
+                })}
+                {...props}
+            />
+        </ModalOverlayContext.Provider>
+    )
+}
+
+interface ModalContentProps
     extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
-        VariantProps<typeof modalVariants> {
+        VariantProps<typeof modalContentStyles> {
     children?: DialogProps['children']
     role?: DialogProps['role']
     closeButton?: boolean
     className?: string
 }
 
-interface CloseButtonIndicatorProps {
-    desktop?: boolean
-    className?: string
-    close: () => void
-    dismissable?: boolean | undefined
-}
-
-const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
-    return (
-        <Button
-            appearance="plain"
-            size="square-petite"
-            aria-label="Close"
-            autoFocus={!props.desktop}
-            onPress={props.close}
-            className={cn(
-                'close absolute right-1 size-6 top-1 z-50',
-                className,
-                props.dismissable === false && 'hidden'
-            )}
-        >
-            <IconX className="size-4" />
-        </Button>
-    )
-}
-
 const ModalContent = ({ className, children, size, role, closeButton = true, ...props }: ModalContentProps) => {
-    const { isDismissable } = React.useContext(ModalOverlayContext)
-    const isDesktop = useMediaQuery('(min-width: 1024px)')
+    const { isDismissable: overlayIsDismissable } = React.useContext(ModalOverlayContext)
+    const { isDismissable: modalIsDismissable } = React.useContext(ModalContext)
+
+    const isDismissable = overlayIsDismissable !== undefined ? overlayIsDismissable : modalIsDismissable
+
     return (
-        <ModalPrimitive className={modalVariants({ size, className })} {...props}>
+        <ModalPrimitive className={modalContentStyles({ size, className })} {...props}>
             <Dialog role={role}>
-                {(values) => (
+                {({ close }) => (
                     <>
-                        {typeof children === 'function' ? children(values) : children}
-                        {closeButton && (
-                            <CloseButtonIndicator
-                                desktop={isDesktop}
-                                close={values.close}
-                                dismissable={isDismissable}
-                            />
-                        )}
+                        {typeof children === 'function' ? children({ close }) : children}
+                        {closeButton && <CloseButtonIndicator close={close} isDismissable={isDismissable} />}
                     </>
                 )}
             </Dialog>
         </ModalPrimitive>
     )
+}
+
+interface CloseButtonIndicatorProps {
+    className?: string
+    close: () => void
+    isDismissable?: boolean | undefined
+}
+
+const CloseButtonIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
+    const isMobile = useMediaQuery('(max-width: 600px)')
+    const buttonRef = React.useRef<HTMLButtonElement>(null)
+
+    React.useEffect(() => {
+        if (isMobile && buttonRef.current) {
+            buttonRef.current.focus()
+        }
+    }, [isMobile])
+    return props.isDismissable ? (
+        <Button
+            ref={buttonRef}
+            {...(isMobile ? { autoFocus: true } : {})}
+            appearance="plain"
+            size="square-petite"
+            aria-label="Close"
+            onPress={props.close}
+            className={cn('close absolute right-1 size-6 top-1 z-50', className)}
+        >
+            <IconX className="size-4" />
+        </Button>
+    ) : null
 }
 
 const ModalHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -160,11 +198,14 @@ export {
     ModalBody,
     ModalClose,
     ModalContent,
+    ModalContext,
     ModalDescription,
     ModalFooter,
     ModalHeader,
     ModalOverlay,
+    ModalOverlayContext,
     ModalTitle,
     ModalTrigger,
+    type ModalContentProps,
     type ModalOverlayProps
 }

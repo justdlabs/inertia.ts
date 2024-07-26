@@ -1,16 +1,17 @@
 import { composeRenderProps, Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from 'react-aria-components'
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
 const linkStyles = tv({
-    base: 'rounded transition-colors focus:outline-none disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
+    base: 'forced-colors:outline-[Highlight] focus-visible:outline-2 outline outline-offset-2 disabled:focus-visible:outline-0 outline-0 outline-primary rounded disabled:opacity-60 forced-colors:disabled:text-[GrayText] border-transparent transition-colors disabled:cursor-default',
     variants: {
         intent: {
             unstyled: 'text-fg',
             primary:
                 'text-primary-600 hover:text-primary-500 dark:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
-            'light/dark': 'text-fg hover:text-zinc-700 dark:hover:text-primary-400',
-            secondary:
-                'text-zinc-700 underline decoration-zinc-700/50 hover:decoration-zinc-700 dark:text-zinc-300 dark:decoration-zinc-300/70 dark:hover:decoration-zinc-300'
+            danger: 'text-red-600 hover:text-red-500 dark:text-red-500 dark:hover:text-red-400 forced-colors:disabled:text-[GrayText]',
+            'lad/primary':
+                'text-fg hover:text-primary-500 dark:hover:text-primary-400 forced-colors:disabled:text-[GrayText]',
+            secondary: 'text-zinc-800 dark:text-zinc-300 hover:text-zinc-700 dark:hover:text-zinc-white'
         }
     },
     defaultVariants: {
@@ -18,14 +19,16 @@ const linkStyles = tv({
     }
 })
 
-interface LinkProps extends LinkPrimitiveProps, VariantProps<typeof linkStyles> {}
+interface LinkProps extends LinkPrimitiveProps {
+    intent?: 'primary' | 'secondary' | 'danger' | 'lad/primary' | 'unstyled'
+}
 
-function Link({ className, intent, ...props }: LinkProps) {
+const Link = ({ className, ...props }: LinkProps) => {
     return (
         <LinkPrimitive
             {...props}
             className={composeRenderProps(className, (className, ...renderProps) =>
-                linkStyles({ ...renderProps, intent, className })
+                linkStyles({ ...renderProps, intent: props.intent, className })
             )}
         />
     )
