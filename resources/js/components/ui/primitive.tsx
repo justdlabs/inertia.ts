@@ -1,53 +1,66 @@
 import * as React from 'react'
 
-import { clsx, type ClassValue } from 'clsx'
+import { type ClassValue, clsx } from 'clsx'
 import { composeRenderProps } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-function composeTailwindRenderProps<T>(
+const composeTailwindRenderProps = <T,>(
     className: string | ((v: T) => string) | undefined,
     tw: string
-): string | ((v: T) => string) {
+): string | ((v: T) => string) => {
     return composeRenderProps(className, (className) => twMerge(tw, className))
 }
 
 const focusRing = tv({
     base: 'outline-none focus:outline-none forced-colors:outline-[Highlight]',
     variants: {
-        isFocused: { false: 'ring-0', true: 'ring-4 ring-primary/20' },
+        isFocusVisible: { true: 'ring-4 ring-primary/20' },
         isInvalid: { true: 'ring-4 ring-danger/20' }
     }
 })
 
+const isServerSide = (): boolean => {
+    if (typeof window !== 'undefined') {
+        return false
+    }
+    if (typeof process !== 'undefined' && process.versions && process.versions.node) {
+        return true
+    }
+    return true
+}
+
+const isIos = (userAgent?: string): boolean => {
+    if (isServerSide() && !userAgent) return false
+    const result = userAgent || navigator.userAgent
+    return /iPad|iPhone|iPod|iPadOS|iPhoneOS/.test(result)
+}
+
 const focusStyles = tv({
     extend: focusRing,
     variants: {
-        isFocused: { true: 'border-primary' },
+        isFocusVisible: { true: 'border-primary' },
         isInvalid: { true: 'border-danger' }
     }
 })
 
-function pickBy<T extends object>(
-    object: T,
-    predicate: (value: T[keyof T], key: keyof T) => boolean = (value) => value !== undefined && value !== ''
-): Partial<T> {
-    return Object.keys(object).reduce((acc: Partial<T>, key: string) => {
-        const typedKey = key as keyof T
-        if (predicate(object[typedKey], typedKey)) {
-            acc[typedKey] = object[typedKey]
+const focusButtonStyles = tv({
+    base: 'outline outline-primary forced-colors:outline-[Highlight] outline-offset-2',
+    variants: {
+        isFocusVisible: {
+            false: 'outline-0',
+            true: 'outline-2'
         }
-        return acc
-    }, {})
-}
+    }
+})
 
-function useMediaQuery(query: string) {
+const useMediaQuery = (query: string) => {
     const [value, setValue] = React.useState(false)
 
     React.useEffect(() => {
-        function onChange(event: MediaQueryListEvent) {
+        const onChange = (event: MediaQueryListEvent) => {
             setValue(event.matches)
         }
 
@@ -65,4 +78,16 @@ const ctr = composeTailwindRenderProps
 const tm = twMerge
 const cr = composeRenderProps
 
-export { cn, composeTailwindRenderProps, cr, ctr, focusRing, focusStyles, pickBy, tm, twMerge, useMediaQuery }
+export {
+    cn,
+    composeTailwindRenderProps,
+    cr,
+    ctr,
+    focusButtonStyles,
+    focusRing,
+    focusStyles,
+    isIos,
+    tm,
+    twMerge,
+    useMediaQuery
+}

@@ -1,8 +1,16 @@
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'
+import type {
+    ButtonProps,
+    MenuItemProps as MenuItemPrimitiveProps,
+    MenuProps,
+    PopoverProps,
+    SeparatorProps
+} from 'react-aria-components'
 import {
     Button,
+    composeRenderProps,
     Header,
     Keyboard,
     MenuItem as MenuItemPrimitive,
@@ -14,13 +22,7 @@ import {
     Section,
     Separator,
     SubmenuTrigger as SubmenuTriggerPrimitive,
-    composeRenderProps,
-    useSlottedContext,
-    type ButtonProps,
-    type MenuItemProps as MenuItemPrimitiveProps,
-    type MenuProps,
-    type PopoverProps,
-    type SeparatorProps
+    useSlottedContext
 } from 'react-aria-components'
 import { twJoin } from 'tailwind-merge'
 import type { VariantProps } from 'tailwind-variants'
@@ -166,10 +168,10 @@ const MenuKeyboard = ({ keys, className, ...props }: MenuKeyboardProps) => {
 }
 
 const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
-    <MenuItem className={className} {...props}>
+    <MenuItem className={cn('pr-8', className)} {...props}>
         {(values) => (
             <>
-                <span className="absolute right-2 flex size-4 items-center justify-center">
+                <span className="absolute right-2 flex size-4 items-center animate-in justify-center">
                     {values.isSelected && <IconCheck className="size-4" />}
                 </span>
 
@@ -180,11 +182,11 @@ const MenuCheckboxItem = ({ className, children, ...props }: MenuItemProps) => (
 )
 
 const MenuRadioItem = ({ className, children, ...props }: MenuItemProps) => (
-    <MenuItem className={className} {...props}>
+    <MenuItem className={cn('pr-8', className)} {...props}>
         {(values) => (
             <>
-                <span className="absolute right-2 flex size-2 items-center justify-center">
-                    {values.isSelected && <IconBulletFill className="size-2" />}
+                <span className="absolute right-2 flex size-2.5 items-center animate-in justify-center">
+                    {values.isSelected && <IconBulletFill className="size-2.5" />}
                 </span>
                 {typeof children === 'function' ? children(values) : children}
             </>

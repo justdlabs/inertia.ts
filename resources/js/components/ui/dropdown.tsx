@@ -1,12 +1,14 @@
 import { IconCheck } from '@irsyadadl/paranoid'
 import {
     Collection,
+    composeRenderProps,
     Header,
     ListBoxItem as ListBoxItemPrimitive,
-    Section,
-    composeRenderProps,
     type ListBoxItemProps,
-    type SectionProps
+    Section,
+    type SectionProps,
+    Text,
+    TextProps
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
@@ -14,7 +16,8 @@ const dropdownItemStyles = tv({
     base: [
         'group flex cursor-default select-none items-center gap-x-1.5 rounded-md py-2 pl-2.5 pr-1 text-base outline outline-0 forced-color-adjust-none lg:text-sm',
         '[&_[data-slot=avatar]]:-mr-0.5 [&_[data-slot=avatar]]:size-6 sm:[&_[data-slot=avatar]]:size-5',
-        '[&_svg]:size-4',
+        '[&:focus_.text-muted-fg]:text-primary-fg/80',
+        '[&_[data-slot=icon]]:size-4',
         'has-submenu:open:data-[danger=true]:bg-danger/20 has-submenu:open:data-[danger=true]:text-danger',
         'has-submenu:open:bg-primary has-submenu:open:text-primary-fg'
     ],
@@ -35,10 +38,14 @@ const dropdownItemStyles = tv({
         {
             isFocused: false,
             isOpen: true,
-            className: 'bg-gray-100 dark:bg-zinc-700/60'
+            className: 'bg-zinc-100 dark:bg-zinc-700/60'
         }
     ]
 })
+
+interface DropdownSectionProps<T> extends SectionProps<T> {
+    title?: string
+}
 
 const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
     return (
@@ -53,11 +60,11 @@ const DropdownItem = (props: ListBoxItemProps) => {
     const textValue = props.textValue || (typeof props.children === 'string' ? props.children : undefined)
     return (
         <ListBoxItemPrimitive
-            {...props}
             textValue={textValue}
             className={composeRenderProps(props.className, (className, renderProps) =>
                 dropdownItemStyles({ ...renderProps, className })
             )}
+            {...props}
         >
             {composeRenderProps(props.children, (children, { isSelected }) => (
                 <>
@@ -71,9 +78,22 @@ const DropdownItem = (props: ListBoxItemProps) => {
     )
 }
 
-interface DropdownSectionProps<T> extends SectionProps<T> {
-    title?: string
+interface DropdownItemSlot extends TextProps {
+    label?: TextProps['children']
+    description?: TextProps['children']
+}
+const DropdownItemDetails = ({ label, description, ...props }: DropdownItemSlot) => {
+    return (
+        <div className="flex flex-col gap-1">
+            <Text slot="label" className="font-medium lg:text-sm" {...props}>
+                {label}
+            </Text>
+            <Text slot="description" className="text-muted-fg text-xs" {...props}>
+                {description}
+            </Text>
+        </div>
+    )
 }
 
 // Note: This is not exposed component, but it's used in other components to render dropdowns.
-export { DropdownItem, DropdownSection, dropdownItemStyles, type DropdownSectionProps }
+export { DropdownItem, DropdownItemDetails, dropdownItemStyles, DropdownSection, type DropdownSectionProps }

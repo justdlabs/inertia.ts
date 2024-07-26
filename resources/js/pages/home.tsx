@@ -4,7 +4,59 @@ import { Logo } from '@/components/logo'
 import { AppLayout } from '@/layouts/app-layout'
 import { cn } from '@/lib/utils'
 import { Head } from '@inertiajs/react'
-import { IconBrandGithub, IconBrandParanoid, IconCube } from '@irsyadadl/paranoid'
+import {
+    IconBrandGithub,
+    IconBrandJustd,
+    IconBrandKarteil,
+    IconBrandParanoid,
+    IconBrandParsinta,
+    IconCube
+} from '@irsyadadl/paranoid'
+import { Card, CardDescription, CardHeader, CardTitle, Grid, GridItem, Link } from 'ui'
+
+const items = [
+    {
+        name: 'Just D.',
+        url: 'https://justd.co',
+        icon: IconBrandJustd,
+        description:
+            ' Just D. is a chill set of React components, built on top of React Aria Components, all about keeping the web accessible.'
+    },
+    {
+        name: 'Inertia.ts',
+        url: 'https://github.com/irsyadadl/inertia.ts',
+        icon: IconBrandGithub,
+        description:
+            'This project is developed by IrsyadAdl, if you want to contribute to this project, please visit the Github Repository.'
+    },
+    {
+        name: 'Icons',
+        url: 'https://paranoid.irsyad.co',
+        icon: IconBrandParanoid,
+        description:
+            'A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications.'
+    },
+    {
+        name: 'Next.js Template',
+        url: 'https://irsyad.co/s',
+        icon: IconCube,
+        description: 'Explore the next.js templates from web apps to design systems, all here.'
+    },
+    {
+        name: 'Parsinta',
+        url: 'https://parsinta.com',
+        icon: IconBrandParsinta,
+        description:
+            'Improve your skills with Parsinta by pushing your skills to the next level, through the series here such as Laravel, Vue, React, Tailwind CSS and Much more.'
+    },
+    {
+        name: 'Karteil',
+        url: 'https://karteil.com',
+        icon: IconBrandKarteil,
+        description:
+            'Improve your skills with Karteil by pushing your skills to the next level, through the online books here such as Laravel, Vue, React, Tailwind CSS and Much more.'
+    }
+]
 
 export default function Home() {
     return (
@@ -12,108 +64,50 @@ export default function Home() {
             <Head title="Welcome to Laravel" />
             <Header title="Inertia Typescript" />
             <Container>
-                <div className="overflow-hidden rounded-lg border">
+                <div className="overflow-hidden rounded-lg border lg:border-border border-transparent">
                     <div>
-                        <div className="p-4 sm:p-20">
-                            <div>
-                                <Logo className="block h-12 w-auto fill-current text-red-500" />
-                            </div>
-                            <div className="max-w-2xl">
-                                <div className="mt-6 text-xl sm:mt-8 sm:text-2xl">
+                        <div className="sm:p-20">
+                            <Link
+                                href="https://justd.co"
+                                target="_blank"
+                                className="grid place-content-center size-12 outline-1 outline-border rounded-full"
+                            >
+                                <Logo className="block size-7" />
+                            </Link>
+                            <div className="max-w-2xl mb-8">
+                                <div className="mt-6 text-xl sm:text-2xl">
                                     Laravel application with Inertia and React Typescript!
                                 </div>
-                                <div className="mt-4 text-muted-fg sm:mt-6 sm:text-lg">
+                                <div className="mt-4 text-muted-fg sm:text-lg">
                                     This is a Laravel application with Inertia and React Typescript. It is a work in
                                     progress. If you have any questions or suggestions, please feel free to contact me.
                                 </div>
                             </div>
 
-                            <div className="mt-16 grid gap-4 lg:grid-cols-2">
-                                <div className="rounded-xl border bg-secondary/20 p-8">
-                                    <a
-                                        href="https://github.com/irsyadadl/inertia.ts"
-                                        className="flex items-center gap-x-2 font-semibold text-fg"
-                                        target="_blank"
-                                    >
-                                        <IconBrandGithub className="size-8 stroke-1" />
-                                        Github
-                                    </a>
-                                    <p className="mt-5 text-muted-fg">
-                                        This project is developed by{' '}
-                                        <a
-                                            href="https://twitter.com/irsyadadl"
-                                            target="_blank"
-                                            className="text-fg font-semibold"
-                                        >
-                                            IrsyadAdl
-                                        </a>
-                                        , if you want to contribute to this project, please visit the{' '}
-                                        <a
-                                            href="https://github.com/irsyadadl/inertia.ts"
-                                            target="_blank"
-                                            className="text-fg font-semibold"
-                                        >
-                                            Github Repository
-                                        </a>
-                                        .
-                                    </p>
-                                </div>
-                                <div className="rounded-xl border bg-secondary/20 p-8">
-                                    <a
-                                        href="https://parsinta.com"
-                                        className="flex items-center gap-x-2 font-semibold text-fg"
-                                        target="_blank"
-                                    >
-                                        <ParsintaLogo />
-                                        Parsinta
-                                    </a>
-                                    <p className="mt-5 text-muted-fg">
-                                        Improve your skills with parsinta by pushing your skills to the next level,
-                                        through the series here such as Laravel, Vue, React, Tailwind CSS and Much more.
-                                    </p>
-                                </div>
-                                <div className="rounded-xl border bg-secondary/20 p-8">
-                                    <a
-                                        href="https://karteil.com"
-                                        className="flex items-center gap-x-2 font-semibold text-fg"
-                                        target="_blank"
-                                    >
-                                        <KarteilLogo className="size-8" />
-                                        Karteil
-                                    </a>
-                                    <p className="mt-5 text-muted-fg">
-                                        Improve your skills with parsinta by pushing your skills to the next level,
-                                        through the series here such as Laravel, Vue, React, Tailwind CSS and Much more.
-                                    </p>
-                                </div>
-                                <div className="rounded-xl border bg-secondary/20 p-8">
-                                    <a
-                                        href="https://paranoid.irsyad.co"
-                                        className="flex items-center gap-x-2 font-semibold text-fg"
-                                        target="_blank"
-                                    >
-                                        <IconBrandParanoid className="size-8" />
-                                        paranoid.irsyad.co
-                                    </a>
-                                    <p className="mt-5 text-muted-fg">
-                                        A library of beautifully crafted react icons, perfect for enhancing the visual
-                                        appeal and user experience of your web applications.
-                                    </p>
-                                </div>
-                                <div className="rounded-xl border bg-secondary/20 p-8">
-                                    <a
-                                        href="https://irsyad.co/s"
-                                        className="flex items-center gap-x-2 font-semibold text-fg"
-                                        target="_blank"
-                                    >
-                                        <IconCube className="size-8" />
-                                        Next.js Template
-                                    </a>
-                                    <p className="mt-5 text-muted-fg">
-                                        Explore the next.js templates from web apps to design systems, all here.
-                                    </p>
-                                </div>
-                            </div>
+                            <Grid
+                                columns={{
+                                    initial: 1,
+                                    sm: 2
+                                }}
+                                gap={4}
+                                items={items}
+                            >
+                                {(item) => (
+                                    <GridItem target="_blank" href={item.url} id={item.name} textValue={item.name}>
+                                        <Card>
+                                            <div className="px-6 pt-6">
+                                                <div className="size-8 grid place-content-center rounded-full border">
+                                                    <item.icon />
+                                                </div>
+                                            </div>
+                                            <CardHeader>
+                                                <CardTitle>{item.name}</CardTitle>
+                                                <CardDescription>{item.description}</CardDescription>
+                                            </CardHeader>
+                                        </Card>
+                                    </GridItem>
+                                )}
+                            </Grid>
                         </div>
                     </div>
                 </div>
@@ -186,4 +180,5 @@ function KarteilLogo({ className }: { className?: string }) {
         </svg>
     )
 }
+
 Home.layout = (page: any) => <AppLayout children={page} />

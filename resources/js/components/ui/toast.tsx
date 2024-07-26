@@ -1,10 +1,10 @@
-import { useTheme } from '@/components/theme-provider'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
+import { twJoin } from 'tailwind-merge'
 
+import { useTheme } from '@/components/theme-provider'
 import { buttonStyles } from './button'
-import { cn } from './primitive'
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toast = ({ ...props }: ToasterProps) => {
     const { theme = 'system' } = useTheme()
     return (
         <ToasterPrimitive
@@ -14,8 +14,8 @@ const Toaster = ({ ...props }: ToasterProps) => {
                 unstyled: true,
                 closeButton: true,
                 classNames: {
-                    toast: cn(
-                        'ring-1 w-[25rem] px-4 py-3 right-0 font-normal sm:px-4 sm:py-6 group ring-border rounded-xl bg-background text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl',
+                    toast: twJoin(
+                        'bg-background ring-1 min-w-[22rem] ring-border rounded-xl text-fg overflow-hidden text-[0.925rem] backdrop-blur-xl px-4 py-3 font-normal sm:px-4 sm:py-5',
                         '[&:has([data-button])_[data-close-button="true"]]:hidden',
                         '[&:not([data-description])_[data-title]]:font-normal',
                         '[&:has([data-description])_[data-title]]:!font-medium',
@@ -25,12 +25,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
                     ),
                     icon: 'hidden',
                     content: '[&:not(:has(+button))]:pr-10 [&:has(+button)]:pb-11 md:[&:has(+button)]:pb-9',
-                    error: 'ring-red-500/20 dark:ring-red-500/20 bg-danger/10 dark:text-red-50 text-red-950 dark:ring-inset',
-                    success:
-                        'ring-emerald-500/30 dark:ring-emerald-500/20 bg-success/10 dark:text-emerald-50 text-emerald-950 dark:ring-inset',
+                    error: 'bg-danger text-white ring-white/10 text-danger-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
+                    info: 'bg-lime-600 ring-white/10 text-lime-50 dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
                     warning:
-                        '!ring-amber-500/25 dark:!ring-amber-500/20 bg-warning/10 dark:text-amber-50 text-amber-950 dark:ring-inset',
-                    info: 'ring-lime-500/30 dark:ring-lime-500/20 bg-lime-500/10 dark:text-lime-50 text-lime-950 dark:ring-inset',
+                        'bg-warning text-warning-fg ring-white/10 dark:ring-inset [&>[data-close-button=true]>svg]:text-amber-950 [&>[data-close-button=true]:hover]:bg-white/20',
+                    success:
+                        'bg-primary text-white ring-white/10 text-primary-fg dark:ring-inset [&>[data-close-button=true]>svg]:text-white [&>[data-close-button=true]:hover]:bg-white/20',
                     cancelButton: buttonStyles({
                         className: '',
                         size: 'extra-small',
@@ -41,7 +41,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
                         size: 'extra-small'
                     }),
                     closeButton:
-                        '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
+                        '[&_svg]:size-5 size-8 absolute top-1/2 transform -translate-y-1/2 right-2 lg:right-4 left-auto grid place-content-center rounded-md hover:bg-black/20 dark:hover:bg-white/20 border-0 [&_svg]:text-fg'
                 }
             }}
             {...props}
@@ -49,4 +49,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
     )
 }
 
-export { Toaster }
+export { Toast }
