@@ -1,4 +1,6 @@
-import { GridList, GridListItem, GridListItemProps, GridListProps } from 'react-aria-components'
+import * as React from 'react'
+
+import { Collection } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 import { cn } from './primitive'
@@ -128,26 +130,15 @@ const gridStyles = tv(
     }
 )
 
-interface GridProps<T> extends VariantProps<typeof gridStyles>, GridListProps<T> {
+interface GridProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridStyles> {
     className?: string
     debug?: boolean
 }
 
-const Grid = <T extends object>({
-    className,
-    children,
-    gap,
-    gapX,
-    gapY,
-    flow,
-    columns,
-    rows,
-    ...props
-}: GridProps<T>) => {
+const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: GridProps) => {
     return (
-        <GridList
+        <div
             aria-label={props['aria-label'] || 'grid'}
-            layout={columns === 1 ? 'stack' : 'grid'}
             className={gridStyles({
                 gap: gap ?? gapX ?? gapY,
                 gapX: gapX ?? gap,
@@ -155,14 +146,13 @@ const Grid = <T extends object>({
                 flow: flow ?? 'row',
                 columns: columns ?? 1,
                 rows: rows ?? 1,
-
                 className:
                     'debug' in props ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className) : className
             })}
             {...props}
         >
-            {children}
-        </GridList>
+            {props.children}
+        </div>
     )
 }
 
@@ -273,7 +263,7 @@ const gridItemStyles = tv(
     }
 )
 
-interface GridItemProps extends GridListItemProps, VariantProps<typeof gridItemStyles> {
+interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
     className?: string
 }
 
@@ -288,10 +278,8 @@ const GridItem = ({
     rowEnd,
     ...props
 }: GridItemProps) => {
-    const textValue = typeof children === 'string' ? children : undefined
     return (
-        <GridListItem
-            textValue={textValue}
+        <div
             className={gridItemStyles({
                 colSpan,
                 rowSpan,
@@ -299,13 +287,15 @@ const GridItem = ({
                 colEnd,
                 rowStart,
                 rowEnd,
-                className: 'href' in props ? 'cursor-pointer' : className
+                className
             })}
             {...props}
         >
-            {(values) => <>{typeof children === 'function' ? children(values) : children}</>}
-        </GridListItem>
+            {children}
+        </div>
     )
 }
 
-export { Grid, GridItem, gridItemStyles, gridStyles }
+const GridCollection = Collection
+
+export { Grid, GridCollection, GridItem, gridItemStyles, gridStyles }
