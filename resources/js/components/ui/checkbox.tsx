@@ -1,9 +1,9 @@
 import { type ReactNode } from 'react'
 
 import {
+    Checkbox as CheckboxPrimitive,
     CheckboxGroup as CheckboxGroupPrimitive,
     type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
-    Checkbox as CheckboxPrimitive,
     type CheckboxProps as CheckboxPrimitiveProps,
     composeRenderProps,
     type ValidationResult
