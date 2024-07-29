@@ -3,11 +3,11 @@
 import React from 'react'
 
 import { IconCheck, IconCircleInfoFill, IconLoader, IconTriangleInfoFill } from '@irsyadadl/paranoid'
-import { useTheme } from 'next-themes'
 import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
 import { twJoin } from 'tailwind-merge'
 
 import { buttonStyles } from './button'
+import {useTheme} from "@/components/theme-provider";
 
 const Toast = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme()
