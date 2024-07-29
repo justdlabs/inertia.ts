@@ -298,4 +298,4 @@ const GridItem = ({
 
 const GridCollection = Collection
 
-export { Grid, GridItem, GridCollection, gridStyles, gridItemStyles }
+export { Grid, GridCollection, GridItem, gridItemStyles, gridStyles }

@@ -1,7 +1,7 @@
 import { useTheme } from '@/components/theme-provider'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { IconDeviceDesktop, IconMoon, IconSun } from '@irsyadadl/paranoid'
+import { Button } from 'ui'
 
 export function ThemeToggle() {
     const { theme, setTheme } = useTheme()
