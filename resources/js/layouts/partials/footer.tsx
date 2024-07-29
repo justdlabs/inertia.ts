@@ -175,6 +175,7 @@ export default function Footer() {
                             </p>
                             <form className="mt-6 sm:flex sm:max-w-md">
                                 <TextField
+                                    aria-label="Email address"
                                     type="email"
                                     name="email-address"
                                     id="email-address"
