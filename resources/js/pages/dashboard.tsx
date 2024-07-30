@@ -1,29 +1,19 @@
-import { Container } from '@/components/container'
-import { Header } from '@/components/header'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AppLayout } from '@/layouts/app-layout'
-import { PagePropsData } from '@/types'
-import { Head, usePage } from '@inertiajs/react'
+import { PagePropsData } from '@/types/index'
+import { Head } from '@inertiajs/react'
+import { AppLayout } from 'layouts'
 
-export default function Dashboard() {
-    const { auth } = usePage<PagePropsData>().props
+export default function Dashboard({ auth }: PagePropsData) {
     return (
         <>
             <Head title="Dashboard" />
-            <Header title="Dashboard" />
-            <Container>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Dashboard</CardTitle>
-                        <CardDescription>Hi {auth.user.name}, you are now logged in.</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        Hi {auth.user.name}, you are now logged in.
-                        <div className="mb-2 text-muted-fg">// The page you are currently visiting is</div>
-                        <div className="text-lime-600 dark:text-lime-400">"resources/js/Pages/Dashboard.tsx"</div>
-                    </CardContent>
-                </Card>
-            </Container>
+
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">You're logged in!</div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

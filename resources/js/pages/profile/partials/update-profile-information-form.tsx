@@ -1,11 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Form } from '@/components/ui/form'
-import { Link } from '@/components/ui/link'
-import { TextField } from '@/components/ui/text-field'
 import { PagePropsData } from '@/types'
 import { useForm, usePage } from '@inertiajs/react'
-import { toast } from 'sonner'
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Form, Link, TextField } from 'ui'
 
 interface Props {
     mustVerifyEmail: boolean
@@ -13,7 +8,7 @@ interface Props {
     className?: string
 }
 
-export default function UpdateProfileInformation({ mustVerifyEmail, status, className }: Props) {
+export function UpdateProfileInformationForm({ mustVerifyEmail, status, className }: Props) {
     const { auth } = usePage<PagePropsData>().props
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: auth.user.name ?? '',
@@ -23,10 +18,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     const submit = (e: { preventDefault: () => void }) => {
         e.preventDefault()
         patch(route('profile.update'), {
-            preserveScroll: true,
-            onSuccess: () => {
-                toast.success('Your profile information has been updated.')
-            }
+            preserveScroll: true
         })
     }
 
@@ -86,7 +78,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     )}
 
                     <div className="flex items-center gap-4">
-                        <Button isDisabled={processing}>Save</Button>
+                        <Button type="submit" isDisabled={processing}>
+                            Save
+                        </Button>
                         {recentlySuccessful && <p className="text-sm text-muted-fg">Saved.</p>}
                     </div>
                 </Form>

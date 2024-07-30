@@ -28,9 +28,6 @@
         --muted: 240 4.8% 95.9%;
         --muted-fg: 240 3.8% 46.1%;
 
-        --accent: 240 4.8% 95.9%;
-        --accent-fg: 240 5.9% 10%;
-
         --danger: 347 77% 50%;
         --danger-fg: 356 100% 97%;
 
@@ -64,9 +61,6 @@
         --muted: 240 3.7% 15.9%;
         --muted-fg: 240 5% 64.9%;
 
-        --accent: 240 3.7% 15.9%;
-        --accent-fg: 0 0% 98%;
-
         --border: 240 7% 15%;
         --input: 240 3.7% 15.9%;
         --toggle: 240 5% 26%;
@@ -90,11 +84,6 @@
             'rlig' 1,
             'calt' 1;
     }
-}
-
-.react-aria-Button,
-.react-aria-Dialog {
-    outline: none;
 }
 
 .react-aria-DropIndicator[data-drop-target] {

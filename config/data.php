@@ -11,6 +11,13 @@ return [
     'date_format' => DATE_ATOM,
 
     /**
+     * When transforming or casting dates, the following timezone will be used to
+     * convert the date to the correct timezone. If set to null no timezone will
+     * be passed.
+     */
+    'date_timezone' => null,
+
+    /**
      * It is possible to enable certain features of the package, these would otherwise
      * be breaking changes, and thus they are disabled by default. In the next major
      * version of the package, these features will be enabled by default.

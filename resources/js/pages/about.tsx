@@ -1,10 +1,10 @@
-import { Container } from '@/components/container'
-import { Header } from '@/components/header'
-import { AppLayout } from '@/layouts/app-layout'
 import { Head } from '@inertiajs/react'
+import { Container } from 'components/container'
+import { Header } from 'components/header'
+import { AppLayout } from 'layouts'
 import React from 'react'
 
-export default function About({ about }: { about: string }) {
+export default function About() {
     return (
         <>
             <Head title="About Us" />

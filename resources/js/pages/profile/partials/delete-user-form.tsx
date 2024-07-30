@@ -1,6 +1,12 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { useForm } from '@inertiajs/react'
+import { useState } from 'react'
 import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
     Modal,
     ModalBody,
     ModalClose,
@@ -9,13 +15,11 @@ import {
     ModalFooter,
     ModalHeader,
     ModalOverlay,
-    ModalTitle
-} from '@/components/ui/modal'
-import { TextField } from '@/components/ui/text-field'
-import { useForm } from '@inertiajs/react'
-import { useState } from 'react'
+    ModalTitle,
+    TextField
+} from 'ui'
 
-export default function DeleteUserForm() {
+export function DeleteUserForm() {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
     const {
         data,

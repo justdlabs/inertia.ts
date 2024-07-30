@@ -2,7 +2,7 @@
 import { withTV } from 'tailwind-variants/transformer'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
-const config = {
+const config = withTV({
     darkMode: ['class'],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -69,10 +69,6 @@ const config = {
                     DEFAULT: 'hsl(var(--muted))',
                     fg: 'hsl(var(--muted-fg))'
                 },
-                accent: {
-                    DEFAULT: 'hsl(var(--accent))',
-                    fg: 'hsl(var(--accent-fg))'
-                },
                 popover: {
                     DEFAULT: 'hsl(var(--popover))',
                     fg: 'hsl(var(--popover-fg))'
@@ -104,6 +100,6 @@ const config = {
         }
     },
     plugins: [require('tailwindcss-animate'), require('tailwindcss-react-aria-components')]
-}
+})
 
-export default withTV(config)
+export default config

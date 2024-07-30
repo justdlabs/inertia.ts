@@ -1,11 +1,7 @@
-import { Button, buttonStyles } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Form } from '@/components/ui/form'
-import { Link } from '@/components/ui/link'
-import { TextField } from '@/components/ui/text-field'
-import { GuestLayout } from '@/layouts/guest-layout'
 import { Head, useForm } from '@inertiajs/react'
+import { GuestLayout } from 'layouts'
 import React, { useEffect } from 'react'
+import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui'
 
 interface LoginProps {
     status: string

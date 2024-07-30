@@ -37,6 +37,8 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        flashMessage('success', 'Your profile information has been updated.');
+
         return Redirect::route('profile.edit');
     }
 

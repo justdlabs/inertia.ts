@@ -8,6 +8,10 @@ export type AuthenticatedUserData = {
     gravatar: string
     email_verified_at: string | null
 }
+export type FlashMessageData = {
+    type: string
+    message: string
+}
 export type PagePropsData = {
     auth: AuthData
 }

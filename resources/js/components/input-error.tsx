@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
 import { HTMLAttributes } from 'react'
+import { Description, cn } from 'ui'
 
 export function InputError({
     message,
@@ -7,8 +7,8 @@ export function InputError({
     ...props
 }: HTMLAttributes<HTMLParagraphElement> & { message?: string }) {
     return message ? (
-        <p {...props} className={cn('text-sm text-destructive', className)}>
+        <Description {...props} className={cn('text-sm block text-danger')}>
             {message}
-        </p>
+        </Description>
     ) : null
 }

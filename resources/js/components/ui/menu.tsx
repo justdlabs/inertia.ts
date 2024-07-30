@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from '@irsyadadl/paranoid'

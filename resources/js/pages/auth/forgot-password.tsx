@@ -1,8 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Form } from '@/components/ui/form'
-import { TextField } from '@/components/ui/text-field'
-import { GuestLayout } from '@/layouts/guest-layout'
 import { Head, useForm } from '@inertiajs/react'
+import { GuestLayout } from 'layouts'
+import { Button, Form, TextField } from 'ui'
 
 interface ForgotPasswordProps {
     status: string

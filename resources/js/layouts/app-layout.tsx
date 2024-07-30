@@ -1,12 +1,12 @@
-import Footer from '@/layouts/partials/footer'
-import Navbar from '@/layouts/partials/navbar'
+import { FlashMessage } from 'components/flash-message'
+import { Footer } from 'components/footer'
+import { Navbar } from 'components/navbar'
 import { PropsWithChildren } from 'react'
-import { Toast } from 'ui'
 
 export function AppLayout({ children }: PropsWithChildren) {
     return (
         <div className="min-h-svh bg-muted/20">
-            <Toast />
+            <FlashMessage />
             <Navbar />
             <main>{children}</main>
             <Footer />

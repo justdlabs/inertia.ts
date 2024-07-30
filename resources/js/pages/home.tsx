@@ -1,8 +1,3 @@
-import { Container } from '@/components/container'
-import { Header } from '@/components/header'
-import { Logo } from '@/components/logo'
-import { AppLayout } from '@/layouts/app-layout'
-import { cn } from '@/lib/utils'
 import { Head } from '@inertiajs/react'
 import {
     IconBrandGithub,
@@ -12,7 +7,11 @@ import {
     IconBrandParsinta,
     IconCube
 } from '@irsyadadl/paranoid'
-import { Card, CardDescription, CardHeader, CardTitle, Grid, GridCollection, GridItem, Link } from 'ui'
+import { Container } from 'components/container'
+import { Header } from 'components/header'
+import { Logo } from 'components/logo'
+import { AppLayout } from 'layouts'
+import { Card, CardDescription, CardHeader, CardTitle, cn, Grid, GridCollection, GridItem, Link } from 'ui'
 
 const items = [
     {

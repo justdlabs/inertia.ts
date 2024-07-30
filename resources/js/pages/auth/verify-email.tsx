@@ -1,8 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Form } from '@/components/ui/form'
-import { Link } from '@/components/ui/link'
 import { GuestLayout } from '@/layouts/guest-layout'
 import { Head, useForm } from '@inertiajs/react'
+import { Button, Form, Link } from 'ui'
 
 export default function VerifyEmail({ status }: { status?: any }) {
     const { post, processing } = useForm()

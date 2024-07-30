@@ -1,11 +1,7 @@
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Form } from '@/components/ui/form'
-import { Link } from '@/components/ui/link'
-import { TextField } from '@/components/ui/text-field'
-import { GuestLayout } from '@/layouts/guest-layout'
 import { Head, useForm } from '@inertiajs/react'
+import { GuestLayout } from 'layouts'
 import React, { useEffect } from 'react'
+import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui'
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -94,7 +90,7 @@ export default function Register() {
                 )}
 
                 <div className="flex items-center justify-between">
-                    <Link href="/login" intent="secondary">
+                    <Link href="/login" className={buttonStyles({ appearance: 'outline' })}>
                         Already registered?
                     </Link>
 

@@ -1,9 +1,9 @@
-import { Container } from '@/components/container'
-import { Logo } from '@/components/logo'
-import { ThemeSwitcher } from '@/components/theme-switcher'
 import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
 import { IconBrandJustd, IconBrandLaravel, IconChevronDown, IconHamburger, IconSettings } from '@irsyadadl/paranoid'
+import { Container } from 'components/container'
+import { Logo } from 'components/logo'
+import { ThemeSwitcher } from 'components/theme-switcher'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
@@ -64,7 +64,7 @@ const navigations = [
     }
 ]
 
-export default function Navbar() {
+export function Navbar() {
     const { auth } = usePage<PagePropsData>().props
     return (
         <>
@@ -146,7 +146,7 @@ function UserMenu() {
     return (
         <Menu>
             <MenuTrigger aria-label="Open menu">
-                <Avatar size="medium" src={auth.user.gravatar} className="size-8" />
+                <Avatar status="online" size="medium" src={auth.user.gravatar} className="size-8" />
             </MenuTrigger>
             <MenuContent showArrow placement="bottom end" className="w-60">
                 <MenuSection>

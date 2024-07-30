@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,11 +33,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function gravatar(): Attribute
-    {
-        return Attribute::make(fn () => $this->avatar());
-    }
-
     /**
      * Get the attributes that should be cast.
      *
@@ -48,6 +44,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function gravatar(): Attribute
+    {
+        return Attribute::make(fn () => $this->avatar());
     }
 
     protected function avatar($size = 200): string

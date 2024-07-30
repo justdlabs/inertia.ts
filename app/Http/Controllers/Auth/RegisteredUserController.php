@@ -23,13 +23,17 @@ class RegisteredUserController extends Controller
         return Inertia::render('auth/register');
     }
 
+    /**
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'terms' => config('app.has_terms_and_privacy_policy_feature') ? ['required', 'accepted'] : ['nullable'],
         ]);
 
         $user = User::create([

@@ -1,12 +1,9 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Form } from '@/components/ui/form'
-import { TextField } from '@/components/ui/text-field'
 import { useForm } from '@inertiajs/react'
 import { useRef } from 'react'
 import { toast } from 'sonner'
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Form, TextField } from 'ui'
 
-export default function UpdatePasswordForm() {
+export function UpdatePasswordForm() {
     const passwordInput = useRef<HTMLInputElement>(null)
     const currentPasswordInput = useRef<HTMLInputElement>(null)
     const { data, setData, put, errors, reset, processing, recentlySuccessful } = useForm({
@@ -79,7 +76,9 @@ export default function UpdatePasswordForm() {
                     />
 
                     <div className="flex items-center gap-4">
-                        <Button isDisabled={processing}>Save</Button>
+                        <Button type="submit" isDisabled={processing}>
+                            Save
+                        </Button>
 
                         {recentlySuccessful && <p className="text-sm text-muted-fg">Saved.</p>}
                     </div>

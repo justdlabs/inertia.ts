@@ -1,9 +1,10 @@
-import { cn } from '@/lib/utils'
-import * as React from 'react'
+import React from 'react'
+
+import { cn } from 'ui'
 
 const Container = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     ({ className, ...props }, ref) => (
-        <div ref={ref} className={cn('px-4 sm:px-6 mx-auto max-w-7xl', className)} {...props} />
+        <div className={cn('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', className)} {...props} ref={ref} />
     )
 )
 Container.displayName = 'Container'

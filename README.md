@@ -10,8 +10,6 @@ bun i && bun run build
 php artisan serve
 ```
 
-> This project using React `v18` and Laravel `v10`
-
 ### Laravel Inertia React w/ Typescript
 
 By default, if we use package like Laravel breeze, it'll use regular javascript react by default. But this project is
@@ -114,7 +112,3 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 -   [parsinta.com](https://parsinta.com/)
 -   [irsyad.co](https://irsyad.co/)
 -   [karteil.com](https://karteil.com/)
-
-### Premium Partners
-
--   **[jetbrains.com](https://jetbrains.com/)**
