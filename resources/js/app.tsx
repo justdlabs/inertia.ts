@@ -1,30 +1,30 @@
-import './bootstrap';
-import '../css/app.css';
+import '../css/app.css'
+import './bootstrap'
 
-import { createRoot, hydrateRoot } from 'react-dom/client';
-import { createInertiaApp } from '@inertiajs/react';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ThemeProvider } from '@/components/theme-provider';
+import { createInertiaApp } from '@inertiajs/react'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import { Providers } from './providers'
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
     setup({ el, App, props }) {
         const appElement = (
-            <ThemeProvider defaultTheme='system' storageKey='ui-theme'>
+            <Providers>
                 <App {...props} />
-            </ThemeProvider>
-        );
+            </Providers>
+        )
         if (import.meta.env.DEV) {
-            createRoot(el).render(appElement);
-            return;
+            createRoot(el).render(appElement)
+            return
         }
 
-        hydrateRoot(el, appElement);
+        hydrateRoot(el, appElement)
     },
     progress: {
-        color: '#4B5563',
-    },
-});
+        color: '#4B5563'
+    }
+})

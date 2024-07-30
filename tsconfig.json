@@ -6,12 +6,15 @@
         "jsx": "react-jsx",
         "strict": true,
         "isolatedModules": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
         "target": "ESNext",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "paths": {
             "@/*": ["./resources/js/*"],
+            "ui": ["./resources/js/components/ui/index.ts"],
             "ziggy-js": ["./vendor/tightenco/ziggy"]
         }
     },

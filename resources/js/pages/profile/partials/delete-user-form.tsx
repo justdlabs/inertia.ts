@@ -1,53 +1,49 @@
-import React, { useRef, useState } from 'react';
-import { buttonVariants } from '@/components/ui/button';
-import { InputError } from '@/components/input-error';
-import { Input } from '@/components/ui/input';
-import { useForm } from '@inertiajs/react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+    Modal,
+    ModalBody,
+    ModalClose,
+    ModalContent,
+    ModalDescription,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    ModalTitle
+} from '@/components/ui/modal'
+import { TextField } from '@/components/ui/text-field'
+import { useForm } from '@inertiajs/react'
+import { useState } from 'react'
 
 export default function DeleteUserForm() {
-    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
-    const passwordInput = useRef<HTMLInputElement>(null);
+    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
     const {
         data,
         setData,
         delete: destroy,
         processing,
         reset,
-        errors,
+        errors
     } = useForm({
-        password: '',
-    });
+        password: ''
+    })
 
     const confirmUserDeletion = () => {
-        setConfirmingUserDeletion(true);
-    };
+        setConfirmingUserDeletion(true)
+    }
 
-    const deleteUser = (e: { preventDefault: () => void }) => {
-        e.preventDefault();
+    const deleteUser = () => {
         destroy(route('profile.destroy'), {
             preserveScroll: true,
             onSuccess: () => closeModal(),
-            onError: () => passwordInput.current?.focus(),
-            onFinish: () => reset(),
-        });
-    };
+            onFinish: () => reset()
+        })
+    }
 
     const closeModal = () => {
-        setConfirmingUserDeletion(false);
-        reset();
-    };
+        setConfirmingUserDeletion(false)
+        reset()
+    }
 
     return (
         <Card>
@@ -59,42 +55,39 @@ export default function DeleteUserForm() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <AlertDialog>
-                    <AlertDialogTrigger
-                        className={buttonVariants({
-                            variant: 'destructive',
-                        })}>
-                        Delete Account
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogTitle>Delete Account</AlertDialogTitle>
-                            <AlertDialogDescription>
-                                Are you sure you want to delete your account? Once your account is deleted, all of its
-                                resources and data will be permanently deleted. Please enter your password to confirm
-                                you would like to permanently delete your account.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
+                <Modal>
+                    <Button intent="danger">Delete Account</Button>
+                    <ModalOverlay>
+                        <ModalContent>
+                            <ModalHeader>
+                                <ModalTitle>Delete Account</ModalTitle>
+                                <ModalDescription>
+                                    Are you sure you want to delete your account? Once your account is deleted, all of
+                                    its resources and data will be permanently deleted. Please enter your password to
+                                    confirm you would like to permanently delete your account.
+                                </ModalDescription>
+                            </ModalHeader>
 
-                        <div className='mt-4'>
-                            <Input
-                                type='password'
-                                placeholder='Password'
-                                value={data.password}
-                                onChange={(e) => setData('password', e.currentTarget.value)}
-                            />
-
-                            <InputError message={errors.password} className='mt-2' />
-                        </div>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={deleteUser} disabled={processing}>
-                                Continue
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
+                            <ModalBody>
+                                <TextField
+                                    type="password"
+                                    placeholder="Password"
+                                    value={data.password}
+                                    onChange={(v) => setData('password', v)}
+                                    errorMessage={errors.password}
+                                    isRequired
+                                />
+                            </ModalBody>
+                            <ModalFooter className="-mt-2">
+                                <ModalClose>Cancel</ModalClose>
+                                <Button type="submit" onPress={deleteUser} isDisabled={processing}>
+                                    Continue
+                                </Button>
+                            </ModalFooter>
+                        </ModalContent>
+                    </ModalOverlay>
+                </Modal>
             </CardContent>
         </Card>
-    );
+    )
 }

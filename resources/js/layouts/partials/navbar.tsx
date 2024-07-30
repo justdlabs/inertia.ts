@@ -1,110 +1,246 @@
-import { InertiaLinkProps, Link, router, usePage } from '@inertiajs/react';
-import { Logo } from '@/components/logo';
+import { Container } from '@/components/container'
+import { Logo } from '@/components/logo'
+import { ThemeSwitcher } from '@/components/theme-switcher'
+import { PagePropsData } from '@/types'
+import { usePage } from '@inertiajs/react'
+import { IconBrandJustd, IconBrandLaravel, IconChevronDown, IconHamburger, IconSettings } from '@irsyadadl/paranoid'
+import { motion } from 'framer-motion'
+import React from 'react'
+import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
+import { tv } from 'tailwind-variants'
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import ResponsiveNavbar from '@/layouts/partials/responsive-navbar';
-import React from 'react';
-import { IconChevronDown, IconSettings } from '@irsyadadl/paranoid';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { cn } from '@/lib/utils';
-import { PagePropsData } from '@/types';
+    Avatar,
+    Button,
+    Link,
+    Menu,
+    MenuContent,
+    MenuHeader,
+    MenuItem,
+    MenuSection,
+    MenuSeparator,
+    MenuTrigger,
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetOverlay,
+    SheetTitle,
+    useMediaQuery
+} from 'ui'
+
+const navigations = [
+    {
+        name: 'Home',
+        textValue: 'Home',
+        href: '/'
+    },
+    {
+        name: 'About',
+        textValue: 'About',
+        href: '/about'
+    },
+    {
+        name: 'Github',
+        textValue: 'Github Repository',
+        href: 'https://github.com/irsyadadl/inertia.ts',
+        className: 'justify-between'
+    },
+    {
+        name: 'Components',
+        textValue: 'Just D. Components',
+        href: 'https://justd.co',
+        className: 'justify-between'
+    },
+    {
+        name: 'Colors',
+        textValue: 'Just D. Colors',
+        href: 'https://justd.co/colors',
+        className: 'justify-between'
+    },
+    {
+        name: 'Templates',
+        textValue: 'Next.js Template',
+        href: 'https://irsyad.co/s',
+        className: 'justify-between'
+    }
+]
 
 export default function Navbar() {
-    const { auth } = usePage<PagePropsData>().props;
+    const { auth } = usePage<PagePropsData>().props
     return (
         <>
             <ResponsiveNavbar />
-            <nav className='relative bg-background z-10 hidden border-b py-3 sm:block'>
-                <div className='mx-auto max-w-screen-2xl items-center sm:px-6 lg:px-8'>
-                    <div className='flex items-center justify-between'>
-                        <div className='flex items-center gap-x-4'>
-                            <Link href='/' className='mr-3'>
-                                <Logo className='w-9 fill-foreground' />
+            <nav className="relative bg-background z-10 hidden border-b py-1 sm:block">
+                <Container>
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                            <Link href="/" className="mr-6">
+                                <Logo />
                             </Link>
-                            <NavLink active={route().current('home')} href='/'>
-                                Home
-                            </NavLink>
-                            <NavLink active={route().current('about')} href={route('about')}>
-                                About
-                            </NavLink>
+                            <NavContent />
                         </div>
-                        {auth.user ? (
-                            <div className='flex items-center gap-x-1'>
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger>
-                                        <Avatar className='size-8'>
-                                            <AvatarImage src={auth.user.gravatar} />
-                                        </Avatar>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent className='mr-8 w-60'>
-                                        <DropdownMenuLabel>
-                                            <div>{auth.user.name}</div>
-                                            <div className='text-muted-foreground font-normal text-sm'>
-                                                {auth.user.email}
-                                            </div>
-                                        </DropdownMenuLabel>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem asChild>
-                                            <Link href={route('dashboard')}>Dashboard</Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem className='justify-between'>
-                                            <Link href={route('profile.edit')}>Settings</Link>
-                                            <IconSettings className='size-4' />
-                                        </DropdownMenuItem>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem onClick={() => router.post(route('logout'))}>
-                                            <span>Logout</span>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </div>
-                        ) : (
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button
-                                        variant='secondary'
-                                        className='bg-secondary/50 hover:bg-secondary/60 border'>
-                                        Login
-                                        <IconChevronDown className='ml-2 size-4' />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className='mr-8 w-40'>
-                                    <DropdownMenuItem asChild>
-                                        <Link href={route('login')}>Login</Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem asChild>
-                                        <Link href={route('register')}>Register</Link>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        )}
+                        <div className="gap-1 flex">
+                            {!auth.user && <ThemeSwitcher />}
+                            {auth.user ? <UserMenu /> : <LoginMenu />}
+                        </div>
                     </div>
-                </div>
+                </Container>
             </nav>
         </>
-    );
+    )
 }
 
-export function NavLink({
-    active,
-    ...props
-}: InertiaLinkProps & {
-    active?: boolean;
-}) {
+const navStyles = tv({
+    base: 'text-sm relative py-0 sm:py-4 inline-flex focus:outline-none focus-visible:text-fg font-medium',
+    variants: {
+        isCurrent: {
+            true: 'text-fg',
+            false: 'text-muted-fg hover:text-fg'
+        }
+    }
+})
+
+interface LinkProps extends ListBoxItemProps {
+    className?: string
+    children: React.ReactNode
+    target?: string
+    href?: string
+}
+
+function NavLink({ children, className, ...props }: LinkProps) {
+    const pathname = usePage().url
+    const isCurrent = pathname === props.href
     return (
-        <Link
-            {...props}
-            className={cn(
-                active ? 'text-primary' : 'text-muted-foreground',
-                'px-3 py-2.5 text-sm font-medium transition-colors hover:text-primary'
-            )}
+        <ListBoxItem className={navStyles({ isCurrent, className })} {...props}>
+            {children}
+            {isCurrent && <CurrentIndicator />}
+        </ListBoxItem>
+    )
+}
+
+function CurrentIndicator() {
+    return (
+        <motion.span
+            className="h-full inset-y-0 sm:inset-auto sm:h-0.5 w-0.5 sm:w-full rounded-full bg-fg -left-4 sm:bottom-[-5px] sm:inset-x block absolute"
+            layoutId="current"
         />
-    );
+    )
+}
+
+function LoginMenu() {
+    return (
+        <Menu>
+            <Button size="small" appearance="outline">
+                Login
+                <IconChevronDown className="ml-2" />
+            </Button>
+            <MenuContent showArrow placement="bottom end" className="w-40">
+                <MenuItem href={route('login')}>Login</MenuItem>
+                <MenuItem href={route('register')}>Register</MenuItem>
+            </MenuContent>
+        </Menu>
+    )
+}
+
+function UserMenu() {
+    const { auth } = usePage<PagePropsData>().props
+    return (
+        <Menu>
+            <MenuTrigger aria-label="Open menu">
+                <Avatar size="medium" src={auth.user.gravatar} className="size-8" />
+            </MenuTrigger>
+            <MenuContent showArrow placement="bottom end" className="w-60">
+                <MenuSection>
+                    <MenuHeader separator className="relative">
+                        <div className="absolute right-2 top-2">
+                            <ThemeSwitcher />
+                        </div>
+                        <div>{auth.user.name}</div>
+                        <div className="text-muted-fg font-normal text-sm">{auth.user.email}</div>
+                    </MenuHeader>
+                </MenuSection>
+                <MenuItem href={route('dashboard')}>Dashboard</MenuItem>
+                <MenuItem href={route('profile.edit')} className="justify-between">
+                    Settings
+                    <IconSettings />
+                </MenuItem>
+                <MenuSeparator />
+                <MenuItem target="_blank" href="https://laravel.com" className="justify-between">
+                    Documentation
+                    <IconBrandLaravel />
+                </MenuItem>
+                <MenuItem target="_blank" href="https://justd.co" className="justify-between">
+                    Components
+                    <IconBrandJustd />
+                </MenuItem>
+                <MenuItem target="_blank" href="https://justd.co/colors" className="justify-between">
+                    Colors
+                    <IconBrandJustd />
+                </MenuItem>
+                <MenuSeparator />
+                <MenuItem routerOptions={{ method: 'post' }} href={route('logout')}>
+                    <span>Logout</span>
+                </MenuItem>
+            </MenuContent>
+        </Menu>
+    )
+}
+
+function ResponsiveNavbar() {
+    const { auth } = usePage<PagePropsData>().props
+    return (
+        <nav className="block border-b px-4 py-2 sm:hidden">
+            <div className="flex items-center justify-between py-1">
+                <div className="gap-2 flex items-center">
+                    <Sheet>
+                        <Button size="small" appearance="outline">
+                            <IconHamburger />
+                            Menu
+                        </Button>
+                        <SheetOverlay>
+                            <SheetContent>
+                                <SheetHeader className="text-left">
+                                    <SheetTitle className="inline-flex items-center gap-x-2">
+                                        <Logo />
+                                        {import.meta.env.VITE_APP_NAME}
+                                    </SheetTitle>
+                                </SheetHeader>
+                                <NavContent />
+                            </SheetContent>
+                        </SheetOverlay>
+                    </Sheet>
+
+                    <Link href="/">
+                        <Logo className="w-8 fill-red-600" />
+                    </Link>
+                </div>
+                {!auth.user && <ThemeSwitcher />}
+                {auth.user ? <UserMenu /> : <LoginMenu />}
+            </div>
+        </nav>
+    )
+}
+
+function NavContent() {
+    const isMobile = useMediaQuery('(max-width: 640px)')
+    return (
+        <ListBox
+            aria-label="Navigation"
+            orientation={isMobile ? 'vertical' : 'horizontal'}
+            layout={isMobile ? 'stack' : 'grid'}
+            className="flex sm:flex-row flex-col sm:items-center gap-y-4 sm:gap-x-6"
+            items={navigations}
+        >
+            {(item) => (
+                <NavLink
+                    id={item.textValue}
+                    textValue={item.textValue}
+                    href={item.href}
+                    target={['Github', 'Components', 'Colors', 'Templates'].includes(item.name) ? '_blank' : undefined}
+                    className={item.className}
+                >
+                    {item.name}
+                </NavLink>
+            )}
+        </ListBox>
+    )
 }

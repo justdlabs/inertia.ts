@@ -1,61 +1,53 @@
-import { useEffect } from 'react';
-import { Head, useForm } from '@inertiajs/react';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { InputError } from '@/components/input-error';
-import { GuestLayout } from '@/layouts/guest-layout';
+import { Button } from '@/components/ui/button'
+import { Form } from '@/components/ui/form'
+import { TextField } from '@/components/ui/text-field'
+import { GuestLayout } from '@/layouts/guest-layout'
+import { Head, useForm } from '@inertiajs/react'
+import { useEffect } from 'react'
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        password: '',
-    });
+        password: ''
+    })
 
     useEffect(() => {
         return () => {
-            reset('password');
-        };
-    }, []);
+            reset('password')
+        }
+    }, [])
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        post(route('password.confirm'));
-    };
+        post(route('password.confirm'))
+    }
 
     return (
         <>
-            <Head title='Confirm Password' />
+            <Head title="Confirm Password" />
 
-            <div className='mb-4 text-sm text-muted-foreground'>
+            <div className="mb-4 text-sm text-muted-fg">
                 This is a secure area of the application. Please confirm your password before continuing.
             </div>
 
-            <form onSubmit={submit}>
-                <div className='mt-4'>
-                    <Label htmlFor='password'>Password</Label>
+            <Form validationErrors={errors} onSubmit={submit}>
+                <TextField
+                    id="password"
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={data.password}
+                    className="mt-1 block w-full"
+                    autoFocus
+                    onChange={(v) => setData('password', v)}
+                />
 
-                    <Input
-                        id='password'
-                        type='password'
-                        name='password'
-                        value={data.password}
-                        className='mt-1 block w-full'
-                        autoFocus
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className='mt-2' />
+                <div className="mt-4 flex items-center justify-end">
+                    <Button isDisabled={processing}>Confirm</Button>
                 </div>
-
-                <div className='mt-4 flex items-center justify-end'>
-                    <Button className='ml-4' disabled={processing}>
-                        Confirm
-                    </Button>
-                </div>
-            </form>
+            </Form>
         </>
-    );
+    )
 }
 
-ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />;
+ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />
