@@ -6,7 +6,7 @@ cd project
 composer install
 cp .env.example .env
 php artisan key:generate
-npm i && npm run build
+bun i && bun run build
 php artisan serve
 ```
 
@@ -64,16 +64,16 @@ have, so make yours.
 
 ```bash
 # Format with prettier
-npm run format
+bun run format
 
 # Start development
-npm run dev
+bun run dev
 
 # Build the app
-npm run build
+bun run build
 
 # Testing for SSR
-npm run preview
+bun run preview
 ```
 
 ### Update profile information
