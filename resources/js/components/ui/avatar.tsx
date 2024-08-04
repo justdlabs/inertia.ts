@@ -47,6 +47,7 @@ interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantPro
     alt?: string
     status?: Status
     className?: string
+    role?: string
 }
 
 const Avatar = ({
@@ -58,6 +59,7 @@ const Avatar = ({
     className,
     shape,
     size,
+    role = 'avatar',
     ...props
 }: AvatarProps) => {
     const badgeId = React.useId()
@@ -65,7 +67,7 @@ const Avatar = ({
     return (
         <span
             aria-labelledby={ariaLabelledby}
-            role="avatar"
+            role={role}
             data-slot="avatar"
             {...props}
             className={avatarStyles({ shape, size, className })}

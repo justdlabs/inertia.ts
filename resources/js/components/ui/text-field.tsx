@@ -34,12 +34,8 @@ const TextField = ({
 }: TextFieldProps) => {
     return (
         <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
-            {label && <Label id="x21z-id">{label}</Label>}
-            <FieldGroup
-                aria-labelledby={label ? 'x21z-id' : undefined}
-                data-loading={isLoading ? 'true' : undefined}
-                className={fieldGroupPrefixStyles()}
-            >
+            {label && <Label>{label}</Label>}
+            <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
                 {isLoading && indicatorPlace === 'prefix' ? (
                     <IconLoader className="animate-spin isPfx" />
                 ) : prefix ? (
