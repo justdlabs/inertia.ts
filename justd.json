@@ -1,3 +1,4 @@
 {
+    "$schema": "http://justd.co",
     "ui": "resources/js/components/ui"
 }
