@@ -79,5 +79,6 @@
                 "out": "composer.json"
             }
         }
-    }
+    },
+    "version": "1.0.1"
 }
