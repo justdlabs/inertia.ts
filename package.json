@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "prepare": "husky install",
+        "prepare": "husky",
         "dev": "vite",
         "build": "tsc && vite build && vite build --ssr",
         "format": "prettier --write .",
