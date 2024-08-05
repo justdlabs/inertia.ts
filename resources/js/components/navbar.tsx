@@ -22,7 +22,6 @@ import {
     Sheet,
     SheetContent,
     SheetHeader,
-    SheetOverlay,
     SheetTitle,
     useMediaQuery
 } from 'ui'
@@ -155,7 +154,9 @@ function UserMenu() {
                             <ThemeSwitcher />
                         </div>
                         <div>{auth.user.name}</div>
-                        <div className="text-muted-fg font-normal text-sm">{auth.user.email}</div>
+                        <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-10">
+                            {auth.user.email}
+                        </div>
                     </MenuHeader>
                 </MenuSection>
                 <MenuItem href={route('dashboard')}>Dashboard</MenuItem>
@@ -196,17 +197,15 @@ function ResponsiveNavbar() {
                             <IconHamburger />
                             Menu
                         </Button>
-                        <SheetOverlay>
-                            <SheetContent>
-                                <SheetHeader className="text-left">
-                                    <SheetTitle className="inline-flex items-center gap-x-2">
-                                        <Logo />
-                                        {import.meta.env.VITE_APP_NAME}
-                                    </SheetTitle>
-                                </SheetHeader>
-                                <NavContent />
-                            </SheetContent>
-                        </SheetOverlay>
+                        <SheetContent>
+                            <SheetHeader className="text-left">
+                                <SheetTitle className="inline-flex items-center gap-x-2">
+                                    <Logo />
+                                    {import.meta.env.VITE_APP_NAME}
+                                </SheetTitle>
+                            </SheetHeader>
+                            <NavContent />
+                        </SheetContent>
                     </Sheet>
 
                     <Link href="/">

@@ -14,7 +14,6 @@ import {
     ModalDescription,
     ModalFooter,
     ModalHeader,
-    ModalOverlay,
     ModalTitle,
     TextField
 } from 'ui'
@@ -61,35 +60,33 @@ export function DeleteUserForm() {
             <CardContent>
                 <Modal>
                     <Button intent="danger">Delete Account</Button>
-                    <ModalOverlay>
-                        <ModalContent>
-                            <ModalHeader>
-                                <ModalTitle>Delete Account</ModalTitle>
-                                <ModalDescription>
-                                    Are you sure you want to delete your account? Once your account is deleted, all of
-                                    its resources and data will be permanently deleted. Please enter your password to
-                                    confirm you would like to permanently delete your account.
-                                </ModalDescription>
-                            </ModalHeader>
+                    <ModalContent>
+                        <ModalHeader>
+                            <ModalTitle>Delete Account</ModalTitle>
+                            <ModalDescription>
+                                Are you sure you want to delete your account? Once your account is deleted, all of its
+                                resources and data will be permanently deleted. Please enter your password to confirm
+                                you would like to permanently delete your account.
+                            </ModalDescription>
+                        </ModalHeader>
 
-                            <ModalBody>
-                                <TextField
-                                    type="password"
-                                    placeholder="Password"
-                                    value={data.password}
-                                    onChange={(v) => setData('password', v)}
-                                    errorMessage={errors.password}
-                                    isRequired
-                                />
-                            </ModalBody>
-                            <ModalFooter className="-mt-2">
-                                <ModalClose>Cancel</ModalClose>
-                                <Button type="submit" onPress={deleteUser} isDisabled={processing}>
-                                    Continue
-                                </Button>
-                            </ModalFooter>
-                        </ModalContent>
-                    </ModalOverlay>
+                        <ModalBody>
+                            <TextField
+                                type="password"
+                                placeholder="Password"
+                                value={data.password}
+                                onChange={(v) => setData('password', v)}
+                                errorMessage={errors.password}
+                                isRequired
+                            />
+                        </ModalBody>
+                        <ModalFooter>
+                            <ModalClose>Cancel</ModalClose>
+                            <Button intent="danger" type="submit" onPress={deleteUser} isDisabled={processing}>
+                                Continue
+                            </Button>
+                        </ModalFooter>
+                    </ModalContent>
                 </Modal>
             </CardContent>
         </Card>
