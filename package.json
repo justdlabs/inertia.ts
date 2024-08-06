@@ -2,7 +2,6 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "prepare": "husky install",
         "dev": "vite",
         "build": "tsc && vite build && vite build --ssr",
         "format": "prettier --write .",
@@ -23,7 +22,7 @@
         "axios": "^1.7.3",
         "husky": "^9.1.4",
         "laravel-vite-plugin": "^1.0.5",
-        "postcss": "^8.4.40",
+        "postcss": "^8.4.41",
         "prettier": "^3.3.3",
         "prettier-plugin-organize-imports": "^4.0.0",
         "prettier-plugin-tailwindcss": "^0.6.5",
