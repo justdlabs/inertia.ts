@@ -1,6 +1,13 @@
 import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
-import { IconBrandJustd, IconBrandLaravel, IconChevronDown, IconHamburger, IconSettings } from '@irsyadadl/paranoid'
+import {
+    IconBrandJustd,
+    IconBrandLaravel,
+    IconChevronDown,
+    IconColorSwatch,
+    IconHamburger,
+    IconSettings
+} from '@irsyadadl/paranoid'
 import { Container } from 'components/container'
 import { Logo } from 'components/logo'
 import { ThemeSwitcher } from 'components/theme-switcher'
@@ -147,7 +154,7 @@ function UserMenu() {
             <MenuTrigger aria-label="Open menu">
                 <Avatar status="online" size="medium" src={auth.user.gravatar} className="size-8" />
             </MenuTrigger>
-            <MenuContent showArrow placement="bottom end" className="w-60">
+            <MenuContent showArrow placement="bottom end" className="min-w-56">
                 <MenuSection>
                     <MenuHeader separator className="relative">
                         <div className="absolute right-2 top-2">
@@ -175,7 +182,7 @@ function UserMenu() {
                 </MenuItem>
                 <MenuItem target="_blank" href="https://justd.co/colors" className="justify-between">
                     Colors
-                    <IconBrandJustd />
+                    <IconColorSwatch />
                 </MenuItem>
                 <MenuSeparator />
                 <MenuItem routerOptions={{ method: 'post' }} href={route('logout')}>
