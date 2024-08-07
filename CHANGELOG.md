@@ -1,3 +1,7 @@
+
+
+## [1.0.6](https://github.com/justdlabs/inertia.ts/compare/1.0.5...1.0.6) (2024-08-07)
+
 ## [1.0.5](https://github.com/justdlabs/inertia.ts/compare/1.0.4...1.0.5) (2024-08-07)
 
 ## [1.0.4](https://github.com/justdlabs/inertia.ts/compare/1.0.3...1.0.4) (2024-08-06)
