@@ -2,7 +2,10 @@
 
 ```bash
 composer create-project justd/laravel your-project-name
+npm i && npm run dev
 ```
+
+You absolutely need to run the `npm run dev`, because the route is generate and watching while it's in dev.
 
 ### Laravel Inertia React w/ Typescript
 
