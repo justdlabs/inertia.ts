@@ -1,4 +1,4 @@
-import { IconHamburger } from '@irsyadadl/paranoid'
+import { IconHamburger } from 'justd-icons'
 import {
     ListBoxItem as ListBoxItemPrimitive,
     ListBox as ListBoxPrimitive,

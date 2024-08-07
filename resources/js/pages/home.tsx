@@ -1,4 +1,7 @@
 import { Head } from '@inertiajs/react'
+import { Container } from 'components/container'
+import { Header } from 'components/header'
+import { Logo } from 'components/logo'
 import {
     IconBrandGithub,
     IconBrandJustd,
@@ -6,10 +9,7 @@ import {
     IconBrandParanoid,
     IconBrandParsinta,
     IconCube
-} from '@irsyadadl/paranoid'
-import { Container } from 'components/container'
-import { Header } from 'components/header'
-import { Logo } from 'components/logo'
+} from 'justd-icons'
 import { AppLayout } from 'layouts'
 import { Card, CardDescription, CardHeader, CardTitle, cn, Grid, GridCollection, GridItem, Link } from 'ui'
 
@@ -30,7 +30,7 @@ const items = [
     },
     {
         name: 'Icons',
-        url: 'https://paranoid.irsyad.co',
+        url: 'https://getjustd.com/icons',
         icon: IconBrandParanoid,
         description:
             'A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications.'

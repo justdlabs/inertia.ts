@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { IconX } from '@irsyadadl/paranoid'
+import { IconX } from 'justd-icons'
 import { Dialog as DialogPrimitive, type DialogProps, OverlayTriggerStateContext } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 

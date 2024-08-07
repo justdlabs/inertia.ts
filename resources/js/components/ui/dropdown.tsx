@@ -1,4 +1,4 @@
-import { IconCheck } from '@irsyadadl/paranoid'
+import { IconCheck } from 'justd-icons'
 import {
     Collection,
     composeRenderProps,

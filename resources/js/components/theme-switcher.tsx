@@ -1,5 +1,5 @@
-import { IconMoon, IconSun } from '@irsyadadl/paranoid'
 import { useTheme } from 'components/theme-provider'
+import { IconMoon, IconSun } from 'justd-icons'
 import { Button } from 'ui'
 
 export function ThemeSwitcher() {

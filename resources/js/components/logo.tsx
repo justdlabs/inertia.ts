@@ -1,4 +1,4 @@
-import { IconBrandLaravel } from '@irsyadadl/paranoid'
+import { IconBrandLaravel } from 'justd-icons'
 import React from 'react'
 import { cn } from 'ui'
 

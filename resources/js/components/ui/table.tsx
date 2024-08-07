@@ -1,4 +1,4 @@
-import { IconChevronDown, IconChevronUp, IconDotGrid2X3 } from '@irsyadadl/paranoid'
+import { IconChevronDown, IconChevronUp, IconDotGrid2X3 } from 'justd-icons'
 import {
     Button,
     Cell,

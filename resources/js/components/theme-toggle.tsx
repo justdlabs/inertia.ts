@@ -1,5 +1,5 @@
 import { useTheme } from '@/components/theme-provider'
-import { IconDeviceDesktop, IconMoon, IconSun } from '@irsyadadl/paranoid'
+import { IconDeviceDesktop, IconMoon, IconSun } from 'justd-icons'
 import { Button, cn } from 'ui'
 
 export function ThemeToggle() {

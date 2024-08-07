@@ -1,5 +1,9 @@
 import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
+import { Container } from 'components/container'
+import { Logo } from 'components/logo'
+import { ThemeSwitcher } from 'components/theme-switcher'
+import { motion } from 'framer-motion'
 import {
     IconBrandJustd,
     IconBrandLaravel,
@@ -7,11 +11,7 @@ import {
     IconColorSwatch,
     IconHamburger,
     IconSettings
-} from '@irsyadadl/paranoid'
-import { Container } from 'components/container'
-import { Logo } from 'components/logo'
-import { ThemeSwitcher } from 'components/theme-switcher'
-import { motion } from 'framer-motion'
+} from 'justd-icons'
 import React from 'react'
 import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
