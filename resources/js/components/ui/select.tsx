@@ -4,6 +4,7 @@ import { IconChevronLgDown } from '@irsyadadl/paranoid'
 import type { Placement } from '@react-types/overlays'
 import {
     Button,
+    composeRenderProps,
     Group,
     Select as SelectPrimitive,
     type SelectProps as SelectPrimitiveProps,
@@ -39,6 +40,7 @@ interface SelectProps<T extends object> extends Omit<SelectPrimitiveProps<T>, 'c
     children: React.ReactNode | ((item: T) => React.ReactNode)
     placement?: Placement
     prefix?: React.ReactNode
+    className?: string
 }
 
 const Select = <T extends object>({
@@ -48,15 +50,22 @@ const Select = <T extends object>({
     errorMessage,
     children,
     items,
-    prefix,
+    className,
     ...props
 }: SelectProps<T>) => {
     return (
-        <SelectPrimitive {...props} className={ctr(props.className, 'group flex w-full flex-col gap-1')}>
+        <SelectPrimitive {...props} className={ctr(className, 'group flex w-full flex-col gap-1')}>
             {label && <Label>{label}</Label>}
             <Group className="relative">
-                <Button className={selectTriggerStyles()}>
-                    {prefix && <span className="-mr-1">{prefix}</span>}
+                <Button
+                    className={composeRenderProps(className, (className, renderProps) =>
+                        selectTriggerStyles({
+                            ...renderProps,
+                            className
+                        })
+                    )}
+                >
+                    {props.prefix && <span className="-mr-1">{props.prefix}</span>}
                     <SelectValue className="flex-1 [&_[slot=description]]:hidden text-base placeholder-shown:text-muted-fg lg:text-sm" />
 
                     <IconChevronLgDown

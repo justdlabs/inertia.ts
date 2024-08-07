@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 
 import type { HeadingProps, TextProps } from 'react-aria-components'

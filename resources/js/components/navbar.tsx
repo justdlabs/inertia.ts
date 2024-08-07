@@ -154,7 +154,7 @@ function UserMenu() {
             <MenuTrigger aria-label="Open menu">
                 <Avatar status="online" size="medium" src={auth.user.gravatar} className="size-8" />
             </MenuTrigger>
-            <MenuContent showArrow placement="bottom end" className="w-60">
+            <MenuContent showArrow placement="bottom end" className="min-w-56">
                 <MenuSection>
                     <MenuHeader separator className="relative">
                         <div className="absolute right-2 top-2">
