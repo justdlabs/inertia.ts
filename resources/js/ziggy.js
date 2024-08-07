@@ -1,6 +1,6 @@
 const Ziggy = {
-    url: 'http://inertia.test',
-    port: null,
+    url: 'http://localhost:8000',
+    port: 8000,
     defaults: {},
     routes: {
         'sanctum.csrf-cookie': { uri: 'sanctum/csrf-cookie', methods: ['GET', 'HEAD'] },
