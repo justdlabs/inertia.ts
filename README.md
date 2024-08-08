@@ -105,7 +105,7 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 -   [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
 -   [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
 -   [Paranoid](https://paranoid.irsyad.co)
--   [Justd.co](https://justd.co/)
+-   [getjustd.com](https://getjustd.com/)
 -   [parsinta.com](https://parsinta.com/)
 -   [irsyad.co](https://irsyad.co/)
 -   [karteil.com](https://karteil.com/)
