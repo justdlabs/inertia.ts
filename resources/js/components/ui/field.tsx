@@ -11,13 +11,24 @@ import {
     Label as LabelPrimitive,
     type LabelProps,
     Text,
-    type TextProps
+    type TextFieldProps as TextFieldPrimitiveProps,
+    type TextProps,
+    type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { ctr } from './primitive'
 
 // primitive styles
+
+interface FieldProps {
+    label?: string
+    placeholder?: string
+    description?: string
+    errorMessage?: string | ((validation: ValidationResult) => string)
+    'aria-label'?: TextFieldPrimitiveProps['aria-label']
+    'aria-labelledby'?: TextFieldPrimitiveProps['aria-labelledby']
+}
 
 // primitive styles
 const fieldBorderStyles = tv({
@@ -40,11 +51,11 @@ const fieldGroupPrefixStyles = tv({
 
 const fieldStyles = tv({
     slots: {
-        description: 'text-sm text-muted-fg',
+        description: 'text-pretty text-base/6 text-muted-fg sm:text-sm/6',
         label: 'w-fit cursor-default font-medium text-secondary-fg text-sm',
         fieldError: 'text-sm text-danger forced-colors:text-[Mark]',
         input: [
-            'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg focus:outline-none lg:text-sm'
+            'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg outline-none focus:outline-none lg:text-sm'
         ]
     }
 })
@@ -84,8 +95,8 @@ const FieldGroup = (props: GroupProps) => {
     )
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-    return <InputPrimitive ref={ref} {...props} className={ctr(props.className, input())} />
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
+    return <InputPrimitive ref={ref} {...props} className={ctr(className, input())} />
 })
 Input.displayName = 'Input'
 
@@ -98,5 +109,6 @@ export {
     fieldGroupStyles,
     Input,
     InputPrimitive,
-    Label
+    Label,
+    type FieldProps
 }
