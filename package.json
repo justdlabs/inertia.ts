@@ -37,10 +37,10 @@
     "dependencies": {
         "clsx": "^2.1.1",
         "framer-motion": "^11.3.24",
-        "justd-icons": "^1.4.29",
+        "justd-icons": "^1.4.30",
         "react-aria-components": "^1.3.1",
         "sonner": "^1.5.0",
-        "tailwind-merge": "^2.4.0",
+        "tailwind-merge": "^2.5.0",
         "tailwind-variants": "^0.2.1",
         "tailwindcss-animate": "^1.0.7",
         "tailwindcss-react-aria-components": "^1.1.4"
@@ -79,5 +79,5 @@
             }
         }
     },
-    "version": "1.0.9"
+    "version": "1.0.10"
 }

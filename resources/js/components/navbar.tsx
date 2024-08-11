@@ -53,13 +53,13 @@ const navigations = [
     {
         name: 'Components',
         textValue: 'Just D. Components',
-        href: 'https://justd.co',
+        href: 'https://getjustd.com',
         className: 'justify-between'
     },
     {
         name: 'Colors',
         textValue: 'Just D. Colors',
-        href: 'https://justd.co/colors',
+        href: 'https://getjustd.com/colors',
         className: 'justify-between'
     },
     {
@@ -176,11 +176,11 @@ function UserMenu() {
                     Documentation
                     <IconBrandLaravel />
                 </MenuItem>
-                <MenuItem target="_blank" href="https://justd.co" className="justify-between">
+                <MenuItem target="_blank" href="https://getjustd.com" className="justify-between">
                     Components
                     <IconBrandJustd />
                 </MenuItem>
-                <MenuItem target="_blank" href="https://justd.co/colors" className="justify-between">
+                <MenuItem target="_blank" href="https://getjustd.com/colors" className="justify-between">
                     Colors
                     <IconColorSwatch />
                 </MenuItem>
