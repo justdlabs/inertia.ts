@@ -16,7 +16,7 @@ import { Card, CardDescription, CardHeader, CardTitle, cn, Grid, GridCollection,
 const items = [
     {
         name: 'Just D.',
-        url: 'https://justd.co',
+        url: 'https://getjustd.com',
         icon: IconBrandJustd,
         description:
             ' Just D. is a chill set of React components, built on top of React Aria Components, all about keeping the web accessible.'
@@ -67,7 +67,7 @@ export default function Home() {
                     <div>
                         <div className="sm:p-20">
                             <Link
-                                href="https://justd.co"
+                                href="https://getjustd.com"
                                 target="_blank"
                                 className="grid place-content-center size-12 outline-1 outline-border rounded-full"
                             >
