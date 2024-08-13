@@ -1,6 +1,6 @@
 {
     "name": "justd/laravel",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": [
@@ -58,7 +58,9 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi",
-            "npm install && npm uninstall husky && npm run dev "
+            "npm install",
+            "npm uninstall husky",
+            "npm run dev "
         ]
     },
     "extra": {

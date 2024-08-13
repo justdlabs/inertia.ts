@@ -1,12 +1,18 @@
 
 
-## [1.0.12](https://github.com/justdlabs/inertia.ts/compare/1.0.11...1.0.12) (2024-08-13)
+## [1.0.13](https://github.com/justdlabs/inertia.ts/compare/1.0.12...1.0.13) (2024-08-13)
 
 
 ### Bug Fixes
 
-* bump ([9fb1857](https://github.com/justdlabs/inertia.ts/commit/9fb1857d1ca0947d8376787d5f4bdf09c3a8f7d1))
-* bump again ([e42a8d3](https://github.com/justdlabs/inertia.ts/commit/e42a8d361270f1232901067b3fa35869e17ee12b))
+* fix cmd installation ([4472e9f](https://github.com/justdlabs/inertia.ts/commit/4472e9f599976968594ce3ef1825a186f89910ca))
+
+## [1.0.12](https://github.com/justdlabs/inertia.ts/compare/1.0.11...1.0.12) (2024-08-13)
+
+### Bug Fixes
+
+-   bump ([9fb1857](https://github.com/justdlabs/inertia.ts/commit/9fb1857d1ca0947d8376787d5f4bdf09c3a8f7d1))
+-   bump again ([e42a8d3](https://github.com/justdlabs/inertia.ts/commit/e42a8d361270f1232901067b3fa35869e17ee12b))
 
 ## [1.0.11](https://github.com/justdlabs/inertia.ts/compare/1.0.10...1.0.11) (2024-08-13)
 
