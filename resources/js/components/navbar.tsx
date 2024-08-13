@@ -15,23 +15,7 @@ import {
 import React from 'react'
 import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import {
-    Avatar,
-    Button,
-    Link,
-    Menu,
-    MenuContent,
-    MenuHeader,
-    MenuItem,
-    MenuSection,
-    MenuSeparator,
-    MenuTrigger,
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    useMediaQuery
-} from 'ui'
+import { Avatar, Button, Link, Menu, Sheet, useMediaQuery } from 'ui'
 
 const navigations = [
     {
@@ -139,10 +123,10 @@ function LoginMenu() {
                 Login
                 <IconChevronDown className="ml-2" />
             </Button>
-            <MenuContent showArrow placement="bottom end" className="w-40">
-                <MenuItem href={route('login')}>Login</MenuItem>
-                <MenuItem href={route('register')}>Register</MenuItem>
-            </MenuContent>
+            <Menu.Content showArrow placement="bottom end" className="w-40">
+                <Menu.Item href={route('login')}>Login</Menu.Item>
+                <Menu.Item href={route('register')}>Register</Menu.Item>
+            </Menu.Content>
         </Menu>
     )
 }
@@ -151,12 +135,12 @@ function UserMenu() {
     const { auth } = usePage<PagePropsData>().props
     return (
         <Menu>
-            <MenuTrigger aria-label="Open menu">
+            <Menu.Trigger aria-label="Open menu">
                 <Avatar status="online" size="medium" src={auth.user.gravatar} className="size-8" />
-            </MenuTrigger>
-            <MenuContent showArrow placement="bottom end" className="min-w-56">
-                <MenuSection>
-                    <MenuHeader separator className="relative">
+            </Menu.Trigger>
+            <Menu.Content showArrow placement="bottom end" className="min-w-56">
+                <Menu.Section>
+                    <Menu.Header separator className="relative">
                         <div className="absolute right-2 top-2">
                             <ThemeSwitcher />
                         </div>
@@ -164,31 +148,31 @@ function UserMenu() {
                         <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-10">
                             {auth.user.email}
                         </div>
-                    </MenuHeader>
-                </MenuSection>
-                <MenuItem href={route('dashboard')}>Dashboard</MenuItem>
-                <MenuItem href={route('profile.edit')} className="justify-between">
+                    </Menu.Header>
+                </Menu.Section>
+                <Menu.Item href={route('dashboard')}>Dashboard</Menu.Item>
+                <Menu.Item href={route('profile.edit')} className="justify-between">
                     Settings
                     <IconSettings />
-                </MenuItem>
-                <MenuSeparator />
-                <MenuItem target="_blank" href="https://laravel.com" className="justify-between">
+                </Menu.Item>
+                <Menu.Separator />
+                <Menu.Item target="_blank" href="https://laravel.com" className="justify-between">
                     Documentation
                     <IconBrandLaravel />
-                </MenuItem>
-                <MenuItem target="_blank" href="https://getjustd.com" className="justify-between">
+                </Menu.Item>
+                <Menu.Item target="_blank" href="https://getjustd.com" className="justify-between">
                     Components
                     <IconBrandJustd />
-                </MenuItem>
-                <MenuItem target="_blank" href="https://getjustd.com/colors" className="justify-between">
+                </Menu.Item>
+                <Menu.Item target="_blank" href="https://getjustd.com/colors" className="justify-between">
                     Colors
                     <IconColorSwatch />
-                </MenuItem>
-                <MenuSeparator />
-                <MenuItem routerOptions={{ method: 'post' }} href={route('logout')}>
+                </Menu.Item>
+                <Menu.Separator />
+                <Menu.Item routerOptions={{ method: 'post' }} href={route('logout')}>
                     <span>Logout</span>
-                </MenuItem>
-            </MenuContent>
+                </Menu.Item>
+            </Menu.Content>
         </Menu>
     )
 }
@@ -204,15 +188,15 @@ function ResponsiveNavbar() {
                             <IconHamburger />
                             Menu
                         </Button>
-                        <SheetContent>
-                            <SheetHeader className="text-left">
-                                <SheetTitle className="inline-flex items-center gap-x-2">
+                        <Sheet.Content>
+                            <Sheet.Header className="text-left">
+                                <Sheet.Title className="inline-flex items-center gap-x-2">
                                     <Logo />
                                     {import.meta.env.VITE_APP_NAME}
-                                </SheetTitle>
-                            </SheetHeader>
+                                </Sheet.Title>
+                            </Sheet.Header>
                             <NavContent />
-                        </SheetContent>
+                        </Sheet.Content>
                     </Sheet>
 
                     <Link href="/">

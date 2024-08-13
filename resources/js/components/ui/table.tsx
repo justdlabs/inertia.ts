@@ -1,4 +1,4 @@
-import { IconChevronDown, IconChevronUp, IconDotGrid2X3 } from 'justd-icons'
+import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
 import {
     Button,
     Cell,
@@ -49,14 +49,22 @@ const Table = ({ children, className, ...props }: TableProps) => (
     </div>
 )
 
-const TableCell = ({ children, className, ...props }: CellProps & { className?: string }) => (
+interface TableCellProps extends CellProps {
+    className?: string
+}
+
+const TableCell = ({ children, className, ...props }: TableCellProps) => (
     <Cell {...props} className={cell({ className })}>
         {children}
     </Cell>
 )
 
-const TableColumn = ({ children, className, ...props }: ColumnProps & { className?: string }) => (
-    <Column isRowHeader {...props} className={column({ className })}>
+interface TableColumnProps extends ColumnProps {
+    className?: string
+}
+
+const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
+    <Column {...props} className={column({ className })}>
         {({ allowsSorting, sortDirection }) => (
             <div className="flex [&>[data-slot=icon]]:shrink-0 items-center gap-2">
                 <>
@@ -112,7 +120,7 @@ const TableRow = <T extends object>({
             {allowsDragging && (
                 <Cell className="ring-primary group cursor-grab dragging:cursor-grabbing">
                     <Button className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg" slot="drag">
-                        <IconDotGrid2X3 />
+                        <IconHamburger />
                     </Button>
                 </Cell>
             )}
@@ -130,4 +138,10 @@ const TableRow = <T extends object>({
     )
 }
 
-export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, type TableProps }
+Table.Body = TableBody
+Table.Cell = TableCell
+Table.Column = TableColumn
+Table.Header = TableHeader
+Table.Row = TableRow
+
+export { Table }

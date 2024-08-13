@@ -161,4 +161,8 @@ const PaginationItem = ({
     }
 }
 
-export { Pagination, PaginationItem, PaginationList, PaginationSection }
+Pagination.Item = PaginationItem
+Pagination.List = PaginationList
+Pagination.Section = PaginationSection
+
+export { Pagination }

@@ -1,7 +1,7 @@
 import { useForm } from '@inertiajs/react'
 import { useRef } from 'react'
 import { toast } from 'sonner'
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Form, TextField } from 'ui'
+import { Button, Card, Form, TextField } from 'ui'
 
 export function UpdatePasswordForm() {
     const passwordInput = useRef<HTMLInputElement>(null)
@@ -36,12 +36,14 @@ export function UpdatePasswordForm() {
 
     return (
         <Card>
-            <CardHeader>
-                <CardTitle>Update Password</CardTitle>
-                <CardDescription>Ensure your account is using a long, random password to stay secure.</CardDescription>
-            </CardHeader>
+            <Card.Header>
+                <Card.Title>Update Password</Card.Title>
+                <Card.Description>
+                    Ensure your account is using a long, random password to stay secure.
+                </Card.Description>
+            </Card.Header>
 
-            <CardContent>
+            <Card.Content>
                 <Form validationErrors={errors} onSubmit={submit} className="space-y-6">
                     <TextField
                         label="Current Password"
@@ -83,7 +85,7 @@ export function UpdatePasswordForm() {
                         {recentlySuccessful && <p className="text-sm text-muted-fg">Saved.</p>}
                     </div>
                 </Form>
-            </CardContent>
+            </Card.Content>
         </Card>
     )
 }

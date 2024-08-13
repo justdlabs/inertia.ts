@@ -1,6 +1,6 @@
 import { PagePropsData } from '@/types'
 import { useForm, usePage } from '@inertiajs/react'
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Form, Link, TextField } from 'ui'
+import { Button, Card, Form, Link, TextField } from 'ui'
 
 interface Props {
     mustVerifyEmail: boolean
@@ -24,11 +24,11 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
 
     return (
         <Card>
-            <CardHeader>
-                <CardTitle>Profile Information</CardTitle>
-                <CardDescription>Update your account's profile information and email address.</CardDescription>
-            </CardHeader>
-            <CardContent>
+            <Card.Header>
+                <Card.Title>Profile Information</Card.Title>
+                <Card.Description>Update your account's profile information and email address.</Card.Description>
+            </Card.Header>
+            <Card.Content>
                 <Form validationErrors={errors} onSubmit={submit} className="space-y-6">
                     <TextField
                         id="name"
@@ -84,7 +84,7 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
                         {recentlySuccessful && <p className="text-sm text-muted-fg">Saved.</p>}
                     </div>
                 </Form>
-            </CardContent>
+            </Card.Content>
         </Card>
     )
 }

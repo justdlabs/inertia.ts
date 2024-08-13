@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react'
-import { Description, cn } from 'ui'
+import { cn, Description } from 'ui'
 
 export function InputError({
     message,

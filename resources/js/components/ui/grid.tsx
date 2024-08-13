@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 
 import { Collection } from 'react-aria-components'
@@ -296,6 +298,7 @@ const GridItem = ({
     )
 }
 
-const GridCollection = Collection
+Grid.Collection = Collection
+Grid.Item = GridItem
 
-export { Grid, GridCollection, GridItem, gridItemStyles, gridStyles }
+export { Grid, gridItemStyles, gridStyles }
