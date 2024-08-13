@@ -1,3 +1,13 @@
+
+
+## [1.0.11](https://github.com/justdlabs/inertia.ts/compare/1.0.10...1.0.11) (2024-08-13)
+
+
+### Bug Fixes
+
+* sync ([46772c9](https://github.com/justdlabs/inertia.ts/commit/46772c90832ca53facd6225fc02d529d12d99b2f))
+* sync latest justd components ([5506cb3](https://github.com/justdlabs/inertia.ts/commit/5506cb3501c97a42d0705af3ebf6df53cff11175))
+
 ## [1.0.10](https://github.com/justdlabs/inertia.ts/compare/1.0.9...1.0.10) (2024-08-11)
 
 ## [1.0.9](https://github.com/justdlabs/inertia.ts/compare/1.0.8...1.0.9) (2024-08-10)
