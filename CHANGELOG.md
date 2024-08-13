@@ -1,3 +1,12 @@
+
+
+## [1.0.13](https://github.com/justdlabs/inertia.ts/compare/1.0.12...1.0.13) (2024-08-13)
+
+
+### Bug Fixes
+
+* fix cmd installation ([4472e9f](https://github.com/justdlabs/inertia.ts/commit/4472e9f599976968594ce3ef1825a186f89910ca))
+
 ## [1.0.12](https://github.com/justdlabs/inertia.ts/compare/1.0.11...1.0.12) (2024-08-13)
 
 ### Bug Fixes
