@@ -1,22 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { useForm } from '@inertiajs/react'
 import { useState } from 'react'
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-    Modal,
-    ModalBody,
-    ModalClose,
-    ModalContent,
-    ModalDescription,
-    ModalFooter,
-    ModalHeader,
-    ModalTitle,
-    TextField
-} from 'ui'
+import { Card, Modal, TextField } from 'ui'
 
 export function DeleteUserForm() {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
@@ -50,27 +35,27 @@ export function DeleteUserForm() {
 
     return (
         <Card>
-            <CardHeader>
-                <CardTitle>Delete Account</CardTitle>
-                <CardDescription>
+            <Card.Header>
+                <Card.Title>Delete Account</Card.Title>
+                <Card.Description>
                     Once your account is deleted, all of its resources and data will be permanently deleted. Before
                     deleting your account, please download any data or information that you wish to retain.
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
+                </Card.Description>
+            </Card.Header>
+            <Card.Content>
                 <Modal>
                     <Button intent="danger">Delete Account</Button>
-                    <ModalContent>
-                        <ModalHeader>
-                            <ModalTitle>Delete Account</ModalTitle>
-                            <ModalDescription>
+                    <Modal.Content>
+                        <Modal.Header>
+                            <Modal.Title>Delete Account</Modal.Title>
+                            <Modal.Description>
                                 Are you sure you want to delete your account? Once your account is deleted, all of its
                                 resources and data will be permanently deleted. Please enter your password to confirm
                                 you would like to permanently delete your account.
-                            </ModalDescription>
-                        </ModalHeader>
+                            </Modal.Description>
+                        </Modal.Header>
 
-                        <ModalBody>
+                        <Modal.Body>
                             <TextField
                                 type="password"
                                 placeholder="Password"
@@ -79,16 +64,16 @@ export function DeleteUserForm() {
                                 errorMessage={errors.password}
                                 isRequired
                             />
-                        </ModalBody>
-                        <ModalFooter>
-                            <ModalClose>Cancel</ModalClose>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Modal.Close>Cancel</Modal.Close>
                             <Button intent="danger" type="submit" onPress={deleteUser} isDisabled={processing}>
                                 Continue
                             </Button>
-                        </ModalFooter>
-                    </ModalContent>
+                        </Modal.Footer>
+                    </Modal.Content>
                 </Modal>
-            </CardContent>
+            </Card.Content>
         </Card>
     )
 }

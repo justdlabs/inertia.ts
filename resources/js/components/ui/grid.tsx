@@ -296,6 +296,7 @@ const GridItem = ({
     )
 }
 
-const GridCollection = Collection
+Grid.Collection = Collection
+Grid.Item = GridItem
 
-export { Grid, GridCollection, GridItem, gridItemStyles, gridStyles }
+export { Grid, gridItemStyles, gridStyles }

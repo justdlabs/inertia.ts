@@ -1,6 +1,6 @@
 import { FlashMessage } from 'components/flash-message'
 import { Logo } from 'components/logo'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'components/ui/card'
+import { Card } from 'components/ui/card'
 import { PropsWithChildren, ReactNode } from 'react'
 import { Link } from 'ui'
 
@@ -19,13 +19,13 @@ export function GuestLayout({ description = null, header = null, children }: Pro
 
             <div className="mt-10 w-full max-w-lg">
                 <Card className="rounded-none border-l-transparent border-r-transparent shadow-none sm:rounded-lg sm:border-l-border sm:border-r-border sm:shadow-sm lg:rounded-xl ">
-                    <CardHeader className="flex-row justify-between">
+                    <Card.Header className="flex-row justify-between">
                         <div>
-                            <CardTitle>{header}</CardTitle>
-                            <CardDescription className="mt-2">{description}</CardDescription>
+                            <Card.Title>{header}</Card.Title>
+                            <Card.Description className="mt-2">{description}</Card.Description>
                         </div>
-                    </CardHeader>
-                    <CardContent>{children}</CardContent>
+                    </Card.Header>
+                    <Card.Content>{children}</Card.Content>
                 </Card>
             </div>
         </div>
