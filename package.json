@@ -5,13 +5,14 @@
         "dev": "vite",
         "build": "tsc && vite build && vite build --ssr",
         "format": "prettier --write .",
-        "release": "release-it"
+        "release": "release-it",
+        "preview": "tsc && npm run build && php artisan inertia:start-ssr"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.4.0",
         "@commitlint/config-conventional": "^19.2.2",
         "@inertiajs/react": "^1.2.0",
-        "@release-it/bumper": "^6.0.1",
+        "@release-it/bumper": "^1.2.0",
         "@release-it/conventional-changelog": "^8.0.1",
         "@tailwindcss/forms": "^0.5.7",
         "@types/node": "^18.19.44",
@@ -37,13 +38,13 @@
     "dependencies": {
         "clsx": "^2.1.1",
         "framer-motion": "^11.3.24",
-        "justd-icons": "^1.4.30",
-        "react-aria-components": "^1.3.1",
+        "justd-icons": "^1.4.39",
+        "react-aria-components": "^1.3.3",
         "sonner": "^1.5.0",
         "tailwind-merge": "^2.5.2",
         "tailwind-variants": "^0.2.1",
         "tailwindcss-animate": "^1.0.7",
-        "tailwindcss-react-aria-components": "^1.1.4"
+        "tailwindcss-react-aria-components": "^1.1.5"
     },
     "release-it": {
         "git": {

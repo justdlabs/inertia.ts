@@ -59,7 +59,7 @@ export function Navbar() {
     return (
         <>
             <ResponsiveNavbar />
-            <nav className="relative bg-background z-10 hidden border-b py-1 sm:block">
+            <nav className="relative bg-bg z-10 hidden border-b py-1 sm:block">
                 <Container>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">

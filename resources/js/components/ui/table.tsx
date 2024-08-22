@@ -1,19 +1,21 @@
 import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
+import type {
+    CellProps,
+    ColumnProps,
+    RowProps,
+    TableBodyProps,
+    TableHeaderProps,
+    TableProps as TablePrimitiveProps
+} from 'react-aria-components'
 import {
     Button,
     Cell,
-    type CellProps,
     Collection,
     Column,
-    type ColumnProps,
     Row,
-    type RowProps,
-    TableBody as TableBodyPrimitive,
-    type TableBodyProps,
-    TableHeader as TableHeaderPrimitive,
-    type TableHeaderProps,
+    TableBody,
+    TableHeader,
     Table as TablePrimitive,
-    type TableProps as TablePrimitiveProps,
     useTableOptions
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
@@ -33,10 +35,6 @@ const table = tv({
 
 const { root, header, column, row, cell } = table()
 
-const TableBody = <T extends object>(props: TableBodyProps<T>) => (
-    <TableBodyPrimitive {...props} className={cn('[&_.tr:last-child]:border-0')} />
-)
-
 interface TableProps extends TablePrimitiveProps {
     className?: string
 }
@@ -47,6 +45,10 @@ const Table = ({ children, className, ...props }: TableProps) => (
             {children}
         </TablePrimitive>
     </div>
+)
+
+const Body = <T extends object>(props: TableBodyProps<T>) => (
+    <TableBody {...props} className={cn('[&_.tr:last-child]:border-0')} />
 )
 
 interface TableCellProps extends CellProps {
@@ -71,7 +73,7 @@ const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
                     {children}
                     {allowsSorting &&
                         (sortDirection === undefined ? (
-                            <div className="w-6" />
+                            <span>daf</span>
                         ) : sortDirection === 'ascending' ? (
                             <IconChevronUp />
                         ) : (
@@ -83,31 +85,28 @@ const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
     </Column>
 )
 
-const TableHeader = <T extends object>({
-    children,
-    className,
-    columns,
-    ...props
-}: TableHeaderProps<T> & { className?: string }) => {
+interface HeaderProps<T extends object> extends TableHeaderProps<T> {
+    className?: string
+}
+
+const Header = <T extends object>({ children, className, columns, ...props }: HeaderProps<T>) => {
     const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
     return (
-        <TableHeaderPrimitive {...props} className={header({ className })}>
+        <TableHeader {...props} className={header({ className })}>
             {allowsDragging && <Column />}
             {selectionBehavior === 'toggle' && (
                 <Column className="pl-4">{selectionMode === 'multiple' && <Checkbox slot="selection" />}</Column>
             )}
             <Collection items={columns}>{children}</Collection>
-        </TableHeaderPrimitive>
+        </TableHeader>
     )
 }
 
-const TableRow = <T extends object>({
-    children,
-    className,
-    columns,
-    id,
-    ...props
-}: RowProps<T> & { className?: string }) => {
+interface TableRow<T extends object> extends RowProps<T> {
+    className?: string
+}
+
+const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRow<T>) => {
     const { selectionBehavior, allowsDragging } = useTableOptions()
     return (
         <Row
@@ -118,8 +117,8 @@ const TableRow = <T extends object>({
             })}
         >
             {allowsDragging && (
-                <Cell className="ring-primary group cursor-grab dragging:cursor-grabbing">
-                    <Button className="bg-transparent pl-1.5 py-1.5 text-muted-fg pressed:text-fg" slot="drag">
+                <Cell className="ring-primary pr-0 group cursor-grab dragging:cursor-grabbing">
+                    <Button className="bg-transparent pl-3.5 py-1.5 text-muted-fg pressed:text-fg" slot="drag">
                         <IconHamburger />
                     </Button>
                 </Cell>
@@ -138,10 +137,10 @@ const TableRow = <T extends object>({
     )
 }
 
-Table.Body = TableBody
+Table.Body = Body
 Table.Cell = TableCell
 Table.Column = TableColumn
-Table.Header = TableHeader
+Table.Header = Header
 Table.Row = TableRow
 
 export { Table }

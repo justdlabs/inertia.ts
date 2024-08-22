@@ -1,17 +1,17 @@
 import { type ReactNode } from 'react'
 
+import { IconCheck, IconMinus } from 'justd-icons'
 import {
     CheckboxGroup as CheckboxGroupPrimitive,
-    type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
     Checkbox as CheckboxPrimitive,
+    type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
     type CheckboxProps as CheckboxPrimitiveProps,
-    composeRenderProps,
     type ValidationResult
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
-import { ctr } from './primitive'
+import { cr, ctr } from './primitive'
 
 interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children'> {
     label?: string
@@ -42,7 +42,7 @@ const checkboxStyles = tv({
 })
 
 const boxStyles = tv({
-    base: 'flex size-4 flex-shrink-0 items-center justify-center rounded border text-background transition',
+    base: 'flex size-4 [&>[data-slot=icon]]:size-3 flex-shrink-0 items-center justify-center rounded border text-bg transition',
     variants: {
         isSelected: {
             false: 'border-toggle bg-secondary',
@@ -65,15 +65,14 @@ const boxStyles = tv({
 
 interface CheckboxProps extends CheckboxPrimitiveProps {
     description?: string
+    label?: string
 }
 
 const Checkbox = (props: CheckboxProps) => {
     return (
         <CheckboxPrimitive
             {...props}
-            className={composeRenderProps(props.className, (className, renderProps) =>
-                checkboxStyles({ ...renderProps, className })
-            )}
+            className={cr(props.className, (className, renderProps) => checkboxStyles({ ...renderProps, className }))}
         >
             {({ isSelected, isIndeterminate, ...renderProps }) => (
                 <div className="flex gap-2">
@@ -84,42 +83,14 @@ const Checkbox = (props: CheckboxProps) => {
                             ...renderProps
                         })}
                     >
-                        {isIndeterminate ? (
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth={2.5}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="size-3"
-                            >
-                                <line x1={5} y1={12} x2={19} y2={12} />
-                            </svg>
-                        ) : isSelected ? (
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth={2.5}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="size-3"
-                            >
-                                <polyline points="20 6 9 17 4 12" />
-                            </svg>
-                        ) : null}
+                        {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}
                     </div>
 
                     <div className="flex flex-col gap-1">
-                        <>{props.children}</>
-                        {props.description && <Description>{props.description}</Description>}
+                        <>
+                            {props.label ? <Label>{props.label}</Label> : props.children}
+                            {props.description && <Description>{props.description}</Description>}
+                        </>
                     </div>
                 </div>
             )}

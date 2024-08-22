@@ -20,15 +20,16 @@ const config = withTV({
         },
         extend: {
             fontFamily: {
-                sans: ['figtree', ...fontFamily.sans]
+                sans: ['Figtree', ...fontFamily.sans]
             },
             colors: {
+                light: 'hsl(var(--light))',
+                dark: 'hsl(var(--dark))',
                 border: 'hsl(var(--border))',
-                link: 'hsl(var(--link))',
                 input: 'hsl(var(--input))',
-                toggle: 'hsl(var(--toggle))',
                 ring: 'hsl(var(--ring))',
-                background: 'hsl(var(--background))',
+                toggle: 'hsl(var(--toggle))',
+                bg: 'hsl(var(--bg))',
                 fg: 'hsl(var(--fg))',
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
@@ -53,9 +54,17 @@ const config = withTV({
                     DEFAULT: 'hsl(var(--tertiary))',
                     fg: 'hsl(var(--tertiary-fg))'
                 },
+                accent: {
+                    DEFAULT: 'hsl(var(--accent))',
+                    fg: 'hsl(var(--accent-fg))'
+                },
                 success: {
                     DEFAULT: 'hsl(var(--success))',
                     fg: 'hsl(var(--success-fg))'
+                },
+                info: {
+                    DEFAULT: 'hsl(var(--info))',
+                    fg: 'hsl(var(--info-fg))'
                 },
                 danger: {
                     DEFAULT: 'hsl(var(--danger))',
@@ -72,30 +81,15 @@ const config = withTV({
                 overlay: {
                     DEFAULT: 'hsl(var(--overlay))',
                     fg: 'hsl(var(--overlay-fg))'
-                },
-                card: {
-                    DEFAULT: 'hsl(var(--card))',
-                    header: 'hsl(var(--card-header))'
                 }
             },
             borderRadius: {
-                lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 2px)',
-                sm: 'calc(var(--radius) - 4px)'
-            },
-            keyframes: {
-                'accordion-down': {
-                    from: { height: '0' },
-                    to: { height: 'var(--radix-accordion-content-height)' }
-                },
-                'accordion-up': {
-                    from: { height: 'var(--radix-accordion-content-height)' },
-                    to: { height: '0' }
-                }
-            },
-            animation: {
-                'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+                '3xl': 'calc(var(--radius) + 7.5px)',
+                '2xl': 'calc(var(--radius) + 5px)',
+                xl: 'calc(var(--radius) + 2.5px)',
+                lg: 'calc(var(--radius))',
+                md: 'calc(var(--radius) - 2.5px)',
+                sm: 'calc(var(--radius) - 5px)'
             }
         }
     },

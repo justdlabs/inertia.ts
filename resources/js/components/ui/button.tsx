@@ -1,13 +1,9 @@
 import * as React from 'react'
 
-import {
-    Button as ButtonPrimitive,
-    type ButtonProps as ButtonPrimitiveProps,
-    composeRenderProps
-} from 'react-aria-components'
+import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusButtonStyles } from './primitive'
+import { cr, focusButtonStyles } from './primitive'
 
 const buttonStyles = tv(
     {
@@ -19,51 +15,48 @@ const buttonStyles = tv(
         variants: {
             intent: {
                 primary: [
-                    'text-white [--btn-bg:theme(colors.primary.600)] [--btn-border:theme(colors.primary.700/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
-                    '[--btn-icon:theme(colors.primary.200)] active:[--btn-icon:theme(colors.primary.300)] hover:[--btn-icon:theme(colors.primary.300)]'
+                    'text-primary-fg [--btn-bg:theme(colors.primary.DEFAULT)] [--btn-border:theme(colors.primary.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
+                    '[--btn-icon:theme(colors.primary.fg/60%)] active:[--btn-icon:theme(colors.primary.fg/80%)] hover:[--btn-icon:theme(colors.primary.fg/80%)]'
                 ],
                 secondary: [
-                    'text-zinc-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] data-[active]:[--btn-border:theme(colors.zinc.950/15%)] data-[hover]:[--btn-border:theme(colors.zinc.950/15%)]',
-                    'dark:text-white dark:[--btn-bg:theme(colors.zinc.800)] dark:[--btn-hover-overlay:theme(colors.white/5%)]',
-                    '[--btn-icon:theme(colors.zinc.500)] data-[active]:[--btn-icon:theme(colors.zinc.700)] data-[hover]:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:data-[active]:[--btn-icon:theme(colors.zinc.400)] dark:data-[hover]:[--btn-icon:theme(colors.zinc.400)]'
+                    'text-secondary-fg [--btn-bg:white] dark:[--btn-bg:theme(colors.secondary.DEFAULT)] [--btn-border:theme(colors.secondary.fg/10%)] [--btn-hover-overlay:theme(colors.secondary.fg/2.5%)] data-[active]:[--btn-border:theme(colors.secondary.fg/15%)] hover:[--btn-border:theme(colors.secondary.fg/15%)]',
+                    '[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]'
                 ],
                 success: [
-                    'text-white [--btn-bg:theme(colors.emerald.600)] [--btn-border:theme(colors.emerald.700/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
+                    'text-success-fg [--btn-bg:theme(colors.success.DEFAULT)] [--btn-border:theme(colors.success.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
                     '[--btn-icon:theme(colors.white/60%)] active:[--btn-icon:theme(colors.white/80%)] hover:[--btn-icon:theme(colors.white/80%)]'
                 ],
                 'light/dark': [
-                    'text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
-                    'dark:text-zinc-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]',
-                    '[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]'
+                    'text-bg [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
+                    'dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.dark/5%)]',
+                    '[--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.bg/85%)] hover:[--btn-icon:theme(colors.bg/85%)]'
                 ],
                 dark: [
-                    'text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
-                    'dark:[--btn-bg:theme(colors.zinc.800)] dark:[--btn-hover-overlay:theme(colors.white/5%)]',
-                    '[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)]'
+                    'text-light [--btn-bg:theme(colors.dark)] [--btn-border:theme(colors.dark)] [--btn-hover-overlay:theme(colors.light/2.5%)]',
+                    '[--btn-icon:theme(colors.light/60%)] active:[--btn-icon:theme(colors.light/80%)] hover:[--btn-icon:theme(colors.light/80%)]'
                 ],
                 light: [
-                    'text-zinc-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]',
-                    'dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]',
-                    '[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.500)] hover:[--btn-icon:theme(colors.zinc.500)]'
+                    'text-dark [--btn-bg:white] [--btn-border:theme(colors.dark/10%)] [--btn-hover-overlay:theme(colors.dark/2.5%)] active:[--btn-border:theme(colors.dark/15%)] hover:[--btn-border:theme(colors.dark/15%)]',
+                    '[--btn-icon:theme(colors.dark/60%)] active:[--btn-icon:theme(colors.dark/80%)] hover:[--btn-icon:theme(colors.dark/80%)]'
                 ],
                 info: [
-                    'text-lime-950 [--btn-bg:theme(colors.lime.400)] [--btn-border:theme(colors.lime.400/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
-                    '[--btn-icon:theme(colors.lime.600)] active:[--btn-icon:theme(colors.lime.700)] hover:[--btn-icon:theme(colors.lime.700)]'
+                    'text-info-fg [--btn-bg:theme(colors.info.DEFAULT)] [--btn-border:theme(colors.info.DEFAULT/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
+                    '[--btn-icon:theme(colors.info.fg/60%)] active:[--btn-icon:theme(colors.info.fg/80%)] hover:[--btn-icon:theme(colors.info.fg/80%)]'
                 ],
                 warning: [
-                    'text-amber-950 [--btn-bg:theme(colors.amber.400)] [--btn-border:theme(colors.amber.500/80%)] [--btn-hover-overlay:theme(colors.white/25%)]',
-                    '[--btn-icon:theme(colors.amber.600)]'
+                    'text-warning-fg [--btn-bg:theme(colors.warning.DEFAULT)] [--btn-border:theme(colors.warning.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
+                    '[--btn-icon:theme(colors.warning.fg/60%)] active:[--btn-icon:theme(colors.warning.fg/80%)] hover:[--btn-icon:theme(colors.warning.fg/80%)]'
                 ],
                 danger: [
-                    'text-white [--btn-bg:theme(colors.red.600)] [--btn-border:theme(colors.red.700/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
-                    '[--btn-icon:theme(colors.red.300)] active:[--btn-icon:theme(colors.red.200)] hover:[--btn-icon:theme(colors.red.200)]'
+                    'text-white [--btn-bg:theme(colors.danger.DEFAULT)] [--btn-border:theme(colors.danger.DEFAULT)] [--btn-hover-overlay:theme(colors.white/10%)]',
+                    '[--btn-icon:theme(colors.white/60%)] active:[--btn-icon:theme(colors.white/80%)] hover:[--btn-icon:theme(colors.white/80%)]'
                 ]
             },
             appearance: {
                 solid: 'border-transparent bg-[--btn-border] dark:bg-[--btn-bg] before:absolute before:inset-0 before:-z-10 before:bg-[--btn-bg] before:shadow dark:before:hidden dark:border-white/5 after:absolute after:inset-0 after:-z-10 after:shadow-[shadow:inset_0_1px_theme(colors.white/15%)] after:active:bg-[--btn-hover-overlay] after:hover:bg-[--btn-hover-overlay] dark:after:-inset-px before:data-[disabled]:shadow-none after:data-[disabled]:shadow-none',
                 outline:
-                    'border-border hover:bg-secondary/70 active:bg-secondary/70 text-fg [--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.500)] hover:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.300)] dark:hover:[--btn-icon:theme(colors.zinc.300)]',
-                plain: 'border-transparent text-fg active:bg-fg/5 hover:bg-fg/5 [--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]'
+                    'border-border hover:bg-secondary/90 active:bg-secondary/90 text-fg [--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]',
+                plain: 'border-transparent text-fg pressed:bg-secondary/90 active:bg-secondary/90 hover:bg-secondary/90 [--btn-icon:theme(colors.muted.fg)] active:[--btn-icon:theme(colors.fg)] hover:[--btn-icon:theme(colors.fg)]'
             },
             size: {
                 'extra-small':
@@ -71,7 +64,7 @@ const buttonStyles = tv(
                 small: 'h-9 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-sm/5 lg:text-sm/5',
                 medium: 'h-10 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing.2)-1px)] text-base lg:text-sm/6',
                 large: 'h-10 sm:h-11 px-[calc(theme(spacing.4)-1px)] sm:px-[calc(theme(spacing.5)-1px)] py-[calc(theme(spacing[2.5])-1px)] text-base lg:text-base/7 sm:[&>[data-slot=icon]]:size-5',
-                'square-petite': 'size-9 shrink-0'
+                'square-petite': 'size-9 shrink-0 [&_[data-slot=icon]]:text-current'
             },
             shape: {
                 square: 'rounded-lg before:rounded-[calc(theme(borderRadius.lg)-1px)] after:rounded-[calc(theme(borderRadius.lg)-1px)] dark:after:rounded-lg',
@@ -129,7 +122,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <ButtonPrimitive
                 ref={ref}
                 {...props}
-                className={composeRenderProps(className, (className, renderProps) =>
+                className={cr(className, (className, renderProps) =>
                     buttonStyles({
                         ...renderProps,
                         intent,
