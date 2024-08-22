@@ -10,7 +10,7 @@ export function ThemeToggle() {
             <Button
                 size="square-petite"
                 appearance="plain"
-                className={cn(theme === 'light' ? 'bg-secondary' : 'bg-background')}
+                className={cn(theme === 'light' ? 'bg-secondary' : 'bg-bg')}
                 onPress={() => setTheme('light')}
             >
                 <IconSun />
@@ -18,7 +18,7 @@ export function ThemeToggle() {
             <Button
                 size="square-petite"
                 appearance="plain"
-                className={cn(theme === 'dark' ? 'bg-secondary' : 'bg-background')}
+                className={cn(theme === 'dark' ? 'bg-secondary' : 'bg-bg')}
                 onPress={() => setTheme('dark')}
             >
                 <IconMoon />
@@ -26,7 +26,7 @@ export function ThemeToggle() {
             <Button
                 size="square-petite"
                 appearance="plain"
-                className={cn(theme === 'system' ? 'bg-secondary' : 'bg-background')}
+                className={cn(theme === 'system' ? 'bg-secondary' : 'bg-bg')}
                 onPress={() => setTheme('system')}
             >
                 <IconDeviceDesktop />

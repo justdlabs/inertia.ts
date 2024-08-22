@@ -5,7 +5,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import { VisuallyHidden } from './visually-hidden'
 
 const avatarGroupStyles = tv({
-    base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-background'
+    base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-bg'
 })
 
 interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
@@ -92,7 +92,7 @@ const Avatar = ({
                 </svg>
             )}
             {src && <img src={src} alt={alt} />}
-            {status && <AvatarBadge size={size} status={status} aria-label="Available" />}
+            {status && <AvatarBadge size={size} status={status} aria-label={status} />}
         </span>
     )
 }
@@ -106,7 +106,7 @@ type AvatarBadgeProps = {
 }
 
 const avatarBadgeStyles = tv({
-    base: ['size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-background bg-background'],
+    base: ['size-3 z-1 absolute bottom-0 right-0 z-10 rounded-full ring-[1.5px] ring-bg bg-bg'],
     variants: {
         size: {
             small: 'size-1.5 translate-x-[0%] translate-y-[0%]',
@@ -114,11 +114,11 @@ const avatarBadgeStyles = tv({
             large: 'size-2.5 translate-x-[5%] translate-y-[5%]'
         },
         status: {
-            away: 'bg-red-500',
-            online: 'bg-green-500',
-            offline: 'bg-gray-500',
-            dnd: 'bg-yellow-500',
-            idle: 'bg-gray-500'
+            away: 'bg-danger',
+            online: 'bg-success',
+            offline: 'bg-muted-fg',
+            dnd: 'bg-warning',
+            idle: 'bg-muted-fg'
         }
     },
     defaultVariants: {

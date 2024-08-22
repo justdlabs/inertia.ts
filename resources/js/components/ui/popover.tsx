@@ -3,7 +3,6 @@ import * as React from 'react'
 import type { ModalOverlayProps } from 'react-aria-components'
 import {
     Button,
-    composeRenderProps,
     type DialogProps,
     DialogTrigger as DialogTriggerPrimitive,
     Modal,
@@ -18,31 +17,31 @@ import { twJoin } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Dialog } from './dialog'
-import { cn, useMediaQuery } from './primitive'
+import { cn, cr, useMediaQuery } from './primitive'
 
-const Popover = ({ children }: { children: React.ReactNode }) => {
-    return <DialogTriggerPrimitive>{children}</DialogTriggerPrimitive>
+const Popover = ({ children, ...props }: { children: React.ReactNode }) => {
+    return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
 }
 
-const PopoverTitle = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
+const Title = ({ className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
     <Dialog.Title className={cn('leading-none', className)} {...props} />
 )
 
-const PopoverHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <Dialog.Header className={cn('p-0 sm:pt-0', className)} {...props} />
 )
 
-const PopoverFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <Dialog.Footer className={cn('pt-4 pb-0 sm:pb-0', className)} {...props} />
 )
 
-const PopoverBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <Dialog.Body className={cn('p-0', className)} {...props} />
 )
 
 const popoverContentStyles = tv({
     base: [
-        'max-w-xs min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-lg dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
+        'max-w-xs min-w-80 p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-sm dark:backdrop-blur-2xl dark:backdrop-saturate-200 lg:text-sm sm:max-w-3xl forced-colors:bg-[Canvas]'
     ],
     variants: {
         isMenu: {
@@ -68,7 +67,7 @@ const drawerStyles = tv({
     variants: {
         isMenu: {
             true: 'p-0 [&_[role=dialog]]:px-0 rounded-t-xl',
-            false: 'p-4 rounded-t-2xl'
+            false: 'p-4 rounded-t-3xl'
         },
         isEntering: {
             true: [
@@ -97,14 +96,14 @@ interface PopoverProps
     'aria-labelledby'?: DialogProps['aria-labelledby']
 }
 
-const PopoverContent = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
+const Content = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
     const isMobile = useMediaQuery('(max-width: 600px)')
     const popoverContext = useSlottedContext(PopoverContext)!
     const isMenuTrigger = popoverContext?.trigger === 'MenuTrigger'
     const isSubmenuTrigger = popoverContext?.trigger === 'SubmenuTrigger'
     const isMenu = isMenuTrigger || isSubmenuTrigger
-    let offset = showArrow ? 12 : 8
-    offset = isSubmenuTrigger ? offset - 6 : offset
+    const offset = showArrow ? 12 : 8
+    const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset
     return isMobile && respectScreen ? (
         <ModalOverlay
             className={twJoin(
@@ -115,7 +114,7 @@ const PopoverContent = ({ respectScreen = true, children, showArrow = true, clas
             isDismissable
         >
             <Modal
-                className={composeRenderProps(className, (className, renderProps) =>
+                className={cr(className, (className, renderProps) =>
                     drawerStyles({ ...renderProps, isMenu, className })
                 )}
             >
@@ -126,9 +125,9 @@ const PopoverContent = ({ respectScreen = true, children, showArrow = true, clas
         </ModalOverlay>
     ) : (
         <PopoverPrimitive
-            offset={offset}
+            offset={effectiveOffset}
             {...props}
-            className={composeRenderProps(className, (className, renderProps) =>
+            className={cr(className, (className, renderProps) =>
                 popoverContentStyles({
                     ...renderProps,
                     className
@@ -152,11 +151,11 @@ const PopoverContent = ({ respectScreen = true, children, showArrow = true, clas
     )
 }
 
-const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
+const Picker = ({ children, className, ...props }: PopoverProps) => {
     return (
         <PopoverPrimitive
             {...props}
-            className={composeRenderProps(className, (className, renderProps) =>
+            className={cr(className, (className, renderProps) =>
                 popoverContentStyles({
                     ...renderProps,
                     className: cn('max-h-72 overflow-y-auto min-w-[--trigger-width] p-0', className)
@@ -171,12 +170,12 @@ const PopoverPicker = ({ children, className, ...props }: PopoverProps) => {
 Popover.Primitive = PopoverPrimitive
 Popover.Trigger = Button
 Popover.Close = Dialog.Close
-Popover.Content = PopoverContent
+Popover.Content = Content
 Popover.Description = Dialog.Description
-Popover.Body = PopoverBody
-Popover.Footer = PopoverFooter
-Popover.Header = PopoverHeader
-Popover.Picker = PopoverPicker
-Popover.Title = PopoverTitle
+Popover.Body = Body
+Popover.Footer = Footer
+Popover.Header = Header
+Popover.Picker = Picker
+Popover.Title = Title
 
 export { drawerStyles, Popover, popoverContentStyles }

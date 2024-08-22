@@ -1,7 +1,8 @@
+'use client'
+
 import * as React from 'react'
 
 import {
-    composeRenderProps,
     FieldError as FieldErrorPrimitive,
     type FieldErrorProps,
     Group,
@@ -17,7 +18,7 @@ import {
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { ctr } from './primitive'
+import { cr, ctr } from './primitive'
 
 // primitive styles
 
@@ -32,7 +33,7 @@ interface FieldProps {
 
 // primitive styles
 const fieldBorderStyles = tv({
-    base: 'group-focus-within:border-primary forced-colors:border-[Highlight]',
+    base: 'group-focus-within:border-ring/85 forced-colors:border-[Highlight]',
     variants: {
         isInvalid: {
             true: 'border-danger/70 group-focus-within:border-danger/70 forced-colors:border-[Mark]'
@@ -66,8 +67,19 @@ const Label = ({ className, ...props }: LabelProps) => {
     return <LabelPrimitive {...props} className={label({ className })} />
 }
 
-const Description = ({ className, ...props }: TextProps) => {
-    return <Text {...props} slot="description" className={description({ className })} />
+interface DescriptionProps extends TextProps {
+    isWarning?: boolean
+}
+
+const Description = ({ className, ...props }: DescriptionProps) => {
+    const isWarning = props.isWarning ?? false
+    return (
+        <Text
+            {...props}
+            slot="description"
+            className={description({ className: isWarning ? 'text-warning' : className })}
+        />
+    )
 }
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {
@@ -76,21 +88,19 @@ const FieldError = ({ className, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
     base: [
-        'group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-background transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]',
-        'focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/20',
+        'group flex h-10 items-center overflow-hidden rounded-lg border border-input bg-bg transition disabled:opacity-50 disabled:bg-secondary forced-colors:bg-[Field]',
+        'focus-within:border-ring/85 focus-within:ring-4 focus-within:ring-ring/20',
         'focus-within:invalid:border-danger focus-within:invalid:ring-4 focus-within:invalid:ring-danger/20',
         'invalid:border-danger',
         'has-[.isPfx]:pl-2.5 has-[.isSfx]:pr-2.5 [&_[data-slot=icon]]:size-4 has-[.atrs]:shrink-0 has-[.atrs]:text-muted-fg'
     ]
 })
 
-const FieldGroup = (props: GroupProps) => {
+const FieldGroup = ({ className, ...props }: GroupProps) => {
     return (
         <Group
             {...props}
-            className={composeRenderProps(props.className, (className, renderProps) =>
-                fieldGroupStyles({ ...renderProps, className })
-            )}
+            className={cr(className, (className, renderProps) => fieldGroupStyles({ ...renderProps, className }))}
         />
     )
 }

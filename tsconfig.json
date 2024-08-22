@@ -5,6 +5,8 @@
         "moduleResolution": "bundler",
         "jsx": "react-jsx",
         "strict": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
         "isolatedModules": true,
         "target": "ESNext",
         "esModuleInterop": true,
@@ -18,5 +20,6 @@
             "ui": ["./resources/js/components/ui/index.ts"]
         }
     },
-    "include": ["resources/js/**/*.ts", "resources/js/**/*.tsx", "resources/js/**/*.d.ts"]
+    "include": ["resources/js/**/*.ts", "resources/js/**/*.tsx", "resources/js/**/*.d.ts"],
+    "exclude": ["node_modules", "public"]
 }

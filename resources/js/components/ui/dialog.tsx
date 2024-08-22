@@ -44,7 +44,7 @@ interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
     description?: string
 }
 
-const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
+const Header = ({ className, ...props }: DialogHeaderProps) => {
     const headerRef = React.useRef<HTMLHeadingElement>(null)
 
     React.useEffect(() => {
@@ -65,9 +65,9 @@ const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
 
     return (
         <div data-slot="dialog-header" ref={headerRef} className={header({ className })}>
-            {props.title && <DialogTitle>{props.title}</DialogTitle>}
-            {props.description && <DialogDescription>{props.description}</DialogDescription>}
-            {!props.title && typeof props.children === 'string' ? <DialogTitle {...props} /> : props.children}
+            {props.title && <Title>{props.title}</Title>}
+            {props.description && <Description>{props.description}</Description>}
+            {!props.title && typeof props.children === 'string' ? <Title {...props} /> : props.children}
         </div>
     )
 }
@@ -76,19 +76,17 @@ interface DialogTitleProps extends HeadingProps {
     className?: string
 }
 
-const DialogTitle = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => (
+const Title = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => (
     <Heading slot="title" tracking={tracking} level={level} className={title({ className })} {...props} />
 )
 
-const DialogDescription = ({ className, ...props }: HeadingProps) => (
-    <p className={description({ className })} {...props} />
-)
+const Description = ({ className, ...props }: HeadingProps) => <p className={description({ className })} {...props} />
 
-const DialogBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <div data-slot="dialog-body" className={body({ className })} {...props} />
 )
 
-const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
     const footerRef = React.useRef<HTMLDivElement>(null)
 
     React.useEffect(() => {
@@ -112,7 +110,7 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
     return <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
 }
 
-const DialogClose = ({ className, ...props }: ButtonProps) => {
+const Close = ({ className, ...props }: ButtonProps) => {
     const state = React.useContext(OverlayTriggerStateContext)!
     return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
 }
@@ -123,7 +121,7 @@ interface CloseButtonIndicatorProps {
     isDismissable?: boolean | undefined
 }
 
-const DialogCloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
+const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
     const isMobile = useMediaQuery('(max-width: 600px)')
     const buttonRef = React.useRef<HTMLButtonElement>(null)
 
@@ -147,12 +145,12 @@ const DialogCloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps
     ) : null
 }
 
-Dialog.Header = DialogHeader
-Dialog.Title = DialogTitle
-Dialog.Description = DialogDescription
-Dialog.Body = DialogBody
-Dialog.Footer = DialogFooter
-Dialog.Close = DialogClose
-Dialog.CloseIndicator = DialogCloseIndicator
+Dialog.Header = Header
+Dialog.Title = Title
+Dialog.Description = Description
+Dialog.Body = Body
+Dialog.Footer = Footer
+Dialog.Close = Close
+Dialog.CloseIndicator = CloseIndicator
 
 export { Dialog }
