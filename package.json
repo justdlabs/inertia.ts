@@ -5,7 +5,7 @@
         "dev": "vite",
         "build": "tsc && vite build && vite build --ssr",
         "format": "prettier --write .",
-        "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
+        "release": "release-it",
         "preview": "tsc && npm run build && php artisan inertia:start-ssr"
     },
     "devDependencies": {
