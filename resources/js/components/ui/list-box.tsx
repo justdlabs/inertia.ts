@@ -27,10 +27,14 @@ const ListBox = <T extends object>({ children, className, ...props }: ListBoxPro
 )
 
 const listBoxItemStyles = tv({
-    base: 'lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none transition lg:text-sm',
+    base: 'lbi cursor-pointer relative rounded-[calc(var(--radius)-1px)] p-2 text-base outline-none lg:text-sm',
     variants: {
-        isFocusVisible: { true: 'bg-secondary text-secondary-fg' },
-        isHovered: { true: 'bg-accent text-accent-fg' },
+        isFocusVisible: {
+            true: 'bg-secondary [&:focus-visible_[slot=label]]:text-accent-fg [&:focus-visible_[slot=description]]:text-accent-fg/70 text-secondary-fg'
+        },
+        isHovered: {
+            true: 'bg-accent [&:hover_[slot=label]]:text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 text-accent-fg [&_.text-muted-fg]:text-accent-fg/80'
+        },
         isFocused: {
             true: '[&_[data-slot=icon]]:text-accent-fg [&_[data-slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80 bg-accent text-accent-fg'
         },
@@ -44,7 +48,7 @@ const listBoxItemStyles = tv({
     }
 })
 
-interface ListBoxItemProps<T extends Object> extends ListBoxItemPrimitiveProps<T> {
+interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
     className?: string
 }
 
@@ -91,7 +95,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
     )
 }
 
-interface ListBoxPickerProps<T> extends ListBoxProps<T> {}
+type ListBoxPickerProps<T> = ListBoxProps<T>
 
 const ListBoxPicker = <T extends object>({ className, ...props }: ListBoxPickerProps<T>) => {
     return <ListBoxPrimitive className={cn('max-h-72 overflow-auto p-1 outline-none', className)} {...props} />
