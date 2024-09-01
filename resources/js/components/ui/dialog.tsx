@@ -39,7 +39,7 @@ const Dialog = ({ role, className, ...props }: DialogPrimitiveProps) => {
     return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />
 }
 
-interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
     title?: string
     description?: string
 }
@@ -72,7 +72,7 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     )
 }
 
-interface DialogTitleProps extends HeadingProps {
+type DialogTitleProps = HeadingProps & {
     className?: string
 }
 
