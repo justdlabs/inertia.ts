@@ -2,6 +2,7 @@ import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
 import { Container } from 'components/container'
 import { Logo } from 'components/logo'
+import { useTheme } from 'components/theme-provider'
 import { ThemeSwitcher } from 'components/theme-switcher'
 import { motion } from 'framer-motion'
 import {
@@ -13,7 +14,7 @@ import {
     IconSettings
 } from 'justd-icons'
 import React from 'react'
-import { ListBox, ListBoxItem, ListBoxItemProps } from 'react-aria-components'
+import { ListBox, ListBoxItem, ListBoxItemProps, Selection } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { Avatar, Button, Link, Menu, Sheet, useMediaQuery } from 'ui'
 
@@ -133,6 +134,9 @@ function LoginMenu() {
 
 function UserMenu() {
     const { auth } = usePage<PagePropsData>().props
+    const { theme, setTheme } = useTheme()
+    const currentTheme = theme || 'system'
+    const [selectedTheme, setSelectedTheme] = React.useState<Selection>(new Set([currentTheme]))
     return (
         <Menu>
             <Menu.Trigger aria-label="Open menu">
@@ -141,11 +145,8 @@ function UserMenu() {
             <Menu.Content showArrow placement="bottom end" className="min-w-56">
                 <Menu.Section>
                     <Menu.Header separator className="relative">
-                        <div className="absolute right-2 top-2">
-                            <ThemeSwitcher />
-                        </div>
                         <div>{auth.user.name}</div>
-                        <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-10">
+                        <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-6">
                             {auth.user.email}
                         </div>
                     </Menu.Header>
@@ -155,6 +156,29 @@ function UserMenu() {
                     Settings
                     <IconSettings />
                 </Menu.Item>
+                <Menu.Submenu>
+                    <Menu.Item>Preferences</Menu.Item>
+                    <Menu.Content
+                        selectionMode="single"
+                        selectedKeys={selectedTheme}
+                        onSelectionChange={(keys) => {
+                            setSelectedTheme(keys)
+                            // @ts-ignore
+                            setTheme(keys.has('system') ? 'system' : keys.has('dark') ? 'dark' : 'light')
+                        }}
+                        items={[
+                            { name: 'Light', value: 'light' },
+                            { name: 'Dark', value: 'dark' },
+                            { name: 'System', value: 'system' }
+                        ]}
+                    >
+                        {(item) => (
+                            <Menu.Checkbox id={item.value} textValue={item.name}>
+                                {item.name}
+                            </Menu.Checkbox>
+                        )}
+                    </Menu.Content>
+                </Menu.Submenu>
                 <Menu.Separator />
                 <Menu.Item target="_blank" href="https://laravel.com" className="justify-between">
                     Documentation

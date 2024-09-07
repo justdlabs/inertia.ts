@@ -1,4 +1,4 @@
-import { IconChevronDown, IconChevronUp, IconHamburger } from 'justd-icons'
+import { IconChevronLgDown, IconChevronLgUp, IconFilterAsc, IconHamburger } from 'justd-icons'
 import type {
     CellProps,
     ColumnProps,
@@ -73,11 +73,11 @@ const TableColumn = ({ children, className, ...props }: TableColumnProps) => (
                     {children}
                     {allowsSorting &&
                         (sortDirection === undefined ? (
-                            <span>daf</span>
+                            <IconFilterAsc className="h-3" />
                         ) : sortDirection === 'ascending' ? (
-                            <IconChevronUp />
+                            <IconChevronLgUp className="h-3" />
                         ) : (
-                            <IconChevronDown />
+                            <IconChevronLgDown className="h-3" />
                         ))}
                 </>
             </div>
@@ -102,11 +102,11 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
     )
 }
 
-interface TableRow<T extends object> extends RowProps<T> {
+interface TableRowProps<T extends object> extends RowProps<T> {
     className?: string
 }
 
-const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRow<T>) => {
+const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRowProps<T>) => {
     const { selectionBehavior, allowsDragging } = useTableOptions()
     return (
         <Row

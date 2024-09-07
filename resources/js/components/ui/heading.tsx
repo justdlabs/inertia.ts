@@ -1,8 +1,6 @@
 import { Heading as HeadingPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { isIos } from './primitive'
-
 const headingStyles = tv({
     base: 'font-sans tracking-tight text-fg',
     variants: {
@@ -36,7 +34,7 @@ const Heading = ({ className, tracking = 'normal', level = 1, ...props }: Headin
             className={headingStyles({
                 level,
                 tracking,
-                className: isIos() ? 'font-medium' : className
+                className
             })}
             {...props}
         />
