@@ -12,6 +12,7 @@ interface TextFieldProps extends TextFieldPrimitiveProps, FieldProps {
     suffix?: React.ReactNode
     isLoading?: boolean
     indicatorPlace?: 'prefix' | 'suffix'
+    className?: string
 }
 
 const TextField = ({
@@ -23,12 +24,13 @@ const TextField = ({
     suffix,
     isLoading,
     indicatorPlace,
+    className,
     ...props
 }: TextFieldProps) => {
     return (
-        <TextFieldPrimitive {...props} className={ctr(props.className, 'group flex flex-col gap-1')}>
+        <TextFieldPrimitive {...props} className={ctr(className, 'group flex flex-col gap-1')}>
             {label && <Label>{label}</Label>}
-            <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles()}>
+            <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles({ className })}>
                 {isLoading && indicatorPlace === 'prefix' ? (
                     <IconLoader className="animate-spin isPfx" />
                 ) : prefix ? (

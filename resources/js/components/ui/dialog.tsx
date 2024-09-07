@@ -72,15 +72,13 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     )
 }
 
-type DialogTitleProps = HeadingProps & {
-    className?: string
-}
-
-const Title = ({ tracking = 'tight', level = 2, className, ...props }: DialogTitleProps) => (
+const Title = ({ tracking = 'tight', level = 2, className, ...props }: HeadingProps) => (
     <Heading slot="title" tracking={tracking} level={level} className={title({ className })} {...props} />
 )
 
-const Description = ({ className, ...props }: HeadingProps) => <p className={description({ className })} {...props} />
+const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+    <div className={description({ className })} {...props} />
+)
 
 const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <div data-slot="dialog-body" className={body({ className })} {...props} />
