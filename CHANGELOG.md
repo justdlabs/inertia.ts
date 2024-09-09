@@ -1,11 +1,12 @@
 
 
-## [1.0.17](https://github.com/justdlabs/inertia.ts/compare/1.0.16...1.0.17) (2024-09-07)
+## [1.0.18](https://github.com/justdlabs/inertia.ts/compare/1.0.17...1.0.18) (2024-09-09)
 
+## [1.0.17](https://github.com/justdlabs/inertia.ts/compare/1.0.16...1.0.17) (2024-09-07)
 
 ### Bug Fixes
 
-* move theme switcher to menu sub ([cac009d](https://github.com/justdlabs/inertia.ts/commit/cac009d266be9c5586ecf1446f3e6859af2e237e))
+-   move theme switcher to menu sub ([cac009d](https://github.com/justdlabs/inertia.ts/commit/cac009d266be9c5586ecf1446f3e6859af2e237e))
 
 ## [1.0.16](https://github.com/justdlabs/inertia.ts/compare/1.0.15...1.0.16) (2024-09-06)
 
