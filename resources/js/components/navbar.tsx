@@ -227,7 +227,7 @@ function ResponsiveNavbar() {
                         <Logo className="w-8 fill-red-600" />
                     </Link>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex gap-1">
                     {!auth.user && <ThemeSwitcher />}
                     {auth.user ? <UserMenu /> : <LoginMenu />}
                 </div>
