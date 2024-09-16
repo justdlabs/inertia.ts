@@ -1,5 +1,14 @@
 
 
+## [1.0.22](https://github.com/justdlabs/inertia.ts/compare/1.0.21...1.0.22) (2024-09-16)
+
+## [1.0.21](https://github.com/justdlabs/inertia.ts/compare/1.0.20...1.0.21) (2024-09-16)
+
+
+### Bug Fixes
+
+* fix touch target not being installed ([172d58e](https://github.com/justdlabs/inertia.ts/commit/172d58e58b0bc1c103bd9f3ae4a87bbb774e6dc7))
+
 ## [1.0.20](https://github.com/justdlabs/inertia.ts/compare/1.0.19...1.0.20) (2024-09-16)
 
 
