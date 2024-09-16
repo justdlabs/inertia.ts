@@ -2,17 +2,19 @@ import * as React from 'react'
 
 import { IconX } from 'justd-icons'
 import {
+    Button as ButtonPrimitive,
+    type ButtonProps as ButtonPrimitiveProps,
     Dialog as DialogPrimitive,
     type DialogProps as DialogPrimitiveProps,
     OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import type { ButtonProps } from './button'
-import { Button } from './button'
+import { Button, type ButtonProps } from './button'
 import type { HeadingProps } from './heading'
 import { Heading } from './heading'
 import { useMediaQuery } from './primitive'
+import { TouchTarget } from './touch-target'
 
 const dialogStyles = tv({
     slots: {
@@ -43,6 +45,14 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
     title?: string
     description?: string
 }
+
+const Trigger = (props: ButtonPrimitiveProps) => (
+    <ButtonPrimitive {...props}>
+        {(values) => (
+            <TouchTarget>{typeof props.children === 'function' ? props.children(values) : props.children}</TouchTarget>
+        )}
+    </ButtonPrimitive>
+)
 
 const Header = ({ className, ...props }: DialogHeaderProps) => {
     const headerRef = React.useRef<HTMLHeadingElement>(null)
@@ -108,9 +118,9 @@ const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =
     return <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
 }
 
-const Close = ({ className, ...props }: ButtonProps) => {
+const Close = ({ className, appearance = 'outline', ...props }: ButtonProps) => {
     const state = React.useContext(OverlayTriggerStateContext)!
-    return <Button className={className} appearance="outline" onPress={() => state.close()} {...props} />
+    return <Button className={className} appearance={appearance} onPress={() => state.close()} {...props} />
 }
 
 interface CloseButtonIndicatorProps {
@@ -143,6 +153,7 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
     ) : null
 }
 
+Dialog.Trigger = Trigger
 Dialog.Header = Header
 Dialog.Title = Title
 Dialog.Description = Description

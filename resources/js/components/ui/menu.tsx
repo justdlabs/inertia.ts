@@ -25,6 +25,7 @@ import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './drop
 import { Keyboard } from './keyboard'
 import { Popover } from './popover'
 import { cn, cr } from './primitive'
+import { TouchTarget } from './touch-target'
 
 interface MenuContextProps {
     respectScreen: boolean
@@ -39,9 +40,7 @@ interface MenuProps extends MenuTriggerPrimitiveProps {
 const Menu = ({ respectScreen = true, ...props }: MenuProps) => {
     return (
         <MenuContext.Provider value={{ respectScreen }}>
-            <MenuTriggerPrimitive {...props}>
-                <>{props.children}</>
-            </MenuTriggerPrimitive>
+            <MenuTriggerPrimitive {...props}>{props.children}</MenuTriggerPrimitive>
         </MenuContext.Provider>
     )
 }
@@ -57,7 +56,7 @@ const menuStyles = tv({
         menu: 'z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
         popover: 'z-50 min-w-40 p-0 outline-none shadow-sm',
         trigger: [
-            'inline text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none'
+            'inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none'
         ]
     }
 })
@@ -68,7 +67,13 @@ interface MenuTriggerProps extends ButtonProps {
     className?: string
 }
 
-const Trigger = ({ className, ...props }: MenuTriggerProps) => <Button className={trigger({ className })} {...props} />
+const Trigger = ({ className, ...props }: MenuTriggerProps) => (
+    <Button className={trigger({ className })} {...props}>
+        {(values) => (
+            <TouchTarget>{typeof props.children === 'function' ? props.children(values) : props.children}</TouchTarget>
+        )}
+    </Button>
+)
 
 interface MenuContentProps<T> extends Omit<PopoverProps, 'children' | 'style'>, MenuPrimitiveProps<T> {
     className?: string
@@ -188,4 +193,4 @@ Menu.Trigger = Trigger
 Menu.ItemDetails = DropdownItemDetails
 Menu.Submenu = SubMenu
 
-export { Menu, type MenuContentProps, type MenuItemProps }
+export { Menu, type MenuContentProps }
