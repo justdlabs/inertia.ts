@@ -4,6 +4,7 @@ import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } f
 import { tv } from 'tailwind-variants'
 
 import { cr, focusButtonStyles } from './primitive'
+import { TouchTarget } from './touch-target'
 
 const buttonStyles = tv(
     {
@@ -109,7 +110,7 @@ interface ButtonProps extends ButtonPrimitiveProps {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, intent, children, appearance, size, shape, ...props }, ref) => {
+    ({ className, intent, appearance, size, shape, ...props }, ref) => {
         return (
             <ButtonPrimitive
                 ref={ref}
@@ -125,15 +126,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     })
                 )}
             >
-                {cr(children, (children) => (
-                    <>
-                        <span
-                            className="absolute left-1/2 top-1/2 size-[max(100%,2.75rem)] -translate-x-1/2 -translate-y-1/2 [@media(pointer:fine)]:hidden"
-                            aria-hidden="true"
-                        />
-                        {children}
-                    </>
-                ))}
+                {(values) => (
+                    <TouchTarget>
+                        {typeof props.children === 'function' ? props.children(values) : props.children}
+                    </TouchTarget>
+                )}
             </ButtonPrimitive>
         )
     }

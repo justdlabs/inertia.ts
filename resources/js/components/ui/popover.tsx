@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import type { ModalOverlayProps } from 'react-aria-components'
 import {
-    Button,
     type DialogProps,
     DialogTrigger as DialogTriggerPrimitive,
     Modal,
@@ -168,7 +167,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
 }
 
 Popover.Primitive = PopoverPrimitive
-Popover.Trigger = Button
+Popover.Trigger = Dialog.Trigger
 Popover.Close = Dialog.Close
 Popover.Content = Content
 Popover.Description = Dialog.Description
