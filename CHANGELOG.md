@@ -1,3 +1,13 @@
+
+
+## [1.0.20](https://github.com/justdlabs/inertia.ts/compare/1.0.19...1.0.20) (2024-09-16)
+
+
+### Bug Fixes
+
+* bump packages ([9a9c2d1](https://github.com/justdlabs/inertia.ts/commit/9a9c2d15ef9cbccb9f104760c2ea9bb2aa9ee03f))
+* refactor all components ([11ea304](https://github.com/justdlabs/inertia.ts/commit/11ea304cba7b5b80c669fd967ed48b47fc339efa))
+
 ## [1.0.19](https://github.com/justdlabs/inertia.ts/compare/1.0.18...1.0.19) (2024-09-12)
 
 ## [1.0.18](https://github.com/justdlabs/inertia.ts/compare/1.0.17...1.0.18) (2024-09-09)
