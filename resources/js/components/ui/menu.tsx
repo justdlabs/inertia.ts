@@ -12,8 +12,8 @@ import type {
 import {
     Button,
     Header,
-    MenuItem,
     Menu as MenuPrimitive,
+    MenuItem,
     MenuTrigger as MenuTriggerPrimitive,
     Separator,
     SubmenuTrigger as SubmenuTriggerPrimitive
