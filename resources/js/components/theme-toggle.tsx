@@ -1,4 +1,4 @@
-import { useTheme } from '@/components/theme-provider'
+import { useTheme } from '@/theme-provider'
 import { IconDeviceDesktop, IconMoon, IconSun } from 'justd-icons'
 import { Button, cn } from 'ui'
 
@@ -7,11 +7,15 @@ export function ThemeToggle() {
 
     return (
         <div className="flex [&_button>[data-slot=icon]]:text-fg items-center gap-x-1 [&_svg]:size-4 [&_button]:rounded-full">
+            {theme}
             <Button
                 size="square-petite"
                 appearance="plain"
+                type="button"
                 className={cn(theme === 'light' ? 'bg-secondary' : 'bg-bg')}
-                onPress={() => setTheme('light')}
+                onPress={() => {
+                    setTheme('light')
+                }}
             >
                 <IconSun />
             </Button>

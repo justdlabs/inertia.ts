@@ -1,7 +1,7 @@
 import { router } from '@inertiajs/react'
 import React from 'react'
 import { RouterProvider } from 'react-aria-components'
-import { ThemeProvider } from './theme-provider'
+import { ThemeProvider } from '../theme-provider'
 
 export function Providers({ children }: { children: React.ReactNode }) {
     return (

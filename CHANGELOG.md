@@ -1,21 +1,27 @@
 
 
+## [1.0.23](https://github.com/justdlabs/inertia.ts/compare/1.0.22...1.0.23) (2024-10-07)
+
+
+### Bug Fixes
+
+* fix t ([9d444ba](https://github.com/justdlabs/inertia.ts/commit/9d444bae7133801275e48fce4688642815755242))
+* upgrade the rac to latest version and sync justd ([9484b63](https://github.com/justdlabs/inertia.ts/commit/9484b63031af882983e33733d0c78adefdb95803))
+
 ## [1.0.22](https://github.com/justdlabs/inertia.ts/compare/1.0.21...1.0.22) (2024-09-16)
 
 ## [1.0.21](https://github.com/justdlabs/inertia.ts/compare/1.0.20...1.0.21) (2024-09-16)
 
-
 ### Bug Fixes
 
-* fix touch target not being installed ([172d58e](https://github.com/justdlabs/inertia.ts/commit/172d58e58b0bc1c103bd9f3ae4a87bbb774e6dc7))
+-   fix touch target not being installed ([172d58e](https://github.com/justdlabs/inertia.ts/commit/172d58e58b0bc1c103bd9f3ae4a87bbb774e6dc7))
 
 ## [1.0.20](https://github.com/justdlabs/inertia.ts/compare/1.0.19...1.0.20) (2024-09-16)
 
-
 ### Bug Fixes
 
-* bump packages ([9a9c2d1](https://github.com/justdlabs/inertia.ts/commit/9a9c2d15ef9cbccb9f104760c2ea9bb2aa9ee03f))
-* refactor all components ([11ea304](https://github.com/justdlabs/inertia.ts/commit/11ea304cba7b5b80c669fd967ed48b47fc339efa))
+-   bump packages ([9a9c2d1](https://github.com/justdlabs/inertia.ts/commit/9a9c2d15ef9cbccb9f104760c2ea9bb2aa9ee03f))
+-   refactor all components ([11ea304](https://github.com/justdlabs/inertia.ts/commit/11ea304cba7b5b80c669fd967ed48b47fc339efa))
 
 ## [1.0.19](https://github.com/justdlabs/inertia.ts/compare/1.0.18...1.0.19) (2024-09-12)
 

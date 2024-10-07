@@ -2,8 +2,8 @@ import { type ReactNode } from 'react'
 
 import { IconCheck, IconMinus } from 'justd-icons'
 import {
-    CheckboxGroup as CheckboxGroupPrimitive,
     Checkbox as CheckboxPrimitive,
+    CheckboxGroup as CheckboxGroupPrimitive,
     type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
     type CheckboxProps as CheckboxPrimitiveProps,
     type ValidationResult
