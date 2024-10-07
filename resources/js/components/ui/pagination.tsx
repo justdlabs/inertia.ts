@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 
 import {
@@ -85,7 +87,7 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
     children?: React.ReactNode
     className?: string
-    intent?: 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'light/dark' | 'success' | 'light' | 'dark'
+    intent?: 'primary' | 'secondary'
     size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
     shape?: 'square' | 'circle'
     appearance?: 'solid' | 'outline' | 'plain'
@@ -95,7 +97,7 @@ interface PaginationItemProps extends ListBoxItemProps {
 
 const Item = ({
     variant = 'default',
-    size = 'square-petite',
+    size = 'small',
     appearance = 'outline',
     intent,
     className,
@@ -115,7 +117,7 @@ const Item = ({
                 className: cn(
                     buttonStyles({
                         appearance: 'outline',
-                        size: 'square-petite',
+                        size: 'small',
                         className: itemButton()
                     }),
                     className

@@ -8,7 +8,7 @@ const config = withTV({
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.tsx'
+        './resources/js/**/*.{js,jsx,ts,tsx}'
     ],
     theme: {
         container: {
@@ -34,17 +34,17 @@ const config = withTV({
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     fg: 'hsl(var(--primary-fg))',
-                    50: '#eef8ff',
-                    100: '#d8eeff',
-                    200: '#b9e0ff',
-                    300: '#89cfff',
-                    400: '#52b4ff',
-                    500: '#2a91ff',
-                    600: '#0d6efd',
-                    700: '#0c5ae9',
-                    800: '#1149bc',
-                    900: '#144194',
-                    950: '#11295a'
+                    50: 'hsl(204.7 99% 97%)',
+                    100: 'hsl(206.15 100% 92%)',
+                    200: 'hsl(206.57 99% 86%)',
+                    300: 'hsl(204.41 100% 77%)',
+                    400: 'hsl(206.02 100% 66%)',
+                    500: 'hsl(210.99 100% 57.99%)',
+                    600: 'hsl(215.79 98% 52%)',
+                    700: 'hsl(218.8 90% 48%)',
+                    800: 'hsl(220.35 84% 40%)',
+                    900: 'hsl(218.91 76% 33%)',
+                    950: 'hsl(220.26 68% 21%)'
                 },
                 secondary: {
                     DEFAULT: 'hsl(var(--secondary))',
@@ -56,7 +56,9 @@ const config = withTV({
                 },
                 accent: {
                     DEFAULT: 'hsl(var(--accent))',
-                    fg: 'hsl(var(--accent-fg))'
+                    fg: 'hsl(var(--accent-fg))',
+                    subtle: 'hsl(var(--accent-subtle))',
+                    'subtle-fg': 'hsl(var(--accent-subtle-fg))'
                 },
                 success: {
                     DEFAULT: 'hsl(var(--success))',

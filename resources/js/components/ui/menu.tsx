@@ -24,7 +24,7 @@ import { tv } from 'tailwind-variants'
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown'
 import { Keyboard } from './keyboard'
 import { Popover } from './popover'
-import { cn, cr } from './primitive'
+import { cn, cr, tm } from './primitive'
 import { TouchTarget } from './touch-target'
 
 interface MenuContextProps {
@@ -93,7 +93,12 @@ const Content = <T extends object>({
         <Popover.Content
             respectScreen={respectScreen}
             showArrow={showArrow}
-            className={popover({ className: popoverClassName })}
+            className={popover({
+                className: tm([
+                    showArrow && 'placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]',
+                    popoverClassName
+                ])
+            })}
             {...props}
         >
             <MenuPrimitive className={menu({ className })} {...props} />
@@ -113,7 +118,7 @@ const Item = ({ className, isDanger = false, children, ...props }: MenuItemProps
             className={cr(className, (className, renderProps) =>
                 dropdownItemStyles({
                     ...renderProps,
-                    className: cn('pl-2.5', className)
+                    className
                 })
             )}
             data-danger={isDanger ? 'true' : undefined}

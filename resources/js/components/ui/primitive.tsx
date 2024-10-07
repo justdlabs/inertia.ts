@@ -7,10 +7,10 @@ import { tv } from 'tailwind-variants'
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-const composeTailwindRenderProps = <T,>(
+function composeTailwindRenderProps<T>(
     className: string | ((v: T) => string) | undefined,
-    tw: string
-): string | ((v: T) => string) => {
+    tw: string | Array<string | undefined>
+): string | ((v: T) => string) {
     return composeRenderProps(className, (className) => twMerge(tw, className))
 }
 
@@ -21,22 +21,6 @@ const focusRing = tv({
         isInvalid: { true: 'ring-4 ring-danger/20' }
     }
 })
-
-const isServerSide = (): boolean => {
-    if (typeof window !== 'undefined') {
-        return false
-    }
-    if (typeof process !== 'undefined' && process.versions && process.versions.node) {
-        return true
-    }
-    return true
-}
-
-const isIos = (userAgent?: string): boolean => {
-    if (isServerSide() && !userAgent) return false
-    const result = userAgent || navigator.userAgent
-    return /iPad|iPhone|iPod|iPadOS|iPhoneOS/.test(result)
-}
 
 const focusStyles = tv({
     extend: focusRing,
@@ -86,7 +70,6 @@ export {
     focusButtonStyles,
     focusRing,
     focusStyles,
-    isIos,
     tm,
     twMerge,
     useMediaQuery

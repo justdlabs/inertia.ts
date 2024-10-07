@@ -1,10 +1,9 @@
-import { useTheme } from 'components/theme-provider'
+import { useTheme } from '@/theme-provider'
 import { IconMoon, IconSun } from 'justd-icons'
 import { Button } from 'ui'
 
 export function ThemeSwitcher() {
     const { theme, setTheme } = useTheme()
-
     return (
         <Button
             appearance="outline"
