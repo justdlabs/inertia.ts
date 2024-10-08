@@ -1,12 +1,9 @@
-
-
 ## [1.0.23](https://github.com/justdlabs/inertia.ts/compare/1.0.22...1.0.23) (2024-10-07)
-
 
 ### Bug Fixes
 
-* fix t ([9d444ba](https://github.com/justdlabs/inertia.ts/commit/9d444bae7133801275e48fce4688642815755242))
-* upgrade the rac to latest version and sync justd ([9484b63](https://github.com/justdlabs/inertia.ts/commit/9484b63031af882983e33733d0c78adefdb95803))
+-   fix t ([9d444ba](https://github.com/justdlabs/inertia.ts/commit/9d444bae7133801275e48fce4688642815755242))
+-   upgrade the rac to latest version and sync justd ([9484b63](https://github.com/justdlabs/inertia.ts/commit/9484b63031af882983e33733d0c78adefdb95803))
 
 ## [1.0.22](https://github.com/justdlabs/inertia.ts/compare/1.0.21...1.0.22) (2024-09-16)
 

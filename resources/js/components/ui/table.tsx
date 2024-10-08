@@ -13,9 +13,9 @@ import {
     Collection,
     Column,
     Row,
-    Table as TablePrimitive,
     TableBody,
     TableHeader,
+    Table as TablePrimitive,
     useTableOptions
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'

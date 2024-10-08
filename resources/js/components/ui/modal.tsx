@@ -4,8 +4,8 @@ import type { DialogTriggerProps, ModalOverlayProps as ModalOverlayPrimitiveProp
 import {
     type DialogProps,
     DialogTrigger as DialogTriggerPrimitive,
-    Modal as ModalPrimitive,
-    ModalOverlay as ModalOverlayPrimitive
+    ModalOverlay as ModalOverlayPrimitive,
+    Modal as ModalPrimitive
 } from 'react-aria-components'
 import { tv, type VariantProps } from 'tailwind-variants'
 

@@ -7,7 +7,6 @@ export function ThemeToggle() {
 
     return (
         <div className="flex [&_button>[data-slot=icon]]:text-fg items-center gap-x-1 [&_svg]:size-4 [&_button]:rounded-full">
-            {theme}
             <Button
                 size="square-petite"
                 appearance="plain"

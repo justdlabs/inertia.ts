@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { IconCheck, IconHamburger } from 'justd-icons'
 import {
-    ListBox as ListBoxPrimitive,
     ListBoxItem as ListBoxItemPrimitive,
+    ListBox as ListBoxPrimitive,
     type ListBoxItemProps as ListBoxItemPrimitiveProps,
     type ListBoxProps as ListBoxPrimitiveProps
 } from 'react-aria-components'
