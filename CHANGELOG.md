@@ -1,11 +1,8 @@
-
-
 ## [1.0.24](https://github.com/justdlabs/inertia.ts/compare/1.0.23...1.0.24) (2024-10-08)
-
 
 ### Bug Fixes
 
-* lfg ([c2cd08f](https://github.com/justdlabs/inertia.ts/commit/c2cd08fcf3872fecc789b10b45c9822639a36a71))
+-   lfg ([c2cd08f](https://github.com/justdlabs/inertia.ts/commit/c2cd08fcf3872fecc789b10b45c9822639a36a71))
 
 ## [1.0.23](https://github.com/justdlabs/inertia.ts/compare/1.0.22...1.0.23) (2024-10-07)
 
