@@ -1,12 +1,30 @@
 
 
-## [1.0.23](https://github.com/justdlabs/inertia.ts/compare/1.0.22...1.0.23) (2024-10-07)
+## [1.0.26](https://github.com/justdlabs/inertia.ts/compare/1.0.25...1.0.26) (2024-10-13)
 
 
 ### Bug Fixes
 
-* fix t ([9d444ba](https://github.com/justdlabs/inertia.ts/commit/9d444bae7133801275e48fce4688642815755242))
-* upgrade the rac to latest version and sync justd ([9484b63](https://github.com/justdlabs/inertia.ts/commit/9484b63031af882983e33733d0c78adefdb95803))
+* bumping vendor ([d992964](https://github.com/justdlabs/inertia.ts/commit/d99296422ce7d4bbc8707fc3c505cf0ff6976ed1))
+
+## [1.0.25](https://github.com/justdlabs/inertia.ts/compare/1.0.24...1.0.25) (2024-10-13)
+
+### Bug Fixes
+
+-   update to latest justd components ([a7aa011](https://github.com/justdlabs/inertia.ts/commit/a7aa011b5b3d4f22d09c0bf06a0c293897ff3c15))
+
+## [1.0.24](https://github.com/justdlabs/inertia.ts/compare/1.0.23...1.0.24) (2024-10-08)
+
+### Bug Fixes
+
+-   lfg ([c2cd08f](https://github.com/justdlabs/inertia.ts/commit/c2cd08fcf3872fecc789b10b45c9822639a36a71))
+
+## [1.0.23](https://github.com/justdlabs/inertia.ts/compare/1.0.22...1.0.23) (2024-10-07)
+
+### Bug Fixes
+
+-   fix t ([9d444ba](https://github.com/justdlabs/inertia.ts/commit/9d444bae7133801275e48fce4688642815755242))
+-   upgrade the rac to latest version and sync justd ([9484b63](https://github.com/justdlabs/inertia.ts/commit/9484b63031af882983e33733d0c78adefdb95803))
 
 ## [1.0.22](https://github.com/justdlabs/inertia.ts/compare/1.0.21...1.0.22) (2024-09-16)
 

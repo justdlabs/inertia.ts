@@ -1,14 +1,13 @@
-import { Heading as HeadingPrimitive } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 const headingStyles = tv({
     base: 'font-sans tracking-tight text-fg',
     variants: {
         level: {
-            1: 'font-bold text-2xl',
+            1: 'font-bold text-xl sm:text-2xl',
             2: 'font-semibold text-lg sm:text-xl',
             3: 'font-semibold text-base sm:text-lg',
-            4: 'font-medium text-base sm:text-sm'
+            4: 'font-semibold text-base'
         },
         tracking: {
             tighter: 'tracking-tighter',
@@ -28,9 +27,9 @@ interface HeadingProps extends HeadingType {
 }
 
 const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
+    const Element: `h${typeof level}` = `h${level}`
     return (
-        <HeadingPrimitive
-            level={level}
+        <Element
             className={headingStyles({
                 level,
                 tracking,
@@ -41,4 +40,4 @@ const Heading = ({ className, tracking = 'normal', level = 1, ...props }: Headin
     )
 }
 
-export { Heading, type HeadingProps }
+export { Heading }

@@ -12,8 +12,8 @@ import type {
 import {
     Button,
     Header,
-    Menu as MenuPrimitive,
     MenuItem,
+    Menu as MenuPrimitive,
     MenuTrigger as MenuTriggerPrimitive,
     Separator,
     SubmenuTrigger as SubmenuTriggerPrimitive
@@ -25,7 +25,6 @@ import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './drop
 import { Keyboard } from './keyboard'
 import { Popover } from './popover'
 import { cn, cr, tm } from './primitive'
-import { TouchTarget } from './touch-target'
 
 interface MenuContextProps {
     respectScreen: boolean
@@ -56,7 +55,7 @@ const menuStyles = tv({
         menu: 'z32kk max-h-[calc(var(--visual-viewport-height)-10rem)] sm:max-h-[inherit] overflow-auto rounded-xl p-1 outline outline-0 [clip-path:inset(0_0_0_0_round_calc(var(--radius)-2px))]',
         popover: 'z-50 min-w-40 p-0 outline-none shadow-sm',
         trigger: [
-            'inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 pressed:outline-none'
+            'inline relative text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary pressed:outline-none'
         ]
     }
 })
@@ -69,9 +68,7 @@ interface MenuTriggerProps extends ButtonProps {
 
 const Trigger = ({ className, ...props }: MenuTriggerProps) => (
     <Button className={trigger({ className })} {...props}>
-        {(values) => (
-            <TouchTarget>{typeof props.children === 'function' ? props.children(values) : props.children}</TouchTarget>
-        )}
+        {(values) => <>{typeof props.children === 'function' ? props.children(values) : props.children}</>}
     </Button>
 )
 

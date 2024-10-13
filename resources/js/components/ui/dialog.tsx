@@ -1,20 +1,17 @@
 import * as React from 'react'
 
 import { IconX } from 'justd-icons'
+import type { ButtonProps as ButtonPrimitiveProps, DialogProps, HeadingProps } from 'react-aria-components'
 import {
     Button as ButtonPrimitive,
-    type ButtonProps as ButtonPrimitiveProps,
     Dialog as DialogPrimitive,
-    type DialogProps as DialogPrimitiveProps,
+    Heading,
     OverlayTriggerStateContext
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
 import { Button, type ButtonProps } from './button'
-import type { HeadingProps } from './heading'
-import { Heading } from './heading'
 import { useMediaQuery } from './primitive'
-import { TouchTarget } from './touch-target'
 
 const dialogStyles = tv({
     slots: {
@@ -24,20 +21,20 @@ const dialogStyles = tv({
             '[&:not(:has([data-slot=dialog-body]))]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-header]]:px-4 [&:has([data-slot=dialog-body])_[data-slot=dialog-footer]]:px-4'
         ],
         header: 'relative flex flex-col pb-3 pt-4 sm:pt-6',
-        title: 'flex flex-1 items-center',
         description: 'text-sm block text-muted-fg mt-0.5 sm:mt-1',
         body: [
             'flex flex-1 flex-col gap-2 overflow-auto px-4 sm:px-6 py-1',
             'max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]'
         ],
         footer: 'mt-auto flex flex-col-reverse justify-between gap-3 pb-4 sm:pb-6 pt-4 sm:flex-row',
-        closeIndicator: 'close absolute right-2 top-2 size-6 z-50'
+        closeIndicator:
+            'close absolute right-1 top-1 sm:right-2 sm:top-2 focus:outline-none focus:bg-secondary hover:bg-secondary grid place-content-center rounded-xl sm:rounded-md focus-visible:ring-1 focus-visible:ring-primary size-8 sm:size-7 z-50'
     }
 })
 
-const { root, header, title, description, body, footer, closeIndicator } = dialogStyles()
+const { root, header, description, body, footer, closeIndicator } = dialogStyles()
 
-const Dialog = ({ role, className, ...props }: DialogPrimitiveProps) => {
+const Dialog = ({ role, className, ...props }: DialogProps) => {
     return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />
 }
 
@@ -48,9 +45,7 @@ type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const Trigger = (props: ButtonPrimitiveProps) => (
     <ButtonPrimitive {...props}>
-        {(values) => (
-            <TouchTarget>{typeof props.children === 'function' ? props.children(values) : props.children}</TouchTarget>
-        )}
+        {(values) => <>{typeof props.children === 'function' ? props.children(values) : props.children}</>}
     </ButtonPrimitive>
 )
 
@@ -82,8 +77,24 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
     )
 }
 
-const Title = ({ tracking = 'tight', level = 2, className, ...props }: HeadingProps) => (
-    <Heading slot="title" tracking={tracking} level={level} className={title({ className })} {...props} />
+const titleStyles = tv({
+    base: 'flex flex-1 items-center text-fg',
+    variants: {
+        level: {
+            1: 'font-semibold text-lg sm:text-xl',
+            2: 'font-semibold text-lg sm:text-xl',
+            3: 'font-semibold text-base sm:text-lg',
+            4: 'font-semibold text-base'
+        }
+    }
+})
+
+interface TitleProps extends Omit<HeadingProps, 'level'> {
+    level?: 1 | 2 | 3 | 4
+}
+
+const Title = ({ level = 2, className, ...props }: TitleProps) => (
+    <Heading slot="title" level={level} className={titleStyles({ level, className })} {...props} />
 )
 
 const Description = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -139,17 +150,15 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
         }
     }, [isMobile])
     return props.isDismissable ? (
-        <Button
+        <ButtonPrimitive
             ref={buttonRef}
             {...(isMobile ? { autoFocus: true } : {})}
-            appearance="plain"
-            size="square-petite"
             aria-label="Close"
             onPress={props.close}
             className={closeIndicator({ className })}
         >
             <IconX className="size-4" />
-        </Button>
+        </ButtonPrimitive>
     ) : null
 }
 

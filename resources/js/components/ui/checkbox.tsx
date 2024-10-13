@@ -2,8 +2,8 @@ import { type ReactNode } from 'react'
 
 import { IconCheck, IconMinus } from 'justd-icons'
 import {
-    Checkbox as CheckboxPrimitive,
     CheckboxGroup as CheckboxGroupPrimitive,
+    Checkbox as CheckboxPrimitive,
     type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
     type CheckboxProps as CheckboxPrimitiveProps,
     type ValidationResult
@@ -11,7 +11,7 @@ import {
 import { tv } from 'tailwind-variants'
 
 import { Description, FieldError, Label } from './field'
-import { cr, ctr } from './primitive'
+import { cn, cr, ctr } from './primitive'
 
 interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children'> {
     label?: string
@@ -22,7 +22,7 @@ interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
     return (
-        <CheckboxGroupPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-2')}>
+        <CheckboxGroupPrimitive {...props} className={ctr(props.className, 'flex flex-col gap-y-2')}>
             <Label>{props.label}</Label>
             <>{props.children}</>
             {props.description && <Description className="block">{props.description}</Description>}
@@ -68,19 +68,19 @@ interface CheckboxProps extends CheckboxPrimitiveProps {
     label?: string
 }
 
-const Checkbox = (props: CheckboxProps) => {
+const Checkbox = ({ className, ...props }: CheckboxProps) => {
     return (
         <CheckboxPrimitive
             {...props}
-            className={cr(props.className, (className, renderProps) => checkboxStyles({ ...renderProps, className }))}
+            className={cr(className, (className, renderProps) => checkboxStyles({ ...renderProps, className }))}
         >
             {({ isSelected, isIndeterminate, ...renderProps }) => (
-                <div className="flex gap-2">
+                <div className={cn('flex gap-x-2', props.description ? 'items-start' : 'items-center')}>
                     <div
                         className={boxStyles({
+                            ...renderProps,
                             isSelected: isSelected || isIndeterminate,
-                            className: props.description ? 'mt-1' : 'mt-0.5',
-                            ...renderProps
+                            className: props.description ? 'mt-1' : 'mt-px'
                         })}
                     >
                         {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}
