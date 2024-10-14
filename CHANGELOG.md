@@ -1,11 +1,8 @@
-
-
 ## [1.0.26](https://github.com/justdlabs/inertia.ts/compare/1.0.25...1.0.26) (2024-10-13)
-
 
 ### Bug Fixes
 
-* bumping vendor ([d992964](https://github.com/justdlabs/inertia.ts/commit/d99296422ce7d4bbc8707fc3c505cf0ff6976ed1))
+-   bumping vendor ([d992964](https://github.com/justdlabs/inertia.ts/commit/d99296422ce7d4bbc8707fc3c505cf0ff6976ed1))
 
 ## [1.0.25](https://github.com/justdlabs/inertia.ts/compare/1.0.24...1.0.25) (2024-10-13)
 

@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/theme-provider'
+import { ThemeProvider } from 'components/theme-provider'
 import { router } from '@inertiajs/react'
 import React from 'react'
 import { RouterProvider } from 'react-aria-components'

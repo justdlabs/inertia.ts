@@ -1,4 +1,4 @@
-import { useTheme } from '@/theme-provider'
+import { useTheme } from 'components/theme-provider'
 import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
 import { Container } from 'components/container'
