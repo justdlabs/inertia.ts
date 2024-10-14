@@ -1,8 +1,8 @@
-import { useTheme } from '@/theme-provider'
 import { PagePropsData } from '@/types'
 import { usePage } from '@inertiajs/react'
 import { Container } from 'components/container'
 import { Logo } from 'components/logo'
+import { useTheme } from 'components/theme-provider'
 import { ThemeSwitcher } from 'components/theme-switcher'
 import { motion } from 'framer-motion'
 import {

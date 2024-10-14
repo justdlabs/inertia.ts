@@ -5,7 +5,7 @@
     "singleQuote": true,
     "trailingComma": "none",
     "tabWidth": 4,
-    "semi": false,
+    "semi": true,
     "useTabs": false,
     "bracketSpacing": true,
     "bracketSameLine": false

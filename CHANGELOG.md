@@ -1,11 +1,23 @@
 
 
-## [1.0.26](https://github.com/justdlabs/inertia.ts/compare/1.0.25...1.0.26) (2024-10-13)
+## [1.0.28](https://github.com/justdlabs/inertia.ts/compare/1.0.27...1.0.28) (2024-10-14)
 
 
 ### Bug Fixes
 
-* bumping vendor ([d992964](https://github.com/justdlabs/inertia.ts/commit/d99296422ce7d4bbc8707fc3c505cf0ff6976ed1))
+* fix prettier ([0d32de2](https://github.com/justdlabs/inertia.ts/commit/0d32de2abe4d90fddf448997df697f037bca945b))
+
+## [1.0.27](https://github.com/justdlabs/inertia.ts/compare/1.0.26...1.0.27) (2024-10-14)
+
+### Bug Fixes
+
+-   fix providers ([a8fdfb9](https://github.com/justdlabs/inertia.ts/commit/a8fdfb9af7549f1aa448b2e942cca2d6d44c8dfb))
+
+## [1.0.26](https://github.com/justdlabs/inertia.ts/compare/1.0.25...1.0.26) (2024-10-13)
+
+### Bug Fixes
+
+-   bumping vendor ([d992964](https://github.com/justdlabs/inertia.ts/commit/d99296422ce7d4bbc8707fc3c505cf0ff6976ed1))
 
 ## [1.0.25](https://github.com/justdlabs/inertia.ts/compare/1.0.24...1.0.25) (2024-10-13)
 
