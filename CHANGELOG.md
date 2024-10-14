@@ -1,3 +1,12 @@
+
+
+## [1.0.28](https://github.com/justdlabs/inertia.ts/compare/1.0.27...1.0.28) (2024-10-14)
+
+
+### Bug Fixes
+
+* fix prettier ([0d32de2](https://github.com/justdlabs/inertia.ts/commit/0d32de2abe4d90fddf448997df697f037bca945b))
+
 ## [1.0.27](https://github.com/justdlabs/inertia.ts/compare/1.0.26...1.0.27) (2024-10-14)
 
 ### Bug Fixes
