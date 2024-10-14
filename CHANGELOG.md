@@ -1,3 +1,12 @@
+
+
+## [1.0.27](https://github.com/justdlabs/inertia.ts/compare/1.0.26...1.0.27) (2024-10-14)
+
+
+### Bug Fixes
+
+* fix providers ([a8fdfb9](https://github.com/justdlabs/inertia.ts/commit/a8fdfb9af7549f1aa448b2e942cca2d6d44c8dfb))
+
 ## [1.0.26](https://github.com/justdlabs/inertia.ts/compare/1.0.25...1.0.26) (2024-10-13)
 
 ### Bug Fixes
