@@ -1,5 +1,12 @@
 
 
+## [1.0.32](https://github.com/justdlabs/inertia.ts/compare/1.0.31...1.0.32) (2024-10-16)
+
+
+### Bug Fixes
+
+* fix routing ssr ([829693d](https://github.com/justdlabs/inertia.ts/commit/829693d03508e0f483c157e988c5350cd04dd39b))
+
 ## [1.0.31](https://github.com/justdlabs/inertia.ts/compare/1.0.30...1.0.31) (2024-10-16)
 
 
