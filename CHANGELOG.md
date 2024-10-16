@@ -1,18 +1,30 @@
 
 
-## [1.0.30](https://github.com/justdlabs/inertia.ts/compare/1.0.29...1.0.30) (2024-10-16)
+## [1.0.32](https://github.com/justdlabs/inertia.ts/compare/1.0.31...1.0.32) (2024-10-16)
 
 
 ### Bug Fixes
 
-* fix app.tsx ([bacb103](https://github.com/justdlabs/inertia.ts/commit/bacb103bf0293d4ddaf68391a55b5337bdc59674))
+* fix routing ssr ([829693d](https://github.com/justdlabs/inertia.ts/commit/829693d03508e0f483c157e988c5350cd04dd39b))
+
+## [1.0.31](https://github.com/justdlabs/inertia.ts/compare/1.0.30...1.0.31) (2024-10-16)
+
+
+### Bug Fixes
+
+* add run to composer.json ([ad00c97](https://github.com/justdlabs/inertia.ts/commit/ad00c975d4cb8ee502fb03c920cd2b1122adb9f9))
+
+## [1.0.30](https://github.com/justdlabs/inertia.ts/compare/1.0.29...1.0.30) (2024-10-16)
+
+### Bug Fixes
+
+-   fix app.tsx ([bacb103](https://github.com/justdlabs/inertia.ts/commit/bacb103bf0293d4ddaf68391a55b5337bdc59674))
 
 ## [1.0.29](https://github.com/justdlabs/inertia.ts/compare/1.0.28...1.0.29) (2024-10-16)
 
-
 ### Bug Fixes
 
-* add ziggy location to inertia middleware ([a40dbc6](https://github.com/justdlabs/inertia.ts/commit/a40dbc68fe0650f9f6b8756067932521e45f805b))
+-   add ziggy location to inertia middleware ([a40dbc6](https://github.com/justdlabs/inertia.ts/commit/a40dbc68fe0650f9f6b8756067932521e45f805b))
 
 ## [1.0.28](https://github.com/justdlabs/inertia.ts/compare/1.0.27...1.0.28) (2024-10-14)
 
