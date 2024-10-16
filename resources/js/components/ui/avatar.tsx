@@ -1,20 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { VisuallyHidden } from './visually-hidden'
+import { VisuallyHidden } from './visually-hidden';
 
 const avatarGroupStyles = tv({
     base: 'flex items-center justify-center -space-x-2 [&_[data-slot=avatar]]:ring-2 [&_[data-slot=avatar]]:ring-bg'
-})
+});
 
 interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarGroupStyles> {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 const AvatarGroup = ({ className, ...props }: AvatarGroupProps) => {
-    return <div className={avatarGroupStyles({ className })} {...props} />
-}
+    return <div className={avatarGroupStyles({ className })} {...props} />;
+};
 
 const avatarStyles = tv({
     base: [
@@ -38,16 +38,16 @@ const avatarStyles = tv({
         shape: 'circle',
         size: 'medium'
     }
-})
+});
 
-type Status = 'away' | 'online' | 'offline' | 'dnd' | 'idle'
+type Status = 'away' | 'online' | 'offline' | 'dnd' | 'idle';
 
 interface AvatarProps extends React.ComponentPropsWithoutRef<'span'>, VariantProps<typeof avatarStyles> {
-    src?: string | null
-    initials?: string
-    alt?: string
-    status?: Status
-    className?: string
+    src?: string | null;
+    initials?: string;
+    alt?: string;
+    status?: Status;
+    className?: string;
 }
 
 const Avatar = ({
@@ -61,8 +61,8 @@ const Avatar = ({
     size,
     ...props
 }: AvatarProps) => {
-    const badgeId = React.useId()
-    const ariaLabelledby = [badgeId, children ? badgeId : ''].join(' ')
+    const badgeId = React.useId();
+    const ariaLabelledby = [badgeId, children ? badgeId : ''].join(' ');
     return (
         <span
             aria-labelledby={ariaLabelledby}
@@ -92,16 +92,16 @@ const Avatar = ({
             {src && <img src={src} alt={alt} />}
             {status && <AvatarBadge size={size} status={status} aria-label={status} />}
         </span>
-    )
-}
+    );
+};
 
 type AvatarBadgeProps = {
-    className?: string
-    status?: Status
-    fillBackground?: boolean
-    'aria-label': string
-    size?: AvatarProps['size']
-}
+    className?: string;
+    status?: Status;
+    fillBackground?: boolean;
+    'aria-label': string;
+    size?: AvatarProps['size'];
+};
 
 const avatarBadgeStyles = tv({
     base: ['size-3 z-10 absolute bottom-0 right-0 rounded-full ring-[1.5px] ring-bg bg-bg'],
@@ -124,14 +124,14 @@ const avatarBadgeStyles = tv({
         size: 'medium',
         status: 'idle'
     }
-})
+});
 
 const AvatarBadge = ({ size, className, status, ...props }: AvatarBadgeProps) => {
     return (
         <span data-slot="badge" {...props} aria-hidden className={avatarBadgeStyles({ size, status, className })}>
             <VisuallyHidden>{status}</VisuallyHidden>
         </span>
-    )
-}
+    );
+};
 
-export { Avatar, AvatarGroup }
+export { Avatar, AvatarGroup };

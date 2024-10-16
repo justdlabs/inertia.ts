@@ -1,24 +1,24 @@
-import { Head, useForm } from '@inertiajs/react'
-import { GuestLayout } from 'layouts'
-import { useEffect } from 'react'
-import { Button, Form, TextField } from 'ui'
+import { Head, useForm } from '@inertiajs/react';
+import { GuestLayout } from 'layouts';
+import { useEffect } from 'react';
+import { Button, Form, TextField } from 'ui';
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({
         password: ''
-    })
+    });
 
     useEffect(() => {
         return () => {
-            reset('password')
-        }
-    }, [])
+            reset('password');
+        };
+    }, []);
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        post(route('password.confirm'))
-    }
+        post(route('password.confirm'));
+    };
 
     return (
         <>
@@ -45,7 +45,7 @@ export default function ConfirmPassword() {
                 </div>
             </Form>
         </>
-    )
+    );
 }
 
-ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />
+ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />;

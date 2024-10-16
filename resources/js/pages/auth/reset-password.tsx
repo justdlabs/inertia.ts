@@ -1,34 +1,34 @@
-import { Head, useForm } from '@inertiajs/react'
-import { GuestLayout } from 'layouts'
-import { useEffect } from 'react'
-import { Button, Form, TextField } from 'ui'
+import { Head, useForm } from '@inertiajs/react';
+import { GuestLayout } from 'layouts';
+import { useEffect } from 'react';
+import { Button, Form, TextField } from 'ui';
 
 interface ResetPasswordProps {
-    token: string
-    email: string
+    token: string;
+    email: string;
 }
 
-type InputTargetProps = { name: any; value: any }
+type InputTargetProps = { name: any; value: any };
 
 export default function ResetPassword(args: ResetPasswordProps) {
-    const { token, email } = args
+    const { token, email } = args;
     const { data, setData, post, processing, errors, reset } = useForm({
         token: token,
         email: email,
         password: '',
         password_confirmation: ''
-    })
+    });
 
     useEffect(() => {
         return () => {
-            reset('password', 'password_confirmation')
-        }
-    }, [])
+            reset('password', 'password_confirmation');
+        };
+    }, []);
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
-        post('/reset-password')
-    }
+        e.preventDefault();
+        post('/reset-password');
+    };
 
     return (
         <>
@@ -76,7 +76,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
                 </div>
             </Form>
         </>
-    )
+    );
 }
 
-ResetPassword.layout = (page: any) => <GuestLayout children={page} />
+ResetPassword.layout = (page: any) => <GuestLayout children={page} />;

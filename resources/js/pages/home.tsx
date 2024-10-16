@@ -1,7 +1,7 @@
-import { Head } from '@inertiajs/react'
-import { Container } from 'components/container'
-import { Header } from 'components/header'
-import { Logo } from 'components/logo'
+import { Head } from '@inertiajs/react';
+import { Container } from 'components/container';
+import { Header } from 'components/header';
+import { Logo } from 'components/logo';
 import {
     IconBrandGithub,
     IconBrandJustd,
@@ -9,9 +9,9 @@ import {
     IconBrandParanoid,
     IconBrandParsinta,
     IconCube
-} from 'justd-icons'
-import { AppLayout } from 'layouts'
-import { Card, Grid, Link } from 'ui'
+} from 'justd-icons';
+import { AppLayout } from 'layouts';
+import { Card, Grid, Link } from 'ui';
 
 const items = [
     {
@@ -55,7 +55,7 @@ const items = [
         description:
             'Improve your skills with Karteil by pushing your skills to the next level, through the online books here such as Laravel, Vue, React, Tailwind CSS and Much more.'
     }
-]
+];
 
 export default function Home() {
     return (
@@ -118,7 +118,7 @@ export default function Home() {
                 </div>
             </Container>
         </>
-    )
+    );
 }
 
-Home.layout = (page: any) => <AppLayout children={page} />
+Home.layout = (page: any) => <AppLayout children={page} />;

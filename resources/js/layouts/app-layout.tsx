@@ -1,7 +1,7 @@
-import { FlashMessage } from 'components/flash-message'
-import { Footer } from 'components/footer'
-import { Navbar } from 'components/navbar'
-import { PropsWithChildren } from 'react'
+import { FlashMessage } from 'components/flash-message';
+import { Footer } from 'components/footer';
+import { Navbar } from 'components/navbar';
+import { PropsWithChildren } from 'react';
 
 export function AppLayout({ children }: PropsWithChildren) {
     return (
@@ -11,5 +11,5 @@ export function AppLayout({ children }: PropsWithChildren) {
             <main>{children}</main>
             <Footer />
         </div>
-    )
+    );
 }

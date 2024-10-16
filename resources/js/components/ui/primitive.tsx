@@ -1,17 +1,17 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { type ClassValue, clsx } from 'clsx'
-import { composeRenderProps } from 'react-aria-components'
-import { twMerge } from 'tailwind-merge'
-import { tv } from 'tailwind-variants'
+import { type ClassValue, clsx } from 'clsx';
+import { composeRenderProps } from 'react-aria-components';
+import { twMerge } from 'tailwind-merge';
+import { tv } from 'tailwind-variants';
 
-const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 function composeTailwindRenderProps<T>(
     className: string | ((v: T) => string) | undefined,
     tw: string | Array<string | undefined>
 ): string | ((v: T) => string) {
-    return composeRenderProps(className, (className) => twMerge(tw, className))
+    return composeRenderProps(className, (className) => twMerge(tw, className));
 }
 
 const focusRing = tv({
@@ -20,7 +20,7 @@ const focusRing = tv({
         isFocused: { true: 'ring-4 ring-ring/20' },
         isInvalid: { true: 'ring-4 ring-danger/20' }
     }
-})
+});
 
 const focusStyles = tv({
     extend: focusRing,
@@ -28,7 +28,7 @@ const focusStyles = tv({
         isFocused: { true: 'border-ring' },
         isInvalid: { true: 'border-danger' }
     }
-})
+});
 
 const focusButtonStyles = tv({
     base: 'outline outline-ring forced-colors:outline-[Highlight] outline-offset-2',
@@ -38,29 +38,29 @@ const focusButtonStyles = tv({
             true: 'outline-2'
         }
     }
-})
+});
 
 const useMediaQuery = (query: string) => {
-    const [value, setValue] = React.useState(false)
+    const [value, setValue] = React.useState(false);
 
     React.useEffect(() => {
         const onChange = (event: MediaQueryListEvent) => {
-            setValue(event.matches)
-        }
+            setValue(event.matches);
+        };
 
-        const result = matchMedia(query)
-        result.addEventListener('change', onChange)
-        setValue(result.matches)
+        const result = matchMedia(query);
+        result.addEventListener('change', onChange);
+        setValue(result.matches);
 
-        return () => result.removeEventListener('change', onChange)
-    }, [query])
+        return () => result.removeEventListener('change', onChange);
+    }, [query]);
 
-    return value
-}
+    return value;
+};
 
-const ctr = composeTailwindRenderProps
-const tm = twMerge
-const cr = composeRenderProps
+const ctr = composeTailwindRenderProps;
+const tm = twMerge;
+const cr = composeRenderProps;
 
 export {
     cn,
@@ -73,4 +73,4 @@ export {
     tm,
     twMerge,
     useMediaQuery
-}
+};

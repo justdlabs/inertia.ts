@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react'
-import { cn, Description } from 'ui'
+import { HTMLAttributes } from 'react';
+import { cn, Description } from 'ui';
 
 export function InputError({
     message,
@@ -10,5 +10,5 @@ export function InputError({
         <Description {...props} className={cn('text-sm block text-danger')}>
             {message}
         </Description>
-    ) : null
+    ) : null;
 }

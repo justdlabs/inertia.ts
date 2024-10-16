@@ -1,9 +1,9 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+import { Button as ButtonPrimitive, type ButtonProps as ButtonPrimitiveProps } from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { cr, focusButtonStyles } from './primitive'
+import { cr, focusButtonStyles } from './primitive';
 
 const buttonStyles = tv(
     {
@@ -81,13 +81,13 @@ const buttonStyles = tv(
     {
         responsiveVariants: ['sm', 'lg']
     }
-)
+);
 
 interface ButtonProps extends ButtonPrimitiveProps {
-    intent?: 'primary' | 'secondary' | 'danger' | 'warning'
-    size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
-    shape?: 'square' | 'circle'
-    appearance?: 'solid' | 'outline' | 'plain'
+    intent?: 'primary' | 'secondary' | 'danger' | 'warning';
+    size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small';
+    shape?: 'square' | 'circle';
+    appearance?: 'solid' | 'outline' | 'plain';
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -109,10 +109,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             >
                 {(values) => <>{typeof props.children === 'function' ? props.children(values) : props.children}</>}
             </ButtonPrimitive>
-        )
+        );
     }
-)
+);
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';
 
-export { Button, ButtonPrimitive, buttonStyles, type ButtonProps }
+export { Button, ButtonPrimitive, buttonStyles, type ButtonProps };

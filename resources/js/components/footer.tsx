@@ -1,6 +1,6 @@
-import { ThemeToggle } from 'components/theme-toggle'
-import { SVGProps } from 'react'
-import { Button, Link, TextField } from 'ui'
+import { ThemeToggle } from 'components/theme-toggle';
+import { SVGProps } from 'react';
+import { Button, Link, TextField } from 'ui';
 
 const navigation = {
     solutions: [
@@ -89,7 +89,7 @@ const navigation = {
             )
         }
     ]
-}
+};
 
 export function Footer() {
     return (
@@ -212,5 +212,5 @@ export function Footer() {
                 </div>
             </div>
         </footer>
-    )
+    );
 }

@@ -1,15 +1,15 @@
-import { Head } from '@inertiajs/react'
-import { Container } from 'components/container'
-import { Header } from 'components/header'
-import { AppLayout } from 'layouts'
-import { DeleteUserForm, UpdatePasswordForm, UpdateProfileInformationForm } from './partials'
+import { Head } from '@inertiajs/react';
+import { Container } from 'components/container';
+import { Header } from 'components/header';
+import { AppLayout } from 'layouts';
+import { DeleteUserForm, UpdatePasswordForm, UpdateProfileInformationForm } from './partials';
 
 interface Props {
-    mustVerifyEmail: boolean
-    status?: string
+    mustVerifyEmail: boolean;
+    status?: string;
 }
 
-const title = 'Profile'
+const title = 'Profile';
 
 export default function Edit({ mustVerifyEmail, status }: Props) {
     return (
@@ -24,7 +24,7 @@ export default function Edit({ mustVerifyEmail, status }: Props) {
                 </div>
             </Container>
         </>
-    )
+    );
 }
 
-Edit.layout = (page: any) => <AppLayout children={page} />
+Edit.layout = (page: any) => <AppLayout children={page} />;

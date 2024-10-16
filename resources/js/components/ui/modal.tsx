@@ -1,16 +1,16 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import type { DialogTriggerProps, ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components'
+import type { DialogTriggerProps, ModalOverlayProps as ModalOverlayPrimitiveProps } from 'react-aria-components';
 import {
     type DialogProps,
     DialogTrigger as DialogTriggerPrimitive,
     ModalOverlay as ModalOverlayPrimitive,
     Modal as ModalPrimitive
-} from 'react-aria-components'
-import { tv, type VariantProps } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { Dialog } from './dialog'
-import { cr } from './primitive'
+import { Dialog } from './dialog';
+import { cr } from './primitive';
 
 const modalOverlayStyles = tv({
     base: [
@@ -30,7 +30,7 @@ const modalOverlayStyles = tv({
             true: 'duration-200 ease-in animate-out fade-out'
         }
     }
-})
+});
 const modalContentStyles = tv({
     base: [
         'max-h-full w-full rounded-t-3xl ring-1 ring-dark/5 bg-overlay text-overlay-fg text-left align-middle shadow-lg',
@@ -65,26 +65,26 @@ const modalContentStyles = tv({
     defaultVariants: {
         size: 'lg'
     }
-})
+});
 
-type ModalProps = DialogTriggerProps
+type ModalProps = DialogTriggerProps;
 const Modal = ({ children, ...props }: ModalProps) => {
-    return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>
-}
+    return <DialogTriggerPrimitive {...props}>{children}</DialogTriggerPrimitive>;
+};
 
 interface ModalContentProps
     extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
         Omit<ModalOverlayPrimitiveProps, 'className'>,
         VariantProps<typeof modalContentStyles> {
-    'aria-label'?: DialogProps['aria-label']
-    'aria-labelledby'?: DialogProps['aria-labelledby']
-    role?: DialogProps['role']
-    closeButton?: boolean
-    isBlurred?: boolean
+    'aria-label'?: DialogProps['aria-label'];
+    'aria-labelledby'?: DialogProps['aria-labelledby'];
+    role?: DialogProps['role'];
+    closeButton?: boolean;
+    isBlurred?: boolean;
     classNames?: {
-        overlay?: ModalOverlayPrimitiveProps['className']
-        content?: ModalOverlayPrimitiveProps['className']
-    }
+        overlay?: ModalOverlayPrimitiveProps['className'];
+        content?: ModalOverlayPrimitiveProps['className'];
+    };
 }
 
 const ModalContent = ({
@@ -97,7 +97,7 @@ const ModalContent = ({
     closeButton = true,
     ...props
 }: ModalContentProps) => {
-    const _isDismissable = role === 'alertdialog' ? false : isDismissable
+    const _isDismissable = role === 'alertdialog' ? false : isDismissable;
     return (
         <ModalOverlayPrimitive
             isDismissable={_isDismissable}
@@ -106,7 +106,7 @@ const ModalContent = ({
                     ...renderProps,
                     isBlurred,
                     className
-                })
+                });
             })}
             {...props}
         >
@@ -130,16 +130,16 @@ const ModalContent = ({
                 )}
             </ModalPrimitive>
         </ModalOverlayPrimitive>
-    )
-}
+    );
+};
 
-Modal.Trigger = Dialog.Trigger
-Modal.Header = Dialog.Header
-Modal.Title = Dialog.Title
-Modal.Description = Dialog.Description
-Modal.Footer = Dialog.Footer
-Modal.Body = Dialog.Body
-Modal.Close = Dialog.Close
-Modal.Content = ModalContent
+Modal.Trigger = Dialog.Trigger;
+Modal.Header = Dialog.Header;
+Modal.Title = Dialog.Title;
+Modal.Description = Dialog.Description;
+Modal.Footer = Dialog.Footer;
+Modal.Body = Dialog.Body;
+Modal.Close = Dialog.Close;
+Modal.Content = ModalContent;
 
-export { Modal, modalContentStyles, modalOverlayStyles }
+export { Modal, modalContentStyles, modalOverlayStyles };

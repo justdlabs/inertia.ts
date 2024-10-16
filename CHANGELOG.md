@@ -1,11 +1,17 @@
 
 
-## [1.0.28](https://github.com/justdlabs/inertia.ts/compare/1.0.27...1.0.28) (2024-10-14)
+## [1.0.29](https://github.com/justdlabs/inertia.ts/compare/1.0.28...1.0.29) (2024-10-16)
 
 
 ### Bug Fixes
 
-* fix prettier ([0d32de2](https://github.com/justdlabs/inertia.ts/commit/0d32de2abe4d90fddf448997df697f037bca945b))
+* add ziggy location to inertia middleware ([a40dbc6](https://github.com/justdlabs/inertia.ts/commit/a40dbc68fe0650f9f6b8756067932521e45f805b))
+
+## [1.0.28](https://github.com/justdlabs/inertia.ts/compare/1.0.27...1.0.28) (2024-10-14)
+
+### Bug Fixes
+
+-   fix prettier ([0d32de2](https://github.com/justdlabs/inertia.ts/commit/0d32de2abe4d90fddf448997df697f037bca945b))
 
 ## [1.0.27](https://github.com/justdlabs/inertia.ts/compare/1.0.26...1.0.27) (2024-10-14)
 

@@ -1,22 +1,22 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import type { Placement } from '@react-types/overlays'
-import { IconChevronLgDown } from 'justd-icons'
-import type { ButtonProps } from 'react-aria-components'
+import type { Placement } from '@react-types/overlays';
+import { IconChevronLgDown } from 'justd-icons';
+import type { ButtonProps } from 'react-aria-components';
 import {
     Button,
     Select as SelectPrimitive,
     type SelectProps as SelectPrimitiveProps,
     SelectValue,
     type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown'
-import { Description, FieldError, Label } from './field'
-import { ListBox } from './list-box'
-import { Popover } from './popover'
-import { cr, ctr, focusStyles } from './primitive'
+import { DropdownItem, DropdownItemDetails, DropdownSection } from './dropdown';
+import { Description, FieldError, Label } from './field';
+import { ListBox } from './list-box';
+import { Popover } from './popover';
+import { cr, ctr, focusStyles } from './primitive';
 
 const selectTriggerStyles = tv({
     extend: focusStyles,
@@ -29,14 +29,14 @@ const selectTriggerStyles = tv({
             true: 'bg-secondary text-muted-fg forced-colors:border-[GrayText] forced-colors:text-[GrayText]'
         }
     }
-})
+});
 
 interface SelectProps<T extends object> extends SelectPrimitiveProps<T> {
-    label?: string
-    description?: string
-    errorMessage?: string | ((validation: ValidationResult) => string)
-    items?: Iterable<T>
-    className?: string
+    label?: string;
+    description?: string;
+    errorMessage?: string | ((validation: ValidationResult) => string);
+    items?: Iterable<T>;
+    className?: string;
 }
 
 const Select = <T extends object>({
@@ -54,14 +54,14 @@ const Select = <T extends object>({
             {description && <Description>{description}</Description>}
             <FieldError>{errorMessage}</FieldError>
         </SelectPrimitive>
-    )
-}
+    );
+};
 
 interface ListProps<T extends object> {
-    items?: Iterable<T>
-    placement?: Placement
-    children: React.ReactNode | ((item: T) => React.ReactNode)
-    className?: string
+    items?: Iterable<T>;
+    placement?: Placement;
+    children: React.ReactNode | ((item: T) => React.ReactNode);
+    className?: string;
 }
 
 const List = <T extends object>({ className, children, items, placement }: ListProps<T>) => {
@@ -71,12 +71,12 @@ const List = <T extends object>({ className, children, items, placement }: ListP
                 {children}
             </ListBox.Picker>
         </Popover.Picker>
-    )
-}
+    );
+};
 
 interface TriggerProps extends ButtonProps {
-    prefix?: React.ReactNode
-    className?: string
+    prefix?: React.ReactNode;
+    className?: string;
 }
 
 const Trigger = ({ className, ...props }: TriggerProps) => {
@@ -96,13 +96,13 @@ const Trigger = ({ className, ...props }: TriggerProps) => {
                 className="text-muted-fg shrink-0 size-4 duration-300 group-open:rotate-180 group-open:text-fg group-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
             />
         </Button>
-    )
-}
+    );
+};
 
-Select.OptionDetails = DropdownItemDetails
-Select.Option = DropdownItem
-Select.Section = DropdownSection
-Select.Trigger = Trigger
-Select.List = List
+Select.OptionDetails = DropdownItemDetails;
+Select.Option = DropdownItem;
+Select.Section = DropdownSection;
+Select.Trigger = Trigger;
+Select.List = List;
 
-export { Select }
+export { Select };

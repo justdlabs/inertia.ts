@@ -1,10 +1,10 @@
-import { PagePropsData } from '@/types'
-import { usePage } from '@inertiajs/react'
-import { Container } from 'components/container'
-import { Logo } from 'components/logo'
-import { useTheme } from 'components/theme-provider'
-import { ThemeSwitcher } from 'components/theme-switcher'
-import { motion } from 'framer-motion'
+import { PagePropsData } from '@/types';
+import { usePage } from '@inertiajs/react';
+import { Container } from 'components/container';
+import { Logo } from 'components/logo';
+import { useTheme } from 'components/theme-provider';
+import { ThemeSwitcher } from 'components/theme-switcher';
+import { motion } from 'framer-motion';
 import {
     IconBrandJustd,
     IconBrandLaravel,
@@ -12,11 +12,11 @@ import {
     IconColorSwatch,
     IconHamburger,
     IconSettings
-} from 'justd-icons'
-import React from 'react'
-import { ListBox, ListBoxItem, ListBoxItemProps, Selection } from 'react-aria-components'
-import { tv } from 'tailwind-variants'
-import { Avatar, Button, Link, Menu, Sheet, useMediaQuery } from 'ui'
+} from 'justd-icons';
+import React from 'react';
+import { ListBox, ListBoxItem, ListBoxItemProps, Selection } from 'react-aria-components';
+import { tv } from 'tailwind-variants';
+import { Avatar, Button, Link, Menu, Sheet, useMediaQuery } from 'ui';
 
 const navigations = [
     {
@@ -53,10 +53,10 @@ const navigations = [
         href: 'https://irsyad.co/s',
         className: 'justify-between'
     }
-]
+];
 
 export function Navbar() {
-    const { auth } = usePage<PagePropsData>().props
+    const { auth } = usePage<PagePropsData>().props;
     return (
         <>
             <ResponsiveNavbar />
@@ -77,7 +77,7 @@ export function Navbar() {
                 </Container>
             </nav>
         </>
-    )
+    );
 }
 
 const navStyles = tv({
@@ -88,24 +88,24 @@ const navStyles = tv({
             false: 'text-muted-fg hover:text-fg'
         }
     }
-})
+});
 
 interface LinkProps extends ListBoxItemProps {
-    className?: string
-    children: React.ReactNode
-    target?: string
-    href?: string
+    className?: string;
+    children: React.ReactNode;
+    target?: string;
+    href?: string;
 }
 
 function NavLink({ children, className, ...props }: LinkProps) {
-    const pathname = usePage().url
-    const isCurrent = pathname === props.href
+    const pathname = usePage().url;
+    const isCurrent = pathname === props.href;
     return (
         <ListBoxItem className={navStyles({ isCurrent, className })} {...props}>
             {children}
             {isCurrent && <CurrentIndicator />}
         </ListBoxItem>
-    )
+    );
 }
 
 function CurrentIndicator() {
@@ -114,7 +114,7 @@ function CurrentIndicator() {
             className="h-full inset-y-0 sm:inset-auto sm:h-0.5 w-0.5 sm:w-full rounded-full bg-fg -left-4 sm:bottom-[-5px] sm:inset-x block absolute"
             layoutId="current"
         />
-    )
+    );
 }
 
 function LoginMenu() {
@@ -129,14 +129,14 @@ function LoginMenu() {
                 <Menu.Item href={route('register')}>Register</Menu.Item>
             </Menu.Content>
         </Menu>
-    )
+    );
 }
 
 function UserMenu() {
-    const { auth } = usePage<PagePropsData>().props
-    const { theme, setTheme } = useTheme()
-    const currentTheme = theme || 'system'
-    const [selectedTheme, setSelectedTheme] = React.useState<Selection>(new Set([currentTheme]))
+    const { auth } = usePage<PagePropsData>().props;
+    const { theme, setTheme } = useTheme();
+    const currentTheme = theme || 'system';
+    const [selectedTheme, setSelectedTheme] = React.useState<Selection>(new Set([currentTheme]));
     return (
         <Menu>
             <Menu.Trigger aria-label="Open menu">
@@ -162,9 +162,9 @@ function UserMenu() {
                         selectionMode="single"
                         selectedKeys={selectedTheme}
                         onSelectionChange={(keys) => {
-                            setSelectedTheme(keys)
+                            setSelectedTheme(keys);
                             // @ts-ignore
-                            setTheme(keys.has('system') ? 'system' : keys.has('dark') ? 'dark' : 'light')
+                            setTheme(keys.has('system') ? 'system' : keys.has('dark') ? 'dark' : 'light');
                         }}
                         items={[
                             { name: 'Light', value: 'light' },
@@ -198,11 +198,11 @@ function UserMenu() {
                 </Menu.Item>
             </Menu.Content>
         </Menu>
-    )
+    );
 }
 
 function ResponsiveNavbar() {
-    const { auth } = usePage<PagePropsData>().props
+    const { auth } = usePage<PagePropsData>().props;
     return (
         <nav className="block border-b px-4 py-2 sm:hidden">
             <div className="flex items-center justify-between py-1">
@@ -233,11 +233,11 @@ function ResponsiveNavbar() {
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
 function NavContent() {
-    const isMobile = useMediaQuery('(max-width: 640px)')
+    const isMobile = useMediaQuery('(max-width: 640px)');
     return (
         <ListBox
             aria-label="Navigation"
@@ -258,5 +258,5 @@ function NavContent() {
                 </NavLink>
             )}
         </ListBox>
-    )
+    );
 }

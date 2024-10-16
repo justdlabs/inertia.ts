@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-import { withTV } from 'tailwind-variants/transformer'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import { withTV } from 'tailwind-variants/transformer';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config = withTV({
     darkMode: ['class'],
@@ -96,6 +96,6 @@ const config = withTV({
         }
     },
     plugins: [require('tailwindcss-animate'), require('tailwindcss-react-aria-components')]
-})
+});
 
-export default config
+export default config;

@@ -1,32 +1,32 @@
-import { Head, useForm } from '@inertiajs/react'
-import { GuestLayout } from 'layouts'
-import React, { useEffect } from 'react'
-import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui'
+import { Head, useForm } from '@inertiajs/react';
+import { GuestLayout } from 'layouts';
+import React, { useEffect } from 'react';
+import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui';
 
 interface LoginProps {
-    status: string
-    canResetPassword: boolean
+    status: string;
+    canResetPassword: boolean;
 }
 
 export default function Login(args: LoginProps) {
-    const { status, canResetPassword } = args
+    const { status, canResetPassword } = args;
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
         remember: ''
-    })
+    });
 
     useEffect(() => {
         return () => {
-            reset('password')
-        }
-    }, [])
+            reset('password');
+        };
+    }, []);
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        post(route('login'))
-    }
+        post(route('login'));
+    };
 
     return (
         <>
@@ -79,9 +79,9 @@ export default function Login(args: LoginProps) {
                 </div>
             </Form>
         </>
-    )
+    );
 }
 
 Login.layout = (page: React.ReactNode) => {
-    return <GuestLayout header="Login" description="Log in to your account." children={page} />
-}
+    return <GuestLayout header="Login" description="Log in to your account." children={page} />;
+};
