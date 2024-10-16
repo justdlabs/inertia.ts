@@ -1,3 +1,12 @@
+
+
+## [1.0.31](https://github.com/justdlabs/inertia.ts/compare/1.0.30...1.0.31) (2024-10-16)
+
+
+### Bug Fixes
+
+* add run to composer.json ([ad00c97](https://github.com/justdlabs/inertia.ts/commit/ad00c975d4cb8ee502fb03c920cd2b1122adb9f9))
+
 ## [1.0.30](https://github.com/justdlabs/inertia.ts/compare/1.0.29...1.0.30) (2024-10-16)
 
 ### Bug Fixes
