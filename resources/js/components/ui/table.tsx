@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { IconChevronLgDown, IconHamburger } from 'justd-icons'
+import { IconChevronLgDown, IconHamburger } from 'justd-icons';
 import type {
     CellProps,
     ColumnProps,
@@ -9,7 +9,7 @@ import type {
     TableBodyProps,
     TableHeaderProps,
     TableProps as TablePrimitiveProps
-} from 'react-aria-components'
+} from 'react-aria-components';
 import {
     Button,
     Cell,
@@ -22,11 +22,11 @@ import {
     TableHeader,
     Table as TablePrimitive,
     useTableOptions
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { Checkbox } from './checkbox'
-import { cn, cr } from './primitive'
+import { Checkbox } from './checkbox';
+import { cn, cr } from './primitive';
 
 const table = tv({
     slots: {
@@ -40,20 +40,20 @@ const table = tv({
             '[&[data-resizable-direction=both]]:cursor-ew-resize &[data-resizable-direction=left]:cursor-e-resize &[data-resizable-direction=right]:cursor-w-resize'
         ]
     }
-})
+});
 
-const { root, header, row, cellIcon, columnResizer } = table()
+const { root, header, row, cellIcon, columnResizer } = table();
 
 interface TableProps extends TablePrimitiveProps {
-    className?: string
-    allowResize?: boolean
+    className?: string;
+    allowResize?: boolean;
 }
 
 const TableContext = React.createContext<TableProps>({
     allowResize: false
-})
+});
 
-const useTableContext = () => React.useContext(TableContext)
+const useTableContext = () => React.useContext(TableContext);
 
 const Table = ({ children, className, ...props }: TableProps) => (
     <TableContext.Provider value={props}>
@@ -71,7 +71,7 @@ const Table = ({ children, className, ...props }: TableProps) => (
             )}
         </div>
     </TableContext.Provider>
-)
+);
 
 const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
     <ColumnResizerPrimitive
@@ -85,14 +85,14 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
     >
         <div className="bg-border h-full w-px py-3" />
     </ColumnResizerPrimitive>
-)
+);
 
 const Body = <T extends object>(props: TableBodyProps<T>) => (
     <TableBody {...props} className={cn('[&_.tr:last-child]:border-0')} />
-)
+);
 
 interface TableCellProps extends CellProps {
-    className?: string
+    className?: string;
 }
 
 const cellStyles = tv({
@@ -102,15 +102,15 @@ const cellStyles = tv({
             true: 'overflow-hidden truncate'
         }
     }
-})
+});
 const TableCell = ({ children, className, ...props }: TableCellProps) => {
-    const { allowResize } = useTableContext()
+    const { allowResize } = useTableContext();
     return (
         <Cell {...props} className={cellStyles({ allowResize, className })}>
             {children}
         </Cell>
-    )
-}
+    );
+};
 
 const columnStyles = tv({
     base: 'whitespace-nowrap relative allows-sorting:cursor-pointer px-3 py-3 text-left dragging:cursor-grabbing font-medium outline-none [&:has([slot=selection])]:pr-0',
@@ -119,11 +119,11 @@ const columnStyles = tv({
             true: 'overflow-hidden truncate'
         }
     }
-})
+});
 
 interface TableColumnProps extends ColumnProps {
-    className?: string
-    isResizable?: boolean
+    className?: string;
+    isResizable?: boolean;
 }
 
 const TableColumn = ({ children, isResizable = false, className, ...props }: TableColumnProps) => {
@@ -151,15 +151,15 @@ const TableColumn = ({ children, isResizable = false, className, ...props }: Tab
                 </div>
             )}
         </Column>
-    )
-}
+    );
+};
 
 interface HeaderProps<T extends object> extends TableHeaderProps<T> {
-    className?: string
+    className?: string;
 }
 
 const Header = <T extends object>({ children, className, columns, ...props }: HeaderProps<T>) => {
-    const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions()
+    const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions();
     return (
         <TableHeader {...props} className={header({ className })}>
             {allowsDragging && <Column className="w-0" />}
@@ -168,15 +168,15 @@ const Header = <T extends object>({ children, className, columns, ...props }: He
             )}
             <Collection items={columns}>{children}</Collection>
         </TableHeader>
-    )
-}
+    );
+};
 
 interface TableRowProps<T extends object> extends RowProps<T> {
-    className?: string
+    className?: string;
 }
 
 const TableRow = <T extends object>({ children, className, columns, id, ...props }: TableRowProps<T>) => {
-    const { selectionBehavior, allowsDragging } = useTableOptions()
+    const { selectionBehavior, allowsDragging } = useTableOptions();
     return (
         <Row
             id={id}
@@ -205,13 +205,13 @@ const TableRow = <T extends object>({ children, className, columns, id, ...props
             )}
             <Collection items={columns}>{children}</Collection>
         </Row>
-    )
-}
+    );
+};
 
-Table.Body = Body
-Table.Cell = TableCell
-Table.Column = TableColumn
-Table.Header = Header
-Table.Row = TableRow
+Table.Body = Body;
+Table.Cell = TableCell;
+Table.Column = TableColumn;
+Table.Header = Header;
+Table.Row = TableRow;
 
-export { Table }
+export { Table };

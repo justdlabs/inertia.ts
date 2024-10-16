@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 import {
     IconChevronLgLeft,
@@ -6,7 +6,7 @@ import {
     IconChevronsLgLeft,
     IconChevronsLgRight,
     IconDotsHorizontal
-} from 'justd-icons'
+} from 'justd-icons';
 import {
     ListBox,
     ListBoxItem,
@@ -15,11 +15,11 @@ import {
     Section,
     type SectionProps,
     Separator
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { buttonStyles } from './button'
-import { cn, cr } from './primitive'
+import { buttonStyles } from './button';
+import { cn, cr } from './primitive';
 
 const paginationStyles = tv({
     slots: {
@@ -37,7 +37,7 @@ const paginationStyles = tv({
             'focus-visible:border-primary tabular-nums font-normal cursor-pointer disabled:cursor-default focus-visible:bg-primary/10 focus-visible:ring-4 focus-visible:ring-primary/20 disabled:opacity-100',
         itemSeparatorLine: 'h-5 w-[1.5px] bg-secondary-fg/40 rotate-[14deg] shrink-0'
     }
-})
+});
 
 const {
     pagination,
@@ -50,15 +50,15 @@ const {
     itemEllipsisIcon,
     defaultItem,
     itemSeparatorLine
-} = paginationStyles()
+} = paginationStyles();
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
     <nav role="navigation" aria-label="pagination" className={pagination({ className })} {...props} />
-)
+);
 
 const PaginationSection = <T extends object>({ className, ...props }: SectionProps<T>) => (
     <Section {...props} className={section({ className })} />
-)
+);
 
 const List = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
     return (
@@ -69,28 +69,28 @@ const List = <T extends object>({ className, ...props }: ListBoxProps<T>) => {
             className={cr(className, (className) => list({ className }))}
             {...props}
         />
-    )
-}
+    );
+};
 
 const renderListItem = (
     props: ListBoxItemProps & {
-        textValue?: string
-        'aria-current'?: string | undefined
-        isDisabled?: boolean
-        className?: string
+        textValue?: string;
+        'aria-current'?: string | undefined;
+        isDisabled?: boolean;
+        className?: string;
     },
     children: React.ReactNode
-) => <ListBoxItem {...props}>{children}</ListBoxItem>
+) => <ListBoxItem {...props}>{children}</ListBoxItem>;
 
 interface PaginationItemProps extends ListBoxItemProps {
-    children?: React.ReactNode
-    className?: string
-    intent?: 'primary' | 'secondary'
-    size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small'
-    shape?: 'square' | 'circle'
-    appearance?: 'solid' | 'outline' | 'plain'
-    isCurrent?: boolean
-    variant?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next'
+    children?: React.ReactNode;
+    className?: string;
+    intent?: 'primary' | 'secondary';
+    size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small';
+    shape?: 'square' | 'circle';
+    appearance?: 'solid' | 'outline' | 'plain';
+    isCurrent?: boolean;
+    variant?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next';
 }
 
 const Item = ({
@@ -104,7 +104,7 @@ const Item = ({
     ...props
 }: PaginationItemProps) => {
     const textValue =
-        typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined
+        typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined;
 
     const renderPaginationIndicator = (indicator: React.ReactNode) =>
         renderListItem(
@@ -123,7 +123,7 @@ const Item = ({
                 ...props
             },
             indicator
-        )
+        );
 
     switch (variant) {
         case 'label':
@@ -134,7 +134,7 @@ const Item = ({
                     ...props
                 },
                 children
-            )
+            );
         case 'separator':
             return renderListItem(
                 {
@@ -143,7 +143,7 @@ const Item = ({
                     ...props
                 },
                 <Separator orientation="vertical" className={itemSeparatorLine()} />
-            )
+            );
         case 'ellipsis':
             return renderListItem(
                 {
@@ -154,15 +154,15 @@ const Item = ({
                 <span aria-hidden className={itemEllipsisIcon({ className })}>
                     <IconDotsHorizontal />
                 </span>
-            )
+            );
         case 'previous':
-            return renderPaginationIndicator(<IconChevronLgLeft />)
+            return renderPaginationIndicator(<IconChevronLgLeft />);
         case 'next':
-            return renderPaginationIndicator(<IconChevronLgRight />)
+            return renderPaginationIndicator(<IconChevronLgRight />);
         case 'first':
-            return renderPaginationIndicator(<IconChevronsLgLeft />)
+            return renderPaginationIndicator(<IconChevronsLgLeft />);
         case 'last':
-            return renderPaginationIndicator(<IconChevronsLgRight />)
+            return renderPaginationIndicator(<IconChevronsLgRight />);
         default:
             return renderListItem(
                 {
@@ -181,12 +181,12 @@ const Item = ({
                     ...props
                 },
                 children
-            )
+            );
     }
-}
+};
 
-Pagination.Item = Item
-Pagination.List = List
-Pagination.Section = PaginationSection
+Pagination.Item = Item;
+Pagination.List = List;
+Pagination.Section = PaginationSection;
 
-export { Pagination }
+export { Pagination };

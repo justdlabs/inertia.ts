@@ -1,9 +1,9 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Collection } from 'react-aria-components'
-import { tv, type VariantProps } from 'tailwind-variants'
+import { Collection } from 'react-aria-components';
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { cn } from './primitive'
+import { cn } from './primitive';
 
 const gridStyles = tv(
     {
@@ -128,11 +128,11 @@ const gridStyles = tv(
     {
         responsiveVariants: true
     }
-)
+);
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridStyles> {
-    className?: string
-    debug?: boolean
+    className?: string;
+    debug?: boolean;
 }
 
 const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: GridProps) => {
@@ -153,8 +153,8 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         >
             {props.children}
         </div>
-    )
-}
+    );
+};
 
 const gridItemStyles = tv(
     {
@@ -261,10 +261,10 @@ const gridItemStyles = tv(
     {
         responsiveVariants: ['sm', 'md', 'lg', 'xl', '2xl']
     }
-)
+);
 
 interface GridItemProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof gridItemStyles> {
-    className?: string
+    className?: string;
 }
 
 const GridItem = ({
@@ -293,10 +293,10 @@ const GridItem = ({
         >
             {children}
         </div>
-    )
-}
+    );
+};
 
-Grid.Collection = Collection
-Grid.Item = GridItem
+Grid.Collection = Collection;
+Grid.Item = GridItem;
 
-export { Grid, gridItemStyles, gridStyles }
+export { Grid, gridItemStyles, gridStyles };

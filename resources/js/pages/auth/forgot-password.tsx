@@ -1,20 +1,20 @@
-import { Head, useForm } from '@inertiajs/react'
-import { GuestLayout } from 'layouts'
-import { Button, Form, TextField } from 'ui'
+import { Head, useForm } from '@inertiajs/react';
+import { GuestLayout } from 'layouts';
+import { Button, Form, TextField } from 'ui';
 
 interface ForgotPasswordProps {
-    status: string
+    status: string;
 }
 
 export default function ForgotPassword({ status }: ForgotPasswordProps) {
     const { data, setData, post, processing, errors } = useForm({
         email: ''
-    })
+    });
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
-        post('/forgot-password')
-    }
+        e.preventDefault();
+        post('/forgot-password');
+    };
 
     return (
         <>
@@ -39,7 +39,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
                 </div>
             </Form>
         </>
-    )
+    );
 }
 
 ForgotPassword.layout = (page: any) => (
@@ -50,4 +50,4 @@ ForgotPassword.layout = (page: any) => (
                     reset link that will allow you to choose a new one."
         children={page}
     />
-)
+);

@@ -1,7 +1,7 @@
-import { Head, useForm } from '@inertiajs/react'
-import { GuestLayout } from 'layouts'
-import React, { useEffect } from 'react'
-import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui'
+import { Head, useForm } from '@inertiajs/react';
+import { GuestLayout } from 'layouts';
+import React, { useEffect } from 'react';
+import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -10,20 +10,20 @@ export default function Register() {
         password: '',
         password_confirmation: '',
         terms: false
-    })
+    });
 
     useEffect(() => {
         return () => {
-            reset('password', 'password_confirmation')
-        }
-    }, [])
+            reset('password', 'password_confirmation');
+        };
+    }, []);
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        post('/register')
-    }
-    console.log(import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE)
+        post('/register');
+    };
+    console.log(import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE);
     return (
         <>
             <Head title="Register" />
@@ -100,9 +100,9 @@ export default function Register() {
                 </div>
             </Form>
         </>
-    )
+    );
 }
 
 Register.layout = (page: React.ReactNode) => {
-    return <GuestLayout header="Register" description="Register for your new account." children={page} />
-}
+    return <GuestLayout header="Register" description="Register for your new account." children={page} />;
+};

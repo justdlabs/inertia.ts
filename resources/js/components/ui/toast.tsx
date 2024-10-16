@@ -1,13 +1,13 @@
-import { useTheme } from 'components/theme-provider'
-import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from 'justd-icons'
-import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner'
-import { twJoin } from 'tailwind-merge'
+import { useTheme } from 'components/theme-provider';
+import { IconCheck, IconCircleInfoFill, IconTriangleInfoFill } from 'justd-icons';
+import { Toaster as ToasterPrimitive, type ToasterProps } from 'sonner';
+import { twJoin } from 'tailwind-merge';
 
-import { buttonStyles } from './button'
-import { Loader } from './loader'
+import { buttonStyles } from './button';
+import { Loader } from './loader';
 
 const Toast = ({ ...props }: ToasterProps) => {
-    const { theme = 'system' } = useTheme()
+    const { theme = 'system' } = useTheme();
     return (
         <ToasterPrimitive
             theme={theme as ToasterProps['theme']}
@@ -56,7 +56,7 @@ const Toast = ({ ...props }: ToasterProps) => {
             }}
             {...props}
         />
-    )
-}
+    );
+};
 
-export { Toast }
+export { Toast };

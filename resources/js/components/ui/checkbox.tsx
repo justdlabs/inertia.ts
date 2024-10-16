@@ -1,23 +1,23 @@
-import { type ReactNode } from 'react'
+import { type ReactNode } from 'react';
 
-import { IconCheck, IconMinus } from 'justd-icons'
+import { IconCheck, IconMinus } from 'justd-icons';
 import {
     CheckboxGroup as CheckboxGroupPrimitive,
     Checkbox as CheckboxPrimitive,
     type CheckboxGroupProps as CheckboxGroupPrimitiveProps,
     type CheckboxProps as CheckboxPrimitiveProps,
     type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { Description, FieldError, Label } from './field'
-import { cn, cr, ctr } from './primitive'
+import { Description, FieldError, Label } from './field';
+import { cn, cr, ctr } from './primitive';
 
 interface CheckboxGroupProps extends Omit<CheckboxGroupPrimitiveProps, 'children'> {
-    label?: string
-    children?: ReactNode
-    description?: string
-    errorMessage?: string | ((validation: ValidationResult) => string)
+    label?: string;
+    children?: ReactNode;
+    description?: string;
+    errorMessage?: string | ((validation: ValidationResult) => string);
 }
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
@@ -28,8 +28,8 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
             {props.description && <Description className="block">{props.description}</Description>}
             <FieldError>{props.errorMessage}</FieldError>
         </CheckboxGroupPrimitive>
-    )
-}
+    );
+};
 
 const checkboxStyles = tv({
     base: 'racc group flex items-center gap-2 text-sm transition',
@@ -39,7 +39,7 @@ const checkboxStyles = tv({
             true: 'opacity-50'
         }
     }
-})
+});
 
 const boxStyles = tv({
     base: 'flex size-4 [&>[data-slot=icon]]:size-3 flex-shrink-0 items-center justify-center rounded border text-bg transition',
@@ -61,11 +61,11 @@ const boxStyles = tv({
             true: 'border-danger/70 bg-danger/20 text-danger-fg ring-danger/20'
         }
     }
-})
+});
 
 interface CheckboxProps extends CheckboxPrimitiveProps {
-    description?: string
-    label?: string
+    description?: string;
+    label?: string;
 }
 
 const Checkbox = ({ className, ...props }: CheckboxProps) => {
@@ -95,7 +95,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
                 </div>
             )}
         </CheckboxPrimitive>
-    )
-}
+    );
+};
 
-export { Checkbox, CheckboxGroup }
+export { Checkbox, CheckboxGroup };

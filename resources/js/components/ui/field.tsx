@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 import {
     FieldError as FieldErrorPrimitive,
@@ -13,20 +13,20 @@ import {
     type TextFieldProps as TextFieldPrimitiveProps,
     type TextProps,
     type ValidationResult
-} from 'react-aria-components'
-import { tv } from 'tailwind-variants'
+} from 'react-aria-components';
+import { tv } from 'tailwind-variants';
 
-import { cr, ctr } from './primitive'
+import { cr, ctr } from './primitive';
 
 // primitive styles
 
 interface FieldProps {
-    label?: string
-    placeholder?: string
-    description?: string
-    errorMessage?: string | ((validation: ValidationResult) => string)
-    'aria-label'?: TextFieldPrimitiveProps['aria-label']
-    'aria-labelledby'?: TextFieldPrimitiveProps['aria-labelledby']
+    label?: string;
+    placeholder?: string;
+    description?: string;
+    errorMessage?: string | ((validation: ValidationResult) => string);
+    'aria-label'?: TextFieldPrimitiveProps['aria-label'];
+    'aria-labelledby'?: TextFieldPrimitiveProps['aria-labelledby'];
 }
 
 // primitive styles
@@ -37,7 +37,7 @@ const fieldBorderStyles = tv({
             true: 'border-danger/70 group-focus-within:border-danger/70 forced-colors:border-[Mark]'
         }
     }
-})
+});
 
 const fieldGroupPrefixStyles = tv({
     base: [
@@ -46,7 +46,7 @@ const fieldGroupPrefixStyles = tv({
         '[&>.x2e2>.kbt32x]:before:rounded-[calc(theme(borderRadius.sm)-1px)] [&>.x2e2>.kbt32x]:after:rounded-[calc(theme(borderRadius.sm)-1px)] dark:[&>.x2e2>.kbt32x]:after:rounded-sm',
         '[&>.isSfx:has(.kbt32x)]:-mr-2 [&>.isPfx:has(.kbt32x)]:-ml-2 [&>.isSfx>.kbt32x]:mr-0.5 [&>.isPfx>.kbt32x]:ml-0.5'
     ]
-})
+});
 
 const fieldStyles = tv({
     slots: {
@@ -57,32 +57,32 @@ const fieldStyles = tv({
             'w-full min-w-0 bg-transparent p-2 text-base text-fg placeholder-muted-fg outline-none focus:outline-none lg:text-sm'
         ]
     }
-})
+});
 
-const { description, label, fieldError, input } = fieldStyles()
+const { description, label, fieldError, input } = fieldStyles();
 
 const Label = ({ className, ...props }: LabelProps) => {
-    return <LabelPrimitive {...props} className={label({ className })} />
-}
+    return <LabelPrimitive {...props} className={label({ className })} />;
+};
 
 interface DescriptionProps extends TextProps {
-    isWarning?: boolean
+    isWarning?: boolean;
 }
 
 const Description = ({ className, ...props }: DescriptionProps) => {
-    const isWarning = props.isWarning ?? false
+    const isWarning = props.isWarning ?? false;
     return (
         <Text
             {...props}
             slot="description"
             className={description({ className: isWarning ? 'text-warning' : className })}
         />
-    )
-}
+    );
+};
 
 const FieldError = ({ className, ...props }: FieldErrorProps) => {
-    return <FieldErrorPrimitive {...props} className={ctr(className, fieldError())} />
-}
+    return <FieldErrorPrimitive {...props} className={ctr(className, fieldError())} />;
+};
 
 const fieldGroupStyles = tv({
     base: [
@@ -92,7 +92,7 @@ const fieldGroupStyles = tv({
         'invalid:border-danger',
         'has-[.isPfx]:pl-2.5 has-[.isSfx]:pr-2.5 [&_[data-slot=icon]]:size-4 has-[.atrs]:shrink-0 has-[.atrs]:text-muted-fg'
     ]
-})
+});
 
 const FieldGroup = ({ className, ...props }: GroupProps) => {
     return (
@@ -100,13 +100,13 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
             {...props}
             className={cr(className, (className, renderProps) => fieldGroupStyles({ ...renderProps, className }))}
         />
-    )
-}
+    );
+};
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, ...props }, ref) => {
-    return <InputPrimitive ref={ref} {...props} className={ctr(className, input())} />
-})
-Input.displayName = 'Input'
+    return <InputPrimitive ref={ref} {...props} className={ctr(className, input())} />;
+});
+Input.displayName = 'Input';
 
 export {
     Description,
@@ -119,4 +119,4 @@ export {
     InputPrimitive,
     Label,
     type FieldProps
-}
+};

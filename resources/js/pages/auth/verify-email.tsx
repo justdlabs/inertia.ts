@@ -1,15 +1,15 @@
-import { GuestLayout } from '@/layouts/guest-layout'
-import { Head, useForm } from '@inertiajs/react'
-import { Button, Form, Link } from 'ui'
+import { GuestLayout } from '@/layouts/guest-layout';
+import { Head, useForm } from '@inertiajs/react';
+import { Button, Form, Link } from 'ui';
 
 export default function VerifyEmail({ status }: { status?: any }) {
-    const { post, processing } = useForm()
+    const { post, processing } = useForm();
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        post('/email/verification-notification')
-    }
+        post('/email/verification-notification');
+    };
     return (
         <>
             <Head title="Email Verification" />
@@ -37,7 +37,7 @@ export default function VerifyEmail({ status }: { status?: any }) {
                 </Link>
             </div>
         </>
-    )
+    );
 }
 
 VerifyEmail.layout = (page: any) => (
@@ -48,4 +48,4 @@ VerifyEmail.layout = (page: any) => (
                 link we just emailed to you? If you didn't receive the email, we will gladly send you another."
         children={page}
     />
-)
+);

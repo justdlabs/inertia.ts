@@ -1,4 +1,4 @@
-import { tv } from 'tailwind-variants'
+import { tv } from 'tailwind-variants';
 
 const headingStyles = tv({
     base: 'font-sans tracking-tight text-fg',
@@ -18,16 +18,16 @@ const headingStyles = tv({
             widest: 'tracking-widest'
         }
     }
-})
-type HeadingType = { level?: 1 | 2 | 3 | 4 } & React.ComponentPropsWithoutRef<'h1' | 'h2' | 'h3' | 'h4'>
+});
+type HeadingType = { level?: 1 | 2 | 3 | 4 } & React.ComponentPropsWithoutRef<'h1' | 'h2' | 'h3' | 'h4'>;
 
 interface HeadingProps extends HeadingType {
-    tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
-    className?: string | undefined
+    tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest';
+    className?: string | undefined;
 }
 
 const Heading = ({ className, tracking = 'normal', level = 1, ...props }: HeadingProps) => {
-    const Element: `h${typeof level}` = `h${level}`
+    const Element: `h${typeof level}` = `h${level}`;
     return (
         <Element
             className={headingStyles({
@@ -37,7 +37,7 @@ const Heading = ({ className, tracking = 'normal', level = 1, ...props }: Headin
             })}
             {...props}
         />
-    )
-}
+    );
+};
 
-export { Heading }
+export { Heading };

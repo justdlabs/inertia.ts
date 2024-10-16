@@ -1,26 +1,26 @@
-import { PagePropsData } from '@/types'
-import { useForm, usePage } from '@inertiajs/react'
-import { Button, Card, Form, Link, TextField } from 'ui'
+import { PagePropsData } from '@/types';
+import { useForm, usePage } from '@inertiajs/react';
+import { Button, Card, Form, Link, TextField } from 'ui';
 
 interface Props {
-    mustVerifyEmail: boolean
-    status?: string
-    className?: string
+    mustVerifyEmail: boolean;
+    status?: string;
+    className?: string;
 }
 
 export function UpdateProfileInformationForm({ mustVerifyEmail, status, className }: Props) {
-    const { auth } = usePage<PagePropsData>().props
+    const { auth } = usePage<PagePropsData>().props;
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: auth.user.name ?? '',
         email: auth.user.email ?? ''
-    })
+    });
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
         patch(route('profile.update'), {
             preserveScroll: true
-        })
-    }
+        });
+    };
 
     return (
         <Card>
@@ -86,5 +86,5 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
                 </Form>
             </Card.Content>
         </Card>
-    )
+    );
 }

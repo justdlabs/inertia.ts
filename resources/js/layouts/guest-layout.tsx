@@ -1,12 +1,12 @@
-import { FlashMessage } from 'components/flash-message'
-import { Logo } from 'components/logo'
-import { Card } from 'components/ui/card'
-import { PropsWithChildren, ReactNode } from 'react'
-import { Link } from 'ui'
+import { FlashMessage } from 'components/flash-message';
+import { Logo } from 'components/logo';
+import { Card } from 'components/ui/card';
+import { PropsWithChildren, ReactNode } from 'react';
+import { Link } from 'ui';
 
 interface GuestLayoutProps {
-    header?: string | null
-    description?: string | ReactNode | null
+    header?: string | null;
+    description?: string | ReactNode | null;
 }
 
 export function GuestLayout({ description = null, header = null, children }: PropsWithChildren<GuestLayoutProps>) {
@@ -29,5 +29,5 @@ export function GuestLayout({ description = null, header = null, children }: Pro
                 </Card>
             </div>
         </div>
-    )
+    );
 }

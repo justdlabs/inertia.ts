@@ -1,38 +1,38 @@
-import { useForm } from '@inertiajs/react'
-import { useRef } from 'react'
-import { toast } from 'sonner'
-import { Button, Card, Form, TextField } from 'ui'
+import { useForm } from '@inertiajs/react';
+import { useRef } from 'react';
+import { toast } from 'sonner';
+import { Button, Card, Form, TextField } from 'ui';
 
 export function UpdatePasswordForm() {
-    const passwordInput = useRef<HTMLInputElement>(null)
-    const currentPasswordInput = useRef<HTMLInputElement>(null)
+    const passwordInput = useRef<HTMLInputElement>(null);
+    const currentPasswordInput = useRef<HTMLInputElement>(null);
     const { data, setData, put, errors, reset, processing, recentlySuccessful } = useForm({
         current_password: '',
         password: '',
         password_confirmation: ''
-    })
+    });
 
     const submit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+        e.preventDefault();
         put(route('password.update'), {
             preserveScroll: true,
             onSuccess: () => {
-                toast.success('Your profile information has been updated.')
-                reset()
+                toast.success('Your profile information has been updated.');
+                reset();
             },
             onError: () => {
                 if (errors.password) {
-                    reset('password', 'password_confirmation')
-                    passwordInput.current?.focus()
+                    reset('password', 'password_confirmation');
+                    passwordInput.current?.focus();
                 }
 
                 if (errors.current_password) {
-                    reset('current_password')
-                    currentPasswordInput.current?.focus()
+                    reset('current_password');
+                    currentPasswordInput.current?.focus();
                 }
             }
-        })
-    }
+        });
+    };
 
     return (
         <Card>
@@ -87,5 +87,5 @@ export function UpdatePasswordForm() {
                 </Form>
             </Card.Content>
         </Card>
-    )
+    );
 }
