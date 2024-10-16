@@ -1,5 +1,12 @@
 
 
+## [1.0.30](https://github.com/justdlabs/inertia.ts/compare/1.0.29...1.0.30) (2024-10-16)
+
+
+### Bug Fixes
+
+* fix app.tsx ([bacb103](https://github.com/justdlabs/inertia.ts/commit/bacb103bf0293d4ddaf68391a55b5337bdc59674))
+
 ## [1.0.29](https://github.com/justdlabs/inertia.ts/compare/1.0.28...1.0.29) (2024-10-16)
 
 
