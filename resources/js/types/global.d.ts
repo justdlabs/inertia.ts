@@ -1,32 +1,17 @@
-import type { FormDataConvertible, Method, PreserveStateOption, Progress } from '@inertiajs/core';
-import { AxiosInstance } from 'axios';
-import { route as ziggyRoute } from 'ziggy-js';
+import { VisitOptions } from '@inertiajs/core'
+import { type AxiosInstance } from 'axios'
+import { type route as routeFn } from 'ziggy-js'
 
 declare global {
     interface Window {
-        axios: AxiosInstance;
+        axios: AxiosInstance
     }
 
-    var route: typeof ziggyRoute;
+    let route: typeof routeFn
 }
 
 declare module 'react-aria-components' {
     interface RouterConfig {
-        routerOptions: {
-            method?: Method;
-            data?: Record<string, FormDataConvertible>;
-            replace?: boolean;
-            preserveState?: PreserveStateOption;
-            preserveScroll?: PreserveStateOption;
-            forceFormData?: boolean;
-            only?: string[];
-            onBefore?: () => void;
-            onStart?: () => void;
-            onProgress?: (progress: Progress) => void;
-            onCancel?: () => void;
-            onSuccess?: () => void;
-            onError?: () => void;
-            onFinish?: () => void;
-        };
+        routerOptions: VisitOptions
     }
 }
