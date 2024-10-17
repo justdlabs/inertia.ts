@@ -1,5 +1,12 @@
 
 
+## [1.0.33](https://github.com/justdlabs/inertia.ts/compare/1.0.32...1.0.33) (2024-10-17)
+
+
+### Bug Fixes
+
+* improve the global.d.ts file ([626f55c](https://github.com/justdlabs/inertia.ts/commit/626f55cfc4a5e6f3a17d04db1e95ee37025d0f83))
+
 ## [1.0.32](https://github.com/justdlabs/inertia.ts/compare/1.0.31...1.0.32) (2024-10-16)
 
 
