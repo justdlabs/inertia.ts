@@ -8,5 +8,6 @@ class PagePropsData extends Data
 {
     public function __construct(
         public AuthData $auth,
+        public FlashMessageData $flashMessage,
     ) {}
 }

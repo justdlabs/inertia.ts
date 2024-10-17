@@ -1,18 +1,29 @@
 
 
-## [1.0.32](https://github.com/justdlabs/inertia.ts/compare/1.0.31...1.0.32) (2024-10-16)
+## [1.0.34](https://github.com/justdlabs/inertia.ts/compare/1.0.33...1.0.34) (2024-10-17)
 
 
 ### Bug Fixes
 
-* fix routing ssr ([829693d](https://github.com/justdlabs/inertia.ts/commit/829693d03508e0f483c157e988c5350cd04dd39b))
+* add flash message to page props ([5693438](https://github.com/justdlabs/inertia.ts/commit/5693438f098252f157fc3edc8f8d285e7a7fe479))
+
+## [1.0.33](https://github.com/justdlabs/inertia.ts/compare/1.0.32...1.0.33) (2024-10-17)
+
+### Bug Fixes
+
+-   improve the global.d.ts file ([626f55c](https://github.com/justdlabs/inertia.ts/commit/626f55cfc4a5e6f3a17d04db1e95ee37025d0f83))
+
+## [1.0.32](https://github.com/justdlabs/inertia.ts/compare/1.0.31...1.0.32) (2024-10-16)
+
+### Bug Fixes
+
+-   fix routing ssr ([829693d](https://github.com/justdlabs/inertia.ts/commit/829693d03508e0f483c157e988c5350cd04dd39b))
 
 ## [1.0.31](https://github.com/justdlabs/inertia.ts/compare/1.0.30...1.0.31) (2024-10-16)
 
-
 ### Bug Fixes
 
-* add run to composer.json ([ad00c97](https://github.com/justdlabs/inertia.ts/commit/ad00c975d4cb8ee502fb03c920cd2b1122adb9f9))
+-   add run to composer.json ([ad00c97](https://github.com/justdlabs/inertia.ts/commit/ad00c975d4cb8ee502fb03c920cd2b1122adb9f9))
 
 ## [1.0.30](https://github.com/justdlabs/inertia.ts/compare/1.0.29...1.0.30) (2024-10-16)
 

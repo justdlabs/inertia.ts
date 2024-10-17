@@ -15,7 +15,7 @@
         "@release-it/bumper": "^6.0.1",
         "@release-it/conventional-changelog": "^8.0.2",
         "@tailwindcss/forms": "^0.5.9",
-        "@types/node": "^18.19.55",
+        "@types/node": "^18.19.56",
         "@types/react": "^18.3.11",
         "@types/react-dom": "^18.3.1",
         "@vitejs/plugin-react": "^4.3.2",
@@ -29,19 +29,19 @@
         "prettier-plugin-tailwindcss": "^0.6.8",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "release-it": "^17.8.2",
-        "tailwindcss": "^3.4.13",
+        "release-it": "^17.10.0",
+        "tailwindcss": "^3.4.14",
         "typescript": "^5.6.3",
-        "vite": "^5.4.8",
+        "vite": "^5.4.9",
         "vite-plugin-watch": "^0.3.1"
     },
     "dependencies": {
         "clsx": "^2.1.1",
-        "framer-motion": "^11.11.8",
+        "framer-motion": "^11.11.9",
         "justd-icons": "^1.5.0",
-        "react-aria-components": "^1.4.0",
+        "react-aria-components": "^1.4.1",
         "sonner": "^1.5.0",
-        "tailwind-merge": "^2.5.3",
+        "tailwind-merge": "^2.5.4",
         "tailwind-variants": "^0.2.1",
         "tailwindcss-animate": "^1.0.7",
         "tailwindcss-react-aria-components": "^1.1.6"
@@ -80,5 +80,5 @@
             }
         }
     },
-    "version": "1.0.32"
+    "version": "1.0.34"
 }
