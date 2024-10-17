@@ -1,3 +1,12 @@
+
+
+## [1.0.34](https://github.com/justdlabs/inertia.ts/compare/1.0.33...1.0.34) (2024-10-17)
+
+
+### Bug Fixes
+
+* add flash message to page props ([5693438](https://github.com/justdlabs/inertia.ts/commit/5693438f098252f157fc3edc8f8d285e7a7fe479))
+
 ## [1.0.33](https://github.com/justdlabs/inertia.ts/compare/1.0.32...1.0.33) (2024-10-17)
 
 ### Bug Fixes
