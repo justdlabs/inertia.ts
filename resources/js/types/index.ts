@@ -14,4 +14,5 @@ export type FlashMessageData = {
 };
 export type PagePropsData = {
     auth: AuthData;
+    flashMessage: FlashMessageData;
 };
