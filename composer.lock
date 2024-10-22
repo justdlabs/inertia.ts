@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5eab4b8656f9f39e4e7ae7a2d0e00818",
+    "content-hash": "c8fb1386c8be35eb1505c869d23dee1a",
     "packages": [
         {
             "name": "amphp/amp",
@@ -6746,16 +6746,16 @@
         },
         {
             "name": "tightenco/ziggy",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/ziggy.git",
-                "reference": "5395ba7c6d6ea1709acf5435694c4732c2912b5e"
+                "reference": "ab39cd9647c3fbe2efc04407e078dfc4ff212ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/ziggy/zipball/5395ba7c6d6ea1709acf5435694c4732c2912b5e",
-                "reference": "5395ba7c6d6ea1709acf5435694c4732c2912b5e",
+                "url": "https://api.github.com/repos/tighten/ziggy/zipball/ab39cd9647c3fbe2efc04407e078dfc4ff212ad1",
+                "reference": "ab39cd9647c3fbe2efc04407e078dfc4ff212ad1",
                 "shasum": ""
             },
             "require": {
@@ -6801,9 +6801,9 @@
             "keywords": ["Ziggy", "javascript", "laravel", "routes"],
             "support": {
                 "issues": "https://github.com/tighten/ziggy/issues",
-                "source": "https://github.com/tighten/ziggy/tree/v2.3.0"
+                "source": "https://github.com/tighten/ziggy/tree/v2.3.1"
             },
-            "time": "2024-07-21T16:18:39+00:00"
+            "time": "2024-10-17T15:36:15+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -8648,16 +8648,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "5.0.2",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "2d3e04c3b4c1e84a5e7382221ad8883c8fbc4f53"
+                "reference": "a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2d3e04c3b4c1e84a5e7382221ad8883c8fbc4f53",
-                "reference": "2d3e04c3b4c1e84a5e7382221ad8883c8fbc4f53",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e",
+                "reference": "a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e",
                 "shasum": ""
             },
             "require": {
@@ -8668,7 +8668,7 @@
                 "sebastian/exporter": "^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^10.4"
+                "phpunit/phpunit": "^10.5"
             },
             "type": "library",
             "extra": {
@@ -8705,7 +8705,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/5.0.2"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/5.0.3"
             },
             "funding": [
                 {
@@ -8713,7 +8713,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-12T06:03:08+00:00"
+            "time": "2024-10-18T14:56:07+00:00"
         },
         {
             "name": "sebastian/complexity",
