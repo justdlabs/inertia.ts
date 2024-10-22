@@ -1,5 +1,4 @@
 import { Head } from '@inertiajs/react';
-import { Container } from 'components/container';
 import { Header } from 'components/header';
 import { Logo } from 'components/logo';
 import {
@@ -11,7 +10,7 @@ import {
     IconCube
 } from 'justd-icons';
 import { AppLayout } from 'layouts';
-import { Card, Grid, Link } from 'ui';
+import { Card, Container, Grid, Link } from 'ui';
 
 const items = [
     {

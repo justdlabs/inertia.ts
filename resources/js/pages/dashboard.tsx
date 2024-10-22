@@ -1,8 +1,7 @@
-import { PagePropsData } from '@/types/index';
+import { PagePropsData } from '@/types';
 import { Head } from '@inertiajs/react';
-import { Container } from 'components/container';
 import { AppLayout } from 'layouts';
-import { Card } from 'ui';
+import { Card, Container } from 'ui';
 
 export default function Dashboard({ auth }: PagePropsData) {
     return (
@@ -10,7 +9,7 @@ export default function Dashboard({ auth }: PagePropsData) {
             <Head title="Dashboard" />
 
             <Container className="py-12">
-                <Card className="p-6 max-w-md">Hello, {auth.user.name}!</Card>
+                <Card className="p-6 w-full">Hello, {auth.user.name}!</Card>
             </Container>
         </>
     );
