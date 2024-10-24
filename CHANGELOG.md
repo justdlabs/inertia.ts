@@ -1,18 +1,23 @@
 
 
-## [1.1.1](https://github.com/justdlabs/inertia.ts/compare/1.1.0...1.1.1) (2024-10-22)
-
-## [1.1.0](https://github.com/justdlabs/inertia.ts/compare/1.0.34...1.1.0) (2024-10-22)
-
-
-### Features
-
-* sync justd ([5ccf885](https://github.com/justdlabs/inertia.ts/commit/5ccf885ca9f09e85e004acc07b006a7b500c1c7c))
+## [1.1.2](https://github.com/justdlabs/inertia.ts/compare/1.1.1...1.1.2) (2024-10-24)
 
 
 ### Bug Fixes
 
-* bump ([9cd9ba5](https://github.com/justdlabs/inertia.ts/commit/9cd9ba563d2107e603e2f68e46aa120a7a02454b))
+* fix the navbar ([26859f4](https://github.com/justdlabs/inertia.ts/commit/26859f44dafa5519f46cb88235c3362b8c426548))
+
+## [1.1.1](https://github.com/justdlabs/inertia.ts/compare/1.1.0...1.1.1) (2024-10-22)
+
+## [1.1.0](https://github.com/justdlabs/inertia.ts/compare/1.0.34...1.1.0) (2024-10-22)
+
+### Features
+
+-   sync justd ([5ccf885](https://github.com/justdlabs/inertia.ts/commit/5ccf885ca9f09e85e004acc07b006a7b500c1c7c))
+
+### Bug Fixes
+
+-   bump ([9cd9ba5](https://github.com/justdlabs/inertia.ts/commit/9cd9ba563d2107e603e2f68e46aa120a7a02454b))
 
 ## [1.0.34](https://github.com/justdlabs/inertia.ts/compare/1.0.33...1.0.34) (2024-10-17)
 

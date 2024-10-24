@@ -47,8 +47,10 @@ const navigations = [
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
     const page = usePage();
     const { auth } = usePage<PagePropsData>().props;
+    const [isOpen, setIsOpen] = React.useState(false);
+    React.useEffect(() => setIsOpen(false), [page.url]);
     return (
-        <Navbar {...props}>
+        <Navbar isOpen={isOpen} onOpenChange={setIsOpen} {...props}>
             <Navbar.Nav>
                 <Navbar.Logo aria-label="Logo">
                     <IconBrandLaravel className="size-6" />
