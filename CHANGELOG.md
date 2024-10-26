@@ -1,5 +1,12 @@
 
 
+## [1.1.4](https://github.com/justdlabs/inertia.ts/compare/1.1.3...1.1.4) (2024-10-26)
+
+
+### Bug Fixes
+
+* bump ([f18e3da](https://github.com/justdlabs/inertia.ts/commit/f18e3daa3948c628cda5da5dd8f6bef5454e70af))
+
 ## [1.1.3](https://github.com/justdlabs/inertia.ts/compare/1.1.2...1.1.3) (2024-10-26)
 
 
