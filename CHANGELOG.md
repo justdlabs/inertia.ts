@@ -1,3 +1,13 @@
+
+
+## [1.1.3](https://github.com/justdlabs/inertia.ts/compare/1.1.2...1.1.3) (2024-10-26)
+
+
+### Bug Fixes
+
+* **app-navbar:** remove max-w-2xl ([1c92708](https://github.com/justdlabs/inertia.ts/commit/1c92708413feda1fc39c02d7b8c0b72b9c59f454))
+* sync navbar ([ebaa12d](https://github.com/justdlabs/inertia.ts/commit/ebaa12df839f89fa79d123379bf9bd45ab646b25))
+
 ## [1.1.2](https://github.com/justdlabs/inertia.ts/compare/1.1.1...1.1.2) (2024-10-24)
 
 ### Bug Fixes
