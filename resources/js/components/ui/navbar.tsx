@@ -106,7 +106,7 @@ const Navbar = ({
 };
 
 const navStyles = tv({
-    base: 'hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full max-w-screen-2xl mx-auto',
+    base: 'hidden h-[--navbar-height] [--navbar-height:3.5rem] px-4 group peer lg:flex items-center w-full mx-auto',
     variants: {
         isSticky: {
             true: 'sticky top-0'
