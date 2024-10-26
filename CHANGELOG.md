@@ -1,11 +1,8 @@
-
-
 ## [1.1.2](https://github.com/justdlabs/inertia.ts/compare/1.1.1...1.1.2) (2024-10-24)
-
 
 ### Bug Fixes
 
-* fix the navbar ([26859f4](https://github.com/justdlabs/inertia.ts/commit/26859f44dafa5519f46cb88235c3362b8c426548))
+-   fix the navbar ([26859f4](https://github.com/justdlabs/inertia.ts/commit/26859f44dafa5519f46cb88235c3362b8c426548))
 
 ## [1.1.1](https://github.com/justdlabs/inertia.ts/compare/1.1.0...1.1.1) (2024-10-22)
 
