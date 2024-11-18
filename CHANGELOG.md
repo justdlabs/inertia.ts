@@ -1,12 +1,9 @@
-
-
 ## [1.1.5](https://github.com/justdlabs/inertia.ts/compare/1.1.4...1.1.5) (2024-11-18)
-
 
 ### Bug Fixes
 
-* formatting ([fecdd87](https://github.com/justdlabs/inertia.ts/commit/fecdd8733d0a6fdcdd0e8317199fdea2110ba0e4))
-* upgrade ([3f13735](https://github.com/justdlabs/inertia.ts/commit/3f137357d3052ec02fa637af347d282ddf604e9b))
+-   formatting ([fecdd87](https://github.com/justdlabs/inertia.ts/commit/fecdd8733d0a6fdcdd0e8317199fdea2110ba0e4))
+-   upgrade ([3f13735](https://github.com/justdlabs/inertia.ts/commit/3f137357d3052ec02fa637af347d282ddf604e9b))
 
 ## [1.1.4](https://github.com/justdlabs/inertia.ts/compare/1.1.3...1.1.4) (2024-10-26)
 

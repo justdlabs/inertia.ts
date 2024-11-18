@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import { type ClassValue, clsx } from 'clsx';
@@ -15,7 +17,7 @@ function composeTailwindRenderProps<T>(
 }
 
 const focusRing = tv({
-    base: 'outline-none focus:outline-none forced-colors:outline-[Highlight]',
+    base: 'outline-none focus:outline-none forced-colors:outline-1 forced-colors:outline-[Highlight]',
     variants: {
         isFocused: { true: 'ring-4 ring-ring/20' },
         isInvalid: { true: 'ring-4 ring-danger/20' }
@@ -25,7 +27,7 @@ const focusRing = tv({
 const focusStyles = tv({
     extend: focusRing,
     variants: {
-        isFocused: { true: 'border-ring' },
+        isFocused: { true: 'border-ring/85' },
         isInvalid: { true: 'border-danger' }
     }
 });
@@ -58,19 +60,13 @@ const useMediaQuery = (query: string) => {
     return value;
 };
 
-const ctr = composeTailwindRenderProps;
-const tm = twMerge;
-const cr = composeRenderProps;
-
 export {
     cn,
     composeTailwindRenderProps,
-    cr,
-    ctr,
+    composeRenderProps as cr,
+    composeTailwindRenderProps as ctr,
     focusButtonStyles,
     focusRing,
     focusStyles,
-    tm,
-    twMerge,
     useMediaQuery
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from 'justd-icons';
@@ -24,7 +26,7 @@ import { tv } from 'tailwind-variants';
 import { DropdownItemDetails, dropdownItemStyles, DropdownSection } from './dropdown';
 import { Keyboard } from './keyboard';
 import { Popover } from './popover';
-import { cn, cr, tm } from './primitive';
+import { cn, cr } from './primitive';
 
 interface MenuContextProps {
     respectScreen: boolean;
@@ -91,7 +93,7 @@ const Content = <T extends object>({
             respectScreen={respectScreen}
             showArrow={showArrow}
             className={popover({
-                className: tm([
+                className: cn([
                     showArrow && 'placement-left:mt-[-0.38rem] placement-right:mt-[-0.38rem]',
                     popoverClassName
                 ])
@@ -147,7 +149,7 @@ const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps)
 );
 
 const MenuSeparator = ({ className, ...props }: SeparatorProps) => (
-    <Separator className={cn('-mx-1 my-1 h-px ms bg-muted', className)} {...props} />
+    <Separator className={cn('-mx-1 my-1 h-px border-b border-b-muted', className)} {...props} />
 );
 
 const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
@@ -166,16 +168,19 @@ const Checkbox = ({ className, children, ...props }: MenuItemProps) => (
 );
 
 const Radio = ({ className, children, ...props }: MenuItemProps) => (
-    <Item className={cn('pl-8 relative', className)} {...props}>
+    <Item className={cn('relative', className)} {...props}>
         {(values) => (
             <>
+                {typeof children === 'function' ? children(values) : children}
+
                 {values.isSelected && (
-                    <span className="absolute left-3 flex size-[0.650rem] items-center animate-in justify-center">
-                        <IconBulletFill className="size-[0.650rem]" />
+                    <span
+                        data-slot="menu-radio"
+                        className="absolute right-3 flex items-center animate-in justify-center"
+                    >
+                        <IconBulletFill />
                     </span>
                 )}
-
-                {typeof children === 'function' ? children(values) : children}
             </>
         )}
     </Item>

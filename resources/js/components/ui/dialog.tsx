@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import { IconX } from 'justd-icons';
@@ -38,16 +40,16 @@ const Dialog = ({ role, className, ...props }: DialogProps) => {
     return <DialogPrimitive {...props} role={role ?? 'dialog'} className={root({ className })} />;
 };
 
-type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
-    title?: string;
-    description?: string;
-};
-
 const Trigger = (props: ButtonPrimitiveProps) => (
     <ButtonPrimitive {...props}>
         {(values) => <>{typeof props.children === 'function' ? props.children(values) : props.children}</>}
     </ButtonPrimitive>
 );
+
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement> & {
+    title?: string;
+    description?: string;
+};
 
 const Header = ({ className, ...props }: DialogHeaderProps) => {
     const headerRef = React.useRef<HTMLHeadingElement>(null);

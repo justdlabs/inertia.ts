@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import type {
@@ -69,7 +71,7 @@ const drawerStyles = tv({
     variants: {
         isMenu: {
             true: 'p-0 [&_[role=dialog]]:px-0 rounded-t-xl',
-            false: 'py-4 rounded-t-3xl'
+            false: 'py-4 rounded-t-2xl'
         },
         isEntering: {
             true: [
