@@ -1,7 +1,9 @@
+'use client';
+
 import * as React from 'react';
 
 import type { TextInputDOMProps } from '@react-types/shared';
-import { IconEye, IconEyeClosed, IconLoader } from 'justd-icons';
+import { IconEye, IconEyeClosed } from 'justd-icons';
 import {
     Button as ButtonPrimitive,
     TextField as TextFieldPrimitive,
@@ -10,6 +12,7 @@ import {
 
 import type { FieldProps } from './field';
 import { Description, FieldError, FieldGroup, fieldGroupPrefixStyles, Input, Label } from './field';
+import { Loader } from './loader';
 import { ctr } from './primitive';
 
 type InputType = Exclude<TextInputDOMProps['type'], 'password'>;
@@ -17,8 +20,7 @@ type InputType = Exclude<TextInputDOMProps['type'], 'password'>;
 interface BaseTextFieldProps extends TextFieldPrimitiveProps, FieldProps {
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
-    isLoading?: boolean;
-    indicatorPlace?: 'prefix' | 'suffix';
+    isPending?: boolean;
     className?: string;
 }
 
@@ -41,8 +43,7 @@ const TextField = ({
     errorMessage,
     prefix,
     suffix,
-    isLoading,
-    indicatorPlace,
+    isPending,
     className,
     isRevealable,
     type,
@@ -55,33 +56,30 @@ const TextField = ({
         setIsPasswordVisible((prev) => !prev);
     };
     return (
-        <TextFieldPrimitive type={inputType} {...props} className={ctr(className, 'group flex flex-col gap-1')}>
+        <TextFieldPrimitive type={inputType} {...props} className={ctr(className, 'group flex flex-col gap-y-1.5')}>
             {label && <Label>{label}</Label>}
-            <FieldGroup data-loading={isLoading ? 'true' : undefined} className={fieldGroupPrefixStyles({ className })}>
-                {isLoading && indicatorPlace === 'prefix' ? (
-                    <IconLoader className="animate-spin isPfx" />
-                ) : prefix ? (
-                    <span className="atrs isPfx x2e2">{prefix}</span>
+            <FieldGroup data-loading={isPending ? 'true' : undefined} className={fieldGroupPrefixStyles({ className })}>
+                {prefix ? (
+                    <span data-slot="prefix" className="atrs x2e2">
+                        {prefix}
+                    </span>
                 ) : null}
-                <Input className="px-2.5" placeholder={placeholder} />
+                <Input placeholder={placeholder} />
                 {isRevealable ? (
                     <ButtonPrimitive
                         type="button"
+                        aria-label="Toggle password visibility"
                         onPress={handleTogglePasswordVisibility}
-                        className="atrs relative isSfx x2e2 [&_[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
+                        className="atrs relative [&>[data-slot=icon]]:text-muted-fg focus:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded"
                     >
-                        <>
-                            {isPasswordVisible ? (
-                                <IconEyeClosed className="transition animate-in" />
-                            ) : (
-                                <IconEye className="transition animate-in" />
-                            )}
-                        </>
+                        <>{isPasswordVisible ? <IconEyeClosed /> : <IconEye />}</>
                     </ButtonPrimitive>
-                ) : isLoading && indicatorPlace === 'suffix' ? (
-                    <IconLoader className="animate-spin isSfx" />
+                ) : isPending ? (
+                    <Loader variant="spin" data-slot="suffix" />
                 ) : suffix ? (
-                    <span className="atrs isSfx x2e2">{suffix}</span>
+                    <span data-slot="suffix" className="atrs x2e2">
+                        {suffix}
+                    </span>
                 ) : null}
             </FieldGroup>
             {description && <Description>{description}</Description>}

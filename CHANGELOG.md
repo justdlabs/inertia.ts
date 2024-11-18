@@ -1,19 +1,31 @@
 
 
-## [1.1.4](https://github.com/justdlabs/inertia.ts/compare/1.1.3...1.1.4) (2024-10-26)
+## [1.1.6](https://github.com/justdlabs/inertia.ts/compare/1.1.5...1.1.6) (2024-11-18)
 
 
 ### Bug Fixes
 
-* bump ([f18e3da](https://github.com/justdlabs/inertia.ts/commit/f18e3daa3948c628cda5da5dd8f6bef5454e70af))
+* syncing ([1d8f16e](https://github.com/justdlabs/inertia.ts/commit/1d8f16eedeafbc623f69833910740ae36bad2f74))
+
+## [1.1.5](https://github.com/justdlabs/inertia.ts/compare/1.1.4...1.1.5) (2024-11-18)
+
+### Bug Fixes
+
+-   formatting ([fecdd87](https://github.com/justdlabs/inertia.ts/commit/fecdd8733d0a6fdcdd0e8317199fdea2110ba0e4))
+-   upgrade ([3f13735](https://github.com/justdlabs/inertia.ts/commit/3f137357d3052ec02fa637af347d282ddf604e9b))
+
+## [1.1.4](https://github.com/justdlabs/inertia.ts/compare/1.1.3...1.1.4) (2024-10-26)
+
+### Bug Fixes
+
+-   bump ([f18e3da](https://github.com/justdlabs/inertia.ts/commit/f18e3daa3948c628cda5da5dd8f6bef5454e70af))
 
 ## [1.1.3](https://github.com/justdlabs/inertia.ts/compare/1.1.2...1.1.3) (2024-10-26)
 
-
 ### Bug Fixes
 
-* **app-navbar:** remove max-w-2xl ([1c92708](https://github.com/justdlabs/inertia.ts/commit/1c92708413feda1fc39c02d7b8c0b72b9c59f454))
-* sync navbar ([ebaa12d](https://github.com/justdlabs/inertia.ts/commit/ebaa12df839f89fa79d123379bf9bd45ab646b25))
+-   **app-navbar:** remove max-w-2xl ([1c92708](https://github.com/justdlabs/inertia.ts/commit/1c92708413feda1fc39c02d7b8c0b72b9c59f454))
+-   sync navbar ([ebaa12d](https://github.com/justdlabs/inertia.ts/commit/ebaa12df839f89fa79d123379bf9bd45ab646b25))
 
 ## [1.1.2](https://github.com/justdlabs/inertia.ts/compare/1.1.1...1.1.2) (2024-10-24)
 

@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { tv } from 'tailwind-variants';
 
 const headingStyles = tv({
