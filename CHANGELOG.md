@@ -1,11 +1,17 @@
 
 
-## [1.1.7](https://github.com/justdlabs/inertia.ts/compare/1.1.6...1.1.7) (2024-11-18)
+## [1.1.8](https://github.com/justdlabs/inertia.ts/compare/1.1.7...1.1.8) (2024-11-20)
 
 
 ### Bug Fixes
 
-* upgrade icons ([1606bf0](https://github.com/justdlabs/inertia.ts/commit/1606bf09cfa65ba464a0b42b9d7f0dd2b4c8d9c9))
+* make it better ([a2c9f43](https://github.com/justdlabs/inertia.ts/commit/a2c9f43a1ee4b8db22bff2dbea5b1de847103303))
+
+## [1.1.7](https://github.com/justdlabs/inertia.ts/compare/1.1.6...1.1.7) (2024-11-18)
+
+### Bug Fixes
+
+-   upgrade icons ([1606bf0](https://github.com/justdlabs/inertia.ts/commit/1606bf09cfa65ba464a0b42b9d7f0dd2b4c8d9c9))
 
 ## [1.1.6](https://github.com/justdlabs/inertia.ts/compare/1.1.5...1.1.6) (2024-11-18)
 
