@@ -1,3 +1,12 @@
+
+
+## [1.1.8](https://github.com/justdlabs/inertia.ts/compare/1.1.7...1.1.8) (2024-11-20)
+
+
+### Bug Fixes
+
+* make it better ([a2c9f43](https://github.com/justdlabs/inertia.ts/commit/a2c9f43a1ee4b8db22bff2dbea5b1de847103303))
+
 ## [1.1.7](https://github.com/justdlabs/inertia.ts/compare/1.1.6...1.1.7) (2024-11-18)
 
 ### Bug Fixes
