@@ -1,3 +1,12 @@
+
+
+## [1.2.0](https://github.com/justdlabs/inertia.ts/compare/1.1.8...1.2.0) (2024-12-14)
+
+
+### Features
+
+* upgrade to inertia v2 ([fee9000](https://github.com/justdlabs/inertia.ts/commit/fee9000a614d5bfaddda6b39ac8eba392d667443))
+
 ## [1.1.8](https://github.com/justdlabs/inertia.ts/compare/1.1.7...1.1.8) (2024-11-20)
 
 ### Bug Fixes
