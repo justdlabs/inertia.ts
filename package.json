@@ -1,84 +1,84 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "tsc && vite build && vite build --ssr",
-        "format": "prettier --write .",
-        "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
-        "preview": "tsc && npm run build && php artisan inertia:start-ssr"
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && vite build --ssr",
+    "format": "prettier --write .",
+    "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
+    "preview": "tsc && npm run build && php artisan inertia:start-ssr"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@inertiajs/react": "^2.0.0",
+    "@release-it/bumper": "^6.0.1",
+    "@release-it/conventional-changelog": "^8.0.2",
+    "@tailwindcss/forms": "^0.5.9",
+    "@types/node": "^18.19.58",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.7",
+    "husky": "^9.1.6",
+    "laravel-vite-plugin": "^1.0.5",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "release-it": "^17.10.0",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
+    "vite-plugin-watch": "^0.3.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.10",
+    "justd-icons": "^1.7.9",
+    "react-aria-components": "^1.4.1",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-react-aria-components": "^1.1.6"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
     },
-    "devDependencies": {
-        "@commitlint/cli": "^19.5.0",
-        "@commitlint/config-conventional": "^19.5.0",
-        "@inertiajs/react": "^1.2.0",
-        "@release-it/bumper": "^6.0.1",
-        "@release-it/conventional-changelog": "^8.0.2",
-        "@tailwindcss/forms": "^0.5.9",
-        "@types/node": "^18.19.58",
-        "@types/react": "^18.3.11",
-        "@types/react-dom": "^18.3.1",
-        "@vitejs/plugin-react": "^4.3.3",
-        "autoprefixer": "^10.4.20",
-        "axios": "^1.7.7",
-        "husky": "^9.1.6",
-        "laravel-vite-plugin": "^1.0.5",
-        "postcss": "^8.4.47",
-        "prettier": "^3.3.3",
-        "prettier-plugin-organize-imports": "^4.1.0",
-        "prettier-plugin-tailwindcss": "^0.6.8",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "release-it": "^17.10.0",
-        "tailwindcss": "^3.4.14",
-        "typescript": "^5.6.3",
-        "vite": "^5.4.9",
-        "vite-plugin-watch": "^0.3.1"
+    "github": {
+      "release": true
     },
-    "dependencies": {
-        "clsx": "^2.1.1",
-        "framer-motion": "^11.11.10",
-        "justd-icons": "^1.7.9",
-        "react-aria-components": "^1.4.1",
-        "sonner": "^1.5.0",
-        "tailwind-merge": "^2.5.4",
-        "tailwind-variants": "^0.2.1",
-        "tailwindcss-animate": "^1.0.7",
-        "tailwindcss-react-aria-components": "^1.1.6"
-    },
-    "release-it": {
-        "git": {
-            "commitMessage": "chore: release v${version}"
-        },
-        "github": {
-            "release": true
-        },
-        "plugins": {
-            "@release-it/conventional-changelog": {
-                "infile": "CHANGELOG.md",
-                "preset": {
-                    "name": "conventionalcommits",
-                    "types": [
-                        {
-                            "type": "feat",
-                            "section": "Features"
-                        },
-                        {
-                            "type": "fix",
-                            "section": "Bug Fixes"
-                        },
-                        {
-                            "type": "chore",
-                            "section": "Chores"
-                        }
-                    ]
-                }
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
             },
-            "@release-it/bumper": {
-                "in": "composer.json",
-                "out": "composer.json"
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "chore",
+              "section": "Chores"
             }
+          ]
         }
-    },
-    "version": "1.1.8"
+      },
+      "@release-it/bumper": {
+        "in": "composer.json",
+        "out": "composer.json"
+      }
+    }
+  },
+  "version": "1.1.8"
 }

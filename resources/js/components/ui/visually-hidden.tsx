@@ -5,13 +5,13 @@ import * as React from 'react';
 import { useVisuallyHidden } from 'react-aria';
 
 type VisuallyHiddenSpanProps = {
-    children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 const VisuallyHidden = ({ children }: VisuallyHiddenSpanProps) => {
-    const { visuallyHiddenProps } = useVisuallyHidden();
+  const { visuallyHiddenProps } = useVisuallyHidden();
 
-    return <span {...visuallyHiddenProps}>{children}</span>;
+  return <span {...visuallyHiddenProps}>{children}</span>;
 };
 
 export { VisuallyHidden };
