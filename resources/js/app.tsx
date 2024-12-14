@@ -11,22 +11,22 @@ import { useRoute } from 'ziggy-js';
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
-    title: (title) => (title ? `${title} / ${appName}` : appName),
-    resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
-    setup({ el, App, props }) {
-        // @ts-expect-error
-        window.route = useRoute(Ziggy as any);
-        const appElement = (
-            <Providers>
-                <App {...props} />
-            </Providers>
-        );
-        if (import.meta.env.SSR) {
-            hydrateRoot(el, appElement);
-            return;
-        }
+  title: (title) => (title ? title + ' / ' + appName : appName),
+  resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+  setup({ el, App, props }) {
+    // @ts-expect-error
+    window.route = useRoute(Ziggy as any);
+    const appElement = (
+      <Providers>
+        <App {...props} />
+      </Providers>
+    );
+    if (import.meta.env.SSR) {
+      hydrateRoot(el, appElement);
+      return;
+    }
 
-        createRoot(el).render(appElement);
-    },
-    progress: false
+    createRoot(el).render(appElement);
+  },
+  progress: false
 });

@@ -14,12 +14,12 @@ for you who want to use inertia.js with typescript boilerplate.
 
 This project has come with some features like:
 
--   Authentication
--   User Profile
--   User Password
--   User Delete
--   User Resources (--only=[index, show, edit, update, destroy])
--   Pagination
+- Authentication
+- User Profile
+- User Password
+- User Delete
+- User Resources (--only=[index, show, edit, update, destroy])
+- Pagination
 
 ### Quick Login
 
@@ -99,13 +99,13 @@ in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-
 
 ### Thanks to
 
--   [Laravel](https://github.com/laravel/framework)
--   [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react)
-    and [Typescript](https://github.com/microsoft/TypeScript)
--   [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
--   [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
--   [Paranoid](https://paranoid.irsyad.co)
--   [getjustd.com](https://getjustd.com/)
--   [parsinta.com](https://parsinta.com/)
--   [irsyad.co](https://irsyad.co/)
--   [karteil.com](https://karteil.com/)
+- [Laravel](https://github.com/laravel/framework)
+- [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react)
+  and [Typescript](https://github.com/microsoft/TypeScript)
+- [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
+- [Paranoid](https://paranoid.irsyad.co)
+- [getjustd.com](https://getjustd.com/)
+- [parsinta.com](https://parsinta.com/)
+- [irsyad.co](https://irsyad.co/)
+- [karteil.com](https://karteil.com/)
