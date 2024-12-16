@@ -1,5 +1,6 @@
+import { cn } from '@/utils/classes';
 import { HTMLAttributes } from 'react';
-import { cn, Description } from 'ui';
+import { Description } from 'ui';
 
 export function InputError({
   message,
