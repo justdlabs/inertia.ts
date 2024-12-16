@@ -59,8 +59,7 @@
       "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
       "@php artisan migrate --graceful --ansi",
       "npm install --legacy-peer-deps",
-      "npm uninstall husky @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it",
-      "npm run dev"
+      "npm uninstall husky @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it"
     ],
     "dev": [
       "Composer\\Config::disableProcessTimeout",

@@ -9,13 +9,14 @@ composer create-project justd/laravel your-project-name
 when you're using npm, you have to include `--legacy-peer-deps` flag.
 
 ```bash
-npm i --legacy-peer-deps && npm run dev
+npm i --legacy-peer-deps
+composer run dev
 ```
 
 ## Using Bun
 
 ```bash
-bun i && bun run dev
+bun i && composer run dev
 ```
 
 You absolutely need to run the `bun run dev`, because the route is generated and watching while it's in dev.
