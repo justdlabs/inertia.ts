@@ -14,13 +14,17 @@ jobs:
       - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
         with:
           php-version: '8.2'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
         run: composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
       - name: Install Node Dependencies
-        run: npm i --legacy-peer-deps && npm run build
+        run: bun i && bun run build
       - name: Generate key
         run: php artisan key:generate
       - name: Directory Permissions
