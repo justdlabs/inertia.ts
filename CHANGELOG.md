@@ -1,3 +1,10 @@
+
+
+## 1.3.0 (2024-12-16)
+
+* fix: little thing ([d7a113c](https://github.com/justdlabs/inertia.ts/commit/d7a113c))
+* feat: upgrade to react 19 and tailwindcss beta 7 ([afb1cdc](https://github.com/justdlabs/inertia.ts/commit/afb1cdc))
+
 ## [1.2.0](https://github.com/justdlabs/inertia.ts/compare/1.1.8...1.2.0) (2024-12-14)
 
 ### Features
