@@ -1,5 +1,9 @@
 
 
+## <small>1.3.2 (2024-12-16)</small>
+
+* fix: fix actions to use legacy ([0b691e5](https://github.com/justdlabs/inertia.ts/commit/0b691e5))
+
 ## <small>1.3.1 (2024-12-16)</small>
 
 * change read me to add composer ([92f09dc](https://github.com/justdlabs/inertia.ts/commit/92f09dc))
