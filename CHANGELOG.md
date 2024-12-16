@@ -1,11 +1,35 @@
 
 
-## [1.2.0](https://github.com/justdlabs/inertia.ts/compare/1.1.8...1.2.0) (2024-12-14)
+## <small>1.3.5 (2024-12-16)</small>
 
+* fix: add bun to actions ([61be853](https://github.com/justdlabs/inertia.ts/commit/61be853))
+
+## <small>1.3.4 (2024-12-16)</small>
+
+* fix: fix actions ([47e3a74](https://github.com/justdlabs/inertia.ts/commit/47e3a74))
+
+## <small>1.3.3 (2024-12-16)</small>
+
+* fix: input error should not use cn from primitive ([cb816f7](https://github.com/justdlabs/inertia.ts/commit/cb816f7))
+
+## <small>1.3.2 (2024-12-16)</small>
+
+* fix: fix actions to use legacy ([0b691e5](https://github.com/justdlabs/inertia.ts/commit/0b691e5))
+
+## <small>1.3.1 (2024-12-16)</small>
+
+* change read me to add composer ([92f09dc](https://github.com/justdlabs/inertia.ts/commit/92f09dc))
+
+## 1.3.0 (2024-12-16)
+
+* fix: little thing ([d7a113c](https://github.com/justdlabs/inertia.ts/commit/d7a113c))
+* feat: upgrade to react 19 and tailwindcss beta 7 ([afb1cdc](https://github.com/justdlabs/inertia.ts/commit/afb1cdc))
+
+## [1.2.0](https://github.com/justdlabs/inertia.ts/compare/1.1.8...1.2.0) (2024-12-14)
 
 ### Features
 
-* upgrade to inertia v2 ([fee9000](https://github.com/justdlabs/inertia.ts/commit/fee9000a614d5bfaddda6b39ac8eba392d667443))
+- upgrade to inertia v2 ([fee9000](https://github.com/justdlabs/inertia.ts/commit/fee9000a614d5bfaddda6b39ac8eba392d667443))
 
 ## [1.1.8](https://github.com/justdlabs/inertia.ts/compare/1.1.7...1.1.8) (2024-11-20)
 

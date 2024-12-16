@@ -1,5 +1,6 @@
+import { cn } from '@/utils/classes';
 import * as React from 'react';
-import { cn, Container } from 'ui';
+import { Container } from 'ui';
 
 const Header = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (

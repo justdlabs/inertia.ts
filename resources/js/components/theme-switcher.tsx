@@ -6,8 +6,9 @@ export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   return (
     <Button
-      appearance="outline"
+      appearance="plain"
       size="square-petite"
+      shape="circle"
       aria-label={'Switch to ' + theme === 'light' ? 'dark' : 'light' + 'mode'}
       onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >

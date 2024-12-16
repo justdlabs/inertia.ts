@@ -1,11 +1,5 @@
-'use client';
-
-import * as React from 'react';
-
-import { Collection } from 'react-aria-components';
-import { tv, type VariantProps } from 'tailwind-variants';
-
-import { cn } from './primitive';
+import { cn } from '@/utils/classes';
+import { type VariantProps, tv } from 'tailwind-variants';
 
 const gridStyles = tv(
   {
@@ -148,7 +142,10 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
         flow: flow ?? 'row',
         columns: columns ?? 1,
         rows: rows ?? 1,
-        className: 'debug' in props ? cn('[&>.grid-cell]:border [&>.grid-cell]:border-warning', className) : className
+        className:
+          'debug' in props
+            ? cn('*:data-[slot=grid-cell]:border *:data-[slot=grid-cell]:border-warning', className)
+            : className
       })}
       {...props}
     >
@@ -159,7 +156,7 @@ const Grid = ({ className, gap, gapX, gapY, flow, columns, rows, ...props }: Gri
 
 const gridItemStyles = tv(
   {
-    base: 'grid-cell focus:outline-none',
+    base: 'grid-cell data-focused:outline-hidden',
     variants: {
       colSpan: {
         auto: 'col-auto',
@@ -281,6 +278,7 @@ const GridItem = ({
 }: GridItemProps) => {
   return (
     <div
+      data-slot="grid-cell"
       className={gridItemStyles({
         colSpan,
         rowSpan,
@@ -297,7 +295,6 @@ const GridItem = ({
   );
 };
 
-Grid.Collection = Collection;
 Grid.Item = GridItem;
 
 export { Grid, gridItemStyles, gridStyles };

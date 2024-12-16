@@ -64,7 +64,14 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
         </Navbar.Section>
         <Navbar.Section className="hidden ml-auto gap-x-1 lg:flex">
           {!auth.user && <ThemeSwitcher />}
-          {auth.user ? <UserMenu /> : <LoginMenu />}
+          {auth.user ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Navbar.Item href={route('login')}>Login</Navbar.Item>
+              <Navbar.Item href={route('register')}>Register</Navbar.Item>
+            </>
+          )}
         </Navbar.Section>
       </Navbar.Nav>
 
@@ -95,7 +102,7 @@ function UserMenu() {
   return (
     <Menu>
       <Menu.Trigger aria-label="Open menu">
-        <Avatar status="online" size="medium" src={auth.user.gravatar} className="size-8" />
+        <Avatar size="medium" src={auth.user.gravatar} className="size-8" />
       </Menu.Trigger>
       <Menu.Content showArrow placement="bottom end" className="sm:min-w-56">
         <Menu.Section>
