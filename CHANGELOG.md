@@ -1,5 +1,9 @@
 
 
+## <small>1.3.3 (2024-12-16)</small>
+
+* fix: input error should not use cn from primitive ([cb816f7](https://github.com/justdlabs/inertia.ts/commit/cb816f7))
+
 ## <small>1.3.2 (2024-12-16)</small>
 
 * fix: fix actions to use legacy ([0b691e5](https://github.com/justdlabs/inertia.ts/commit/0b691e5))
