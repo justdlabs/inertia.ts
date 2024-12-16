@@ -87,9 +87,9 @@ export default function Home() {
                 }}
                 gap={4}
               >
-                <Grid.Collection items={items}>
-                  {(item) => (
-                    <Grid.Item className="relative" id={item.name}>
+                <Grid columns={2} gap={4}>
+                  {items.map((item) => (
+                    <Grid.Item className="relative" key={item.name}>
                       <Link className="absolute inset-0 size-full" target="_blank" href={item.url} />
                       <Card>
                         <div className="px-6 pt-6">
@@ -103,8 +103,8 @@ export default function Home() {
                         </Card.Header>
                       </Card>
                     </Grid.Item>
-                  )}
-                </Grid.Collection>
+                  ))}
+                </Grid>
               </Grid>
             </div>
           </div>

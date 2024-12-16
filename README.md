@@ -2,10 +2,23 @@
 
 ```bash
 composer create-project justd/laravel your-project-name
-npm i && npm run dev
 ```
 
-You absolutely need to run the `npm run dev`, because the route is generate and watching while it's in dev.
+## Using NPM
+
+when you're using npm, you have to include `--legacy-peer-deps` flag.
+
+```bash
+npm i --legacy-peer-deps && npm run dev
+```
+
+## Using Bun
+
+```bash
+bun i && bun run dev
+```
+
+You absolutely need to run the `bun run dev`, because the route is generated and watching while it's in dev.
 
 ### Laravel Inertia React w/ Typescript
 

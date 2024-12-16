@@ -1,6 +1,6 @@
 'use client';
 
-import { Separator as SeparatorPrimitive, type SeparatorProps } from 'react-aria-components';
+import { Separator as Divider, type SeparatorProps as DividerProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 
 const separatorStyles = tv({
@@ -16,9 +16,15 @@ const separatorStyles = tv({
   }
 });
 
-export function Separator({ className, ...props }: SeparatorProps) {
+interface SeparatorProps extends DividerProps {
+  className?: string;
+  ref?: React.RefObject<DividerProps>;
+}
+
+const Separator = ({ className, ref, ...props }: SeparatorProps) => {
   return (
-    <SeparatorPrimitive
+    <Divider
+      ref={ref}
       {...props}
       className={separatorStyles({
         orientation: props.orientation,
@@ -26,6 +32,6 @@ export function Separator({ className, ...props }: SeparatorProps) {
       })}
     />
   );
-}
+};
 
-export type { SeparatorProps };
+export { Separator };

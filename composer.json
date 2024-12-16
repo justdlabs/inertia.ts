@@ -58,9 +58,9 @@
       "@php artisan key:generate --ansi",
       "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
       "@php artisan migrate --graceful --ansi",
-      "npm install",
-      "npm uninstall husky",
-      "npm run dev "
+      "npm install --legacy-peer-deps",
+      "npm uninstall husky @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it",
+      "npm run dev"
     ],
     "dev": [
       "Composer\\Config::disableProcessTimeout",
