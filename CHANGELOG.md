@@ -1,5 +1,9 @@
 
 
+## <small>1.3.5 (2024-12-16)</small>
+
+* fix: add bun to actions ([61be853](https://github.com/justdlabs/inertia.ts/commit/61be853))
+
 ## <small>1.3.4 (2024-12-16)</small>
 
 * fix: fix actions ([47e3a74](https://github.com/justdlabs/inertia.ts/commit/47e3a74))
