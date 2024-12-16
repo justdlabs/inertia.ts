@@ -1,5 +1,9 @@
 
 
+## <small>1.3.1 (2024-12-16)</small>
+
+* change read me to add composer ([92f09dc](https://github.com/justdlabs/inertia.ts/commit/92f09dc))
+
 ## 1.3.0 (2024-12-16)
 
 * fix: little thing ([d7a113c](https://github.com/justdlabs/inertia.ts/commit/d7a113c))
