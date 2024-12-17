@@ -1,5 +1,9 @@
 
 
+## <small>1.3.7 (2024-12-17)</small>
+
+* fix: fix ([72de2e7](https://github.com/justdlabs/inertia.ts/commit/72de2e7))
+
 ## <small>1.3.6 (2024-12-17)</small>
 
 * fix: bump to beta 8 of tailwindcss ([163a8e3](https://github.com/justdlabs/inertia.ts/commit/163a8e3))
