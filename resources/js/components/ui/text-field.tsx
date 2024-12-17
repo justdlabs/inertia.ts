@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 import type { TextInputDOMProps } from '@react-types/shared';

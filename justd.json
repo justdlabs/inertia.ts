@@ -1,8 +1,9 @@
 {
-  "$schema": "https://getjustd.com",
+  "$schema": "https://getjustd.com/schema.json",
   "ui": "resources/js/components/ui",
-  "classes": "resources/js/utils",
-  "theme": "Default",
-  "css": "resources/css/app.css",
-  "created_at": "2024-10-07T20:33:03.716Z"
+  "utils": "resources/js/utils",
+  "gray": "zinc",
+  "css": "src/index.css",
+  "alias": "@",
+  "classes": "resources/js/utils"
 }

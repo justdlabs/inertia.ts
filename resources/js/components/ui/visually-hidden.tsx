@@ -1,5 +1,3 @@
-'use client';
-
 import { useVisuallyHidden } from 'react-aria';
 
 type VisuallyHiddenSpanProps = {

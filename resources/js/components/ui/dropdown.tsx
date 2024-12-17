@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@/utils/classes';
 import { IconCheck } from 'justd-icons';
 import {

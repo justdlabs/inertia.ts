@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, use } from 'react';
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from 'justd-icons';
