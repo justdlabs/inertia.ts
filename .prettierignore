@@ -1,0 +1,6 @@
+**/vendor
+**/public
+**/bootstrap
+**/.git
+**/.svn
+**/.hg
