@@ -1,3 +1,10 @@
+
+
+## <small>1.3.6 (2024-12-17)</small>
+
+* fix: bump to beta 8 of tailwindcss ([163a8e3](https://github.com/justdlabs/inertia.ts/commit/163a8e3))
+* fix: sync ([73709ec](https://github.com/justdlabs/inertia.ts/commit/73709ec))
+
 ## <small>1.3.5 (2024-12-16)</small>
 
 - fix: add bun to actions ([61be853](https://github.com/justdlabs/inertia.ts/commit/61be853))
