@@ -1,5 +1,3 @@
-'use client';
-
 import type { Placement } from '@react-types/overlays';
 import { IconChevronLgDown } from 'justd-icons';
 import {

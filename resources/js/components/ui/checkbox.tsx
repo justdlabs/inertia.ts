@@ -1,5 +1,3 @@
-'use client';
-
 import { IconCheck, IconMinus } from 'justd-icons';
 import type {
   CheckboxGroupProps as CheckboxGroupPrimitiveProps,

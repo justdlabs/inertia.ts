@@ -1,5 +1,3 @@
-'use client';
-
 import type { DialogProps, DialogTriggerProps, ModalOverlayProps } from 'react-aria-components';
 import { DialogTrigger, Modal, ModalOverlay, composeRenderProps } from 'react-aria-components';
 import { type VariantProps, tv } from 'tailwind-variants';

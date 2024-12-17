@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, use, useCallback, useId, useMemo, useState } from 'react';
 
 import { IconHamburger } from 'justd-icons';
@@ -9,8 +7,9 @@ import { Link, composeRenderProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 
 import { cn } from '@/utils/classes';
+import { useMediaQuery } from '@/utils/use-media-query';
 import { Button } from './button';
-import { composeTailwindRenderProps, useMediaQuery } from './primitive';
+import { composeTailwindRenderProps } from './primitive';
 import { Sheet } from './sheet';
 
 type NavbarOptions = {
