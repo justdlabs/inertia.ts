@@ -2,7 +2,16 @@ import { PagePropsData } from '@/types';
 import { usePage } from '@inertiajs/react';
 import { useTheme } from 'components/theme-provider';
 import { ThemeSwitcher } from 'components/theme-switcher';
-import { IconBrandJustd, IconBrandLaravel, IconChevronDown, IconColorSwatch, IconSettings } from 'justd-icons';
+import {
+  IconArrowUpRight,
+  IconBrandJustd,
+  IconBrandLaravel,
+  IconChevronDown,
+  IconColors,
+  IconColorSwatch,
+  IconPackage,
+  IconSettings
+} from 'justd-icons';
 import React from 'react';
 import { Selection } from 'react-aria-components';
 import { Avatar, Button, Menu, Navbar, Separator } from 'ui';
@@ -17,30 +26,6 @@ const navigations = [
     name: 'About',
     textValue: 'About',
     href: '/about'
-  },
-  {
-    name: 'Github',
-    textValue: 'Github Repository',
-    href: 'https://github.com/irsyadadl/inertia.ts',
-    className: 'justify-between'
-  },
-  {
-    name: 'Components',
-    textValue: 'Just D. Components',
-    href: 'https://getjustd.com',
-    className: 'justify-between'
-  },
-  {
-    name: 'Colors',
-    textValue: 'Just D. Colors',
-    href: 'https://getjustd.com/colors',
-    className: 'justify-between'
-  },
-  {
-    name: 'Templates',
-    textValue: 'Next.js Template',
-    href: 'https://irsyad.co/s',
-    className: 'justify-between'
   }
 ];
 
@@ -61,7 +46,36 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
               {item.name}
             </Navbar.Item>
           ))}
+          <Menu>
+            <Navbar.Item className="group">
+              Resources...
+              <IconChevronDown className="duration-200 size-4 ml-2 group-data-pressed:rotate-180" />
+            </Navbar.Item>
+            <Menu.Content className="sm:min-w-48">
+              <Menu.Item target="_blank" href="https://getjustd.com/components">
+                <IconPackage />
+                Components
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/icons">
+                <IconBrandJustd />
+                Icons
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/themes">
+                <IconColors />
+                Themes
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/colors">
+                <IconColorSwatch />
+                Colors
+                <IconArrowUpRight className="ml-auto" />
+              </Menu.Item>
+            </Menu.Content>
+          </Menu>
         </Navbar.Section>
+
         <Navbar.Section className="hidden ml-auto gap-x-1 lg:flex">
           {!auth.user && <ThemeSwitcher />}
           {auth.user ? (
