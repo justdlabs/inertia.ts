@@ -23,3 +23,4 @@ const Container = ({ className, intent, ref, ...props }: ContainerProps) => (
 );
 
 export { Container };
+export type { ContainerProps };

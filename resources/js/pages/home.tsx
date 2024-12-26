@@ -14,11 +14,11 @@ import { Card, Container, Grid, Link } from 'ui';
 
 const items = [
   {
-    name: 'Just D.',
+    name: 'Justd',
     url: 'https://getjustd.com',
     icon: IconBrandJustd,
     description:
-      ' Just D. is a chill set of React components, built on top of React Aria Components, all about keeping the web accessible.'
+      ' Justd is a chill set of React components, built on top of React Aria Components, all about keeping the web accessible.'
   },
   {
     name: 'Inertia.ts',

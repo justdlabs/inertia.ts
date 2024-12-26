@@ -3,8 +3,8 @@ import { tv } from 'tailwind-variants';
 
 const linkStyles = tv({
   base: [
-    'relative data-focus-visible:outline-2 outline-offset-2 outline-0 data-focused:outline-hidden outline-primary transition-colors',
-    'forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText] data-disabled:data-focus-visible:outline-0',
+    'relative outline-0 outline-primary outline-offset-2 transition-colors data-focus-visible:outline-2 data-focused:outline-hidden',
+    'data-disabled:data-focus-visible:outline-0 forced-colors:outline-[Highlight] forced-colors:data-disabled:text-[GrayText]',
     'disabled:cursor-default data-disabled:opacity-60'
   ],
   variants: {
@@ -21,11 +21,13 @@ const linkStyles = tv({
 
 interface LinkProps extends LinkPrimitiveProps {
   intent?: 'primary' | 'secondary' | 'unstyled';
+  ref?: React.RefObject<HTMLAnchorElement>;
 }
 
-const Link = ({ className, ...props }: LinkProps) => {
+const Link = ({ className, ref, ...props }: LinkProps) => {
   return (
     <LinkPrimitive
+      ref={ref}
       {...props}
       className={composeRenderProps(className, (className, ...renderProps) =>
         linkStyles({ ...renderProps, intent: props.intent, className })
@@ -36,4 +38,5 @@ const Link = ({ className, ...props }: LinkProps) => {
   );
 };
 
-export { Link, LinkPrimitive, type LinkPrimitiveProps, type LinkProps };
+export { Link };
+export type { LinkProps };

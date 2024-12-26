@@ -18,31 +18,33 @@ import { tv } from 'tailwind-variants';
 
 import { useMediaQuery } from '@/utils/use-media-query';
 import { twMerge } from 'tailwind-merge';
+import type { DialogBodyProps, DialogFooterProps, DialogHeaderProps, DialogTitleProps } from './dialog';
 import { Dialog } from './dialog';
 
-const Popover = ({ children, ...props }: DialogTriggerProps) => {
+type PopoverProps = DialogTriggerProps;
+const Popover = ({ children, ...props }: PopoverProps) => {
   return <DialogTrigger {...props}>{children}</DialogTrigger>;
 };
 
-const Title = ({ level = 2, className, ...props }: React.ComponentProps<typeof Dialog.Title>) => (
+const Title = ({ level = 2, className, ...props }: DialogTitleProps) => (
   <Dialog.Title className={twMerge('sm:leading-none', level === 2 && 'sm:text-lg', className)} {...props} />
 );
 
-const Header = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Header = ({ className, ...props }: DialogHeaderProps) => (
   <Dialog.Header className={twMerge('sm:p-4', className)} {...props} />
 );
 
-const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const Footer = ({ className, ...props }: DialogFooterProps) => (
   <Dialog.Footer className={twMerge('sm:p-4', className)} {...props} />
 );
 
-const Body = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <Dialog.Body className={twMerge('sm:px-4', className)} {...props} />
+const Body = ({ className, ref, ...props }: DialogBodyProps) => (
+  <Dialog.Body ref={ref} className={twMerge('sm:px-4', className)} {...props} />
 );
 
 const content = tv({
   base: [
-    'max-w-xs transition-transform peer-not-has-[data=dialog-header]:p-4 rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs dark:backdrop-saturate-200 sm:text-sm sm:max-w-3xl forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5 [scrollbar-width:thin]'
+    'max-w-xs rounded-xl border bg-overlay bg-clip-padding text-overlay-fg shadow-xs transition-transform [scrollbar-width:thin] peer-not-has-[data=dialog-header]:p-4 sm:max-w-3xl sm:text-sm dark:backdrop-saturate-200 forced-colors:bg-[Canvas] [&::-webkit-scrollbar]:size-0.5'
   ],
   variants: {
     isPicker: { true: 'max-h-72 min-w-(--trigger-width) overflow-y-auto p-0', false: 'min-w-80' },
@@ -53,13 +55,13 @@ const content = tv({
     },
     isEntering: {
       true: [
-        'duration-100 ease-out animate-in fade-in',
+        'fade-in animate-in duration-100 ease-out',
         'data-[placement=left]:slide-in-from-right-1 data-[placement=right]:slide-in-from-left-1 data-[placement=top]:slide-in-from-bottom-1 data-[placement=bottom]:slide-in-from-top-1'
       ]
     },
     isExiting: {
       true: [
-        'duration-50 ease-in animate-out fade-out',
+        'fade-out animate-out duration-50 ease-in',
         'data-[placement=left]:slide-out-to-right-1 data-[placement=right]:slide-out-to-left-1 data-[placement=top]:slide-out-to-bottom-1 data-[placement=bottom]:slide-out-to-top-1'
       ]
     }
@@ -68,28 +70,28 @@ const content = tv({
 
 const drawer = tv({
   base: [
-    'fixed max-h-full bottom-0 top-auto z-50 w-full bg-overlay max-w-2xl border border-b-transparent outline-hidden'
+    'fixed top-auto bottom-0 z-50 max-h-full w-full max-w-2xl border border-b-transparent bg-overlay outline-hidden'
   ],
   variants: {
     isMenu: {
-      true: 'p-0 [&_[role=dialog]]:*:not-has-[[data-slot=dialog-body]]:px-1 rounded-t-xl',
-      false: 'py-4 rounded-t-2xl'
+      true: 'rounded-t-xl p-0 [&_[role=dialog]]:*:not-has-[[data-slot=dialog-body]]:px-1',
+      false: 'rounded-t-2xl py-4'
     },
     isEntering: {
       true: [
-        '[will-change:transform] [transition:transform_0.5s_cubic-bezier(0.32,_0.72,_0,_1)]',
-        'animate-in duration-200 fade-in-0 slide-in-from-bottom-56',
+        '[transition:transform_0.5s_cubic-bezier(0.32,_0.72,_0,_1)] [will-change:transform]',
+        'fade-in-0 slide-in-from-bottom-56 animate-in duration-200',
         '[transition:translate3d(0,_100%,_0)]',
         'sm:slide-in-from-bottom-auto sm:slide-in-from-top-[20%]'
       ]
     },
     isExiting: {
-      true: 'duration-200 ease-in animate-out slide-out-to-bottom-56'
+      true: 'slide-out-to-bottom-56 animate-out duration-200 ease-in'
     }
   }
 });
 
-interface PopoverProps
+interface PopoverContentProps
   extends Omit<React.ComponentProps<typeof Modal>, 'children'>,
     Omit<PopoverPrimitiveProps, 'children' | 'className'>,
     Omit<ModalOverlayProps, 'className'> {
@@ -102,7 +104,13 @@ interface PopoverProps
   className?: string | ((values: { defaultClassName?: string }) => string);
 }
 
-const Content = ({ respectScreen = true, children, showArrow = true, className, ...props }: PopoverProps) => {
+const PopoverContent = ({
+  respectScreen = true,
+  children,
+  showArrow = true,
+  className,
+  ...props
+}: PopoverContentProps) => {
   const isMobile = useMediaQuery('(max-width: 600px)');
   const popoverContext = useSlottedContext(PopoverContext)!;
   const isMenuTrigger = popoverContext?.trigger === 'MenuTrigger';
@@ -112,7 +120,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
   const effectiveOffset = isSubmenuTrigger ? offset - 5 : offset;
   return isMobile && respectScreen ? (
     <ModalOverlay
-      className="fixed top-0 left-0 z-50 w-full isolate h-(--visual-viewport-height) bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
+      className="fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full bg-overlay/10 [--visual-viewport-vertical-padding:16px]"
       {...props}
       isDismissable
     >
@@ -124,7 +132,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
         <Dialog
           role="dialog"
           aria-label={isMenu ? 'Menu' : props['aria-label']}
-          className="p-0 sm:p-0 touch-none data-focused:outline-hidden"
+          className="touch-none p-0 data-focused:outline-hidden sm:p-0"
         >
           {children}
         </Dialog>
@@ -158,7 +166,7 @@ const Content = ({ respectScreen = true, children, showArrow = true, className, 
   );
 };
 
-const Picker = ({ children, className, ...props }: PopoverProps) => {
+const Picker = ({ children, className, ...props }: PopoverContentProps) => {
   return (
     <PopoverPrimitive
       {...props}
@@ -178,7 +186,7 @@ const Picker = ({ children, className, ...props }: PopoverProps) => {
 Popover.Primitive = PopoverPrimitive;
 Popover.Trigger = Dialog.Trigger;
 Popover.Close = Dialog.Close;
-Popover.Content = Content;
+Popover.Content = PopoverContent;
 Popover.Description = Dialog.Description;
 Popover.Body = Body;
 Popover.Footer = Footer;
@@ -186,4 +194,5 @@ Popover.Header = Header;
 Popover.Picker = Picker;
 Popover.Title = Title;
 
-export { Popover, content };
+export { Popover };
+export type { PopoverContentProps, PopoverProps };
