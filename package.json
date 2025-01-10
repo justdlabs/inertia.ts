@@ -14,7 +14,7 @@
     "@inertiajs/react": "^2.0.0",
     "@release-it/bumper": "^6.0.1",
     "@release-it/conventional-changelog": "^9.0.4",
-    "@types/react": "^19.0.2",
+    "@types/react": "^19.0.4",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
@@ -25,16 +25,16 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "release-it": "^17.11.0",
-    "tailwindcss": "^4.0.0-beta.8",
-    "typescript": "^5.7.2",
+    "tailwindcss": "^4.0.0-beta.9",
+    "typescript": "^5.7.3",
     "vite-plugin-watch": "^0.3.1"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.0-beta.8",
-    "@types/node": "^22.10.2",
+    "@tailwindcss/vite": "^4.0.0-beta.9",
+    "@types/node": "^22.10.5",
     "clsx": "^2.1.1",
-    "justd-icons": "^1.10.8",
-    "motion": "^11.15.0",
+    "justd-icons": "^1.10.18",
+    "motion": "^11.16.4",
     "react": "^19.0.0",
     "react-aria-components": "^1.5.0",
     "react-dom": "^19.0.0",
@@ -42,7 +42,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "vite": "^6.0.6"
+    "vite": "^6.0.7"
   },
-  "version": "1.3.8"
+  "version": "1.3.9"
 }

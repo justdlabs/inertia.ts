@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.3.9](https://github.com/justdlabs/inertia.ts/compare/v1.3.8...v1.3.9) (2025-01-10)
+
 ## [1.3.8](https://github.com/justdlabs/inertia.ts/compare/v1.3.7...v1.3.8) (2024-12-26)
 
 ## [1.3.7](https://github.com/justdlabs/inertia.ts/compare/v1.3.6...v1.3.7) (2024-12-17)
