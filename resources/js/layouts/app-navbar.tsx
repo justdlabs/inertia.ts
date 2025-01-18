@@ -147,9 +147,9 @@ function UserMenu() {
             ]}
           >
             {(item) => (
-              <Menu.Checkbox id={item.value} textValue={item.name}>
+              <Menu.Item id={item.value} textValue={item.name}>
                 {item.name}
-              </Menu.Checkbox>
+              </Menu.Item>
             )}
           </Menu.Content>
         </Menu.Submenu>
