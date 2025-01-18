@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.13](https://github.com/justdlabs/inertia.ts/compare/v1.3.12...v1.3.13) (2025-01-18)
+
+
+### Bug Fixes
+
+* fix navbar ([9530797](https://github.com/justdlabs/inertia.ts/commit/953079745aacaea85dc86f61e92a6e7a1da2100c))
+
 ## [1.3.12](https://github.com/justdlabs/inertia.ts/compare/v1.3.11...v1.3.12) (2025-01-18)
 
 ### Bug Fixes
