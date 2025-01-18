@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.12](https://github.com/justdlabs/inertia.ts/compare/v1.3.11...v1.3.12) (2025-01-18)
+
+
+### Bug Fixes
+
+* syncing the latest justd ([289c077](https://github.com/justdlabs/inertia.ts/commit/289c077a8a835c96550de57564b71bde33c6835c))
+
 ## [1.3.11](https://github.com/justdlabs/inertia.ts/compare/v1.3.10...v1.3.11) (2025-01-15)
 
 ## [1.3.10](https://github.com/justdlabs/inertia.ts/compare/v1.3.9...v1.3.10) (2025-01-13)
