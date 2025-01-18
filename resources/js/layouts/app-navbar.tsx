@@ -54,23 +54,23 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Menu.Content className="sm:min-w-48">
               <Menu.Item target="_blank" href="https://getjustd.com/components">
                 <IconPackage />
-                Components
-                <IconArrowUpRight className="ml-auto" />
+                <Menu.Label>Components</Menu.Label>
+                <IconArrowUpRight className="absolute right-0" />
               </Menu.Item>
               <Menu.Item target="_blank" href="https://getjustd.com/icons">
                 <IconBrandJustd />
-                Icons
-                <IconArrowUpRight className="ml-auto" />
+                <Menu.Label>Icons</Menu.Label>
+                <IconArrowUpRight className="absolute right-0" />
               </Menu.Item>
               <Menu.Item target="_blank" href="https://getjustd.com/themes">
                 <IconColors />
-                Themes
-                <IconArrowUpRight className="ml-auto" />
+                <Menu.Label>Themes</Menu.Label>
+                <IconArrowUpRight className="absolute right-0" />
               </Menu.Item>
               <Menu.Item target="_blank" href="https://getjustd.com/colors">
                 <IconColorSwatch />
-                Colors
-                <IconArrowUpRight className="ml-auto" />
+                <Menu.Label>Colors</Menu.Label>
+                <IconArrowUpRight className="absolute right-0" />
               </Menu.Item>
             </Menu.Content>
           </Menu>
