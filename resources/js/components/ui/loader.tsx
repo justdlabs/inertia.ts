@@ -168,7 +168,7 @@ const LOADERS = {
   spin: Spin
 };
 
-const DEFAULT_SPINNER = 'ring';
+const DEFAULT_SPINNER = 'spin';
 
 interface LoaderProps
   extends Omit<React.ComponentPropsWithoutRef<'svg'>, 'display' | 'opacity' | 'intent'>,
