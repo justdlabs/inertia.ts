@@ -1,7 +1,7 @@
+import GuestLayout from '@/layouts/guest-layout';
 import { Head, useForm } from '@inertiajs/react';
-import { GuestLayout } from 'layouts';
 import React, { useEffect } from 'react';
-import { Button, buttonStyles, Checkbox, Form, Link, TextField } from 'ui';
+import { Button, Form, Link, TextField } from 'ui';
 
 export default function Register() {
   const { data, setData, post, processing, errors, reset } = useForm({
@@ -23,18 +23,16 @@ export default function Register() {
 
     post('/register');
   };
-  console.log(import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE);
   return (
     <>
       <Head title="Register" />
 
-      <Form onSubmit={submit} validationErrors={errors} className="space-y-6">
+      <Form onSubmit={submit} validationErrors={errors} className="flex flex-col gap-y-4">
         <TextField
           type="text"
           name="name"
           label="Name"
           value={data.name}
-          className="mt-1"
           autoComplete="name"
           autoFocus
           onChange={(v) => setData('name', v)}
@@ -46,57 +44,40 @@ export default function Register() {
           name="email"
           label="Email"
           value={data.email}
-          className="mt-1"
           autoComplete="username"
           onChange={(v) => setData('email', v)}
           errorMessage={errors.email}
           isRequired
         />
-        <TextField
-          type="password"
-          name="password"
-          label="Password"
-          value={data.password}
-          autoComplete="current-password"
-          onChange={(v) => setData('password', v)}
-          errorMessage={errors.password}
-          isRequired
-        />
+        <div className="grid grid-cols-2 gap-4">
+          <TextField
+            type="password"
+            name="password"
+            label="Password"
+            value={data.password}
+            autoComplete="current-password"
+            onChange={(v) => setData('password', v)}
+            errorMessage={errors.password}
+            isRequired
+          />
 
-        <TextField
-          type="password"
-          label="Confirm Password"
-          name="password_confirmation"
-          value={data.password_confirmation}
-          className="mt-1"
-          onChange={(v) => setData('password_confirmation', v)}
-          errorMessage={errors.password_confirmation}
-          isRequired
-        />
-
-        {import.meta.env.VITE_HAS_TERMS_AND_PRIVACY_POLICY_FEATURE && (
-          <div className="flex items-center gap-x-1">
-            <Checkbox name="terms" id="terms" onChange={(e: any) => setData('terms', e)} isRequired>
-              I agree to the{' '}
-            </Checkbox>
-            <Link target="_blank" href={route('terms.show')} intent="primary">
-              terms of service
-            </Link>{' '}
-            and{' '}
-            <Link target="_blank" href={route('privacy.show')} intent="primary">
-              privacy policy
-            </Link>
-          </div>
-        )}
-
-        <div className="flex items-center justify-between">
-          <Link href="/login" className={buttonStyles({ appearance: 'outline' })}>
+          <TextField
+            type="password"
+            label="Confirm Password"
+            name="password_confirmation"
+            value={data.password_confirmation}
+            onChange={(v) => setData('password_confirmation', v)}
+            errorMessage={errors.password_confirmation}
+            isRequired
+          />
+        </div>
+        <Button type="submit" className="w-full" isDisabled={processing}>
+          Register
+        </Button>
+        <div className="text-center">
+          <Link href="/login" intent="secondary" className="sm:text-sm">
             Already registered?
           </Link>
-
-          <Button type="submit" isDisabled={processing}>
-            Register
-          </Button>
         </div>
       </Form>
     </>

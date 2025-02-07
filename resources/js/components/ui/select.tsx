@@ -1,6 +1,6 @@
 import { IconChevronLgDown } from 'justd-icons';
 import type { ListBoxProps, SelectProps as SelectPrimitiveProps, ValidationResult } from 'react-aria-components';
-import { Button, Select as SelectPrimitive, SelectValue, composeRenderProps } from 'react-aria-components';
+import { Button, composeRenderProps, Select as SelectPrimitive, SelectValue } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 
 import type { Placement } from '@react-types/overlays';

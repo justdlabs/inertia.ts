@@ -1,9 +1,9 @@
 import '../css/app.css';
 import './bootstrap';
 
+import { Providers } from '@/components/providers';
 import { Ziggy } from '@/ziggy';
 import { createInertiaApp } from '@inertiajs/react';
-import { Providers } from 'components/providers';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { useRoute } from 'ziggy-js';

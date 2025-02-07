@@ -1,6 +1,6 @@
+import AppLayout from '@/layouts/app-layout';
 import { PagePropsData } from '@/types';
 import { Head } from '@inertiajs/react';
-import { AppLayout } from 'layouts';
 import { Card, Container } from 'ui';
 
 export default function Dashboard({ auth }: PagePropsData) {

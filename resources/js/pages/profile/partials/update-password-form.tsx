@@ -46,7 +46,6 @@ export function UpdatePasswordForm() {
           <TextField
             label="Current Password"
             value={data.current_password}
-            className="mt-1"
             onChange={(v) => setData('current_password', v)}
             type="password"
             autoComplete="current-password"
@@ -69,7 +68,6 @@ export function UpdatePasswordForm() {
             label="Confirm Password"
             name="password_confirmation"
             value={data.password_confirmation}
-            className="mt-1"
             onChange={(v) => setData('password_confirmation', v)}
             errorMessage={errors.password_confirmation}
             isRequired

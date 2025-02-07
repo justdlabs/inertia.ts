@@ -1,6 +1,6 @@
+import { Header } from '@/components/header';
+import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
-import { Header } from 'components/header';
-import { AppLayout } from 'layouts';
 import React from 'react';
 import { Card, Container } from 'ui';
 

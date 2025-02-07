@@ -1,16 +1,10 @@
+import { Header } from '@/components/header';
+import { Logo } from '@/components/logo';
+import AppLayout from '@/layouts/app-layout';
+import { IconBrandJustdBlocks } from '@/layouts/app-navbar';
 import { Head } from '@inertiajs/react';
-import { Header } from 'components/header';
-import { Logo } from 'components/logo';
-import {
-  IconBrandGithub,
-  IconBrandJustd,
-  IconBrandKarteil,
-  IconBrandParanoid,
-  IconBrandParsinta,
-  IconCube
-} from 'justd-icons';
-import { AppLayout } from 'layouts';
-import { Card, Container, Grid, Link } from 'ui';
+import { IconBrandJustd, IconBrandParanoid, IconBrandParsinta, IconWindowVisitFill } from 'justd-icons';
+import { Card, Container, Link } from 'ui';
 
 const items = [
   {
@@ -21,11 +15,11 @@ const items = [
       ' Justd is a chill set of React components, built on top of React Aria Components, all about keeping the web accessible.'
   },
   {
-    name: 'Inertia.ts',
-    url: 'https://github.com/irsyadadl/inertia.ts',
-    icon: IconBrandGithub,
+    name: 'Blocks',
+    url: 'https://blocks.getjustd.com',
+    icon: IconBrandJustdBlocks,
     description:
-      'This project is developed by IrsyadAdl, if you want to contribute to this project, please visit the Github Repository.'
+      'Create stunning, professional-grade layouts that not only save time but also elevate the quality of your projects.'
   },
   {
     name: 'Icons',
@@ -35,9 +29,9 @@ const items = [
       'A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications.'
   },
   {
-    name: 'Next.js Template',
-    url: 'https://irsyad.co/s',
-    icon: IconCube,
+    name: 'Templates',
+    url: 'https://blocks.getjustd.com/templates',
+    icon: IconWindowVisitFill,
     description: 'Explore the next.js templates from web apps to design systems, all here.'
   },
   {
@@ -46,13 +40,6 @@ const items = [
     icon: IconBrandParsinta,
     description:
       'Improve your skills with Parsinta by pushing your skills to the next level, through the series here such as Laravel, Vue, React, Tailwind CSS and Much more.'
-  },
-  {
-    name: 'Karteil',
-    url: 'https://karteil.com',
-    icon: IconBrandKarteil,
-    description:
-      'Improve your skills with Karteil by pushing your skills to the next level, through the online books here such as Laravel, Vue, React, Tailwind CSS and Much more.'
   }
 ];
 
@@ -80,32 +67,24 @@ export default function Home() {
                 </div>
               </div>
 
-              <Grid
-                columns={{
-                  initial: 1,
-                  sm: 2
-                }}
-                gap={4}
-              >
-                <Grid columns={2} gap={4}>
-                  {items.map((item) => (
-                    <Grid.Item className="relative" key={item.name}>
-                      <Link className="absolute inset-0 size-full" target="_blank" href={item.url} />
-                      <Card>
-                        <div className="px-6 pt-6">
-                          <div className="size-8 grid place-content-center rounded-full border">
-                            <item.icon />
-                          </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {items.map((item) => (
+                  <div className="relative" key={item.name}>
+                    <Link className="absolute inset-0 size-full" target="_blank" href={item.url} />
+                    <Card>
+                      <div className="px-6 pt-6">
+                        <div className="size-8 *:size-5 grid place-content-center rounded-full border">
+                          <item.icon />
                         </div>
-                        <Card.Header>
-                          <Card.Title>{item.name}</Card.Title>
-                          <Card.Description>{item.description}</Card.Description>
-                        </Card.Header>
-                      </Card>
-                    </Grid.Item>
-                  ))}
-                </Grid>
-              </Grid>
+                      </div>
+                      <Card.Header>
+                        <Card.Title>{item.name}</Card.Title>
+                        <Card.Description>{item.description}</Card.Description>
+                      </Card.Header>
+                    </Card>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

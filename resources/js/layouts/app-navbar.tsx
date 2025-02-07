@@ -1,20 +1,20 @@
+import { useTheme } from '@/components/theme-provider';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 import { PagePropsData } from '@/types';
 import { usePage } from '@inertiajs/react';
-import { useTheme } from 'components/theme-provider';
-import { ThemeSwitcher } from 'components/theme-switcher';
 import {
   IconArrowUpRight,
   IconBrandJustd,
   IconBrandLaravel,
-  IconChevronDown,
-  IconColors,
+  IconChevronLgDown,
+  IconColorPalette,
   IconColorSwatch,
-  IconPackage,
+  IconLogout,
   IconSettings
 } from 'justd-icons';
 import React from 'react';
 import { Selection } from 'react-aria-components';
-import { Avatar, Button, Menu, Navbar, Separator } from 'ui';
+import { Avatar, buttonStyles, Link, Menu, Navbar, Separator } from 'ui';
 
 const navigations = [
   {
@@ -49,28 +49,43 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           <Menu>
             <Navbar.Item className="group">
               Resources...
-              <IconChevronDown className="duration-200 size-4 ml-2 group-data-pressed:rotate-180" />
+              <IconChevronLgDown className="transition-transform size-4 ml-2 group-data-pressed:rotate-180" />
             </Navbar.Item>
             <Menu.Content className="sm:min-w-48">
-              <Menu.Item target="_blank" href="https://getjustd.com/components">
-                <IconPackage />
-                <Menu.Label>Components</Menu.Label>
-                <IconArrowUpRight className="absolute right-0" />
-              </Menu.Item>
-              <Menu.Item target="_blank" href="https://getjustd.com/icons">
+              <Menu.Submenu>
+                <Menu.Item>
+                  <Menu.Label>Blocks</Menu.Label>
+                </Menu.Item>
+                <Menu.Content>
+                  <Menu.Item target="_blank" href="https://blocks.getjustd.com" className="justify-between">
+                    <IconBrandJustdBlocks />
+                    <Menu.Label>Premium Blocks</Menu.Label>
+                  </Menu.Item>
+                  <Menu.Item target="_blank" href="https://getjustd.com/blocks" className="justify-between">
+                    <IconBrandJustd />
+                    <Menu.Label>Basic Blocks</Menu.Label>
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Submenu>
+              <Menu.Item target="_blank" href="https://getjustd.com" className="justify-between">
                 <IconBrandJustd />
-                <Menu.Label>Icons</Menu.Label>
-                <IconArrowUpRight className="absolute right-0" />
+                <Menu.Label>Components</Menu.Label>
+                <IconArrowUpRight />
               </Menu.Item>
-              <Menu.Item target="_blank" href="https://getjustd.com/themes">
-                <IconColors />
-                <Menu.Label>Themes</Menu.Label>
-                <IconArrowUpRight className="absolute right-0" />
-              </Menu.Item>
-              <Menu.Item target="_blank" href="https://getjustd.com/colors">
+              <Menu.Item target="_blank" href="https://getjustd.com/colors" className="justify-between">
                 <IconColorSwatch />
                 <Menu.Label>Colors</Menu.Label>
-                <IconArrowUpRight className="absolute right-0" />
+                <IconArrowUpRight />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://getjustd.com/themes" className="justify-between">
+                <IconColorPalette />
+                <Menu.Label>Themes</Menu.Label>
+                <IconArrowUpRight />
+              </Menu.Item>
+              <Menu.Item target="_blank" href="https://laravel.com" className="justify-between">
+                <IconBrandLaravel />
+                <Menu.Label>Laravel</Menu.Label>
+                <IconArrowUpRight />
               </Menu.Item>
             </Menu.Content>
           </Menu>
@@ -82,7 +97,10 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <UserMenu />
           ) : (
             <>
-              <Navbar.Item href={route('login')}>Login</Navbar.Item>
+              <Separator orientation="vertical" className="h-6 mr-2" />
+              <Link className={buttonStyles({ appearance: 'outline', size: 'small' })} href={route('login')}>
+                Login
+              </Link>
               <Navbar.Item href={route('register')}>Register</Navbar.Item>
             </>
           )}
@@ -99,7 +117,18 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
         </Navbar.Flex>
         <Navbar.Flex className="gap-x-1">
           {!auth.user && <ThemeSwitcher />}
-          {auth.user ? <UserMenu /> : <LoginMenu />}
+          {auth.user ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Link
+                className={buttonStyles({ appearance: 'outline', size: 'small', shape: 'circle' })}
+                href={route('login')}
+              >
+                Login
+              </Link>
+            </>
+          )}
         </Navbar.Flex>
       </Navbar.Compact>
 
@@ -115,23 +144,35 @@ function UserMenu() {
   const [selectedTheme, setSelectedTheme] = React.useState<Selection>(new Set([currentTheme]));
   return (
     <Menu>
-      <Menu.Trigger aria-label="Open menu">
-        <Avatar size="medium" src={auth.user.gravatar} className="size-8" />
+      <Menu.Trigger
+        className="group data-hovered:bg-secondary p-1 rounded-lg flex justify-between text-left items-start"
+        aria-label="Open menu"
+      >
+        <Avatar src={auth.user.gravatar} shape="square" className="mr-2 size-9 *:size-9" />
+        <div className="flex flex-col pr-2">
+          <strong className="font-semibold text-sm">{auth.user.name}</strong>
+          <span className="text-xs">{auth.user.email}</span>
+        </div>
+        <IconChevronLgDown className="group-data-pressed:rotate-180 transition-transform" />
       </Menu.Trigger>
-      <Menu.Content showArrow placement="bottom end" className="sm:min-w-56">
+      <Menu.Content placement="bottom end" className="sm:min-w-60">
         <Menu.Section>
           <Menu.Header separator className="relative">
             <div>{auth.user.name}</div>
             <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-6">{auth.user.email}</div>
           </Menu.Header>
         </Menu.Section>
-        <Menu.Item href={route('dashboard')}>Dashboard</Menu.Item>
+        <Menu.Item href={route('dashboard')}>
+          <Menu.Label>Dashboard</Menu.Label>
+        </Menu.Item>
         <Menu.Item href={route('profile.edit')} className="justify-between">
-          Settings
+          <Menu.Label>Settings</Menu.Label>
           <IconSettings />
         </Menu.Item>
         <Menu.Submenu>
-          <Menu.Item>Preferences</Menu.Item>
+          <Menu.Item>
+            <Menu.Label>Preferences</Menu.Label>
+          </Menu.Item>
           <Menu.Content
             selectionMode="single"
             selectedKeys={selectedTheme}
@@ -148,44 +189,58 @@ function UserMenu() {
           >
             {(item) => (
               <Menu.Item id={item.value} textValue={item.name}>
-                {item.name}
+                <Menu.Label>{item.name}</Menu.Label>
               </Menu.Item>
             )}
           </Menu.Content>
         </Menu.Submenu>
-        <Menu.Separator />
-        <Menu.Item target="_blank" href="https://laravel.com" className="justify-between">
-          Documentation
-          <IconBrandLaravel />
-        </Menu.Item>
-        <Menu.Item target="_blank" href="https://getjustd.com" className="justify-between">
-          Components
-          <IconBrandJustd />
-        </Menu.Item>
-        <Menu.Item target="_blank" href="https://getjustd.com/colors" className="justify-between">
-          Colors
-          <IconColorSwatch />
-        </Menu.Item>
+
         <Menu.Separator />
         <Menu.Item routerOptions={{ method: 'post' }} href={route('logout')}>
-          <span>Logout</span>
+          <Menu.Label>Logout</Menu.Label>
+          <IconLogout />
         </Menu.Item>
       </Menu.Content>
     </Menu>
   );
 }
 
-function LoginMenu() {
+export function IconBrandJustdBlocks() {
   return (
-    <Menu>
-      <Button size="small" appearance="outline">
-        Login
-        <IconChevronDown className="ml-2" />
-      </Button>
-      <Menu.Content showArrow placement="bottom end" className="sm:min-w-40">
-        <Menu.Item href={route('login')}>Login</Menu.Item>
-        <Menu.Item href={route('register')}>Register</Menu.Item>
-      </Menu.Content>
-    </Menu>
+    <svg className="size-4.5 sm:size-5" xmlns="http://www.w3.org/2000/svg" height={24} fill="none" viewBox="0 0 24 24">
+      <rect width={20} height={20} x={2} y={2} fill="#0D6DFD" rx="3.75" />
+      <g fill="#fff" filter="url(#a)" shapeRendering="crispEdges">
+        <path d="M5.36 6.311c0-.525.426-.952.951-.952h1.904c.526 0 .952.427.952.952v1.904a.95.95 0 0 1-.952.952H6.311a.95.95 0 0 1-.952-.952z" />
+        <path
+          d="M10.105 6.311c0-.525.426-.952.952-.952h1.904c.525 0 .952.427.952.952v1.904a.95.95 0 0 1-.952.952h-1.904a.95.95 0 0 1-.952-.952z"
+          fillOpacity=".5"
+        />
+        <path d="M14.85 6.311c0-.525.426-.952.952-.952h1.904c.526 0 .952.427.952.952v1.904a.95.95 0 0 1-.952.952h-1.904a.95.95 0 0 1-.952-.952z" />
+        <path
+          d="M14.85 11.057c0-.526.426-.952.952-.952h1.904c.526 0 .952.426.952.952v1.904a.95.95 0 0 1-.952.952h-1.904a.95.95 0 0 1-.952-.952z"
+          fillOpacity=".5"
+        />
+      </g>
+      <defs>
+        <filter
+          id="a"
+          width="13.426"
+          height="8.68"
+          x="5.296"
+          y="5.328"
+          colorInterpolationFilters="sRGB"
+          filterUnits="userSpaceOnUse"
+        >
+          <feFlood floodOpacity={0} result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+          <feOffset dy=".032" />
+          <feGaussianBlur stdDeviation=".032" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_74_56" />
+          <feBlend in="SourceGraphic" in2="effect1_dropShadow_74_56" result="shape" />
+        </filter>
+      </defs>
+    </svg>
   );
 }

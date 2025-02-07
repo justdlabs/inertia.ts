@@ -16,12 +16,12 @@ import {
   Collection,
   Column,
   ColumnResizer as ColumnResizerPrimitive,
+  composeRenderProps,
   ResizableTableContainer,
   Row,
   TableBody,
   TableHeader,
   Table as TablePrimitive,
-  composeRenderProps,
   useTableOptions
 } from 'react-aria-components';
 import { tv } from 'tailwind-variants';

@@ -14,8 +14,6 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./resources/js/*"],
-      "components/*": ["./resources/js/components/*"],
-      "layouts": ["./resources/js/layouts/index.ts"],
       "ziggy-js": ["./vendor/tightenco/ziggy"],
       "ui": ["./resources/js/components/ui/index.ts"]
     }
