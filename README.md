@@ -98,7 +98,6 @@ This project has 3 layout:
 
 1. Guest Layout
 2. App Layout (Default)
-3. User Layout
 
 User layout will make a layout side by side, it has a sidebar. So this is will be useful when you need an admin panel or
 something like that.
@@ -106,20 +105,6 @@ something like that.
 If you like making new features, feel free to make a [pull request](https://github.com/irsyadadl/inertia.ts/pulls). I'll
 be happy to review it.
 
-### Learn More
-
-Everything you need to understand is clearly can be found
-in: [UI / UX with Laravel and React](https://parsinta.com/series/ui-laravel-dan-react-nqp6j)
-
-### Thanks to
-
-- [Laravel](https://github.com/laravel/framework)
-- [Inertia](https://github.com/inertiajs/inertia) with [React](https://github.com/facebook/react)
-  and [Typescript](https://github.com/microsoft/TypeScript)
-- [Vite](https://vitejs.dev/) with [Vite plugin](https://github.com/laravel/vite-plugin) and friends
-- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss) and friends
-- [Paranoid](https://paranoid.irsyad.co)
-- [getjustd.com](https://getjustd.com/)
-- [parsinta.com](https://parsinta.com/)
-- [irsyad.co](https://irsyad.co/)
-- [karteil.com](https://karteil.com/)
+## Sponsored
+- [Premium Blocks](https://blocks.getjustd.com)
+- [Parsinta](https://parsinta.com)
