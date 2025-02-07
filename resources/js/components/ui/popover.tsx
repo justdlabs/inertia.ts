@@ -4,6 +4,7 @@ import type {
   PopoverProps as PopoverPrimitiveProps
 } from 'react-aria-components';
 import {
+  composeRenderProps,
   type DialogProps,
   DialogTrigger,
   Modal,
@@ -11,7 +12,6 @@ import {
   OverlayArrow,
   PopoverContext,
   Popover as PopoverPrimitive,
-  composeRenderProps,
   useSlottedContext
 } from 'react-aria-components';
 import { tv } from 'tailwind-variants';

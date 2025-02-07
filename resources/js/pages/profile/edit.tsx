@@ -1,6 +1,6 @@
+import { Header } from '@/components/header';
+import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
-import { Header } from 'components/header';
-import { AppLayout } from 'layouts';
 import { Container } from 'ui';
 import { DeleteUserForm, UpdatePasswordForm, UpdateProfileInformationForm } from './partials';
 
@@ -17,7 +17,7 @@ export default function Edit({ mustVerifyEmail, status }: Props) {
       <Head title={title} />
       <Header title={title} />
       <Container>
-        <div className="max-w-3xl space-y-6">
+        <div className="max-w-3xl flex flex-col gap-y-6">
           <UpdateProfileInformationForm mustVerifyEmail={mustVerifyEmail} status={status} />
           <UpdatePasswordForm />
           <DeleteUserForm />

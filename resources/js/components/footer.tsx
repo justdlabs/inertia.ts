@@ -1,4 +1,4 @@
-import { ThemeToggle } from 'components/theme-toggle';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 import { SVGProps } from 'react';
 import { Button, Link, TextField } from 'ui';
 
@@ -161,6 +161,7 @@ export function Footer() {
               </p>
               <form className="mt-6 sm:flex sm:max-w-md">
                 <TextField
+                  className="w-full"
                   aria-label="Email address"
                   type="email"
                   name="email-address"
@@ -174,7 +175,7 @@ export function Footer() {
                 </div>
               </form>
             </div>
-            <ThemeToggle />
+            <ThemeSwitcher />
           </div>
         </div>
         <div className="mt-16 border-t border-slate-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">

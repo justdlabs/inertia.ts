@@ -35,7 +35,6 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             label="Name"
             type="text"
             value={data.name}
-            className="mt-1"
             onChange={(v) => setData('name', v)}
             isRequired
             errorMessage={errors.name}
@@ -47,7 +46,6 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             type="email"
             label="Email"
             value={data.email}
-            className="mt-1"
             onChange={(v) => setData('email', v)}
             isRequired
             errorMessage={errors.email}
