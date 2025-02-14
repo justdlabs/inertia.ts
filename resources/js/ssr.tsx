@@ -17,7 +17,9 @@ createServer((page) =>
       // @ts-ignore
       global.route = (name, params, absolute) =>
         route(name, params as any, absolute, {
+          // @ts-ignore
           ...page.props.ziggy,
+          // @ts-ignore
           location: new URL(page.props.ziggy.location),
         })
       return <App {...props} />
