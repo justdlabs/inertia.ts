@@ -1,32 +1,34 @@
-import { PagePropsData } from '@/types';
-import { useForm, usePage } from '@inertiajs/react';
-import { Button, Card, Form, Link, TextField } from 'ui';
+import type { PagePropsData } from "@/types"
+import { useForm, usePage } from "@inertiajs/react"
+import { Button, Card, Form, Link, TextField } from "ui"
 
 interface Props {
-  mustVerifyEmail: boolean;
-  status?: string;
-  className?: string;
+  mustVerifyEmail: boolean
+  status?: string
+  className?: string
 }
 
 export function UpdateProfileInformationForm({ mustVerifyEmail, status, className }: Props) {
-  const { auth } = usePage<PagePropsData>().props;
+  const { auth } = usePage<PagePropsData>().props
   const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-    name: auth.user.name ?? '',
-    email: auth.user.email ?? ''
-  });
+    name: auth.user.name ?? "",
+    email: auth.user.email ?? "",
+  })
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    patch(route('profile.update'), {
-      preserveScroll: true
-    });
-  };
+    e.preventDefault()
+    patch(route("profile.update"), {
+      preserveScroll: true,
+    })
+  }
 
   return (
     <Card>
       <Card.Header>
         <Card.Title>Profile Information</Card.Title>
-        <Card.Description>Update your account's profile information and email address.</Card.Description>
+        <Card.Description>
+          Update your account's profile information and email address.
+        </Card.Description>
       </Card.Header>
       <Card.Content>
         <Form validationErrors={errors} onSubmit={submit} className="space-y-6">
@@ -35,7 +37,7 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             label="Name"
             type="text"
             value={data.name}
-            onChange={(v) => setData('name', v)}
+            onChange={(v) => setData("name", v)}
             isRequired
             errorMessage={errors.name}
             autoFocus
@@ -46,7 +48,7 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             type="email"
             label="Email"
             value={data.email}
-            onChange={(v) => setData('email', v)}
+            onChange={(v) => setData("email", v)}
             isRequired
             errorMessage={errors.email}
             autoComplete="email"
@@ -57,18 +59,18 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
               <p className="mt-2 text-sm">
                 Your email address is unverified.
                 <Link
-                  href={route('verification.send')}
+                  href={route("verification.send")}
                   intent="secondary"
                   routerOptions={{
-                    method: 'post'
+                    method: "post",
                   }}
                 >
                   Click here to re-send the verification email.
                 </Link>
               </p>
 
-              {status === 'verification-link-sent' && (
-                <div className="mt-2 text-sm font-medium text-green-600">
+              {status === "verification-link-sent" && (
+                <div className="mt-2 font-medium text-green-600 text-sm">
                   A new verification link has been sent to your email address.
                 </div>
               )}
@@ -79,10 +81,10 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             <Button type="submit" isDisabled={processing}>
               Save
             </Button>
-            {recentlySuccessful && <p className="text-sm text-muted-fg">Saved.</p>}
+            {recentlySuccessful && <p className="text-muted-fg text-sm">Saved.</p>}
           </div>
         </Form>
       </Card.Content>
     </Card>
-  );
+  )
 }

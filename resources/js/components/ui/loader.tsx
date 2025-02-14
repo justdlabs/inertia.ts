@@ -1,38 +1,38 @@
-import { cn } from '@/utils/classes';
-import { IconLoader } from 'justd-icons';
-import { ProgressBar } from 'react-aria-components';
-import type { VariantProps } from 'tailwind-variants';
-import { tv } from 'tailwind-variants';
+import { cn } from "@/utils/classes"
+import { IconLoader } from "justd-icons"
+import { ProgressBar } from "react-aria-components"
+import type { VariantProps } from "tailwind-variants"
+import { tv } from "tailwind-variants"
 
 const loaderStyles = tv({
-  base: 'relative',
+  base: "relative",
   variants: {
     intent: {
-      current: 'text-current',
-      primary: 'text-primary',
-      secondary: 'text-muted-fg',
-      success: 'text-success',
-      warning: 'text-warning',
-      danger: 'text-danger'
+      current: "text-current",
+      primary: "text-primary",
+      secondary: "text-muted-fg",
+      success: "text-success",
+      warning: "text-warning",
+      danger: "text-danger",
     },
     size: {
-      small: 'size-4',
-      medium: 'size-6',
-      large: 'size-8',
-      'extra-large': 'size-10'
-    }
+      small: "size-4",
+      medium: "size-6",
+      large: "size-8",
+      "extra-large": "size-10",
+    },
   },
   defaultVariants: {
-    intent: 'current',
-    size: 'small'
-  }
-});
+    intent: "current",
+    size: "small",
+  },
+})
 
-type LoaderVariantProps = VariantProps<typeof loaderStyles>;
+type LoaderVariantProps = VariantProps<typeof loaderStyles>
 
 const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className={cn('size-4', className)}
+    className={cn("size-4", className)}
     data-slot="icon"
     viewBox="0 0 135 140"
     xmlns="http://www.w3.org/2000/svg"
@@ -130,10 +130,10 @@ const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
       />
     </rect>
   </svg>
-);
-const Ring = (props: React.SVGProps<SVGSVGElement>) => <IconLoader {...props} />;
+)
+const Ring = (props: React.SVGProps<SVGSVGElement>) => <IconLoader {...props} />
 const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
-  <svg className={cn('size-4', className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
+  <svg className={cn("size-4", className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
     <g strokeWidth="200" strokeLinecap="round" fill="none">
       <line x1="1200" y1="600" x2="1200" y2="100" />
       <line opacity="0.5" x1="1200" y1="2300" x2="1200" y2="1800" />
@@ -160,33 +160,33 @@ const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
       />
     </g>
   </svg>
-);
+)
 
 const LOADERS = {
   bars: Bars,
   ring: Ring,
-  spin: Spin
-};
+  spin: Spin,
+}
 
-const DEFAULT_SPINNER = 'spin';
+const DEFAULT_SPINNER = "spin"
 
 interface LoaderProps
-  extends Omit<React.ComponentPropsWithoutRef<'svg'>, 'display' | 'opacity' | 'intent'>,
+  extends Omit<React.ComponentPropsWithoutRef<"svg">, "display" | "opacity" | "intent">,
     LoaderVariantProps {
-  variant?: keyof typeof LOADERS;
-  percentage?: number;
-  isIndeterminate?: boolean;
-  formatOptions?: Intl.NumberFormatOptions;
-  ref?: React.RefObject<SVGSVGElement>;
+  variant?: keyof typeof LOADERS
+  percentage?: number
+  isIndeterminate?: boolean
+  formatOptions?: Intl.NumberFormatOptions
+  ref?: React.RefObject<SVGSVGElement>
 }
 
 const Loader = ({ isIndeterminate = true, ref, ...props }: LoaderProps) => {
-  const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props;
-  const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER];
+  const { className, variant = DEFAULT_SPINNER, intent, size, ...spinnerProps } = props
+  const LoaderPrimitive = LOADERS[variant in LOADERS ? variant : DEFAULT_SPINNER]
 
   return (
     <ProgressBar
-      aria-label={props['aria-label'] ?? 'Loading...'}
+      aria-label={props["aria-label"] ?? "Loading..."}
       formatOptions={props.formatOptions}
       isIndeterminate={isIndeterminate}
     >
@@ -196,16 +196,16 @@ const Loader = ({ isIndeterminate = true, ref, ...props }: LoaderProps) => {
           intent,
           size,
           className: cn([
-            ['ring'].includes(variant) && 'animate-spin',
-            variant === 'spin' && 'stroke-current',
-            className
-          ])
+            ["ring"].includes(variant) && "animate-spin",
+            variant === "spin" && "stroke-current",
+            className,
+          ]),
         })}
         ref={ref}
         {...spinnerProps}
       />
     </ProgressBar>
-  );
-};
+  )
+}
 
-export { Loader };
+export { Loader }

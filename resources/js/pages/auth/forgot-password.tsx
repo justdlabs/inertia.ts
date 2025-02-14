@@ -1,25 +1,25 @@
-import GuestLayout from '@/layouts/guest-layout';
-import { Head, useForm } from '@inertiajs/react';
-import { Button, Form, TextField } from 'ui';
+import GuestLayout from "@/layouts/guest-layout"
+import { Head, useForm } from "@inertiajs/react"
+import { Button, Form, TextField } from "ui"
 
 interface ForgotPasswordProps {
-  status: string;
+  status: string
 }
 
 export default function ForgotPassword({ status }: ForgotPasswordProps) {
   const { data, setData, post, processing, errors } = useForm({
-    email: ''
-  });
+    email: "",
+  })
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    post('/forgot-password');
-  };
+    e.preventDefault()
+    post("/forgot-password")
+  }
 
   return (
     <>
       <Head title="Forgot Password" />
-      {status && <div className="mb-4 text-sm font-medium text-success">{status}</div>}
+      {status && <div className="mb-4 font-medium text-sm text-success">{status}</div>}
 
       <Form validationErrors={errors} onSubmit={submit}>
         <TextField
@@ -29,7 +29,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
           isRequired
           errorMessage={errors.email}
           autoFocus
-          onChange={(v) => setData('email', v)}
+          onChange={(v) => setData("email", v)}
         />
 
         <div className="mt-4 flex items-center justify-end">
@@ -39,7 +39,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
         </div>
       </Form>
     </>
-  );
+  )
 }
 
 ForgotPassword.layout = (page: any) => (
@@ -50,4 +50,4 @@ ForgotPassword.layout = (page: any) => (
                     reset link that will allow you to choose a new one."
     children={page}
   />
-);
+)

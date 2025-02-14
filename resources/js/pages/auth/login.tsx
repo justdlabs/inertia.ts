@@ -1,38 +1,41 @@
-import GuestLayout from '@/layouts/guest-layout';
-import { Head, useForm } from '@inertiajs/react';
-import React, { useEffect } from 'react';
-import { Button, Checkbox, Form, Link, TextField } from 'ui';
+import GuestLayout from "@/layouts/guest-layout"
+import { Head, useForm } from "@inertiajs/react"
+import type React from "react"
+import { useEffect } from "react"
+import { Button, Checkbox, Form, Link, TextField } from "ui"
 
 interface LoginProps {
-  status: string;
-  canResetPassword: boolean;
+  status: string
+  canResetPassword: boolean
 }
 
 export default function Login(args: LoginProps) {
-  const { status, canResetPassword } = args;
+  const { status, canResetPassword } = args
   const { data, setData, post, processing, errors, reset } = useForm({
-    email: '',
-    password: '',
-    remember: ''
-  });
+    email: "",
+    password: "",
+    remember: "",
+  })
 
   useEffect(() => {
     return () => {
-      reset('password');
-    };
-  }, []);
+      reset("password")
+    }
+  }, [])
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    post(route('login'));
-  };
+    post(route("login"))
+  }
 
   return (
     <>
       <Head title="Log in" />
 
-      {status && <div className="mb-4 text-sm font-medium text-green-600 dark:text-green-400">{status}</div>}
+      {status && (
+        <div className="mb-4 font-medium text-green-600 text-sm dark:text-green-400">{status}</div>
+      )}
 
       <Form validationErrors={errors} onSubmit={submit} className="flex flex-col gap-y-4">
         <TextField
@@ -42,7 +45,7 @@ export default function Login(args: LoginProps) {
           value={data.email}
           autoComplete="username"
           autoFocus
-          onChange={(v) => setData('email', v)}
+          onChange={(v) => setData("email", v)}
           errorMessage={errors.email}
           isRequired
         />
@@ -52,13 +55,13 @@ export default function Login(args: LoginProps) {
           label="Password"
           value={data.password}
           autoComplete="current-password"
-          onChange={(v) => setData('password', v)}
+          onChange={(v) => setData("password", v)}
           errorMessage={errors.password}
           isRequired
         />
 
         <div className="flex items-center justify-between">
-          <Checkbox name="remember" onChange={(v) => setData('remember', v as any)}>
+          <Checkbox name="remember" onChange={(v) => setData("remember", v as any)}>
             Remember me
           </Checkbox>
           {canResetPassword && (
@@ -71,15 +74,15 @@ export default function Login(args: LoginProps) {
           Log in
         </Button>
         <div className="text-center">
-          <Link href={route('register')} className="sm:text-sm" intent="secondary">
+          <Link href={route("register")} className="sm:text-sm" intent="secondary">
             Dont have account? Register
           </Link>
         </div>
       </Form>
     </>
-  );
+  )
 }
 
 Login.layout = (page: React.ReactNode) => {
-  return <GuestLayout header="Login" description="Log in to your account." children={page} />;
-};
+  return <GuestLayout header="Login" description="Log in to your account." children={page} />
+}

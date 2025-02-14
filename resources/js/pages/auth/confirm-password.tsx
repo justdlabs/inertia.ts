@@ -1,30 +1,30 @@
-import GuestLayout from '@/layouts/guest-layout';
-import { Head, useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
-import { Button, Form, TextField } from 'ui';
+import GuestLayout from "@/layouts/guest-layout"
+import { Head, useForm } from "@inertiajs/react"
+import { useEffect } from "react"
+import { Button, Form, TextField } from "ui"
 
 export default function ConfirmPassword() {
   const { data, setData, post, processing, errors, reset } = useForm({
-    password: ''
-  });
+    password: "",
+  })
 
   useEffect(() => {
     return () => {
-      reset('password');
-    };
-  }, []);
+      reset("password")
+    }
+  }, [])
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    post(route('password.confirm'));
-  };
+    post(route("password.confirm"))
+  }
 
   return (
     <>
       <Head title="Confirm Password" />
 
-      <div className="mb-4 text-sm text-muted-fg">
+      <div className="mb-4 text-muted-fg text-sm">
         This is a secure area of the application. Please confirm your password before continuing.
       </div>
 
@@ -37,7 +37,7 @@ export default function ConfirmPassword() {
           value={data.password}
           className="mt-1 block w-full"
           autoFocus
-          onChange={(v) => setData('password', v)}
+          onChange={(v) => setData("password", v)}
         />
 
         <div className="mt-4 flex items-center justify-end">
@@ -45,7 +45,7 @@ export default function ConfirmPassword() {
         </div>
       </Form>
     </>
-  );
+  )
 }
 
-ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />;
+ConfirmPassword.layout = (page: any) => <GuestLayout children={page} />

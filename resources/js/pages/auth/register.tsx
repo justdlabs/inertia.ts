@@ -1,28 +1,29 @@
-import GuestLayout from '@/layouts/guest-layout';
-import { Head, useForm } from '@inertiajs/react';
-import React, { useEffect } from 'react';
-import { Button, Form, Link, TextField } from 'ui';
+import GuestLayout from "@/layouts/guest-layout"
+import { Head, useForm } from "@inertiajs/react"
+import type React from "react"
+import { useEffect } from "react"
+import { Button, Form, Link, TextField } from "ui"
 
 export default function Register() {
   const { data, setData, post, processing, errors, reset } = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    terms: false
-  });
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+    terms: false,
+  })
 
   useEffect(() => {
     return () => {
-      reset('password', 'password_confirmation');
-    };
-  }, []);
+      reset("password", "password_confirmation")
+    }
+  }, [])
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    post('/register');
-  };
+    post("/register")
+  }
   return (
     <>
       <Head title="Register" />
@@ -35,7 +36,7 @@ export default function Register() {
           value={data.name}
           autoComplete="name"
           autoFocus
-          onChange={(v) => setData('name', v)}
+          onChange={(v) => setData("name", v)}
           errorMessage={errors.name}
           isRequired
         />
@@ -45,7 +46,7 @@ export default function Register() {
           label="Email"
           value={data.email}
           autoComplete="username"
-          onChange={(v) => setData('email', v)}
+          onChange={(v) => setData("email", v)}
           errorMessage={errors.email}
           isRequired
         />
@@ -56,7 +57,7 @@ export default function Register() {
             label="Password"
             value={data.password}
             autoComplete="current-password"
-            onChange={(v) => setData('password', v)}
+            onChange={(v) => setData("password", v)}
             errorMessage={errors.password}
             isRequired
           />
@@ -66,7 +67,7 @@ export default function Register() {
             label="Confirm Password"
             name="password_confirmation"
             value={data.password_confirmation}
-            onChange={(v) => setData('password_confirmation', v)}
+            onChange={(v) => setData("password_confirmation", v)}
             errorMessage={errors.password_confirmation}
             isRequired
           />
@@ -81,9 +82,11 @@ export default function Register() {
         </div>
       </Form>
     </>
-  );
+  )
 }
 
 Register.layout = (page: React.ReactNode) => {
-  return <GuestLayout header="Register" description="Register for your new account." children={page} />;
-};
+  return (
+    <GuestLayout header="Register" description="Register for your new account." children={page} />
+  )
+}

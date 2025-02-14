@@ -1,34 +1,32 @@
-import GuestLayout from '@/layouts/guest-layout';
-import { Head, useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
-import { Button, Form, TextField } from 'ui';
+import GuestLayout from "@/layouts/guest-layout"
+import { Head, useForm } from "@inertiajs/react"
+import { useEffect } from "react"
+import { Button, Form, TextField } from "ui"
 
 interface ResetPasswordProps {
-  token: string;
-  email: string;
+  token: string
+  email: string
 }
 
-type InputTargetProps = { name: any; value: any };
-
 export default function ResetPassword(args: ResetPasswordProps) {
-  const { token, email } = args;
+  const { token, email } = args
   const { data, setData, post, processing, errors, reset } = useForm({
     token: token,
     email: email,
-    password: '',
-    password_confirmation: ''
-  });
+    password: "",
+    password_confirmation: "",
+  })
 
   useEffect(() => {
     return () => {
-      reset('password', 'password_confirmation');
-    };
-  }, []);
+      reset("password", "password_confirmation")
+    }
+  }, [])
 
   const submit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    post('/reset-password');
-  };
+    e.preventDefault()
+    post("/reset-password")
+  }
 
   return (
     <>
@@ -43,7 +41,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
           name="email"
           value={data.email}
           autoComplete="username"
-          onChange={(v) => setData('email', v)}
+          onChange={(v) => setData("email", v)}
         />
 
         <TextField
@@ -55,7 +53,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
           value={data.password}
           autoComplete="new-password"
           autoFocus
-          onChange={(v) => setData('password', v)}
+          onChange={(v) => setData("password", v)}
         />
 
         <TextField
@@ -64,7 +62,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
           name="password_confirmation"
           value={data.password_confirmation}
           autoComplete="new-password"
-          onChange={(v) => setData('password_confirmation', v)}
+          onChange={(v) => setData("password_confirmation", v)}
           errorMessage={errors.password_confirmation}
           isRequired
         />
@@ -76,7 +74,7 @@ export default function ResetPassword(args: ResetPasswordProps) {
         </div>
       </Form>
     </>
-  );
+  )
 }
 
-ResetPassword.layout = (page: any) => <GuestLayout children={page} />;
+ResetPassword.layout = (page: any) => <GuestLayout children={page} />
