@@ -2,7 +2,6 @@ import { cn } from '@/utils/classes';
 import { IconCheck } from 'justd-icons';
 import {
   Collection,
-  composeRenderProps,
   Header,
   ListBoxItem as ListBoxItemPrimitive,
   type ListBoxItemProps,
@@ -11,7 +10,8 @@ import {
   Separator,
   type SeparatorProps,
   Text,
-  type TextProps
+  type TextProps,
+  composeRenderProps
 } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 import { Keyboard } from './keyboard';
@@ -145,11 +145,11 @@ const DropdownKeyboard = ({ className, ...props }: React.ComponentProps<typeof K
 export {
   DropdownItem,
   DropdownItemDetails,
-  dropdownItemStyles,
   DropdownKeyboard,
   DropdownLabel,
   DropdownSection,
-  dropdownSectionStyles,
-  DropdownSeparator
+  DropdownSeparator,
+  dropdownItemStyles,
+  dropdownSectionStyles
 };
 export type { DropdownItemDetailProps, DropdownItemProps, DropdownSectionProps };

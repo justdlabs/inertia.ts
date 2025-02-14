@@ -1,12 +1,12 @@
 import {
   IconChevronLgLeft,
   IconChevronLgRight,
-  IconChevronsLgLeft,
-  IconChevronsLgRight,
+  IconChevronWallLeft,
+  IconChevronWallRight,
   IconDotsHorizontal
 } from 'justd-icons';
 import type { ListBoxItemProps, ListBoxProps, ListBoxSectionProps } from 'react-aria-components';
-import { composeRenderProps, ListBox, ListBoxItem, ListBoxSection, Separator } from 'react-aria-components';
+import { ListBox, ListBoxItem, ListBoxSection, Separator, composeRenderProps } from 'react-aria-components';
 
 import { cn } from '@/utils/classes';
 import { tv } from 'tailwind-variants';
@@ -58,7 +58,7 @@ const PaginationSection = <T extends object>({ className, ref, ...props }: Pagin
 interface PaginationListProps<T> extends ListBoxProps<T> {
   ref?: React.RefObject<HTMLDivElement>;
 }
-const List = <T extends object>({ className, ref, ...props }: PaginationListProps<T>) => {
+const PaginationList = <T extends object>({ className, ref, ...props }: PaginationListProps<T>) => {
   return (
     <ListBox
       ref={ref}
@@ -92,7 +92,7 @@ interface PaginationItemProps extends ListBoxItemProps {
   segment?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next';
 }
 
-const Item = ({
+const PaginationItem = ({
   segment = 'default',
   size = 'small',
   appearance = 'outline',
@@ -159,9 +159,9 @@ const Item = ({
     case 'next':
       return renderPaginationIndicator(<IconChevronLgRight />);
     case 'first':
-      return renderPaginationIndicator(<IconChevronsLgLeft />);
+      return renderPaginationIndicator(<IconChevronWallLeft />);
     case 'last':
-      return renderPaginationIndicator(<IconChevronsLgRight />);
+      return renderPaginationIndicator(<IconChevronWallRight />);
     default:
       return renderListItem(
         {
@@ -184,8 +184,8 @@ const Item = ({
   }
 };
 
-Pagination.Item = Item;
-Pagination.List = List;
+Pagination.Item = PaginationItem;
+Pagination.List = PaginationList;
 Pagination.Section = PaginationSection;
 
 export { Pagination };

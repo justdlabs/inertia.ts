@@ -16,12 +16,12 @@ import {
   Collection,
   Column,
   ColumnResizer as ColumnResizerPrimitive,
-  composeRenderProps,
   ResizableTableContainer,
   Row,
-  TableBody,
-  TableHeader,
+  TableBody as TableBodyPrimitive,
+  TableHeader as TableHeaderPrimitive,
   Table as TablePrimitive,
+  composeRenderProps,
   useTableOptions
 } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
@@ -33,7 +33,7 @@ const table = tv({
   slots: {
     root: 'table w-full min-w-full caption-bottom border-spacing-0 text-sm outline-hidden [--table-selected-bg:color-mix(in_oklab,var(--color-primary)_5%,white_90%)] **:data-drop-target:border **:data-drop-target:border-primary dark:[--table-selected-bg:color-mix(in_oklab,var(--color-primary)_25%,black_70%)]',
     header: 'x32 border-b',
-    row: 'tr group relative cursor-default border-b bg-bg text-fg/70 outline-hidden ring-primary data-selected:data-hovered:bg-(--table-selected-bg)/70 data-selected:bg-(--table-selected-bg) data-focus-visible:ring-1 data-focused:ring-0 dark:data-selected:data-hovered:bg-[color-mix(in_oklab,var(--color-primary)_40%,black_60%)] dark:data-selected:data-hovered:bg-subtle/60',
+    row: 'tr group relative cursor-default border-b bg-bg text-muted-fg outline-hidden ring-primary data-selected:data-hovered:bg-(--table-selected-bg)/70 data-selected:bg-(--table-selected-bg) data-focus-visible:ring-1 data-focused:ring-0 dark:data-selected:data-hovered:bg-[color-mix(in_oklab,var(--color-primary)_30%,black_70%)]',
     cellIcon:
       'grid size-[1.15rem] flex-none shrink-0 place-content-center rounded bg-secondary text-fg *:data-[slot=icon]:size-3.5 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:transition-transform *:data-[slot=icon]:duration-200',
     columnResizer: [
@@ -88,8 +88,8 @@ const ColumnResizer = ({ className, ...props }: ColumnResizerProps) => (
   </ColumnResizerPrimitive>
 );
 
-const Body = <T extends object>(props: TableBodyProps<T>) => (
-  <TableBody data-slot="table-body" {...props} className={cn('[&_.tr:last-child]:border-0')} />
+const TableBody = <T extends object>(props: TableBodyProps<T>) => (
+  <TableBodyPrimitive data-slot="table-body" {...props} className={cn('[&_.tr:last-child]:border-0')} />
 );
 
 interface TableCellProps extends CellProps {
@@ -159,16 +159,16 @@ interface TableHeaderProps<T extends object> extends HeaderProps<T> {
   ref?: React.Ref<HTMLTableSectionElement>;
 }
 
-const Header = <T extends object>({ children, ref, className, columns, ...props }: TableHeaderProps<T>) => {
+const TableHeader = <T extends object>({ children, ref, className, columns, ...props }: TableHeaderProps<T>) => {
   const { selectionBehavior, selectionMode, allowsDragging } = useTableOptions();
   return (
-    <TableHeader data-slot="table-header" ref={ref} className={header({ className })} {...props}>
+    <TableHeaderPrimitive data-slot="table-header" ref={ref} className={header({ className })} {...props}>
       {allowsDragging && <Column className="w-0" />}
       {selectionBehavior === 'toggle' && (
         <Column className="w-0 pl-4">{selectionMode === 'multiple' && <Checkbox slot="selection" />}</Column>
       )}
       <Collection items={columns}>{children}</Collection>
-    </TableHeader>
+    </TableHeaderPrimitive>
   );
 };
 
@@ -213,10 +213,10 @@ const TableRow = <T extends object>({ children, className, columns, id, ref, ...
   );
 };
 
-Table.Body = Body;
+Table.Body = TableBody;
 Table.Cell = TableCell;
 Table.Column = TableColumn;
-Table.Header = Header;
+Table.Header = TableHeader;
 Table.Row = TableRow;
 
 export { Table };

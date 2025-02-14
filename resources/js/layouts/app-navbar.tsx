@@ -10,6 +10,7 @@ import {
   IconColorPalette,
   IconColorSwatch,
   IconLogout,
+  IconPackage,
   IconSettings
 } from 'justd-icons';
 import React from 'react';
@@ -54,6 +55,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <Menu.Content className="sm:min-w-48">
               <Menu.Submenu>
                 <Menu.Item>
+                  <IconBrandJustdBlocks />
                   <Menu.Label>Blocks</Menu.Label>
                 </Menu.Item>
                 <Menu.Content>
@@ -68,7 +70,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
                 </Menu.Content>
               </Menu.Submenu>
               <Menu.Item target="_blank" href="https://getjustd.com" className="justify-between">
-                <IconBrandJustd />
+                <IconPackage />
                 <Menu.Label>Components</Menu.Label>
                 <IconArrowUpRight />
               </Menu.Item>
