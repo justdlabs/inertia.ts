@@ -1,21 +1,21 @@
-import { Separator as Divider, type SeparatorProps as DividerProps } from 'react-aria-components';
-import { tv } from 'tailwind-variants';
+import { Separator as Divider, type SeparatorProps as DividerProps } from "react-aria-components"
+import { tv } from "tailwind-variants"
 
 const separatorStyles = tv({
-  base: 'shrink-0 bg-border forced-colors:bg-[ButtonBorder]',
+  base: "shrink-0 bg-border forced-colors:bg-[ButtonBorder]",
   variants: {
     orientation: {
-      horizontal: 'h-px w-full',
-      vertical: 'w-px'
-    }
+      horizontal: "h-px w-full",
+      vertical: "w-px",
+    },
   },
   defaultVariants: {
-    orientation: 'horizontal'
-  }
-});
+    orientation: "horizontal",
+  },
+})
 
 interface SeparatorProps extends DividerProps {
-  className?: string;
+  className?: string
 }
 
 const Separator = ({ className, ...props }: SeparatorProps) => {
@@ -24,11 +24,11 @@ const Separator = ({ className, ...props }: SeparatorProps) => {
       {...props}
       className={separatorStyles({
         orientation: props.orientation,
-        className: className
+        className: className,
       })}
     />
-  );
-};
+  )
+}
 
-export { Separator };
-export type { SeparatorProps };
+export { Separator }
+export type { SeparatorProps }

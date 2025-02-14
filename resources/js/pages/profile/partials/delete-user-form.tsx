@@ -1,45 +1,46 @@
-import { Button } from '@/components/ui/button';
-import { useForm } from '@inertiajs/react';
-import { useState } from 'react';
-import { Card, Modal, TextField } from 'ui';
+import { Button } from "@/components/ui/button"
+import { useForm } from "@inertiajs/react"
+import { useState } from "react"
+import { Card, Modal, TextField } from "ui"
 
 export function DeleteUserForm() {
-  const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+  const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
   const {
     data,
     setData,
     delete: destroy,
     processing,
     reset,
-    errors
+    errors,
   } = useForm({
-    password: ''
-  });
+    password: "",
+  })
 
   const confirmUserDeletion = () => {
-    setConfirmingUserDeletion(true);
-  };
+    setConfirmingUserDeletion(true)
+  }
 
   const deleteUser = () => {
-    destroy(route('profile.destroy'), {
+    destroy(route("profile.destroy"), {
       preserveScroll: true,
       onSuccess: () => closeModal(),
-      onFinish: () => reset()
-    });
-  };
+      onFinish: () => reset(),
+    })
+  }
 
   const closeModal = () => {
-    setConfirmingUserDeletion(false);
-    reset();
-  };
+    setConfirmingUserDeletion(false)
+    reset()
+  }
 
   return (
     <Card>
       <Card.Header>
         <Card.Title>Delete Account</Card.Title>
         <Card.Description>
-          Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your
-          account, please download any data or information that you wish to retain.
+          Once your account is deleted, all of its resources and data will be permanently deleted.
+          Before deleting your account, please download any data or information that you wish to
+          retain.
         </Card.Description>
       </Card.Header>
       <Card.Content>
@@ -49,9 +50,9 @@ export function DeleteUserForm() {
             <Modal.Header>
               <Modal.Title>Delete Account</Modal.Title>
               <Modal.Description>
-                Are you sure you want to delete your account? Once your account is deleted, all of its resources and
-                data will be permanently deleted. Please enter your password to confirm you would like to permanently
-                delete your account.
+                Are you sure you want to delete your account? Once your account is deleted, all of
+                its resources and data will be permanently deleted. Please enter your password to
+                confirm you would like to permanently delete your account.
               </Modal.Description>
             </Modal.Header>
 
@@ -60,7 +61,7 @@ export function DeleteUserForm() {
                 type="password"
                 placeholder="Password"
                 value={data.password}
-                onChange={(v) => setData('password', v)}
+                onChange={(v) => setData("password", v)}
                 errorMessage={errors.password}
                 isRequired
               />
@@ -75,5 +76,5 @@ export function DeleteUserForm() {
         </Modal>
       </Card.Content>
     </Card>
-  );
+  )
 }

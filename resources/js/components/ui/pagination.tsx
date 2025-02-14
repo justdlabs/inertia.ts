@@ -1,34 +1,40 @@
 import {
   IconChevronLgLeft,
   IconChevronLgRight,
-  IconChevronsLgLeft,
-  IconChevronsLgRight,
-  IconDotsHorizontal
-} from 'justd-icons';
-import type { ListBoxItemProps, ListBoxProps, ListBoxSectionProps } from 'react-aria-components';
-import { composeRenderProps, ListBox, ListBoxItem, ListBoxSection, Separator } from 'react-aria-components';
+  IconChevronWallLeft,
+  IconChevronWallRight,
+  IconDotsHorizontal,
+} from "justd-icons"
+import type { ListBoxItemProps, ListBoxProps, ListBoxSectionProps } from "react-aria-components"
+import {
+  ListBox,
+  ListBoxItem,
+  ListBoxSection,
+  Separator,
+  composeRenderProps,
+} from "react-aria-components"
 
-import { cn } from '@/utils/classes';
-import { tv } from 'tailwind-variants';
-import { buttonStyles } from './button';
+import { cn } from "@/utils/classes"
+import { tv } from "tailwind-variants"
+import { buttonStyles } from "./button"
 
 const paginationStyles = tv({
   slots: {
-    pagination: 'mx-auto flex w-full justify-center gap-[5px]',
-    section: 'flex h-9 gap-[5px]',
-    list: 'flex flex-row items-center gap-[5px]',
+    pagination: "mx-auto flex w-full justify-center gap-[5px]",
+    section: "flex h-9 gap-[5px]",
+    list: "flex flex-row items-center gap-[5px]",
     itemButton:
-      'cursor-pointer font-normal text-fg data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focus-visible:ring-4 data-focus-visible:ring-primary/20',
-    itemLabel: 'grid h-9 place-content-center px-3.5 tabular-nums',
-    itemSeparator: 'grid h-9 place-content-center',
+      "cursor-pointer font-normal text-fg data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focus-visible:ring-4 data-focus-visible:ring-primary/20",
+    itemLabel: "grid h-9 place-content-center px-3.5 tabular-nums",
+    itemSeparator: "grid h-9 place-content-center",
     itemEllipsis:
-      'flex size-9 items-center justify-center rounded-lg border border-transparent data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focused:outline-hidden data-focus-visible:ring-4 data-focus-visible:ring-primary/20',
-    itemEllipsisIcon: 'flex size-9 items-center justify-center',
+      "flex size-9 items-center justify-center rounded-lg border border-transparent data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focused:outline-hidden data-focus-visible:ring-4 data-focus-visible:ring-primary/20",
+    itemEllipsisIcon: "flex size-9 items-center justify-center",
     defaultItem:
-      'cursor-pointer font-normal tabular-nums disabled:cursor-default disabled:opacity-100 data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focus-visible:ring-4 data-focus-visible:ring-primary/20',
-    itemSeparatorLine: 'h-5 w-[1.5px] shrink-0 rotate-[14deg] bg-secondary-fg/40'
-  }
-});
+      "cursor-pointer font-normal tabular-nums disabled:cursor-default disabled:opacity-100 data-focus-visible:border-primary data-focus-visible:bg-primary/10 data-focus-visible:ring-4 data-focus-visible:ring-primary/20",
+    itemSeparatorLine: "h-5 w-[1.5px] shrink-0 rotate-[14deg] bg-secondary-fg/40",
+  },
+})
 
 const {
   pagination,
@@ -40,62 +46,66 @@ const {
   itemEllipsis,
   itemEllipsisIcon,
   defaultItem,
-  itemSeparatorLine
-} = paginationStyles();
+  itemSeparatorLine,
+} = paginationStyles()
 
-type PagginationProps = React.ComponentProps<'nav'>;
+type PagginationProps = React.ComponentProps<"nav">
 const Pagination = ({ className, ref, ...props }: PagginationProps) => (
   <nav aria-label="pagination" ref={ref} className={pagination({ className })} {...props} />
-);
+)
 
 interface PaginationSectionProps<T> extends ListBoxSectionProps<T> {
-  ref?: React.RefObject<HTMLElement>;
+  ref?: React.RefObject<HTMLElement>
 }
-const PaginationSection = <T extends object>({ className, ref, ...props }: PaginationSectionProps<T>) => (
+const PaginationSection = <T extends object>({
+  className,
+  ref,
+  ...props
+}: PaginationSectionProps<T>) => (
   <ListBoxSection ref={ref} {...props} className={section({ className })} />
-);
+)
 
 interface PaginationListProps<T> extends ListBoxProps<T> {
-  ref?: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>
 }
-const List = <T extends object>({ className, ref, ...props }: PaginationListProps<T>) => {
+const PaginationList = <T extends object>({ className, ref, ...props }: PaginationListProps<T>) => {
   return (
     <ListBox
       ref={ref}
       orientation="horizontal"
-      aria-label={props['aria-label'] || 'Pagination'}
+      aria-label={props["aria-label"] || "Pagination"}
       layout="grid"
       className={composeRenderProps(className, (className) => list({ className }))}
       {...props}
     />
-  );
-};
+  )
+}
 
 const renderListItem = (
   props: ListBoxItemProps & {
-    textValue?: string;
-    'aria-current'?: string | undefined;
-    isDisabled?: boolean;
-    className?: string;
+    textValue?: string
+    "aria-current"?: string | undefined
+    isDisabled?: boolean
+    className?: string
   },
-  children: React.ReactNode
-) => <ListBoxItem {...props}>{children}</ListBoxItem>;
+  children: React.ReactNode,
+) => <ListBoxItem {...props}>{children}</ListBoxItem>
 
 interface PaginationItemProps extends ListBoxItemProps {
-  children?: React.ReactNode;
-  className?: string;
-  intent?: 'primary' | 'secondary';
-  size?: 'medium' | 'large' | 'square-petite' | 'extra-small' | 'small';
-  shape?: 'square' | 'circle';
-  appearance?: 'solid' | 'outline' | 'plain';
-  isCurrent?: boolean;
-  segment?: 'label' | 'separator' | 'ellipsis' | 'default' | 'last' | 'first' | 'previous' | 'next';
+  children?: React.ReactNode
+  className?: string
+  intent?: "primary" | "secondary"
+  size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
+  shape?: "square" | "circle"
+  appearance?: "solid" | "outline" | "plain"
+  isCurrent?: boolean
+  segment?: "label" | "separator" | "ellipsis" | "default" | "last" | "first" | "previous" | "next"
 }
 
-const Item = ({
-  segment = 'default',
-  size = 'small',
-  appearance = 'outline',
+const PaginationItem = ({
+  segment = "default",
+  size = "small",
+  appearance = "outline",
   intent,
   className,
   isCurrent,
@@ -103,90 +113,94 @@ const Item = ({
   ...props
 }: PaginationItemProps) => {
   const textValue =
-    typeof children === 'string' ? children : typeof children === 'number' ? children.toString() : undefined;
+    typeof children === "string"
+      ? children
+      : typeof children === "number"
+        ? children.toString()
+        : undefined
 
   const renderPaginationIndicator = (indicator: React.ReactNode) =>
     renderListItem(
       {
         textValue: segment,
-        'aria-current': isCurrent ? 'page' : undefined,
+        "aria-current": isCurrent ? "page" : undefined,
         isDisabled: isCurrent,
         className: cn(
           buttonStyles({
-            appearance: 'outline',
-            size: 'small',
-            className: itemButton()
+            appearance: "outline",
+            size: "small",
+            className: itemButton(),
           }),
-          className
+          className,
         ),
-        ...props
+        ...props,
       },
-      indicator
-    );
+      indicator,
+    )
 
   switch (segment) {
-    case 'label':
+    case "label":
       return renderListItem(
         {
           textValue: textValue,
           className: itemLabel({ className }),
-          ...props
+          ...props,
         },
-        children
-      );
-    case 'separator':
+        children,
+      )
+    case "separator":
       return renderListItem(
         {
-          textValue: 'Separator',
+          textValue: "Separator",
           className: itemSeparator({ className }),
-          ...props
+          ...props,
         },
-        <Separator orientation="vertical" className={itemSeparatorLine()} />
-      );
-    case 'ellipsis':
+        <Separator orientation="vertical" className={itemSeparatorLine()} />,
+      )
+    case "ellipsis":
       return renderListItem(
         {
-          textValue: 'More pages',
+          textValue: "More pages",
           className: itemEllipsis({ className }),
-          ...props
+          ...props,
         },
         <span aria-hidden className={itemEllipsisIcon({ className })}>
           <IconDotsHorizontal />
-        </span>
-      );
-    case 'previous':
-      return renderPaginationIndicator(<IconChevronLgLeft />);
-    case 'next':
-      return renderPaginationIndicator(<IconChevronLgRight />);
-    case 'first':
-      return renderPaginationIndicator(<IconChevronsLgLeft />);
-    case 'last':
-      return renderPaginationIndicator(<IconChevronsLgRight />);
+        </span>,
+      )
+    case "previous":
+      return renderPaginationIndicator(<IconChevronLgLeft />)
+    case "next":
+      return renderPaginationIndicator(<IconChevronLgRight />)
+    case "first":
+      return renderPaginationIndicator(<IconChevronWallLeft />)
+    case "last":
+      return renderPaginationIndicator(<IconChevronWallRight />)
     default:
       return renderListItem(
         {
           textValue: textValue,
-          'aria-current': isCurrent ? 'page' : undefined,
+          "aria-current": isCurrent ? "page" : undefined,
           isDisabled: isCurrent,
           className: cn(
             buttonStyles({
-              intent: isCurrent ? 'primary' : intent,
-              appearance: isCurrent ? 'solid' : appearance,
+              intent: isCurrent ? "primary" : intent,
+              appearance: isCurrent ? "solid" : appearance,
               size,
-              className: defaultItem({ className })
+              className: defaultItem({ className }),
             }),
-            className
+            className,
           ),
-          ...props
+          ...props,
         },
-        children
-      );
+        children,
+      )
   }
-};
+}
 
-Pagination.Item = Item;
-Pagination.List = List;
-Pagination.Section = PaginationSection;
+Pagination.Item = PaginationItem
+Pagination.List = PaginationList
+Pagination.Section = PaginationSection
 
-export { Pagination };
-export type { PagginationProps, PaginationItemProps, PaginationListProps, PaginationSectionProps };
+export { Pagination }
+export type { PagginationProps, PaginationItemProps, PaginationListProps, PaginationSectionProps }

@@ -1,8 +1,8 @@
-import { Header } from '@/components/header';
-import AppLayout from '@/layouts/app-layout';
-import { Head } from '@inertiajs/react';
-import React from 'react';
-import { Card, Container } from 'ui';
+import { Header } from "@/components/header"
+import AppLayout from "@/layouts/app-layout"
+import { Head } from "@inertiajs/react"
+import type React from "react"
+import { Card, Container } from "ui"
 
 export default function About() {
   return (
@@ -13,7 +13,7 @@ export default function About() {
         <Card className="p-6">Your about page content goes here.</Card>
       </Container>
     </>
-  );
+  )
 }
 
-About.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+About.layout = (page: React.ReactNode) => <AppLayout children={page} />

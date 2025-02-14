@@ -1,4 +1,4 @@
-### TL;DR  
+### TL;DR
 
 ```bash
 composer create-project justd/laravel your-project-name

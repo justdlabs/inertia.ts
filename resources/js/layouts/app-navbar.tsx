@@ -1,7 +1,7 @@
-import { useTheme } from '@/components/theme-provider';
-import { ThemeSwitcher } from '@/components/theme-switcher';
-import { PagePropsData } from '@/types';
-import { usePage } from '@inertiajs/react';
+import { useTheme } from "@/components/theme-provider"
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import type { PagePropsData } from "@/types"
+import { usePage } from "@inertiajs/react"
 import {
   IconArrowUpRight,
   IconBrandJustd,
@@ -10,30 +10,31 @@ import {
   IconColorPalette,
   IconColorSwatch,
   IconLogout,
-  IconSettings
-} from 'justd-icons';
-import React from 'react';
-import { Selection } from 'react-aria-components';
-import { Avatar, buttonStyles, Link, Menu, Navbar, Separator } from 'ui';
+  IconPackage,
+  IconSettings,
+} from "justd-icons"
+import { useState, useEffect } from "react"
+import type { Selection } from "react-aria-components"
+import { Avatar, buttonStyles, Link, Menu, Navbar, Separator } from "ui"
 
 const navigations = [
   {
-    name: 'Home',
-    textValue: 'Home',
-    href: '/'
+    name: "Home",
+    textValue: "Home",
+    href: "/",
   },
   {
-    name: 'About',
-    textValue: 'About',
-    href: '/about'
-  }
-];
+    name: "About",
+    textValue: "About",
+    href: "/about",
+  },
+]
 
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
-  const page = usePage();
-  const { auth } = usePage<PagePropsData>().props;
-  const [isOpen, setIsOpen] = React.useState(false);
-  React.useEffect(() => setIsOpen(false), [page.url]);
+  const page = usePage()
+  const { auth } = usePage<PagePropsData>().props
+  const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => setIsOpen(false), [page.url])
   return (
     <Navbar isOpen={isOpen} onOpenChange={setIsOpen} {...props}>
       <Navbar.Nav>
@@ -49,35 +50,52 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           <Menu>
             <Navbar.Item className="group">
               Resources...
-              <IconChevronLgDown className="transition-transform size-4 ml-2 group-data-pressed:rotate-180" />
+              <IconChevronLgDown className="ml-2 size-4 transition-transform group-data-pressed:rotate-180" />
             </Navbar.Item>
             <Menu.Content className="sm:min-w-48">
               <Menu.Submenu>
                 <Menu.Item>
+                  <IconBrandJustdBlocks />
                   <Menu.Label>Blocks</Menu.Label>
                 </Menu.Item>
                 <Menu.Content>
-                  <Menu.Item target="_blank" href="https://blocks.getjustd.com" className="justify-between">
+                  <Menu.Item
+                    target="_blank"
+                    href="https://blocks.getjustd.com"
+                    className="justify-between"
+                  >
                     <IconBrandJustdBlocks />
                     <Menu.Label>Premium Blocks</Menu.Label>
                   </Menu.Item>
-                  <Menu.Item target="_blank" href="https://getjustd.com/blocks" className="justify-between">
+                  <Menu.Item
+                    target="_blank"
+                    href="https://getjustd.com/blocks"
+                    className="justify-between"
+                  >
                     <IconBrandJustd />
                     <Menu.Label>Basic Blocks</Menu.Label>
                   </Menu.Item>
                 </Menu.Content>
               </Menu.Submenu>
               <Menu.Item target="_blank" href="https://getjustd.com" className="justify-between">
-                <IconBrandJustd />
+                <IconPackage />
                 <Menu.Label>Components</Menu.Label>
                 <IconArrowUpRight />
               </Menu.Item>
-              <Menu.Item target="_blank" href="https://getjustd.com/colors" className="justify-between">
+              <Menu.Item
+                target="_blank"
+                href="https://getjustd.com/colors"
+                className="justify-between"
+              >
                 <IconColorSwatch />
                 <Menu.Label>Colors</Menu.Label>
                 <IconArrowUpRight />
               </Menu.Item>
-              <Menu.Item target="_blank" href="https://getjustd.com/themes" className="justify-between">
+              <Menu.Item
+                target="_blank"
+                href="https://getjustd.com/themes"
+                className="justify-between"
+              >
                 <IconColorPalette />
                 <Menu.Label>Themes</Menu.Label>
                 <IconArrowUpRight />
@@ -91,17 +109,20 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           </Menu>
         </Navbar.Section>
 
-        <Navbar.Section className="hidden ml-auto gap-x-1 lg:flex">
+        <Navbar.Section className="ml-auto hidden gap-x-1 lg:flex">
           {!auth.user && <ThemeSwitcher />}
           {auth.user ? (
             <UserMenu />
           ) : (
             <>
-              <Separator orientation="vertical" className="h-6 mr-2" />
-              <Link className={buttonStyles({ appearance: 'outline', size: 'small' })} href={route('login')}>
+              <Separator orientation="vertical" className="mr-2 h-6" />
+              <Link
+                className={buttonStyles({ appearance: "outline", size: "small" })}
+                href={route("login")}
+              >
                 Login
               </Link>
-              <Navbar.Item href={route('register')}>Register</Navbar.Item>
+              <Navbar.Item href={route("register")}>Register</Navbar.Item>
             </>
           )}
         </Navbar.Section>
@@ -122,8 +143,8 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           ) : (
             <>
               <Link
-                className={buttonStyles({ appearance: 'outline', size: 'small', shape: 'circle' })}
-                href={route('login')}
+                className={buttonStyles({ appearance: "outline", size: "small", shape: "circle" })}
+                href={route("login")}
               >
                 Login
               </Link>
@@ -134,18 +155,18 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
 
       {children}
     </Navbar>
-  );
+  )
 }
 
 function UserMenu() {
-  const { auth } = usePage<PagePropsData>().props;
-  const { theme, setTheme } = useTheme();
-  const currentTheme = theme || 'system';
-  const [selectedTheme, setSelectedTheme] = React.useState<Selection>(new Set([currentTheme]));
+  const { auth } = usePage<PagePropsData>().props
+  const { theme, setTheme } = useTheme()
+  const currentTheme = theme || "system"
+  const [selectedTheme, setSelectedTheme] = useState<Selection>(new Set([currentTheme]))
   return (
     <Menu>
       <Menu.Trigger
-        className="group data-hovered:bg-secondary p-1 rounded-lg flex justify-between text-left items-start"
+        className="group flex items-start justify-between rounded-lg p-1 text-left data-hovered:bg-secondary"
         aria-label="Open menu"
       >
         <Avatar src={auth.user.gravatar} shape="square" className="mr-2 size-9 *:size-9" />
@@ -153,19 +174,21 @@ function UserMenu() {
           <strong className="font-semibold text-sm">{auth.user.name}</strong>
           <span className="text-xs">{auth.user.email}</span>
         </div>
-        <IconChevronLgDown className="group-data-pressed:rotate-180 transition-transform" />
+        <IconChevronLgDown className="transition-transform group-data-pressed:rotate-180" />
       </Menu.Trigger>
       <Menu.Content placement="bottom end" className="sm:min-w-60">
         <Menu.Section>
           <Menu.Header separator className="relative">
             <div>{auth.user.name}</div>
-            <div className="text-muted-fg font-normal text-sm whitespace-nowrap truncate pr-6">{auth.user.email}</div>
+            <div className="truncate whitespace-nowrap pr-6 font-normal text-muted-fg text-sm">
+              {auth.user.email}
+            </div>
           </Menu.Header>
         </Menu.Section>
-        <Menu.Item href={route('dashboard')}>
+        <Menu.Item href={route("dashboard")}>
           <Menu.Label>Dashboard</Menu.Label>
         </Menu.Item>
-        <Menu.Item href={route('profile.edit')} className="justify-between">
+        <Menu.Item href={route("profile.edit")} className="justify-between">
           <Menu.Label>Settings</Menu.Label>
           <IconSettings />
         </Menu.Item>
@@ -177,14 +200,14 @@ function UserMenu() {
             selectionMode="single"
             selectedKeys={selectedTheme}
             onSelectionChange={(keys) => {
-              setSelectedTheme(keys);
+              setSelectedTheme(keys)
               // @ts-ignore
-              setTheme(keys.has('system') ? 'system' : keys.has('dark') ? 'dark' : 'light');
+              setTheme(keys.has("system") ? "system" : keys.has("dark") ? "dark" : "light")
             }}
             items={[
-              { name: 'Light', value: 'light' },
-              { name: 'Dark', value: 'dark' },
-              { name: 'System', value: 'system' }
+              { name: "Light", value: "light" },
+              { name: "Dark", value: "dark" },
+              { name: "System", value: "system" },
             ]}
           >
             {(item) => (
@@ -196,18 +219,24 @@ function UserMenu() {
         </Menu.Submenu>
 
         <Menu.Separator />
-        <Menu.Item routerOptions={{ method: 'post' }} href={route('logout')}>
+        <Menu.Item routerOptions={{ method: "post" }} href={route("logout")}>
           <Menu.Label>Logout</Menu.Label>
           <IconLogout />
         </Menu.Item>
       </Menu.Content>
     </Menu>
-  );
+  )
 }
 
 export function IconBrandJustdBlocks() {
   return (
-    <svg className="size-4.5 sm:size-5" xmlns="http://www.w3.org/2000/svg" height={24} fill="none" viewBox="0 0 24 24">
+    <svg
+      className="size-4.5 sm:size-5"
+      xmlns="http://www.w3.org/2000/svg"
+      height={24}
+      fill="none"
+      viewBox="0 0 24 24"
+    >
       <rect width={20} height={20} x={2} y={2} fill="#0D6DFD" rx="3.75" />
       <g fill="#fff" filter="url(#a)" shapeRendering="crispEdges">
         <path d="M5.36 6.311c0-.525.426-.952.951-.952h1.904c.526 0 .952.427.952.952v1.904a.95.95 0 0 1-.952.952H6.311a.95.95 0 0 1-.952-.952z" />
@@ -232,7 +261,11 @@ export function IconBrandJustdBlocks() {
           filterUnits="userSpaceOnUse"
         >
           <feFlood floodOpacity={0} result="BackgroundImageFix" />
-          <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+          <feColorMatrix
+            in="SourceAlpha"
+            result="hardAlpha"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
           <feOffset dy=".032" />
           <feGaussianBlur stdDeviation=".032" />
           <feComposite in2="hardAlpha" operator="out" />
@@ -242,5 +275,5 @@ export function IconBrandJustdBlocks() {
         </filter>
       </defs>
     </svg>
-  );
+  )
 }
