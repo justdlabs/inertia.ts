@@ -11,7 +11,7 @@
   "require": {
     "php": "^8.2",
     "inertiajs/inertia-laravel": "^2.0",
-    "laravel/framework": "^11.9",
+    "laravel/framework": "^12.0",
     "laravel/sanctum": "^4.0",
     "laravel/tinker": "^2.10",
     "spatie/laravel-data": "^4.7",
@@ -24,8 +24,7 @@
     "laravel/sail": "^1.26",
     "mockery/mockery": "^1.6",
     "nunomaduro/collision": "^8.0",
-    "pestphp/pest": "^2.0",
-    "pestphp/pest-plugin-laravel": "^2.0"
+    "pestphp/pest": "^3.7"
   },
   "autoload": {
     "psr-4": {

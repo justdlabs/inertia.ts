@@ -5,8 +5,8 @@ import { IconBrandJustdBlocks } from "@/layouts/app-navbar"
 import { Head } from "@inertiajs/react"
 import {
   IconBrandJustd,
-  IconBrandParanoid,
   IconBrandParsinta,
+  IconDuplicateFill,
   IconWindowVisitFill,
 } from "justd-icons"
 import { Card, Container, Link } from "ui"
@@ -29,7 +29,7 @@ const items = [
   {
     name: "Icons",
     url: "https://getjustd.com/icons",
-    icon: IconBrandParanoid,
+    icon: IconDuplicateFill,
     description:
       "A library of beautifully crafted react icons, perfect for enhancing the visual appeal and user experience of your web applications.",
   },
