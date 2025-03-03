@@ -1,6 +1,6 @@
 {
   "name": "justd/laravel",
-  "version": "1.3.21",
+  "version": "1.3.22",
   "type": "project",
   "description": "The skeleton application for the Laravel framework.",
   "keywords": [
@@ -57,7 +57,7 @@
       "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
       "@php artisan migrate --graceful --ansi",
       "bun i --legacy-peer-deps",
-      "bun remove husky @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it"
+      "bun remove @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it"
     ],
     "dev": [
       "Composer\\Config::disableProcessTimeout",
