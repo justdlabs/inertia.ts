@@ -1,4 +1,3 @@
-import { useTheme } from "@/components/theme-provider"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import type { PagePropsData } from "@/types"
 import { usePage } from "@inertiajs/react"
@@ -16,6 +15,7 @@ import {
 import { useState, useEffect } from "react"
 import type { Selection } from "react-aria-components"
 import { Avatar, buttonStyles, Link, Menu, Navbar, Separator } from "ui"
+import { useTheme } from "@/utils/use-theme"
 
 const navigations = [
   {
@@ -160,7 +160,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
 
 function UserMenu() {
   const { auth } = usePage<PagePropsData>().props
-  const { theme, setTheme } = useTheme()
+  const { theme, updateTheme } = useTheme()
   const currentTheme = theme || "system"
   const [selectedTheme, setSelectedTheme] = useState<Selection>(new Set([currentTheme]))
   return (
@@ -202,7 +202,7 @@ function UserMenu() {
             onSelectionChange={(keys) => {
               setSelectedTheme(keys)
               // @ts-ignore
-              setTheme(keys.has("system") ? "system" : keys.has("dark") ? "dark" : "light")
+              updateTheme(keys.has("system") ? "system" : keys.has("dark") ? "dark" : "light")
             }}
             items={[
               { name: "Light", value: "light" },

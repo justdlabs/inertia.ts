@@ -1,6 +1,6 @@
-import { useTheme } from "@/components/theme-provider"
 import { IconDeviceDesktop2, IconMoon, IconSun } from "justd-icons"
 import { Button, composeTailwindRenderProps } from "ui"
+import { useTheme } from "@/utils/use-theme"
 
 export function ThemeSwitcher({
   shape = "square",
@@ -8,11 +8,11 @@ export function ThemeSwitcher({
   className,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { theme, setTheme } = useTheme()
+  const { theme, updateTheme } = useTheme()
 
   const toggleTheme = () => {
     const nextTheme = theme === "light" ? "dark" : theme === "dark" ? "system" : "light"
-    setTheme(nextTheme)
+    updateTheme(nextTheme)
   }
 
   return (

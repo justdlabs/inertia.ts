@@ -1,4 +1,3 @@
-import { useTheme } from "@/components/theme-provider"
 import { cn } from "@/utils/classes"
 import {
   IconCircleCheckFill,
@@ -10,6 +9,7 @@ import { Toaster as ToasterPrimitive, type ToasterProps } from "sonner"
 
 import { buttonStyles } from "./button"
 import { Loader } from "./loader"
+import { useTheme } from "@/utils/use-theme"
 
 const Toast = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
