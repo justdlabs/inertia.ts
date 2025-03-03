@@ -39,5 +39,15 @@
         "tailwind-variants": "^0.3.1",
         "tailwindcss-animate": "^1.0.7",
         "vite": "^6.2.0"
+    },
+    "release-it": {
+        "plugins": {
+            "@release-it/bumper": {
+                "path": {
+                    "package.json": "version",
+                    "composer.json": "version"
+                }
+            }
+        }
     }
 }
