@@ -1,10 +1,10 @@
 {
-  "$schema": "https://getjustd.com/schema.json",
-  "ui": "resources/js/components/ui",
-  "utils": "resources/js/utils",
-  "gray": "zinc",
-  "css": "src/index.css",
-  "alias": "@",
-  "classes": "resources/js/utils",
-  "language": "typescript"
+    "$schema": "https://getjustd.com/schema.json",
+    "ui": "resources/js/components/ui",
+    "utils": "resources/js/utils",
+    "gray": "zinc",
+    "css": "src/index.css",
+    "alias": "@",
+    "classes": "resources/js/utils",
+    "language": "typescript"
 }
