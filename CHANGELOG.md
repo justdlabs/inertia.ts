@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.20](https://github.com/justdlabs/inertia.ts/compare/v1.3.19...v1.3.20) (2025-03-03)
+
+
+### Bug Fixes
+
+* bump package ([8a31e34](https://github.com/justdlabs/inertia.ts/commit/8a31e346a7d6c0361e614ea8d84a4852301646fb))
+
 ## [1.3.19](https://github.com/justdlabs/inertia.ts/compare/v1.3.18...v1.3.19) (2025-03-03)
 
 ## [1.3.18](https://github.com/justdlabs/inertia.ts/compare/v1.3.17...v1.3.18) (2025-03-03)
