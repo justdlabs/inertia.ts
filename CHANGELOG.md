@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.23](https://github.com/justdlabs/inertia.ts/compare/v1.3.22...v1.3.23) (2025-03-03)
+
+
+### Bug Fixes
+
+* remove husky ([f5bccf3](https://github.com/justdlabs/inertia.ts/commit/f5bccf354f52c1baffc0211538161a987c79ba1c))
+
 ## [1.3.22](https://github.com/justdlabs/inertia.ts/compare/v1.3.21...v1.3.22) (2025-03-03)
 
 ## [1.3.21](https://github.com/justdlabs/inertia.ts/compare/v1.3.20...v1.3.21) (2025-03-03)
