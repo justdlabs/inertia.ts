@@ -56,8 +56,7 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi",
-            "bun i --legacy-peer-deps",
-            "bun remove @release-it/conventional-changelog @release-it/bumper @commitlint/config-conventional @commitlint/cli release-it"
+            "bun i --legacy-peer-deps"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
