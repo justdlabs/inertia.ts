@@ -4,6 +4,7 @@
 /public/build
 /public/hot
 /public/storage
+.release-it.json
 /storage/*.key
 /vendor
 .env
