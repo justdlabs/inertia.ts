@@ -1,6 +1,6 @@
-import type { PagePropsData } from "@/types"
 import { useForm, usePage } from "@inertiajs/react"
 import { Button, Card, Form, Link, TextField } from "ui"
+import type { AuthenticatedUserProps } from "@/types"
 
 interface Props {
   mustVerifyEmail: boolean
@@ -9,10 +9,10 @@ interface Props {
 }
 
 export function UpdateProfileInformationForm({ mustVerifyEmail, status, className }: Props) {
-  const { auth } = usePage<PagePropsData>().props
+  const { user } = usePage<{ user: AuthenticatedUserProps }>().props
   const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
-    name: auth.user.name ?? "",
-    email: auth.user.email ?? "",
+    name: user.name ?? "",
+    email: user.email ?? "",
   })
 
   const submit = (e: { preventDefault: () => void }) => {
@@ -54,7 +54,7 @@ export function UpdateProfileInformationForm({ mustVerifyEmail, status, classNam
             autoComplete="email"
           />
 
-          {mustVerifyEmail && auth.user.email_verified_at === null && (
+          {mustVerifyEmail && user.email_verified_at === null && (
             <div>
               <p className="mt-2 text-sm">
                 Your email address is unverified.

@@ -178,7 +178,7 @@ const NavbarTrigger = ({ className, onPress, ref, ...props }: NavbarTriggerProps
     <Button
       ref={ref}
       data-navbar-trigger="true"
-      appearance="plain"
+      intent="plain"
       aria-label={props["aria-label"] || "Toggle Navbar"}
       size="square-petite"
       className={className}
@@ -336,5 +336,5 @@ Navbar.Logo = NavbarLogo
 Navbar.Item = NavbarItem
 Navbar.Section = NavbarSection
 
+export type { NavbarProps, NavbarNavProps, NavbarCompactProps, NavbarTriggerProps, NavbarItemProps }
 export { Navbar }
-export type { NavbarCompactProps, NavbarItemProps, NavbarNavProps, NavbarProps, NavbarTriggerProps }

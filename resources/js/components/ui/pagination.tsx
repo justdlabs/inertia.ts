@@ -49,8 +49,8 @@ const {
   itemSeparatorLine,
 } = paginationStyles()
 
-type PagginationProps = React.ComponentProps<"nav">
-const Pagination = ({ className, ref, ...props }: PagginationProps) => (
+type PaginationProps = React.ComponentProps<"nav">
+const Pagination = ({ className, ref, ...props }: PaginationProps) => (
   <nav aria-label="pagination" ref={ref} className={pagination({ className })} {...props} />
 )
 
@@ -94,10 +94,9 @@ const renderListItem = (
 interface PaginationItemProps extends ListBoxItemProps {
   children?: React.ReactNode
   className?: string
-  intent?: "primary" | "secondary"
+  intent?: "primary" | "secondary" | "outline" | "plain"
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
-  appearance?: "solid" | "outline" | "plain"
   isCurrent?: boolean
   segment?: "label" | "separator" | "ellipsis" | "default" | "last" | "first" | "previous" | "next"
 }
@@ -105,8 +104,7 @@ interface PaginationItemProps extends ListBoxItemProps {
 const PaginationItem = ({
   segment = "default",
   size = "small",
-  appearance = "outline",
-  intent,
+  intent = "outline",
   className,
   isCurrent,
   children,
@@ -127,7 +125,7 @@ const PaginationItem = ({
         isDisabled: isCurrent,
         className: cn(
           buttonStyles({
-            appearance: "outline",
+            intent: "outline",
             size: "small",
             className: itemButton(),
           }),
@@ -185,7 +183,6 @@ const PaginationItem = ({
           className: cn(
             buttonStyles({
               intent: isCurrent ? "primary" : intent,
-              appearance: isCurrent ? "solid" : appearance,
               size,
               className: defaultItem({ className }),
             }),
@@ -202,5 +199,5 @@ Pagination.Item = PaginationItem
 Pagination.List = PaginationList
 Pagination.Section = PaginationSection
 
+export type { PaginationProps, PaginationListProps, PaginationSectionProps, PaginationItemProps }
 export { Pagination }
-export type { PagginationProps, PaginationItemProps, PaginationListProps, PaginationSectionProps }

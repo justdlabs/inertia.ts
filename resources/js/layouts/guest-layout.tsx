@@ -18,17 +18,15 @@ export default function GuestLayout({
     <div className="flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0">
       <FlashMessage />
       <Link href={route("home")}>
-        <Logo className="mx-auto size-8" />
+        <Logo className="size-6" />
       </Link>
 
-      <div className="mt-10 w-full max-w-lg">
-        <Card className="rounded-none border-r-transparent border-l-transparent shadow-none sm:rounded-lg sm:border-r-border sm:border-l-border sm:shadow-sm lg:rounded-xl ">
-          <Card.Header>
-            <Card.Title>{header}</Card.Title>
-            <Card.Description>{description}</Card.Description>
-          </Card.Header>
-          <Card.Content>{children}</Card.Content>
-        </Card>
+      <div className="w-full max-w-sm">
+        <Card.Header className="text-center">
+          <Card.Title>{header}</Card.Title>
+          <Card.Description>{description}</Card.Description>
+        </Card.Header>
+        <Card.Content>{children}</Card.Content>
       </div>
     </div>
   )

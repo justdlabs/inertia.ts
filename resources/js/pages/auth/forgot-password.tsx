@@ -33,7 +33,7 @@ export default function ForgotPassword({ status }: ForgotPasswordProps) {
         />
 
         <div className="mt-4 flex items-center justify-end">
-          <Button type="submit" className="ml-4" isDisabled={processing}>
+          <Button type="submit" className="w-full" isDisabled={processing}>
             Email Password Reset Link
           </Button>
         </div>

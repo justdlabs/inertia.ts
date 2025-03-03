@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from "@/components/theme-switcher"
-import type { PagePropsData } from "@/types"
+import type { PageProps } from "@/types"
 import { usePage } from "@inertiajs/react"
 import {
   IconArrowUpRight,
@@ -16,6 +16,7 @@ import { useState, useEffect } from "react"
 import type { Selection } from "react-aria-components"
 import { Avatar, buttonStyles, Link, Menu, Navbar, Separator } from "ui"
 import { useTheme } from "@/utils/use-theme"
+import { Logo } from "@/components/logo"
 
 const navigations = [
   {
@@ -32,14 +33,14 @@ const navigations = [
 
 export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Navbar>) {
   const page = usePage()
-  const { auth } = usePage<PagePropsData>().props
+  const { auth } = usePage<PageProps>().props
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => setIsOpen(false), [page.url])
   return (
     <Navbar isOpen={isOpen} onOpenChange={setIsOpen} {...props}>
       <Navbar.Nav>
         <Navbar.Logo aria-label="Logo">
-          <IconBrandLaravel className="size-6" />
+          <Logo />
         </Navbar.Logo>
         <Navbar.Section>
           {navigations.map((item) => (
@@ -118,7 +119,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
               <Separator orientation="vertical" className="mr-2 h-6" />
               <Link
                 className={buttonStyles({
-                  appearance: "outline",
+                  intent: "outline",
                   size: "small",
                 })}
                 href={route("login")}
@@ -136,7 +137,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
           <Navbar.Trigger />
           <Separator className="h-6" orientation="vertical" />
           <Navbar.Logo aria-label="Logo">
-            <IconBrandLaravel />
+            <Logo />
           </Navbar.Logo>
         </Navbar.Flex>
         <Navbar.Flex className="gap-x-1">
@@ -147,7 +148,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
             <>
               <Link
                 className={buttonStyles({
-                  appearance: "outline",
+                  intent: "outline",
                   size: "small",
                   shape: "circle",
                 })}
@@ -166,7 +167,7 @@ export function AppNavbar({ children, ...props }: React.ComponentProps<typeof Na
 }
 
 function UserMenu() {
-  const { auth } = usePage<PagePropsData>().props
+  const { auth } = usePage<PageProps>().props
   const { theme, updateTheme } = useTheme()
   const currentTheme = theme || "system"
   const [selectedTheme, setSelectedTheme] = useState<Selection>(new Set([currentTheme]))
@@ -226,6 +227,15 @@ function UserMenu() {
         </Menu.Submenu>
 
         <Menu.Separator />
+        <Menu.Item href="https://getjustd.com/button">
+          <Menu.Label>Documenation</Menu.Label>
+          <IconBrandJustd />
+        </Menu.Item>
+        <Menu.Item href="https://blocks.getjustd.com">
+          <Menu.Label>Premium Blocks</Menu.Label>
+          <IconBrandJustdBlocks />
+        </Menu.Item>
+        <Menu.Separator />
         <Menu.Item routerOptions={{ method: "post" }} href={route("logout")}>
           <Menu.Label>Logout</Menu.Label>
           <IconLogout />
@@ -238,6 +248,7 @@ function UserMenu() {
 export function IconBrandJustdBlocks() {
   return (
     <svg
+      data-slot="icon"
       className="size-4.5 sm:size-5"
       xmlns="http://www.w3.org/2000/svg"
       height={24}

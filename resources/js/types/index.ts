@@ -1,18 +1,18 @@
-export type AuthData = {
-  user: AuthenticatedUserData
-}
-export type AuthenticatedUserData = {
+export type AuthenticatedUserProps = {
   id: number
   email: string
   name: string
   gravatar: string
   email_verified_at: string | null
 }
-export type FlashMessageData = {
+export type FlashProps = {
   type: string
   message: string
 }
-export type PagePropsData = {
-  auth: AuthData
-  flashMessage: FlashMessageData
+
+export type PageProps = {
+  auth: {
+    user: AuthenticatedUserProps
+  }
+  flash: FlashProps
 }

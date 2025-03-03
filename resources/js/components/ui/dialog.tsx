@@ -148,11 +148,11 @@ const Footer = ({ className, ...props }: DialogFooterProps) => {
   )
 }
 
-const Close = ({ className, appearance = "outline", ref, ...props }: ButtonProps) => {
-  return <Button slot="close" className={className} ref={ref} appearance={appearance} {...props} />
+const Close = ({ className, intent = "outline", ref, ...props }: ButtonProps) => {
+  return <Button slot="close" className={className} ref={ref} intent={intent} {...props} />
 }
 
-interface CloseButtonIndicatorProps extends ButtonProps {
+interface CloseButtonIndicatorProps extends Omit<ButtonProps, "children"> {
   className?: string
   isDismissable?: boolean | undefined
 }
@@ -188,12 +188,12 @@ Dialog.Footer = Footer
 Dialog.Close = Close
 Dialog.CloseIndicator = CloseIndicator
 
-export { Dialog }
 export type {
-  CloseButtonIndicatorProps,
-  DialogBodyProps,
-  DialogDescriptionProps,
-  DialogFooterProps,
   DialogHeaderProps,
   DialogTitleProps,
+  DialogBodyProps,
+  DialogFooterProps,
+  DialogDescriptionProps,
+  CloseButtonIndicatorProps,
 }
+export { Dialog }

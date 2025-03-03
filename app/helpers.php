@@ -1,9 +1,12 @@
 <?php
 
-if (! function_exists('flashMessage')) {
-    function flashMessage($type, $message): void
+if (! function_exists('flash')) {
+    function flash($message, array $data = [], $type = 'success'): void
     {
-        session()->flash('type', $type);
         session()->flash('message', $message);
+        session()->flash('type', $type);
+        if (is_array($data)) {
+            session()->flash('data', $data);
+        }
     }
 }

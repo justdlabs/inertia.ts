@@ -50,28 +50,26 @@ export default function Register() {
           errorMessage={errors.email}
           isRequired
         />
-        <div className="grid grid-cols-2 gap-4">
-          <TextField
-            type="password"
-            name="password"
-            label="Password"
-            value={data.password}
-            autoComplete="current-password"
-            onChange={(v) => setData("password", v)}
-            errorMessage={errors.password}
-            isRequired
-          />
+        <TextField
+          type="password"
+          name="password"
+          label="Password"
+          value={data.password}
+          autoComplete="current-password"
+          onChange={(v) => setData("password", v)}
+          errorMessage={errors.password}
+          isRequired
+        />
 
-          <TextField
-            type="password"
-            label="Confirm Password"
-            name="password_confirmation"
-            value={data.password_confirmation}
-            onChange={(v) => setData("password_confirmation", v)}
-            errorMessage={errors.password_confirmation}
-            isRequired
-          />
-        </div>
+        <TextField
+          type="password"
+          label="Confirm Password"
+          name="password_confirmation"
+          value={data.password_confirmation}
+          onChange={(v) => setData("password_confirmation", v)}
+          errorMessage={errors.password_confirmation}
+          isRequired
+        />
         <Button type="submit" className="w-full" isDisabled={processing}>
           Register
         </Button>

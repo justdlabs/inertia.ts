@@ -1,9 +1,9 @@
 import AppLayout from "@/layouts/app-layout"
-import type { PagePropsData } from "@/types"
+import type { PageProps } from "@/types"
 import { Head } from "@inertiajs/react"
 import { Card, Container } from "ui"
 
-export default function Dashboard({ auth }: PagePropsData) {
+export default function Dashboard({ auth }: PageProps) {
   return (
     <>
       <Head title="Dashboard" />

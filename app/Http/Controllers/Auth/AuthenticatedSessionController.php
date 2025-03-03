@@ -33,6 +33,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        flash('Welcome back!.');
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

@@ -15,10 +15,6 @@ export default defineConfig({
         }),
         react(),
         watch({
-            pattern: "app/{Data,Enums}/**/*.php",
-            command: "php artisan typescript:transform",
-        }),
-        watch({
             pattern: "routes/web.php",
             command: "php artisan ziggy:generate",
         }),

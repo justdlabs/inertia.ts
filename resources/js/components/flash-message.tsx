@@ -1,15 +1,15 @@
-import type { FlashMessageData } from "@/types"
+import type { FlashProps } from "@/types"
 import { usePage } from "@inertiajs/react"
 import { useEffect } from "react"
 import { toast } from "sonner"
 import { Toast } from "ui"
 
 export function FlashMessage() {
-  const { flash_message } = usePage<{ flash_message: FlashMessageData }>().props
+  const { flash } = usePage<{ flash: FlashProps }>().props
   useEffect(() => {
-    if (flash_message?.message) {
-      ;(toast as any)[flash_message.type](flash_message.message)
+    if (flash?.message) {
+      ;(toast as any)[flash.type](flash.message)
     }
-  }, [flash_message])
+  }, [flash])
   return <Toast />
 }
