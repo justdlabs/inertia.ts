@@ -101,5 +101,5 @@ const TextField = ({
   )
 }
 
-export { TextField }
 export type { TextFieldProps }
+export { TextField }

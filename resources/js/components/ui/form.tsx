@@ -8,5 +8,5 @@ const Form = ({ ref, ...props }: FormProps) => {
   return <FormPrimitive ref={ref} {...props} />
 }
 
-export { Form }
 export type { FormProps }
+export { Form }

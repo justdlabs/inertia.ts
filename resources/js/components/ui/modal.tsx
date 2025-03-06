@@ -16,7 +16,7 @@ const Modal = (props: DialogTriggerProps) => {
 const modalOverlayStyles = tv({
   base: [
     "fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full",
-    "flex items-end justify-end bg-fg/15 text-center sm:items-center sm:justify-center dark:bg-bg/40",
+    "flex items-end justify-end bg-fg/15 text-center sm:block dark:bg-bg/40",
     "[--visual-viewport-vertical-padding:16px] sm:[--visual-viewport-vertical-padding:32px]",
   ],
   variants: {
@@ -35,6 +35,7 @@ const modalContentStyles = tv({
   base: [
     "max-h-full w-full rounded-t-2xl bg-overlay text-left align-middle text-overlay-fg shadow-lg ring-1 ring-fg/5",
     "overflow-hidden sm:rounded-2xl dark:ring-border",
+    "sm:-translate-x-1/2 sm:-translate-y-1/2 sm:fixed sm:top-1/2 sm:left-[50vw]",
   ],
   variants: {
     isEntering: {

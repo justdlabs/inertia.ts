@@ -42,5 +42,5 @@ const Heading = ({ className, tracking = "normal", level = 1, ...props }: Headin
   )
 }
 
-export { Heading }
 export type { HeadingProps }
+export { Heading }

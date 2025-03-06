@@ -32,7 +32,7 @@ import {
   dropdownItemStyles,
   dropdownSectionStyles,
 } from "./dropdown"
-import { Popover } from "./popover"
+import { PopoverContent } from "./popover"
 
 interface MenuContextProps {
   respectScreen: boolean
@@ -84,7 +84,17 @@ const MenuTrigger = ({ className, ref, ...props }: MenuTriggerProps) => (
 )
 
 interface MenuContentProps<T>
-  extends Omit<PopoverProps, "children" | "style">,
+  extends Pick<
+      PopoverProps,
+      | "placement"
+      | "offset"
+      | "crossOffset"
+      | "arrowBoundaryOffset"
+      | "triggerRef"
+      | "isOpen"
+      | "onOpenChange"
+      | "shouldFlip"
+    >,
     MenuPrimitiveProps<T> {
   className?: string
   popoverClassName?: string
@@ -100,16 +110,23 @@ const MenuContent = <T extends object>({
 }: MenuContentProps<T>) => {
   const { respectScreen } = use(MenuContext)
   return (
-    <Popover.Content
+    <PopoverContent
+      isOpen={props.isOpen}
+      onOpenChange={props.onOpenChange}
+      shouldFlip={props.shouldFlip}
       respectScreen={respectScreen}
       showArrow={showArrow}
+      offset={props.offset}
+      placement={props.placement}
+      crossOffset={props.crossOffset}
+      triggerRef={props.triggerRef}
+      arrowBoundaryOffset={props.arrowBoundaryOffset}
       className={popover({
         className: popoverClassName,
       })}
-      {...props}
     >
       <MenuPrimitive className={menu({ className })} {...props} />
-    </Popover.Content>
+    </PopoverContent>
   )
 }
 
@@ -213,5 +230,5 @@ Menu.Label = MenuLabel
 Menu.Trigger = MenuTrigger
 Menu.Submenu = MenuSubMenu
 
+export type { MenuProps, MenuContentProps, MenuTriggerProps, MenuItemProps, MenuSectionProps }
 export { Menu }
-export type { MenuContentProps, MenuItemProps, MenuProps, MenuSectionProps, MenuTriggerProps }

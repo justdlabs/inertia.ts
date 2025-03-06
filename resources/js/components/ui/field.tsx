@@ -54,9 +54,7 @@ const Description = ({ ref, className, ...props }: DescriptionProps) => {
       ref={ref}
       {...props}
       slot="description"
-      className={description({
-        className: isWarning ? "text-warning" : className,
-      })}
+      className={description({ className: isWarning ? "text-warning" : className })}
     />
   )
 }
@@ -77,7 +75,7 @@ const FieldError = ({ className, ref, ...props }: FieldErrorProps) => {
 const fieldGroupStyles = tv({
   base: [
     "group flex h-10 items-center overflow-hidden rounded-lg border border-input shadow-xs transition duration-200 ease-out",
-    "relative focus-within:ring-4 group-data-invalid:focus-within:border-danger group-data-invalid:focus-within:ring-danger/20",
+    "relative focus-within:ring-4 group-invalid:focus-within:border-danger group-invalid:focus-within:ring-danger/20",
     "[&>[role=progressbar]:first-child]:ml-2.5 [&>[role=progressbar]:last-child]:mr-2.5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:[button]:shrink-0",
     "[&>button:has([data-slot=icon]):first-child]:left-0 [&>button:has([data-slot=icon]):last-child]:right-0 [&>button:has([data-slot=icon])]:absolute",
@@ -129,5 +127,5 @@ const Input = ({ className, ref, ...props }: InputProps) => {
   )
 }
 
+export type { FieldProps, InputProps, FieldErrorProps }
 export { Description, FieldError, FieldGroup, Input, Label }
-export type { FieldErrorProps, FieldProps, InputProps }

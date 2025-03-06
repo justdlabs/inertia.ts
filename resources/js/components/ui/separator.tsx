@@ -30,5 +30,5 @@ const Separator = ({ className, ...props }: SeparatorProps) => {
   )
 }
 
-export { Separator }
 export type { SeparatorProps }
+export { Separator }

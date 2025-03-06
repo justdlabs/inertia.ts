@@ -154,5 +154,5 @@ Sheet.Body = SheetBody
 Sheet.Close = SheetClose
 Sheet.Content = SheetContent
 
+export type { SheetProps, SheetContentProps, Sides }
 export { Sheet }
-export type { SheetContentProps, SheetProps, Sides }

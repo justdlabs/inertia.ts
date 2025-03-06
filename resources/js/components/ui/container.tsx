@@ -22,5 +22,5 @@ const Container = ({ className, intent, ref, ...props }: ContainerProps) => (
   <div className={containerStyles({ intent, className })} {...props} ref={ref} />
 )
 
-export { Container }
 export type { ContainerProps }
+export { Container }

@@ -51,13 +51,13 @@ const boxStyles = tv({
       false: "bg-muted",
       true: [
         "border-primary bg-primary text-primary-fg",
-        "group-data-invalid:border-danger/70 group-data-invalid:bg-danger group-data-invalid:text-danger-fg",
+        "group-invalid:border-danger/70 group-invalid:bg-danger group-invalid:text-danger-fg",
       ],
     },
     isFocused: {
       true: [
         "border-primary ring-4 ring-primary/20",
-        "group-data-invalid:border-danger/70 group-data-invalid:text-danger-fg group-data-invalid:ring-danger/20",
+        "group-invalid:border-danger/70 group-invalid:text-danger-fg group-invalid:ring-danger/20",
       ],
     },
     isInvalid: {
@@ -108,5 +108,5 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
   )
 }
 
-export { Checkbox, CheckboxGroup }
 export type { CheckboxGroupProps, CheckboxProps }
+export { Checkbox, CheckboxGroup }

@@ -62,5 +62,5 @@ const Avatar = ({
   )
 }
 
-export { Avatar }
 export type { AvatarProps }
+export { Avatar }

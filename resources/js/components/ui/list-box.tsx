@@ -27,28 +27,6 @@ const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => 
   />
 )
 
-// const listBoxItemStyles = tv({
-//   base: "lbi col-span-full relative cursor-pointer rounded-[calc(var(--radius-lg)-1px)] p-2 text-base outline-hidden sm:text-sm",
-//   variants: {
-//     isFocusVisible: {
-//       true: "bg-secondary text-accent-fg",
-//     },
-//     isHovered: {
-//       true: "bg-accent text-accent-fg [&:hover_[slot=description]]:text-accent-fg/70 [&:hover_[slot=label]]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80",
-//     },
-//     isFocused: {
-//       true: "bg-accent text-accent-fg **:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80",
-//     },
-//     isSelected: {
-//       true: "bg-accent text-accent-fg **:data-[slot=icon]:text-accent-fg **:data-[slot=label]:text-accent-fg [&_.text-muted-fg]:text-accent-fg/80",
-//     },
-//     isDragging: { true: "cursor-grabbing bg-secondary text-secondary-fg" },
-//     isDisabled: {
-//       true: "cursor-default text-muted-fg opacity-70",
-//     },
-//   },
-// })
-
 interface ListBoxItemProps<T extends object> extends ListBoxItemPrimitiveProps<T> {
   className?: string
 }
@@ -100,5 +78,5 @@ ListBox.Section = ListBoxSection
 ListBox.ItemDetails = ListBoxItemDetails
 ListBox.Item = ListBoxItem
 
-export { ListBox }
 export type { ListBoxItemProps, ListBoxSectionProps }
+export { ListBox }

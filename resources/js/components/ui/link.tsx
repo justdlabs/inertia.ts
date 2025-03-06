@@ -9,12 +9,12 @@ import { focusButtonStyles } from "./primitive"
 
 const linkStyles = tv({
   extend: focusButtonStyles,
-  base: "transition-[color,_opacity] data-disabled:cursor-default data-disabled:opacity-60 forced-colors:data-disabled:text-[GrayText]",
+  base: "transition-[color,_opacity] disabled:cursor-default disabled:opacity-60 forced-colors:disabled:text-[GrayText]",
   variants: {
     intent: {
       unstyled: "text-current",
-      primary: "text-fg data-hovered:underline",
-      secondary: "text-muted-fg data-hovered:text-secondary-fg",
+      primary: "text-fg hover:underline",
+      secondary: "text-muted-fg hover:text-secondary-fg",
     },
   },
   defaultVariants: {
@@ -43,5 +43,5 @@ const Link = ({ className, ref, ...props }: LinkProps) => {
   )
 }
 
-export { Link, linkStyles }
 export type { LinkProps }
+export { Link, linkStyles }

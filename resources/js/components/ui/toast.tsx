@@ -1,5 +1,5 @@
+import { useTheme } from "@/components/theme-provider"
 import { Toaster as ToasterPrimitive, type ToasterProps } from "sonner"
-import { useTheme } from "@/utils/use-theme"
 
 const Toast = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()
@@ -10,7 +10,7 @@ const Toast = ({ ...props }: ToasterProps) => {
       richColors
       toastOptions={{
         classNames: {
-          toast: "toast border-border!",
+          toast: "toast border-0! inset-ring! inset-ring-fg/10!",
           title: "title",
           description: "description",
           actionButton: "bg-primary! hover:bg-primary/90! text-primary-fg!",
