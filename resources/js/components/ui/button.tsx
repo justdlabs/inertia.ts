@@ -5,12 +5,10 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { focusButtonStyles } from "./primitive"
-
 const buttonStyles = tv({
-  extend: focusButtonStyles,
   base: [
-    "kbt32x relative inline-flex items-center justify-center gap-x-2 border font-medium",
+    "outline-0 outline-offset-2 hover:no-underline focus-visible:outline-2 forced-colors:outline-[Highlight]",
+    "relative inline-flex items-center justify-center gap-x-2 border font-medium",
     "forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText]",
     "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-1 *:data-[slot=icon]:size-4 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:text-current/60 pressed:*:data-[slot=icon]:text-current *:data-[slot=icon]:transition hover:*:data-[slot=icon]:text-current/90",
     "*:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:my-1 *:data-[slot=avatar]:*:size-4 *:data-[slot=avatar]:size-4 *:data-[slot=avatar]:shrink-0",
@@ -22,12 +20,12 @@ const buttonStyles = tv({
   variants: {
     intent: {
       primary: [
-        "outline-primary [--btn-bg:theme(--color-primary/95%)] [--btn-border:var(--color-primary)] [--btn-fg:var(--color-primary-fg)] dark:[--btn-bg:theme(--color-primary/90%)]",
+        "outline-ring [--btn-bg:theme(--color-primary/95%)] [--btn-border:var(--color-primary)] [--btn-fg:var(--color-primary-fg)] dark:[--btn-bg:theme(--color-primary/90%)]",
         "[--btn-bg-hovered:theme(--color-primary/87%)] [--btn-border-hovered:theme(--color-primary/87%)] dark:[--btn-bg-hovered:theme(--color-primary)] dark:[--btn-border-hovered:theme(--color-primary)]",
         "inset-shadow-primary-fg/20 pressed:inset-shadow-primary-fg/20 hover:inset-shadow-primary-fg/25",
       ],
       secondary: [
-        "[--btn-bg:theme(--color-secondary/95%)] [--btn-border:theme(--color-secondary-fg/10%)] [--btn-fg:var(--color-secondary-fg)] dark:[--btn-bg:theme(--color-secondary/85%)] dark:[--btn-border:theme(--color-secondary-fg/7%)]",
+        "outline-ring [--btn-bg:theme(--color-secondary/95%)] [--btn-border:theme(--color-secondary-fg/10%)] [--btn-fg:var(--color-secondary-fg)] dark:[--btn-bg:theme(--color-secondary/85%)] dark:[--btn-border:theme(--color-secondary-fg/7%)]",
         "[--btn-bg-hovered:color-mix(in_oklab,var(--color-secondary)_60%,white_20%)] dark:[--btn-bg-hovered:color-mix(in_oklab,var(--color-secondary)_96%,white_4%)]",
         "inset-shadow-white/15 pressed:inset-shadow-white/15 hover:inset-shadow-white/20",
       ],
@@ -47,10 +45,10 @@ const buttonStyles = tv({
         "inset-shadow-danger-fg/30 pressed:inset-shadow-danger-fg/30 hover:inset-shadow-danger-fg/35",
       ],
       outline: [
-        "inset-ring-0 inset-shadow-none pressed:bg-secondary [--btn-border:var(--color-border)] hover:bg-secondary",
+        "inset-ring-0 inset-shadow-none pressed:bg-secondary outline-ring [--btn-border:var(--color-border)] hover:bg-secondary",
       ],
       plain:
-        "inset-ring-0 inset-shadow-none pressed:bg-secondary [--btn-border:transparent] hover:bg-secondary",
+        "inset-ring-0 inset-shadow-none pressed:bg-secondary outline-ring [--btn-border:transparent] hover:bg-secondary",
     },
     size: {
       "extra-small":

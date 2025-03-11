@@ -8,38 +8,27 @@ import {
   Heading,
   Text,
 } from "react-aria-components"
-import { tv } from "tailwind-variants"
 
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
 import { useMediaQuery } from "@/utils/use-media-query"
+import { twJoin, twMerge } from "tailwind-merge"
 import { Button, type ButtonProps } from "./button"
-
-const dialogStyles = tv({
-  slots: {
-    root: [
-      "peer/dialog group/dialog relative flex max-h-[inherit] flex-col overflow-hidden outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5",
-    ],
-    header:
-      "relative flex flex-col gap-0.5 p-4 sm:gap-1 sm:p-6 [&[data-slot=dialog-header]:has(+[data-slot=dialog-footer])]:pb-0",
-    description: "text-muted-fg text-sm",
-    body: [
-      "isolate flex flex-1 flex-col overflow-auto px-4 py-1 sm:px-6",
-      "max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))]",
-    ],
-    footer:
-      "isolate mt-auto flex flex-col-reverse justify-between gap-3 p-4 pt-3 sm:flex-row sm:p-6 sm:pt-5",
-    closeIndicator:
-      "close absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl hover:bg-secondary data-focused:bg-secondary data-focused:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary sm:top-2 sm:right-2 sm:size-7 sm:rounded-md",
-  },
-})
-
-const { root, header, description, body, footer, closeIndicator } = dialogStyles()
 
 const Dialog = ({
   role = "dialog",
   className,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive>) => {
-  return <DialogPrimitive role={role} className={root({ className })} {...props} />
+  return (
+    <DialogPrimitive
+      role={role}
+      className={twMerge(
+        "peer/dialog group/dialog relative flex max-h-[inherit] flex-col overflow-hidden outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5",
+        className,
+      )}
+      {...props}
+    />
+  )
 }
 
 const Trigger = (props: React.ComponentProps<typeof ButtonPrimitive>) => (
@@ -74,25 +63,20 @@ const Header = ({ className, ...props }: DialogHeaderProps) => {
   }, [])
 
   return (
-    <div data-slot="dialog-header" ref={headerRef} className={header({ className })}>
+    <div
+      data-slot="dialog-header"
+      ref={headerRef}
+      className={twMerge(
+        "relative flex flex-col gap-0.5 p-4 sm:gap-1 sm:p-6 [&[data-slot=dialog-header]:has(+[data-slot=dialog-footer])]:pb-0",
+        className,
+      )}
+    >
       {props.title && <Title>{props.title}</Title>}
       {props.description && <Description>{props.description}</Description>}
       {!props.title && typeof props.children === "string" ? <Title {...props} /> : props.children}
     </div>
   )
 }
-
-const titleStyles = tv({
-  base: "flex flex-1 items-center text-fg",
-  variants: {
-    level: {
-      1: "font-semibold text-lg sm:text-xl",
-      2: "font-semibold text-lg sm:text-xl",
-      3: "font-semibold text-base sm:text-lg",
-      4: "font-semibold text-base",
-    },
-  },
-})
 
 interface DialogTitleProps extends Omit<HeadingProps, "level"> {
   level?: 1 | 2 | 3 | 4
@@ -103,19 +87,41 @@ const Title = ({ level = 2, className, ref, ...props }: DialogTitleProps) => (
     slot="title"
     level={level}
     ref={ref}
-    className={titleStyles({ level, className })}
+    className={twMerge(
+      twJoin(
+        "flex flex-1 items-center text-fg",
+        level === 1 && "font-semibold text-lg sm:text-xl",
+        level === 2 && "font-semibold text-lg sm:text-xl",
+        level === 3 && "font-semibold text-base sm:text-lg",
+        level === 4 && "font-semibold text-base",
+      ),
+      className,
+    )}
     {...props}
   />
 )
 
 type DialogDescriptionProps = React.ComponentProps<"div">
 const Description = ({ className, ref, ...props }: DialogDescriptionProps) => (
-  <Text slot="description" className={description({ className })} ref={ref} {...props} />
+  <Text
+    slot="description"
+    className={twMerge("text-muted-fg text-sm", className)}
+    ref={ref}
+    {...props}
+  />
 )
 
 type DialogBodyProps = React.ComponentProps<"div">
 const Body = ({ className, ref, ...props }: DialogBodyProps) => (
-  <div data-slot="dialog-body" ref={ref} className={body({ className })} {...props} />
+  <div
+    data-slot="dialog-body"
+    ref={ref}
+    className={twMerge(
+      "isolate flex max-h-[calc(var(--visual-viewport-height)-var(--visual-viewport-vertical-padding)-var(--dialog-header-height,0px)-var(--dialog-footer-height,0px))] flex-1 flex-col overflow-auto px-4 py-1 sm:px-6",
+      className,
+    )}
+    {...props}
+  />
 )
 
 type DialogFooterProps = React.ComponentProps<"div">
@@ -144,7 +150,15 @@ const Footer = ({ className, ...props }: DialogFooterProps) => {
     }
   }, [])
   return (
-    <div ref={footerRef} data-slot="dialog-footer" className={footer({ className })} {...props} />
+    <div
+      ref={footerRef}
+      data-slot="dialog-footer"
+      className={twMerge(
+        "isolate mt-auto flex flex-col-reverse justify-between gap-3 p-4 pt-3 sm:flex-row sm:p-6 sm:pt-5",
+        className,
+      )}
+      {...props}
+    />
   )
 }
 
@@ -172,7 +186,10 @@ const CloseIndicator = ({ className, ...props }: CloseButtonIndicatorProps) => {
       {...(isMobile ? { autoFocus: true } : {})}
       aria-label="Close"
       slot="close"
-      className={closeIndicator({ className })}
+      className={composeTailwindRenderProps(
+        className,
+        "close absolute top-1 right-1 z-50 grid size-8 place-content-center rounded-xl hover:bg-secondary focus:bg-secondary focus:outline-hidden data-focus-visible:ring-1 data-focus-visible:ring-primary sm:top-2 sm:right-2 sm:size-7 sm:rounded-md",
+      )}
     >
       <IconX className="size-4" />
     </ButtonPrimitive>

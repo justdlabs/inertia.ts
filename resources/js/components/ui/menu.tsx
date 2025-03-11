@@ -20,10 +20,9 @@ import {
   SubmenuTrigger as SubmenuTriggerPrimitive,
   composeRenderProps,
 } from "react-aria-components"
+import { twMerge } from "tailwind-merge"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
-
-import { cn } from "@/utils/classes"
 import {
   DropdownItemDetails,
   DropdownKeyboard,
@@ -142,7 +141,7 @@ const MenuItem = ({ className, isDanger = false, children, ...props }: MenuItemP
         dropdownItemStyles({
           ...renderProps,
           className: renderProps.hasSubmenu
-            ? cn([
+            ? twMerge([
                 "data-open:data-danger:bg-danger/10 data-open:data-danger:text-danger",
                 "data-open:bg-accent data-open:text-accent-fg data-open:*:data-[slot=icon]:text-accent-fg data-open:*:[.text-muted-fg]:text-accent-fg",
                 className,
@@ -189,7 +188,7 @@ export interface MenuHeaderProps extends React.ComponentProps<typeof Header> {
 
 const MenuHeader = ({ className, separator = false, ...props }: MenuHeaderProps) => (
   <Header
-    className={cn(
+    className={twMerge(
       "col-span-full px-2.5 py-2 font-semibold text-base sm:text-sm",
       separator && "-mx-1 mb-1 border-b sm:px-3 sm:pb-[0.625rem]",
       className,

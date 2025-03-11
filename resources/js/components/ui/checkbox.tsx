@@ -11,7 +11,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn } from "@/utils/classes"
+import { twMerge } from "tailwind-merge"
 import { Description, FieldError, Label } from "./field"
 import { composeTailwindRenderProps } from "./primitive"
 
@@ -80,7 +80,9 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
       )}
     >
       {({ isSelected, isIndeterminate, ...renderProps }) => (
-        <div className={cn("flex gap-x-2", props.description ? "items-start" : "items-center")}>
+        <div
+          className={twMerge("flex gap-x-2", props.description ? "items-start" : "items-center")}
+        >
           <div
             className={boxStyles({
               ...renderProps,
@@ -93,7 +95,7 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
           <div className="flex flex-col gap-1">
             <>
               {props.label ? (
-                <Label className={cn(props.description && "font-normal text-sm/4")}>
+                <Label className={twMerge(props.description && "font-normal text-sm/4")}>
                   {props.label}
                 </Label>
               ) : (

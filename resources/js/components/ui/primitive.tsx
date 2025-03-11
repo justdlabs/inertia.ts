@@ -25,14 +25,4 @@ const focusStyles = tv({
   },
 })
 
-const focusButtonStyles = tv({
-  base: "outline outline-ring outline-offset-2 forced-colors:outline-[Highlight]",
-  variants: {
-    isFocusVisible: {
-      false: "outline-0",
-      true: "outline-2",
-    },
-  },
-})
-
-export { composeTailwindRenderProps, focusRing, focusStyles, focusButtonStyles }
+export { composeTailwindRenderProps, focusRing, focusStyles }

@@ -1,6 +1,6 @@
-import { cn } from "@/utils/classes"
 import { IconLoader } from "justd-icons"
 import { ProgressBar } from "react-aria-components"
+import { twMerge } from "tailwind-merge"
 import type { VariantProps } from "tailwind-variants"
 import { tv } from "tailwind-variants"
 
@@ -32,7 +32,7 @@ type LoaderVariantProps = VariantProps<typeof loaderStyles>
 
 const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className={cn("size-4", className)}
+    className={twMerge("size-4", className)}
     data-slot="icon"
     viewBox="0 0 135 140"
     xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ const Bars = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
 )
 const Ring = (props: React.SVGProps<SVGSVGElement>) => <IconLoader {...props} />
 const Spin = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
-  <svg className={cn("size-4", className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
+  <svg className={twMerge("size-4", className)} data-slot="icon" viewBox="0 0 2400 2400" {...props}>
     <g strokeWidth="200" strokeLinecap="round" fill="none">
       <line x1="1200" y1="600" x2="1200" y2="100" />
       <line opacity="0.5" x1="1200" y1="2300" x2="1200" y2="1800" />
@@ -195,7 +195,7 @@ const Loader = ({ isIndeterminate = true, ref, ...props }: LoaderProps) => {
         className={loaderStyles({
           intent,
           size,
-          className: cn([
+          className: twMerge([
             ["ring"].includes(variant) && "animate-spin",
             variant === "spin" && "stroke-current",
             className,

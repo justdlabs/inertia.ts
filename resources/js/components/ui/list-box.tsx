@@ -9,20 +9,16 @@ import {
   composeRenderProps,
 } from "react-aria-components"
 
-import { cn } from "@/utils/classes"
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
+import { twMerge } from "tailwind-merge"
 import { DropdownItemDetails, DropdownLabel, DropdownSection, dropdownItemStyles } from "./dropdown"
 
 const ListBox = <T extends object>({ className, ...props }: ListBoxProps<T>) => (
   <ListBoxPrimitive
     {...props}
-    className={composeRenderProps(className, (className) =>
-      cn(
-        [
-          "flex max-h-96 w-full min-w-56 flex-col gap-y-1 overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5",
-          "grid grid-cols-[auto_1fr] overflow-auto *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1",
-        ],
-        className,
-      ),
+    className={composeTailwindRenderProps(
+      className,
+      "grid max-h-96 w-full min-w-56 grid-cols-[auto_1fr] flex-col gap-y-1 overflow-auto overflow-y-auto rounded-xl border p-1 shadow-lg outline-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:size-0.5 *:[[role='group']+[role=group]]:mt-4 *:[[role='group']+[role=separator]]:mt-1",
     )}
   />
 )
@@ -49,7 +45,7 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
         <>
           {allowsDragging && (
             <IconHamburger
-              className={cn(
+              className={twMerge(
                 "size-4 shrink-0 text-muted-fg transition",
                 isFocused && "text-fg",
                 isDragging && "text-fg",
@@ -68,7 +64,10 @@ const ListBoxItem = <T extends object>({ children, className, ...props }: ListBo
 type ListBoxSectionProps = React.ComponentProps<typeof DropdownSection>
 const ListBoxSection = ({ className, ...props }: ListBoxSectionProps) => {
   return (
-    <DropdownSection className={cn(className, "[&_.lbi:last-child]:-mb-1.5 gap-y-1")} {...props} />
+    <DropdownSection
+      className={twMerge("[&_.lbi:last-child]:-mb-1.5 gap-y-1", className)}
+      {...props}
+    />
   )
 }
 

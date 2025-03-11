@@ -1,39 +1,26 @@
-import {
-  Link as LinkPrimitive,
-  type LinkProps as LinkPrimitiveProps,
-  composeRenderProps,
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
-
-import { focusButtonStyles } from "./primitive"
-
-const linkStyles = tv({
-  extend: focusButtonStyles,
-  base: "transition-[color,_opacity] disabled:cursor-default disabled:opacity-60 forced-colors:disabled:text-[GrayText]",
-  variants: {
-    intent: {
-      unstyled: "text-current",
-      primary: "text-fg hover:underline",
-      secondary: "text-muted-fg hover:text-secondary-fg",
-    },
-  },
-  defaultVariants: {
-    intent: "unstyled",
-  },
-})
+import { composeTailwindRenderProps } from "@/components/ui/primitive"
+import { Link as LinkPrimitive, type LinkProps as LinkPrimitiveProps } from "react-aria-components"
+import { twJoin } from "tailwind-merge"
 
 interface LinkProps extends LinkPrimitiveProps {
   intent?: "primary" | "secondary" | "unstyled"
   ref?: React.RefObject<HTMLAnchorElement>
 }
 
-const Link = ({ className, ref, ...props }: LinkProps) => {
+const Link = ({ className, ref, intent = "unstyled", ...props }: LinkProps) => {
   return (
     <LinkPrimitive
       ref={ref}
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
-        linkStyles({ ...renderProps, intent: props.intent, className }),
+      className={composeTailwindRenderProps(
+        className,
+        twJoin([
+          "outline-0 outline-offset-2 transition-[color,_opacity] focus-visible:outline-2 focus-visible:outline-ring forced-colors:outline-[Highlight]",
+          "disabled:cursor-default disabled:opacity-60 forced-colors:disabled:text-[GrayText]",
+          intent === "unstyled" && "text-current",
+          intent === "primary" && "text-primary hover:underline",
+          intent === "secondary" && "text-secondary-fg hover:underline",
+        ]),
       )}
     >
       {(values) => (
@@ -44,4 +31,4 @@ const Link = ({ className, ref, ...props }: LinkProps) => {
 }
 
 export type { LinkProps }
-export { Link, linkStyles }
+export { Link }
