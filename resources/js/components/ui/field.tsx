@@ -96,10 +96,14 @@ const fieldGroupStyles = tv({
   },
 })
 
-const FieldGroup = ({ className, ...props }: GroupProps) => {
+interface FieldGroupProps extends GroupProps {
+  ref?: React.RefObject<HTMLDivElement>
+}
+const FieldGroup = ({ className, ref, ...props }: FieldGroupProps) => {
   return (
     <Group
       {...props}
+      ref={ref}
       className={composeRenderProps(className, (className, renderProps) =>
         fieldGroupStyles({
           ...renderProps,

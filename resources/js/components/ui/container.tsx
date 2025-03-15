@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge"
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   constrained?: boolean
-  ref?: React.Ref<HTMLDivElement>
+  ref?: React.RefObject<HTMLDivElement>
 }
 
 const Container = ({ className, constrained = false, ref, ...props }: ContainerProps) => (

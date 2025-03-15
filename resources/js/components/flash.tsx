@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { toast } from "sonner"
 import { Toast } from "ui"
 
-export function FlashMessage() {
+export function Flash() {
   const { flash } = usePage<{ flash: FlashProps }>().props
   useEffect(() => {
     if (flash?.message) {
